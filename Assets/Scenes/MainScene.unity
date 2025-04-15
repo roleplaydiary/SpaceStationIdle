@@ -627,8 +627,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   zoomSpeed: 5
-  minZoom: 5
-  maxZoom: 20
+  minFOV: 40
+  maxFOV: 80
+  deceleration: 5
 --- !u!1 &1019527980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,10 +1257,10 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1669338422}
+  - {fileID: 214674950}
   - {fileID: 6987324142835076378}
   - {fileID: 1959555911}
   - {fileID: 2108980971}
   - {fileID: 1698211785}
-  - {fileID: 214674950}
   - {fileID: 545336137}
   - {fileID: 1914448123}
