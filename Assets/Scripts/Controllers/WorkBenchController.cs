@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class WorkBenchController : MonoBehaviour
 {
+    [SerializeField] private Transform workPosition;
+    
     public void Start()
     {
         this.gameObject.SetActive(false);
+    }
+
+    public Transform GetWorkPosition()
+    {
+        return this.workPosition;
     }
 }

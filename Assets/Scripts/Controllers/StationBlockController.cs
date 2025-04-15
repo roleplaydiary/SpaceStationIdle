@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StationBlockController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> workBenches = new List<GameObject>();
+    [SerializeField] private List<WorkBenchController> workBenches;
     private StationBlockData blockData;
     
     public void BlockInitialization(StationBlockData _blockData)
@@ -21,7 +21,7 @@ public class StationBlockController : MonoBehaviour
         
         for (int i = 0; i < blockData.WorkBenchesLevelUnlocked; i++)
         {
-            workBenches[i].SetActive(true);
+            workBenches[i].gameObject.SetActive(true);
         }
     }
 
@@ -35,7 +35,7 @@ public class StationBlockController : MonoBehaviour
         
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
-            //Spawn a crew member
+            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
         }
     }
 }

@@ -8,8 +8,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private StationController stationController;
     [SerializeField] private PlayerController playerController;
 
+    [SerializeField] private DataLibrary dataLibrary;
+
     private void Start()
     {
+        ServiceLocator.Register(dataLibrary);
         GameInitialization();
     }
 

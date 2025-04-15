@@ -12,10 +12,10 @@ public class StationController : MonoBehaviour
     
     private void BlocksInitialize()
     {
-        var testData = new StationBlockData()
+        var testData = new StationBlockData() // FOR TESTS
         {
             CurrentCrewHired = 1,
-            MaxCrewUnlocked = 1,
+            MaxCrewUnlocked = 2,
             WorkBenchesLevelUnlocked = 2
 
         };
