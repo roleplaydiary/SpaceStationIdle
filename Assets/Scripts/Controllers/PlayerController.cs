@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private List<Resources> resources = new List<Resources>();
+    [SerializeField] private List<Resources> resources;
     
     private void Awake()
     {
@@ -20,17 +20,20 @@ public class PlayerController : MonoBehaviour
     public async Task PlayerInitialization()
     {
         var loadData = await LoadPlayerData();
+        if (loadData == null)
+        {
+            loadData = new PlayerData
+            {
+                crewMood = 1000,
+                maxCrew = 1,
+                playerCredits = 100
+            };
+        }
         playerData = loadData;
     }
 
     private async Task<PlayerData> LoadPlayerData()
     {
-        // var testData = new PlayerData
-        // {
-        //     crewMood = 1000,
-        //     playerCredits = 100,
-        //     maxCrew = 1
-        // };
         var loadData = await ServiceLocator.Get<CloudController>().LoadPlayerData();
         return loadData;
     }

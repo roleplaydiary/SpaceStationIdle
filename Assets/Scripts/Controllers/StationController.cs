@@ -1,39 +1,50 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class StationController : MonoBehaviour
 {
     [SerializeField] private List<StationBlockController> stationBlocks;
-    
+    [SerializeField] private StationData stationData;
+
+    private void Awake()
+    {
+        ServiceLocator.Register(this);
+    }
+
     public async Task StationInitializate()
     {
-        var testData = new StationData
+        // var testData = new StationData
+        // {
+        //     departmentData = new Dictionary<Department, StationBlockData>
+        //     {
+        //         { Department.Bridge, new StationBlockData { WorkBenchesLevelUnlocked = 1, MaxCrewUnlocked = 1, CurrentCrewHired = 1 } },
+        //         { Department.RND, new StationBlockData { WorkBenchesLevelUnlocked = 1, MaxCrewUnlocked = 0, CurrentCrewHired = 0 } },
+        //     }
+        // };
+        var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
+        if (loadData == null || loadData.departmentData.Count == 0)
         {
-            unlockedDepartments = new List<Department>
-            {
-                Department.Bridge,
-                Department.RND
-            }
-        };
-        await Task.Delay(1000);//TODO: тестовые вводные
-        BlocksInitialize(testData);
+            // Если данные не загрузились, создаем StationData с Bridge по умолчанию
+            loadData = new StationData();
+            loadData.Unlock(Department.Bridge); // Разблокируем Bridge
+            loadData.SetWorkbenchesLevelUnlocked(Department.Bridge, 1);
+            loadData.SetMaxCrewUnlocked(Department.Bridge, 1);
+            loadData.SetCurrentCrewHired(Department.Bridge, 1);
+        }
+        BlocksInitialize(loadData);
     }
     
-    private void BlocksInitialize(StationData stationData)
+    private void BlocksInitialize(StationData _stationData)
     {
-        var testData = new StationBlockData // FOR TESTS
-        {
-            CurrentCrewHired = 1,
-            MaxCrewUnlocked = 2,
-            WorkBenchesLevelUnlocked = 1
-        };
-
+        stationData = _stationData;
         foreach (var block in stationBlocks)
         {
-            if (stationData.IsUnlocked(block.GetBlockType()))
+            var blockType = block.GetBlockType();
+            if (_stationData.IsUnlocked(blockType))
             {
-                block.BlockInitialization(testData);
+                block.BlockInitialization(_stationData.departmentData[blockType]);
             }
             else
             {
@@ -42,4 +53,8 @@ public class StationController : MonoBehaviour
         }
     }
 
+    public StationData GetStationData()
+    {
+        return stationData;
+    }
 }

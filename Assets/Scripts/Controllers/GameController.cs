@@ -5,7 +5,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private StationController stationController;
     [SerializeField] private PlayerController playerController;
-
+    
     [SerializeField] private DataLibrary dataLibrary;
 
     private async void Start()
@@ -19,5 +19,15 @@ public class GameController : MonoBehaviour
         await ServiceLocator.Get<CloudController>().Autentication();
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
+    }
+
+    public void TestSaveStationButton()
+    {
+        TestSaveStation();
+    }
+    private async Task TestSaveStation()
+    {
+        var stationData = ServiceLocator.Get<StationController>().GetStationData();
+        await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
     }
 }

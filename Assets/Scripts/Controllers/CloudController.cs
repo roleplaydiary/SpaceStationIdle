@@ -27,57 +27,12 @@ public class CloudController : MonoBehaviour
         }
     }
     
-    public async Task<PlayerData> LoadPlayerData()
-    {
-        try
-        {
-            // Указываем ключи, которые хотим загрузить
-            HashSet<string> keysToLoad = new HashSet<string> {
-                "playerCredits", "maxCrew", "crewMood"
-            };
-
-            // Загружаем данные из Cloud Save
-            var playerDataDict = await CloudSaveService.Instance.Data.Player.LoadAsync(keysToLoad);
-
-            // Преобразуем данные из Dictionary в PlayerData
-            PlayerData playerData = new PlayerData();
-
-            if (playerDataDict != null)
-            {
-                if (playerDataDict.TryGetValue("playerCredits", out var value2))
-                    playerData.playerCredits = value2.Value.GetAs<int>();
-
-                if (playerDataDict.TryGetValue("maxCrew", out var value1))
-                    playerData.maxCrew = value1.Value.GetAs<int>();
-
-                if (playerDataDict.TryGetValue("crewMood", out var value))
-                    playerData.crewMood = value.Value.GetAs<float>();
-            }
-
-            Debug.Log("Данные игрока успешно загружены из Cloud Save.");
-            return playerData;
-        }
-        catch (CloudSaveException e)
-        {
-            Debug.LogError($"Ошибка загрузки данных игрока: {e.Message}");
-            return null;
-        }
-    }
-
     public async Task SavePlayerData(PlayerData playerData)
     {
         try
         {
-            Dictionary<string, object> playerDataDict = new Dictionary<string, object>
-            {
-                { "playerCredits", playerData.playerCredits },
-                { "maxCrew", playerData.maxCrew },
-                { "crewMood", playerData.crewMood }
-            };
-
-            // Сохраняем данные в Cloud Save
-            await CloudSaveService.Instance.Data.Player.SaveAsync(playerDataDict);
-
+            Dictionary<string, object> playerDataDict = playerData.ToDictionary();
+            await CloudSaveService.Instance.Data.Player.SaveAsync(new Dictionary<string, object> { { "player_data", playerDataDict } });
             Debug.Log("Данные игрока успешно сохранены в Cloud Save.");
         }
         catch (CloudSaveException e)
@@ -86,13 +41,65 @@ public class CloudController : MonoBehaviour
         }
     }
 
-    public void LoadStationData()
+    public async Task<PlayerData> LoadPlayerData()
     {
-        
+        try
+        {
+            var playerDataItems = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "player_data" });
+            if (playerDataItems != null && playerDataItems.TryGetValue("player_data", out var playerDataItem))
+            {
+                Dictionary<string, object> playerDataDict = (Dictionary<string, object>)playerDataItem.Value.GetAs<Dictionary<string, object>>();
+                return PlayerData.FromDictionary(playerDataDict);
+            }
+            return null;
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка загрузки данных игрока: {e.Message}");
+            return null;
+        }
     }
 
-    public void SaveStationData()
+    public async Task<StationData> LoadStationData()
     {
-        
+        try
+        {
+            HashSet<string> keysToLoad = new HashSet<string>();
+            foreach (Department department in Enum.GetValues(typeof(Department)))
+            {
+                keysToLoad.Add(department.ToString());
+            }
+
+            var stationDataItems = await CloudSaveService.Instance.Data.Player.LoadAsync(keysToLoad);
+            if (stationDataItems != null)
+            {
+                Dictionary<string, object> stationDataDict = new Dictionary<string, object>();
+                foreach (var pair in stationDataItems)
+                {
+                    stationDataDict[pair.Key] = pair.Value.Value.GetAsString();
+                }
+                return StationData.FromDictionary(stationDataDict);
+            }
+            return null;
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка загрузки данных станции: {e.Message}");
+            return null;
+        }
+    }
+
+    public async Task SaveStationData(StationData stationData)
+    {
+        try
+        {
+            Dictionary<string, object> stationDataDict = stationData.ToDictionary();
+            await CloudSaveService.Instance.Data.Player.SaveAsync(stationDataDict);
+            Debug.Log("Данные станции успешно сохранены в Cloud Save.");
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка сохранения данных станции: {e.Message}");
+        }
     }
 }
