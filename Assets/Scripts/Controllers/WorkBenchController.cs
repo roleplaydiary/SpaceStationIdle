@@ -11,8 +11,8 @@ public class WorkBenchController : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    public Transform GetWorkPosition()
+    public Vector3 GetWorkPosition()
     {
-        return this.workPosition;
+        return workPosition.position;
     }
 }

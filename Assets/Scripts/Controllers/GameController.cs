@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     
     [SerializeField] private DataLibrary dataLibrary;
+    [SerializeField] private GameObject loadingImage;
 
     private async void Start()
     {
@@ -16,9 +17,11 @@ public class GameController : MonoBehaviour
 
     private async Task GameInitialization()
     {
+        loadingImage.SetActive(true);
         await ServiceLocator.Get<CloudController>().Autentication();
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
+        loadingImage.SetActive(false);
     }
 
     public void TestSaveStationButton()

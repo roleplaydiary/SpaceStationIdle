@@ -7,6 +7,7 @@ public class StationController : MonoBehaviour
 {
     [SerializeField] private List<StationBlockController> stationBlocks;
     [SerializeField] private StationData stationData;
+    
 
     private void Awake()
     {
@@ -26,7 +27,6 @@ public class StationController : MonoBehaviour
         var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
         if (loadData == null || loadData.departmentData.Count == 0)
         {
-            // Если данные не загрузились, создаем StationData с Bridge по умолчанию
             loadData = new StationData();
             loadData.Unlock(Department.Bridge); // Разблокируем Bridge
             loadData.SetWorkbenchesLevelUnlocked(Department.Bridge, 1);
@@ -36,15 +36,15 @@ public class StationController : MonoBehaviour
         BlocksInitialize(loadData);
     }
     
-    private void BlocksInitialize(StationData _stationData)
+    private void BlocksInitialize(StationData stationData)
     {
-        stationData = _stationData;
+        this.stationData = stationData;
         foreach (var block in stationBlocks)
         {
             var blockType = block.GetBlockType();
-            if (_stationData.IsUnlocked(blockType))
+            if (this.stationData.IsUnlocked(blockType))
             {
-                block.BlockInitialization(_stationData.departmentData[blockType]);
+                block.BlockInitialization(this.stationData.departmentData[blockType]);
             }
             else
             {
