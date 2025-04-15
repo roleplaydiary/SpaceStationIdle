@@ -102,4 +102,36 @@ public class CloudController : MonoBehaviour
             Debug.LogError($"Ошибка сохранения данных станции: {e.Message}");
         }
     }
+    
+    public async Task SaveResources(Resources resources)
+    {
+        try
+        {
+            string resourcesJson = JsonUtility.ToJson(resources);
+            await CloudSaveService.Instance.Data.Player.SaveAsync(new Dictionary<string, object> { { "resources", resourcesJson } });
+            Debug.Log("Ресурсы успешно сохранены в Cloud Save.");
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка сохранения ресурсов: {e.Message}");
+        }
+    }
+
+    public async Task<Resources> LoadResources()
+    {
+        try
+        {
+            var resourcesItems = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "resources" });
+            if (resourcesItems != null && resourcesItems.TryGetValue("resources", out var resourcesItem))
+            {
+                return JsonUtility.FromJson<Resources>(resourcesItem.Value.GetAsString());
+            }
+            return null;
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка загрузки ресурсов: {e.Message}");
+            return null;
+        }
+    }
 }
