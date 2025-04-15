@@ -1,12 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StationController : MonoBehaviour
 {
-    [SerializeField] private List<StationBlockController> stationBlocks = new List<StationBlockController>();
-
-    public void BlocksInitialize()
+    [SerializeField] private List<StationBlockController> stationBlocks;
+    
+    public void StationInitializate()
+    {
+        BlocksInitialize();
+    }
+    
+    private void BlocksInitialize()
     {
         var testData = new StationBlockData()
         {
@@ -15,6 +19,7 @@ public class StationController : MonoBehaviour
             WorkBenchesLevelUnlocked = 2
 
         };
+        
         foreach (var block in stationBlocks)
         {
             block.BlockInitialization(testData);

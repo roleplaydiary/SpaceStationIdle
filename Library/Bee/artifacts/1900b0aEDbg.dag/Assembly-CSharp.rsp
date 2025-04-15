@@ -363,6 +363,7 @@
 "Assets/Scripts/Controllers/PlayerController.cs"
 "Assets/Scripts/Controllers/StationBlockController.cs"
 "Assets/Scripts/Controllers/StationController.cs"
+"Assets/Scripts/Controllers/WorkBenchController.cs"
 "Assets/Scripts/Data/StationBlockData.cs"
 "Assets/Scripts/StateMachine/CharacterStateMachine.cs"
 "Assets/Scripts/StateMachine/ICharacterState.cs"

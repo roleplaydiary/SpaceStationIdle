@@ -33,7 +33,6 @@ public class StationBlockController : MonoBehaviour
         if (blockData.CurrentCrewHired == 0)
             return;
         
-        
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
             //Spawn a crew member
