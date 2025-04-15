@@ -531,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3872247795946222215}
-  - component: {fileID: 1668929380139760014}
+  - component: {fileID: 3230982632671285336}
   m_Layer: 0
   m_Name: CaptainBridge
   m_TagString: Untagged
@@ -556,7 +556,7 @@ Transform:
   - {fileID: 6541607968344334874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1668929380139760014
+--- !u!114 &3230982632671285336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6804315754376222948}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f01a8f3fba9fe24995a9193c3341a3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 003573a632d2bc04ea29ac59377129ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   workBenches:
