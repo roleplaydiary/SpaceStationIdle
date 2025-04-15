@@ -22,5 +22,5 @@ Tasks:
 * crew control(work, rest)
 * Progress saving
 * AFK production(Credits, resources, energy)
-* Station events(catch the clown, fix the station, fight monsters)
+* Station events(catch the clown, fix the station, fight monsters, cleaning)
 * Endgame goals(find out)
