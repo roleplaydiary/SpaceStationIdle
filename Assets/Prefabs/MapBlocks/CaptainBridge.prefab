@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &57304909897458006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 396295449435192606}
-  m_Layer: 0
-  m_Name: Waypoint 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &396295449435192606
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57304909897458006}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.53, y: 0, z: -7.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6541607968344334874}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &871952084081037740
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6541607968344334874}
   m_Layer: 0
-  m_Name: Waypoints
+  m_Name: WorkBenches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,8 +135,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7743999906198167077}
-  - {fileID: 3528423157663707815}
-  - {fileID: 396295449435192606}
+  - {fileID: 6622202800240163877}
+  - {fileID: 3962129465208538479}
   m_Father: {fileID: 3872247795946222215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2606748319105044621
@@ -275,6 +244,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &4221159976449947598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2714105706407651760}
+  m_Layer: 0
+  m_Name: Furniture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2714105706407651760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221159976449947598}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9171323113061606156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4267817150948638366
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +414,7 @@ Transform:
   - {fileID: 6258791084000493681}
   - {fileID: 7727659316630723749}
   - {fileID: 3812568159586754687}
+  - {fileID: 2714105706407651760}
   m_Father: {fileID: 3872247795946222215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4760572658347675970
@@ -521,37 +522,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &6036604989132148924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3528423157663707815}
-  m_Layer: 0
-  m_Name: Waypoint 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3528423157663707815
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6036604989132148924}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.12, y: 0, z: 0.26}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6541607968344334874}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6804315754376222948
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3872247795946222215}
+  - component: {fileID: 1668929380139760014}
   m_Layer: 0
   m_Name: CaptainBridge
   m_TagString: Untagged
@@ -586,37 +557,22 @@ Transform:
   - {fileID: 6541607968344334874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7139806983125164886
-GameObject:
+--- !u!114 &1668929380139760014
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7743999906198167077}
-  m_Layer: 0
-  m_Name: Waypoint 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7743999906198167077
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7139806983125164886}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.66}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6541607968344334874}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6804315754376222948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f01a8f3fba9fe24995a9193c3341a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workBenches:
+  - {fileID: 7139806983125164886}
+  - {fileID: 6036604989132148924}
+  - {fileID: 57304909897458006}
 --- !u!1 &7673095033188176724
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,4 +752,244 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6998300466712643567, guid: 74f9dbcc2e3aeab4587dc04ec1bae780,
     type: 3}
   m_PrefabInstance: {fileID: 557612493183096560}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2318803338586377917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6541607968344334874}
+    m_Modifications:
+    - target: {fileID: 462228304162806793, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_Name
+      value: Captain Bridge Workbench 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6bc50986a2b0caf48a949693b6c917d4, type: 3}
+--- !u!1 &6036604989132148924 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8352030069115117057, guid: 6bc50986a2b0caf48a949693b6c917d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2318803338586377917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6622202800240163877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8919591292288578200, guid: 6bc50986a2b0caf48a949693b6c917d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2318803338586377917}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5943005840317213298
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6541607968344334874}
+    m_Modifications:
+    - target: {fileID: 4024126943149961393, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_Name
+      value: Captain Bridge Workbench 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe73705f7edeed945916bb88a02fa888, type: 3}
+--- !u!1 &57304909897458006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5958925106439719716, guid: fe73705f7edeed945916bb88a02fa888,
+    type: 3}
+  m_PrefabInstance: {fileID: 5943005840317213298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3962129465208538479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7243340241299369757, guid: fe73705f7edeed945916bb88a02fa888,
+    type: 3}
+  m_PrefabInstance: {fileID: 5943005840317213298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8133177578447585502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6541607968344334874}
+    m_Modifications:
+    - target: {fileID: 1426349662394983304, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_Name
+      value: Captain Bridge Workbench 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03ef70c5bdd52eb49b467b0073c701f2, type: 3}
+--- !u!1 &7139806983125164886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1426349662394983304, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8133177578447585502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7743999906198167077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1992542703183978235, guid: 03ef70c5bdd52eb49b467b0073c701f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8133177578447585502}
   m_PrefabAsset: {fileID: 0}

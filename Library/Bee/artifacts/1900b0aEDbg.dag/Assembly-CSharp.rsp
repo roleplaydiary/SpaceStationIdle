@@ -361,7 +361,10 @@
 -analyzer:"C:/Programs/UnityEditor/2022.3.56f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Controllers/GameController.cs"
 "Assets/Scripts/Controllers/PlayerController.cs"
+"Assets/Scripts/Controllers/StationBlockController.cs"
 "Assets/Scripts/Controllers/StationController.cs"
+"Assets/Scripts/StateMachine/CharacterStateMachine.cs"
+"Assets/Scripts/StateMachine/ICharacterState.cs"
 -langversion:9.0
 /deterministic
 /optimize-

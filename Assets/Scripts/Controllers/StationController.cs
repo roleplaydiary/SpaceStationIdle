@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class StationController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> stationBlocks = new List<GameObject>();
+    [SerializeField] private List<StationBlockController> stationBlocks = new List<StationBlockController>();
 
-    private void BlocksInitialize()
+    public void BlocksInitialize()
     {
         foreach (var block in stationBlocks)
         {
-            //block.Initialize();
+            block.BlockInitialization();
             // Инициализация каждого блока
             // Количество экипажа в блоке
             // Параметры блока(Апгрейды)
