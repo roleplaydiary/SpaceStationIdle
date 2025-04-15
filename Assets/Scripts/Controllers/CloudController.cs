@@ -45,13 +45,13 @@ public class CloudController : MonoBehaviour
             if (playerDataDict != null)
             {
                 if (playerDataDict.TryGetValue("playerCredits", out var value2))
-                    playerData.playerCredits = Convert.ToInt32(value2);
+                    playerData.playerCredits = value2.Value.GetAs<int>();
 
                 if (playerDataDict.TryGetValue("maxCrew", out var value1))
-                    playerData.maxCrew = Convert.ToInt32(value1);
+                    playerData.maxCrew = value1.Value.GetAs<int>();
 
                 if (playerDataDict.TryGetValue("crewMood", out var value))
-                    playerData.crewMood = Convert.ToSingle(value);
+                    playerData.crewMood = value.Value.GetAs<float>();
             }
 
             Debug.Log("Данные игрока успешно загружены из Cloud Save.");
