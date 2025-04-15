@@ -1,11 +1,11 @@
 [System.Serializable]
 public class Resources
 {
-    public int Phoron;
-    public int Metal;
-    public int Glass;
-    public int Plastic;
-    public int Gold;
-    public int Silver;
-    public int Uranium;
+    public float Phoron;
+    public float Metal;
+    public float Glass;
+    public float Plastic;
+    public float Gold;
+    public float Silver;
+    public float Uranium;
 }
