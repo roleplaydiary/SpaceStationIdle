@@ -4,7 +4,7 @@ Main Goal: To keep the station crew in a good mood and high productivity to prod
 
 Station Blocks: 
 * Captain Bridge - Main player control
-* RND - station upgrades(New blocks, new tools, blocks level upgrades)
+* RND - station upgrades(New blocks, new tools, blocks level upgrades) - Upgrades are not immideate, scientists work to unlock the upgrade. More scientists, faster unlock
 * Cargo - Buying resources from outside for credits
 * Ingeneering - station maintenance, energy, repair
 * Security - station defence, enemy fighting, clown arrest
