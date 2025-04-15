@@ -48,11 +48,14 @@
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\StateMachine\CharacterStateMachine.cs" />
     <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Data\StationData.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\DataLibrary.cs" />
     <Compile Include="Assets\Scripts\Controllers\StationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\StationBlockController.cs" />
+    <Compile Include="Assets\Scripts\Scriptable Objects\StationBlockDataSO.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ICharacterState.cs" />
     <Compile Include="Assets\Scripts\Data\StationBlockData.cs" />
+    <Compile Include="Assets\Scripts\Data\Department.cs" />
     <Compile Include="Assets\Scripts\Controllers\WorkBenchController.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator.cs" />
     <None Include="Library\PackageCache\com.unity.modules.subsystems@1.0.0\package.json" />

@@ -572,6 +572,8 @@ MonoBehaviour:
   - {fileID: 1304440048207564257}
   - {fileID: 5168490106517222961}
   - {fileID: 6088577191664334791}
+  stationBlockDataSo: {fileID: 11400000, guid: 6cd2420b0ba685f4fa8b804b18e66b15, type: 2}
+  BlockType: 0
 --- !u!1 &7673095033188176724
 GameObject:
   m_ObjectHideFlags: 0

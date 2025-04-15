@@ -1,3 +1,4 @@
+[System.Serializable]
 public class StationBlockData 
 {
     public int WorkBenchesLevelUnlocked = 0;

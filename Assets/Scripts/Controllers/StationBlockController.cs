@@ -5,6 +5,9 @@ using UnityEngine;
 public class StationBlockController : MonoBehaviour
 {
     [SerializeField] private List<WorkBenchController> workBenches;
+    [SerializeField] private StationBlockDataSO stationBlockDataSo;
+    public Department GetBlockType() {return stationBlockDataSo.BlockType;}
+    
     private StationBlockData blockData;
     
     public void BlockInitialization(StationBlockData _blockData)
