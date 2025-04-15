@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -10,15 +8,16 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private DataLibrary dataLibrary;
 
-    private void Start()
+    private async void Start()
     {
         ServiceLocator.Register(dataLibrary);
-        GameInitialization();
+        await GameInitialization();
     }
 
-    private void GameInitialization()
+    private async Task GameInitialization()
     {
-        playerController.PlayerInitialization(); // TODO: await
-        stationController.StationInitializate(); // TODO: await
+        await ServiceLocator.Get<CloudController>().Autentication();
+        await playerController.PlayerInitialization();
+        await stationController.StationInitializate();
     }
 }

@@ -413,6 +413,9 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\PackageCache\com.unity.visualscripting@1.9.4\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Programs\UnityEditor\2022.3.56f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
     </Reference>

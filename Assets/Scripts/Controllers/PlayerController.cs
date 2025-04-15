@@ -1,30 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private int playerCredits = 100;
-    [SerializeField] private int maxCrew = 10;
-    [SerializeField] private float crewMood = 1000;
+    [SerializeField] private PlayerData playerData;
     [SerializeField] private List<Resources> resources = new List<Resources>();
-
-    public void PlayerInitialization()
+    
+    private void Awake()
     {
-        var loadData = LoadPlayerData();
-        playerCredits = loadData.playerCredits;
-        maxCrew = loadData.maxCrew;
-        crewMood = loadData.crewMood;
+        ServiceLocator.Register(this);
     }
 
-    private PlayerData LoadPlayerData()
+    public PlayerData GetPlayerData()
     {
-        var testData = new PlayerData
-        {
-            crewMood = 1000,
-            playerCredits = 100,
-            maxCrew = 1
-        };
-        return testData;
+        return playerData;
+    }
+
+    public async Task PlayerInitialization()
+    {
+        var loadData = await LoadPlayerData();
+        playerData = loadData;
+    }
+
+    private async Task<PlayerData> LoadPlayerData()
+    {
+        // var testData = new PlayerData
+        // {
+        //     crewMood = 1000,
+        //     playerCredits = 100,
+        //     maxCrew = 1
+        // };
+        var loadData = await ServiceLocator.Get<CloudController>().LoadPlayerData();
+        return loadData;
     }
 }

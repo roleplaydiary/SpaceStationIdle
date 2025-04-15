@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class StationController : MonoBehaviour
 {
     [SerializeField] private List<StationBlockController> stationBlocks;
     
-    public void StationInitializate()
+    public async Task StationInitializate()
     {
         var testData = new StationData
         {
@@ -15,7 +16,7 @@ public class StationController : MonoBehaviour
                 Department.RND
             }
         };
-        
+        await Task.Delay(1000);//TODO: тестовые вводные
         BlocksInitialize(testData);
     }
     
