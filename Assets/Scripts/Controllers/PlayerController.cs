@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
+    private PlayerData playerData;
     [SerializeField] private List<Resources> resources;
     
     private void Awake()

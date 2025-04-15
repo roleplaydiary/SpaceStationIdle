@@ -4,9 +4,9 @@ using System.Collections.Generic;
 [Serializable]
 public class PlayerData
 {
-    public int playerCredits = 100;
-    public int maxCrew = 10;
-    public float crewMood = 1000;
+    public int playerCredits;
+    public int maxCrew;
+    public float crewMood;
     
     public Dictionary<string, object> ToDictionary()
     {
