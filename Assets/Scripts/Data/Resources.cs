@@ -1,3 +1,4 @@
+[System.Serializable]
 public class Resources
 {
     public int Phoron;
