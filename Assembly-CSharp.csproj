@@ -53,7 +53,9 @@
     <Compile Include="Assets\Scripts\Controllers\StationController.cs" />
     <Compile Include="Assets\Scripts\Controllers\StationBlockController.cs" />
     <Compile Include="Assets\Scripts\Scriptable Objects\StationBlockDataSO.cs" />
+    <Compile Include="Assets\Scripts\Data\Resources.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ICharacterState.cs" />
+    <Compile Include="Assets\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Data\StationBlockData.cs" />
     <Compile Include="Assets\Scripts\Data\Department.cs" />
     <Compile Include="Assets\Scripts\Controllers\WorkBenchController.cs" />

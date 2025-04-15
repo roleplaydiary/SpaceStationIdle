@@ -584,6 +584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stationBlocks:
   - {fileID: 6987324142835076380}
+  - {fileID: 6987324142835076379}
 --- !u!4 &1698211785
 Transform:
   m_ObjectHideFlags: 0
@@ -791,6 +792,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 283b658f20995cd4b92ee4eb781154d8, type: 3}
+--- !u!114 &6987324142835076379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6106369376746883238, guid: 283b658f20995cd4b92ee4eb781154d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6987324142835076378}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f01a8f3fba9fe24995a9193c3341a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6987324142835076380 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7999376931800558746, guid: 283b658f20995cd4b92ee4eb781154d8,

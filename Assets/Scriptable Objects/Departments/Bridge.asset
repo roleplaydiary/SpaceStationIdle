@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BlockName: Bridge
   MaxCrew: 2
+  MaxWorkBenches: 3
+  BlockType: 0

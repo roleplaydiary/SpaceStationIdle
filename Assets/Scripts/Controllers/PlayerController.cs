@@ -7,10 +7,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int playerCredits = 100;
     [SerializeField] private int maxCrew = 10;
     [SerializeField] private float crewMood = 1000;
-    //resources - Пусть будет массив ресурсов с айди, названием, количеством и максимумом
+    [SerializeField] private List<Resources> resources = new List<Resources>();
 
-    private void PlayerInitialization()
+    public void PlayerInitialization()
     {
-        // Загрузка данных игрока
+        var loadData = LoadPlayerData();
+        playerCredits = loadData.playerCredits;
+        maxCrew = loadData.maxCrew;
+        crewMood = loadData.crewMood;
+    }
+
+    private PlayerData LoadPlayerData()
+    {
+        var testData = new PlayerData
+        {
+            crewMood = 1000,
+            playerCredits = 100,
+            maxCrew = 1
+        };
+        return testData;
     }
 }

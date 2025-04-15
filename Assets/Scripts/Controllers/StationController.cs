@@ -11,6 +11,7 @@ public class StationController : MonoBehaviour
         {
             unlockedDepartments = new List<Department>
             {
+                Department.Bridge,
                 Department.RND
             }
         };
@@ -29,15 +30,13 @@ public class StationController : MonoBehaviour
 
         foreach (var block in stationBlocks)
         {
-            // Проверка: открыт ли соответствующий отдел
             if (stationData.IsUnlocked(block.GetBlockType()))
             {
                 block.BlockInitialization(testData);
-                // Здесь инициализируем только открытые блоки
             }
             else
             {
-                block.gameObject.SetActive(false); // можно отключать закрытые блоки
+                block.gameObject.SetActive(false);
             }
         }
     }

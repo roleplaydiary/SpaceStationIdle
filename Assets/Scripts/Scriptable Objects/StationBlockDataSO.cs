@@ -5,5 +5,6 @@ public class StationBlockDataSO : ScriptableObject
 {
     public string BlockName;
     public int MaxCrew;
+    public int MaxWorkBenches;
     public Department BlockType;
 }

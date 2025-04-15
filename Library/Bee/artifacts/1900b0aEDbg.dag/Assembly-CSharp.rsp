@@ -365,6 +365,8 @@
 "Assets/Scripts/Controllers/StationController.cs"
 "Assets/Scripts/Controllers/WorkBenchController.cs"
 "Assets/Scripts/Data/Department.cs"
+"Assets/Scripts/Data/PlayerData.cs"
+"Assets/Scripts/Data/Resources.cs"
 "Assets/Scripts/Data/StationBlockData.cs"
 "Assets/Scripts/Data/StationData.cs"
 "Assets/Scripts/Scriptable Objects/DataLibrary.cs"

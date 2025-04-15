@@ -18,9 +18,7 @@ public class GameController : MonoBehaviour
 
     private void GameInitialization()
     {
-        stationController.StationInitializate();
-        // Последовательная инициализация других контроллеров:
-        // Загрузка прогресса игрока
-        // Загрузка прогресса станции
+        playerController.PlayerInitialization(); // TODO: await
+        stationController.StationInitializate(); // TODO: await
     }
 }
