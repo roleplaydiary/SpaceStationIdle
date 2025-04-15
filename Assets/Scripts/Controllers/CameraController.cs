@@ -26,7 +26,6 @@ public class CameraController : MonoBehaviour
             isDragging = true;
             dragStartPosition = Input.mousePosition;
             dragCurrentPosition = dragStartPosition;
-            Debug.Log("Нажатие ЛКМ: dragStartPosition = " + dragStartPosition);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -39,9 +38,7 @@ public class CameraController : MonoBehaviour
             dragCurrentPosition = Input.mousePosition;
             Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
-            Debug.Log("dragCurrentPosition = " + dragCurrentPosition + ", moveDelta = " + moveDelta);
             cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime); // Перемещаем камеру в обратном направлении
-            Debug.Log("Позиция камеры: " + cam.transform.position);
             dragStartPosition = dragCurrentPosition;
         }
         
@@ -88,31 +85,5 @@ public class CameraController : MonoBehaviour
                 initialPinchDistance = currentPinchDistance;
             }
         }
-        // else // Для ПК (мышь)
-        // {
-        //     if (Input.GetMouseButtonDown(0)) // Нажатие ЛКМ
-        //     {
-        //         Debug.Log("CAMERA CONTROLLER INPUT.GetMouseButtonDown НАЖАТИЕ");
-        //         isDragging = true;
-        //         dragStartPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        //     }
-        //
-        //     if (Input.GetMouseButtonUp(0)) // Отпускание ЛКМ
-        //     {
-        //         Debug.Log("CAMERA CONTROLLER INPUT.GetMouseButtonDown ОТПУСКАНИЕ");
-        //         isDragging = false;
-        //     }
-        //
-        //     if (isDragging) // Перемещение при нажатой ЛКМ
-        //     {
-        //         Vector3 dragCurrentPosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        //         Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
-        //
-        //         cam.transform.position += moveDelta;
-        //     }
-        //
-        //     float scroll = Input.GetAxis("Mouse ScrollWheel");
-        //     cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - scroll * zoomSpeed, minZoom, maxZoom); 
-        // }
     }
 }
