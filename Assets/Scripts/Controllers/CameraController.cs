@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public float zoomSpeed = 5f;
-    private float minFOV = 40;
-    private float maxFOV = 80f;
-
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float zoomSpeed = 5f;
+    [SerializeField] private float minFOV = 40;
+    [SerializeField] private float maxFOV = 80f;
+    [SerializeField] private float deceleration = 5f; // Скорость замедления
+    
     private Camera cam;
     private Vector3 dragStartPosition;
     private Vector3 dragCurrentPosition;
     private float initialPinchDistance;
     private bool isDragging; // Добавляем флаг для отслеживания перетаскивания
+    private Vector3 velocity; // Скорость движения камеры
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class CameraController : MonoBehaviour
             isDragging = true;
             dragStartPosition = Input.mousePosition;
             dragCurrentPosition = dragStartPosition;
+            Debug.Log("Нажатие ЛКМ: dragStartPosition = " + dragStartPosition);
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -38,14 +41,17 @@ public class CameraController : MonoBehaviour
             dragCurrentPosition = Input.mousePosition;
             Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
-            cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime); // Перемещаем камеру в обратном направлении
+            Debug.Log("dragCurrentPosition = " + dragCurrentPosition + ", moveDelta = " + moveDelta);
+            cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
+            Debug.Log("Позиция камеры: " + cam.transform.position);
             dragStartPosition = dragCurrentPosition;
         }
-        
+
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         float newFOV = cam.fieldOfView - scroll * zoomSpeed;
-        cam.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV); // Изменяем fieldOfView
+        cam.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
 
+        // Перемещение камеры (тач)
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
