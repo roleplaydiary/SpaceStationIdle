@@ -14,22 +14,22 @@ public class StationController : MonoBehaviour
 
     public async Task StationInitializate()
     {
-        var loadData = new StationData // FOR TESTS
-        {
-            departmentData = new Dictionary<Department, StationBlockData>
-            {
-                { Department.Bridge, new StationBlockData { WorkBenchesLevelUnlocked = 2, MaxCrewUnlocked = 2, CurrentCrewHired = 2 } }
-            }
-        };
-        // var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
-        // if (loadData == null || loadData.departmentData.Count == 0)
+        // var loadData = new StationData // FOR TESTS
         // {
-        //     loadData = new StationData();
-        //     loadData.Unlock(Department.Bridge); // Разблокируем Bridge
-        //     loadData.SetWorkbenchesLevelUnlocked(Department.Bridge, 1);
-        //     loadData.SetMaxCrewUnlocked(Department.Bridge, 1);
-        //     loadData.SetCurrentCrewHired(Department.Bridge, 1);
-        // }
+        //     departmentData = new Dictionary<Department, StationBlockData>
+        //     {
+        //         { Department.Bridge, new StationBlockData { WorkBenchesLevelUnlocked = 2, MaxCrewUnlocked = 2, CurrentCrewHired = 2 } }
+        //     }
+        // };
+        var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
+        if (loadData == null || loadData.departmentData.Count == 0)
+        {
+            loadData = new StationData();
+            loadData.Unlock(Department.Bridge); // Разблокируем Bridge
+            loadData.SetWorkbenchesLevelUnlocked(Department.Bridge, 1);
+            loadData.SetMaxCrewUnlocked(Department.Bridge, 1);
+            loadData.SetCurrentCrewHired(Department.Bridge, 1);
+        }
         BlocksInitialize(loadData);
     }
     
