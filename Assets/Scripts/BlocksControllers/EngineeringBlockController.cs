@@ -12,6 +12,7 @@ public class EngineeringBlockController : StationBlockController
     private List<CharacterController> workingCrew = new List<CharacterController>();
     private List<CharacterController> restingCrew = new List<CharacterController>();
     private List<CharacterController> idleCrew = new List<CharacterController>();
+    private List<CharacterController> allCrewMembers = new List<CharacterController>();
 
     private List<Transform> idlePositionList = new List<Transform>();
     private List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
@@ -51,6 +52,31 @@ public class EngineeringBlockController : StationBlockController
         {
             var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
             crewMembers.Add(newCrewMember.GetComponent<CharacterController>());
+        }
+    }
+    
+    private void HireNewCrewMemberInternal()
+    {
+        var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
+        CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
+        if (crewController != null)
+        {
+            crewMembers.Add(crewController);
+            allCrewMembers.Add(crewController); // Добавляем в список всех членов экипажа
+        }
+    }
+    
+    // Метод, вызываемый из StationController при найме
+    public override void HireNewCrewMember()
+    {
+        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
+        {
+            HireNewCrewMemberInternal();
+            DistributeCrew(); // Перераспределяем экипаж после найма
+        }
+        else
+        {
+            Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
         }
     }
 

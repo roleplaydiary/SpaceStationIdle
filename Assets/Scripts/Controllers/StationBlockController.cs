@@ -44,4 +44,8 @@ public class StationBlockController : MonoBehaviour
         //     crewMembers.Add(newCrewMember);
         // }
     }
+
+    public virtual void HireNewCrewMember()
+    {
+    }
 }
