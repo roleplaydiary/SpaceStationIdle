@@ -13,11 +13,18 @@ public class EngineeringBlockController : StationBlockController
     private List<CharacterController> restingCrew = new List<CharacterController>();
     private List<CharacterController> idleCrew = new List<CharacterController>();
 
+    private List<Transform> idlePositionList = new List<Transform>();
+    
     public override void BlockInitialization(StationBlockData _blockData)
     {
         crewAtWork = new ReactiveProperty<int>(0);
         crewAtRest = new ReactiveProperty<int>(0);
         crewAtIdle = new ReactiveProperty<int>(0);
+        
+        foreach (Transform position in idlePositionParent)
+        {
+            idlePositionList.Add(position);
+        }
 
         blockData = _blockData;
         BenchesInitialization();

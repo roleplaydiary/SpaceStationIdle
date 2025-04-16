@@ -737,12 +737,7 @@ MonoBehaviour:
   - {fileID: 2813235981987231173}
   - {fileID: 3906924917141986415}
   - {fileID: 6493051388072074860}
-  idlePositionList:
-  - {fileID: 590854042705463837}
-  - {fileID: 732711819759205950}
-  - {fileID: 7201823058367302244}
-  - {fileID: 6776367399163737459}
-  - {fileID: 282955147604190614}
+  idlePositionParent: {fileID: 2971607357184162695}
   stationBlockDataSo: {fileID: 11400000, guid: ecf564d4f3ba14b40a7a05148d56d7f5, type: 2}
 --- !u!1 &7673095033188176724
 GameObject:
