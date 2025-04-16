@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StationBlockController : MonoBehaviour
 {
-    [SerializeField] protected List<WorkBenchController> workBenches;
+    [SerializeField] protected Transform workBenchesParent;
     [SerializeField] protected Transform idlePositionParent;
     [SerializeField] protected StationBlockDataSO stationBlockDataSo;
     protected List<CharacterController> crewMembers = new List<CharacterController>(); //Персонал в отделе

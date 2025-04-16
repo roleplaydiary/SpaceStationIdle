@@ -14,6 +14,7 @@ public class EngineeringBlockController : StationBlockController
     private List<CharacterController> idleCrew = new List<CharacterController>();
 
     private List<Transform> idlePositionList = new List<Transform>();
+    private List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
     
     public override void BlockInitialization(StationBlockData _blockData)
     {
@@ -21,10 +22,7 @@ public class EngineeringBlockController : StationBlockController
         crewAtRest = new ReactiveProperty<int>(0);
         crewAtIdle = new ReactiveProperty<int>(0);
         
-        foreach (Transform position in idlePositionParent)
-        {
-            idlePositionList.Add(position);
-        }
+        InitializeLists();
 
         blockData = _blockData;
         BenchesInitialization();
@@ -39,8 +37,8 @@ public class EngineeringBlockController : StationBlockController
 
         for (int i = 0; i < blockData.WorkBenchesLevelUnlocked; i++)
         {
-            if (i < workBenches.Count)
-                workBenches[i].gameObject.SetActive(true);
+            if (i < workBenchesList.Count)
+                workBenchesList[i].gameObject.SetActive(true);
         }
     }
 
@@ -77,9 +75,9 @@ public class EngineeringBlockController : StationBlockController
         // Распределяем работающих
         for (int i = 0; i < Mathf.Min(targetCrewAtWork, crewMembers.Count); i++)
         {
-            if (i < workBenches.Count && workBenches[i] != null)
+            if (i < workBenchesList.Count && workBenchesList[i] != null)
             {
-                crewMembers[i].GoToWork(workBenches[i].GetWorkPosition());
+                crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
                 workingCrew.Add(crewMembers[i]);
             }
             else if (workingCrew.Count < targetCrewAtWork) // Если не хватает верстаков, остальных в Idle
@@ -172,5 +170,35 @@ public class EngineeringBlockController : StationBlockController
             return idlePositionList[idleCrew.Count].position;
         }
         return transform.position; // В качестве запасного варианта
+    }
+    
+    private void InitializeLists()
+    {
+        // Получаем Transform для позиций Idle
+        if (idlePositionParent != null)
+        {
+            foreach (Transform position in idlePositionParent)
+            {
+                idlePositionList.Add(position);
+            }
+        }
+
+        // Получаем WorkBenchController для рабочих станций (альтернативный способ)
+        if (workBenchesParent != null)
+        {
+            for (int i = 0; i < workBenchesParent.childCount; i++)
+            {
+                WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
+                if (workBenchController != null)
+                {
+                    workBenchesList.Add(workBenchController);
+                }
+            }
+            Debug.Log($"Found {workBenchesList.Count} WorkBenchController components using direct child access.");
+        }
+
+        // Теперь вы можете использовать idlePositionList (список Transform)
+        // и workBenchesList (список WorkBenchController)
+        Debug.Log($"Found {idlePositionList.Count} idle positions.");
     }
 }
