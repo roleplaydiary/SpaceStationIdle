@@ -50,6 +50,38 @@ public class StationController : MonoBehaviour
         }
     }
 
+    public void TestUnlockEngineering()
+    {
+        UnlockStationBlock(Department.Engineer);
+    }
+    
+    public async void UnlockStationBlock(Department department)
+    {
+        if (!stationData.IsUnlocked(department))
+        {
+            stationData.Unlock(department);
+
+            // Find the corresponding StationBlockController and activate it
+            foreach (var block in stationBlocks)
+            {
+                if (block.GetBlockType() == department)
+                {
+                    block.BlockInitialization(stationData.departmentData[department]);
+                    block.gameObject.SetActive(true);
+                    break; // Assuming only one block per department
+                }
+            }
+
+            // Save the updated station data
+            await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
+            Debug.Log($"Отдел {department} разблокирован и данные сохранены.");
+        }
+        else
+        {
+            Debug.Log($"Отдел {department} уже разблокирован.");
+        }
+    }
+
     public StationData GetStationData()
     {
         return stationData;
