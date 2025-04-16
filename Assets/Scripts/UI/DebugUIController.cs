@@ -32,23 +32,24 @@ public class DebugUIController : MonoBehaviour
     public void DebugUIInitialize()
     {
         playerController = ServiceLocator.Get<PlayerController>();
+        
         if (playerController != null && creditsText != null)
         {
             playerController.GetPlayerData().playerCredits.Subscribe(credits =>
             {
                 creditsText.text = $"Credits: {credits}";
             }).AddTo(this);
-            
-            playerController.GetPlayerData().crewMood.Subscribe(mood =>
+        }
+
+        stationController = ServiceLocator.Get<StationController>();
+        if (stationController != null)
+        {
+            stationController.StationData.crewMood.Subscribe(mood =>
             {
                 currentMoodText.text = $"Crew mood: {mood}";
             }).AddTo(this);
-        }
-
-        // Подписка на другие ReactiveProperty (примеры)
-        if (playerController != null && maxCrewText != null)
-        {
-            playerController.GetPlayerData().maxCrew.Subscribe(max =>
+            
+            stationController.StationData.maxCrew.Subscribe(max =>
             {
                 maxCrewText.text = $"Max Crew: {max}";
             }).AddTo(this);

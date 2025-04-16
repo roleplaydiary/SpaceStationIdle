@@ -23,9 +23,7 @@ public class PlayerController : MonoBehaviour
         var loadData = await LoadPlayerData();
         if (loadData == null)
         {
-            loadData = new PlayerData(); // Используем конструктор для инициализации ReactiveProperty
-            loadData.crewMood.Value = 1000;
-            loadData.maxCrew.Value = 1;
+            loadData = new PlayerData();
             loadData.playerCredits.Value = 100;
         }
         playerData = loadData;

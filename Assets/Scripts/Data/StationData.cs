@@ -1,11 +1,20 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 
 [Serializable]
 public class StationData
 {
+    public ReactiveProperty<int> maxCrew { get; private set; }
+    public ReactiveProperty<float> crewMood { get; private set; }
     public Dictionary<Department, StationBlockData> departmentData = new();
+
+    public StationData()
+    {
+        maxCrew = new ReactiveProperty<int>(5);
+        crewMood = new ReactiveProperty<float>(1000f);
+    }
 
     public bool IsUnlocked(Department dept)
     {
@@ -55,25 +64,39 @@ public class StationData
         if (departmentData.TryGetValue(dept, out var data))
             data.CurrentCrewHired = crewCount;
     }
-    
+
     public Dictionary<string, object> ToDictionary()
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
+        dict["maxCrew"] = maxCrew.Value;
+        dict["crewMood"] = crewMood.Value;
+
+        Dictionary<string, object> departmentDict = new Dictionary<string, object>();
         foreach (var pair in departmentData)
         {
-            dict[pair.Key.ToString()] = JsonUtility.ToJson(pair.Value);
+            departmentDict[pair.Key.ToString()] = JsonUtility.ToJson(pair.Value);
         }
+        dict["departmentData"] = departmentDict;
+
         return dict;
     }
 
     public static StationData FromDictionary(Dictionary<string, object> dict)
     {
         StationData stationData = new StationData();
-        foreach (var pair in dict)
+        if (dict.TryGetValue("maxCrew", out object maxCrew))
+            stationData.maxCrew.Value = Convert.ToInt32(maxCrew);
+        if (dict.TryGetValue("crewMood", out object crewMood))
+            stationData.crewMood.Value = Convert.ToSingle(crewMood);
+
+        if (dict.TryGetValue("departmentData", out object departmentDataObj) && departmentDataObj is Dictionary<string, object> departmentDict)
         {
-            if (Enum.TryParse(pair.Key, out Department department))
+            foreach (var pair in departmentDict)
             {
-                stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(pair.Value.ToString());
+                if (Enum.TryParse(pair.Key, out Department department))
+                {
+                    stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(pair.Value.ToString());
+                }
             }
         }
         return stationData;
