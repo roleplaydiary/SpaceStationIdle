@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
         await ServiceLocator.Get<CloudController>().Autentication();
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
+        ServiceLocator.Get<DebugUIController>().DebugUIInitialize();
         loadingImage.SetActive(false);
     }
 

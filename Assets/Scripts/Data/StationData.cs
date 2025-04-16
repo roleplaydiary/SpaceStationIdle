@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class StationData
 {
     public Dictionary<Department, StationBlockData> departmentData = new();

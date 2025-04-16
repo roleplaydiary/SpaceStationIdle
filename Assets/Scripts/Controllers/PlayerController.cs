@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UniRx;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     [SerializeField] private List<Resources> resources;
-    
+
     private void Awake()
     {
         ServiceLocator.Register(this);
@@ -22,19 +23,30 @@ public class PlayerController : MonoBehaviour
         var loadData = await LoadPlayerData();
         if (loadData == null)
         {
-            loadData = new PlayerData
-            {
-                crewMood = 1000,
-                maxCrew = 1,
-                playerCredits = 100
-            };
+            loadData = new PlayerData(); // Используем конструктор для инициализации ReactiveProperty
+            loadData.crewMood.Value = 1000;
+            loadData.maxCrew.Value = 1;
+            loadData.playerCredits.Value = 100;
         }
         playerData = loadData;
+
+        // Пример подписки на изменения playerCredits
+        playerData.playerCredits.Subscribe(credits =>
+        {
+            Debug.Log($"Player Credits изменились на: {credits}");
+            // Здесь вы можете вызвать другие методы или обновить UI
+        }).AddTo(this); // AddTo(this) для автоматической отписки при уничтожении объекта
     }
 
     private async Task<PlayerData> LoadPlayerData()
     {
         var loadData = await ServiceLocator.Get<CloudController>().LoadPlayerData();
         return loadData;
+    }
+
+    // Пример изменения значения Player Credits извне
+    public void AddCredits(int amount)
+    {
+        playerData.playerCredits.Value += amount;
     }
 }
