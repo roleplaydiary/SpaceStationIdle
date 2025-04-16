@@ -17,11 +17,13 @@ public class CharacterController : MonoBehaviour
 
     public void GoToRest(Vector3 restPosition)
     {
-        //stateMachine.SetState(new RestState(stateMachine));
+        // stateMachine.SetState(new RestState(stateMachine));
+        transform.position = restPosition;
     }
 
     public void GotoIdle(Vector3 idlePosition)
     {
-        //stateMachine.SetState(new IdleState(stateMachine));
+        stateMachine.SetState(new IdleState(stateMachine));
+        transform.position = idlePosition;
     }
 }

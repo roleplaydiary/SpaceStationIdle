@@ -68,22 +68,6 @@ public class DebugUIController : MonoBehaviour
         {
             bridgeCrewAtIdleText.text = $"Crew at idle: {i}";
         }).AddTo(this);
-        
-        
-
-        // Вам нужно будет получить доступ к данным о экипаже мостика из StationController или другого места,
-        // где эта информация хранится и сделать аналогичную подписку, если эти данные реактивны.
-        // Пример (предполагая, что в StationController есть ReactiveProperty для экипажа мостика):
-        var stationController = ServiceLocator.Get<StationController>();
-        if (stationController != null)
-        {
-            // Пример подписки (предполагается наличие реактивных свойств в StationController)
-            // stationController.BridgeCrewAtWork.Subscribe(count => bridgeCrewAtWorkText.text = $"Bridge Work: {count}").AddTo(this);
-            // stationController.BridgeCrewAtRest.Subscribe(count => bridgeCrewAtRestText.text = $"Bridge Rest: {count}").AddTo(this);
-            // stationController.BridgeCrewAtIdle.Subscribe(count => bridgeCrewAtIdleText.text = $"Bridge Idle: {count}").AddTo(this);
-        }
-        
-        stationController = ServiceLocator.Get<StationController>();
     }
 
     // Метод OnDestroy для очистки подписок (хотя AddTo(this) должен это делать)

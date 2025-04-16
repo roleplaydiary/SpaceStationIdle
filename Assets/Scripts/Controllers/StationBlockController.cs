@@ -5,8 +5,9 @@ using UnityEngine;
 public class StationBlockController : MonoBehaviour
 {
     [SerializeField] protected List<WorkBenchController> workBenches;
+    [SerializeField] protected List<Transform> idlePositionList;
     [SerializeField] protected StationBlockDataSO stationBlockDataSo;
-    protected List<GameObject> crewMembers = new List<GameObject>();
+    protected List<CharacterController> crewMembers = new List<CharacterController>(); //Персонал в отделе
     public Department GetBlockType() {return stationBlockDataSo.BlockType;}
     
     protected StationBlockData blockData;
