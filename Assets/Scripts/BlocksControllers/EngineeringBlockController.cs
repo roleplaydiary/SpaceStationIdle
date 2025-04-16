@@ -183,7 +183,6 @@ public class EngineeringBlockController : StationBlockController
             }
         }
 
-        // Получаем WorkBenchController для рабочих станций (альтернативный способ)
         if (workBenchesParent != null)
         {
             for (int i = 0; i < workBenchesParent.childCount; i++)
@@ -194,11 +193,6 @@ public class EngineeringBlockController : StationBlockController
                     workBenchesList.Add(workBenchController);
                 }
             }
-            Debug.Log($"Found {workBenchesList.Count} WorkBenchController components using direct child access.");
         }
-
-        // Теперь вы можете использовать idlePositionList (список Transform)
-        // и workBenchesList (список WorkBenchController)
-        Debug.Log($"Found {idlePositionList.Count} idle positions.");
     }
 }
