@@ -2538,10 +2538,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creditsText: {fileID: 941164890}
   currentCrewText: {fileID: 583732489}
+  currentMoodText: {fileID: 2094969892}
   maxCrewText: {fileID: 404429401}
   bridgeCrewAtWorkText: {fileID: 1420433077}
   bridgeCrewAtRestText: {fileID: 1130815372}
   bridgeCrewAtIdleText: {fileID: 797689195}
+  bridge: {fileID: 6987324142835076380}
 --- !u!1 &1669338418
 GameObject:
   m_ObjectHideFlags: 0
