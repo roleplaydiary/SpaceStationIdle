@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DepartmentMenuViewer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject content;
+    [SerializeField] private DepartmentInfoPanelViewer departmentInfoPanelViewer;
+    [SerializeField] private CrewAssignmentPanelController crewAssignmentPanelController;
+    private void Awake()
     {
-        
+        ServiceLocator.Register(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Show(Department department)
     {
-        
+        content.SetActive(true);
+        Initialize(department);
+    }
+
+    public void Hide()
+    {
+        content.SetActive(false);
+    }
+    
+    private void Initialize(Department department)
+    {
+        departmentInfoPanelViewer.Initialization(department);
     }
 }

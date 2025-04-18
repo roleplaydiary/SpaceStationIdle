@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 498807225}
   - component: {fileID: 498807224}
   - component: {fileID: 498807223}
+  - component: {fileID: 498807226}
   m_Layer: 5
   m_Name: EngineeringMenuButton
   m_TagString: Untagged
@@ -485,7 +486,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 498807224}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 498807226}
+        m_TargetAssemblyTypeName: DepartmentMenuButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &498807224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +537,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498807221}
   m_CullTransparentMesh: 1
+--- !u!114 &498807226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498807221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8815b5e50de40cf4b99ec808c19cc118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  department: 2
+  departmentMenuViewer: {fileID: 3736223406754082529}
 --- !u!1 &545336134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1056,7 @@ GameObject:
   - component: {fileID: 1654908274}
   - component: {fileID: 1654908273}
   - component: {fileID: 1654908272}
+  - component: {fileID: 1654908275}
   m_Layer: 5
   m_Name: BridgeMenuButton
   m_TagString: Untagged
@@ -1099,7 +1127,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1654908273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1654908275}
+        m_TargetAssemblyTypeName: DepartmentMenuButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1654908273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1178,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1654908270}
   m_CullTransparentMesh: 1
+--- !u!114 &1654908275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654908270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8815b5e50de40cf4b99ec808c19cc118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  department: 0
+  departmentMenuViewer: {fileID: 3736223406754082529}
 --- !u!1 &1669338418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,42 +1838,42 @@ PrefabInstance:
     - target: {fileID: 2753300519604394648, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2753300519604394648, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2753300519604394648, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 723.0812
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2753300519604394648, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -217.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3391332796728177374, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3391332796728177374, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3391332796728177374, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 183.08115
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3391332796728177374, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -217.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854028266400298953, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
@@ -1929,13 +1983,25 @@ PrefabInstance:
     - target: {fileID: 8947992781085928375, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}
+--- !u!114 &3736223406754082529 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 656794916911412191, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
+    type: 3}
+  m_PrefabInstance: {fileID: 3736223406754082528}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d9ea1e11e3ed845b70b76545026ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6987324142835076378
 PrefabInstance:
   m_ObjectHideFlags: 0

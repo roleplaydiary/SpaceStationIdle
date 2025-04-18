@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().playerCredits.Subscribe(credits =>
             {
-                creditsText.text = $"Credits: {credits}";
+                creditsText.text = $"Credits: {Math.Round(credits)}";
             }).AddTo(this);
         }
         
