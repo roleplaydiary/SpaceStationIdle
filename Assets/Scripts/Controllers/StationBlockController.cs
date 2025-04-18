@@ -17,10 +17,11 @@ public class StationBlockController : MonoBehaviour
     public ReactiveProperty<int> crewAtRest { get; protected set; }
     public ReactiveProperty<int> crewAtIdle { get; protected set; }
 
-    protected List<CharacterController> workingCrew = new List<CharacterController>();
-    protected List<CharacterController> restingCrew = new List<CharacterController>();
-    protected List<CharacterController> idleCrew = new List<CharacterController>();
-    protected List<CharacterController> allCrewMembers = new List<CharacterController>();
+    protected ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
+    protected ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
+    protected ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
+    protected ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
+
 
     protected List<Transform> idlePositionList = new List<Transform>();
     protected List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
@@ -35,12 +36,12 @@ public class StationBlockController : MonoBehaviour
         crewAtIdle = new ReactiveProperty<int>(0);
 
         blockData = _blockData;
-        
+
         InitializeLists();
         BenchesInitialization();
         CrewInitialization();
         RestoreCrewAssignment();
-        
+
         crewAtWork.Subscribe(_crewAtWork =>
         {
             blockData.CrewAtWork = _crewAtWork;
@@ -145,6 +146,7 @@ public class StationBlockController : MonoBehaviour
         }
 
         UpdateCrewCounts();
+        OnCrewDistributed(); // Вызываем виртуальный метод после распределения
     }
 
     private async void SaveBlockData()
@@ -196,6 +198,7 @@ public class StationBlockController : MonoBehaviour
             idleCrew.Add(member);
         }
         UpdateCrewCounts();
+        OnCrewDistributed(); // Вызываем виртуальный метод после распределения
     }
 
     protected virtual Vector3 GetAvailableRestPosition()
@@ -282,6 +285,7 @@ public class StationBlockController : MonoBehaviour
         }
 
         UpdateCrewCounts();
+        OnCrewDistributed(); // Вызываем виртуальный метод после восстановления назначения
     }
 
     public virtual void HireNewCrewMember()
@@ -350,5 +354,10 @@ public class StationBlockController : MonoBehaviour
         blockData.MaxCrewUnlocked ++;
         SaveBlockData();
         Debug.Log($"Максимальное количество экипажа в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.MaxCrewUnlocked}");
+    }
+
+    protected virtual void OnCrewDistributed()
+    {
+        // Виртуальный метод, который дочерние классы могут переопределить
     }
 }

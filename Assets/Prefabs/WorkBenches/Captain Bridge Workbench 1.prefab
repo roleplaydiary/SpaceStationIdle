@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workPosition: {fileID: 4858000620178942912}
+  producedResource: 1
+  productionRate: 1
 --- !u!1 &3652801998640143632
 GameObject:
   m_ObjectHideFlags: 0

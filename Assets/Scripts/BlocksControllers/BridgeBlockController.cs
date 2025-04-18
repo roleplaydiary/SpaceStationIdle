@@ -6,6 +6,62 @@ using System.Linq;
 public class BridgeBlockController : StationBlockController
 {
     // Здесь остаются только специфичные для мостика поля и методы
+    private float creditsAccumulated = 0f;
+    private float lastResourceUpdateTime = 0f;
+    private const float RESOURCE_UPDATE_INTERVAL = 1f; // Обновление каждую секунду
+    
+    private PlayerData playerData;
+    private PlayerController playerController;
+    
+    private void Start()
+    {
+        playerController = ServiceLocator.Get<PlayerController>(); // Получаем PlayerController
+        if (playerController == null)
+        {
+            Debug.LogError("PlayerController не найден в ServiceLocator!");
+            return;
+        }
+        playerData = playerController.PlayerData; // Получаем ссылку на PlayerData через контроллер
+        if (playerData == null)
+        {
+            Debug.LogError("PlayerData не найден через PlayerController!");
+            return;
+        }
+    }
+    
+    private void Update()
+    {
+        if (Time.time - lastResourceUpdateTime >= RESOURCE_UPDATE_INTERVAL)
+        {
+            lastResourceUpdateTime = Time.time;
+            ProduceCredits();
+        }
+    }
+    
+    private void ProduceCredits()
+    {
+        float creditsThisFrame = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+
+        if (playerData != null)
+        {
+            for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
+            {
+                if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
+                {
+                    creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
+                }
+            }
+
+            if (creditsThisFrame > 0)
+            {
+                // Обновляем значение кредитов в *том же самом* экземпляре PlayerData
+                playerController.PlayerData.playerCredits.Value += Mathf.RoundToInt(creditsThisFrame);
+                // Здесь можно вызвать событие обновления UI кредитов
+            }
+        }
+    }
 
     public override void BlockInitialization(StationBlockData _blockData)
     {

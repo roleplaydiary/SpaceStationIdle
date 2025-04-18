@@ -5,6 +5,7 @@ using UniRx;
 public class DebugUIController : MonoBehaviour
 {
     [SerializeField] private TMP_Text creditsText;
+    [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text currentCrewText;
     [SerializeField] private TMP_Text currentMoodText;
     [SerializeField] private TMP_Text maxCrewText;
@@ -15,7 +16,7 @@ public class DebugUIController : MonoBehaviour
     [SerializeField] private BridgeBlockController bridge;
 
     private PlayerController playerController;
-    private StationController stationController;
+    private StationData stationData;
 
     private void Awake()
     {
@@ -41,17 +42,22 @@ public class DebugUIController : MonoBehaviour
             }).AddTo(this);
         }
 
-        stationController = ServiceLocator.Get<StationController>();
-        if (stationController != null)
+        stationData = ServiceLocator.Get<StationController>().StationData;
+        if (stationData != null)
         {
-            stationController.StationData.crewMood.Subscribe(mood =>
+            stationData.crewMood.Subscribe(mood =>
             {
                 currentMoodText.text = $"Crew mood: {mood}";
             }).AddTo(this);
             
-            stationController.StationData.maxCrew.Subscribe(max =>
+            stationData.maxCrew.Subscribe(max =>
             {
                 maxCrewText.text = $"Max Crew: {max}";
+            }).AddTo(this);
+            
+            stationData.stationEnergy.Subscribe(energy =>
+            {
+                energyText.text = $"Energy: {energy}";
             }).AddTo(this);
         }
 

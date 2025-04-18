@@ -5,12 +5,12 @@ using UniRx;
 [Serializable]
 public class PlayerData
 {
-    public ReactiveProperty<int> playerCredits { get; private set; }
+    public ReactiveProperty<float> playerCredits { get; private set; }
 
     // Конструктор для инициализации ReactiveProperty
     public PlayerData()
     {
-        playerCredits = new ReactiveProperty<int>();
+        playerCredits = new ReactiveProperty<float>();
     }
 
     public Dictionary<string, object> ToDictionary()
@@ -25,7 +25,7 @@ public class PlayerData
     {
         PlayerData playerData = new PlayerData();
         if (dict.TryGetValue("playerCredits", out object credits))
-            playerData.playerCredits.Value = Convert.ToInt32(credits);
+            playerData.playerCredits.Value = Convert.ToSingle(credits);
         return playerData;
     }
 }
