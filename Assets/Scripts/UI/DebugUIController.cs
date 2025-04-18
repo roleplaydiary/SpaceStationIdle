@@ -42,39 +42,39 @@ public class DebugUIController : MonoBehaviour
             }).AddTo(this);
         }
 
-        stationData = ServiceLocator.Get<StationController>().StationData;
-        if (stationData != null)
-        {
-            stationData.crewMood.Subscribe(mood =>
-            {
-                currentMoodText.text = $"Crew mood: {mood}";
-            }).AddTo(this);
-            
-            stationData.maxCrew.Subscribe(max =>
-            {
-                maxCrewText.text = $"Max Crew: {max}";
-            }).AddTo(this);
-            
-            stationData.stationEnergy.Subscribe(energy =>
-            {
-                energyText.text = $"Energy: {energy}";
-            }).AddTo(this);
-        }
+        // stationData = ServiceLocator.Get<StationController>().StationData;
+        // if (stationData != null)
+        // {
+        //     stationData.crewMood.Subscribe(mood =>
+        //     {
+        //         currentMoodText.text = $"Crew mood: {mood}";
+        //     }).AddTo(this);
+        //     
+        //     stationData.maxCrew.Subscribe(max =>
+        //     {
+        //         maxCrewText.text = $"Max Crew: {max}";
+        //     }).AddTo(this);
+        //     
+        //     stationData.stationEnergy.Subscribe(energy =>
+        //     {
+        //         energyText.text = $"Energy: {energy}";
+        //     }).AddTo(this);
+        // }
 
-        bridge.crewAtWork.Subscribe(i =>
-        {
-            bridgeCrewAtWorkText.text = $"Crew at work: {i}";
-        }).AddTo(this);
-        
-        bridge.crewAtRest.Subscribe(i =>
-        {
-            bridgeCrewAtRestText.text = $"Crew at rest: {i}";
-        }).AddTo(this);
-        
-        bridge.crewAtIdle.Subscribe(i =>
-        {
-            bridgeCrewAtIdleText.text = $"Crew at idle: {i}";
-        }).AddTo(this);
+        // bridge.crewAtWork.Subscribe(i =>
+        // {
+        //     bridgeCrewAtWorkText.text = $"Crew at work: {i}";
+        // }).AddTo(this);
+        //
+        // bridge.crewAtRest.Subscribe(i =>
+        // {
+        //     bridgeCrewAtRestText.text = $"Crew at rest: {i}";
+        // }).AddTo(this);
+        //
+        // bridge.crewAtIdle.Subscribe(i =>
+        // {
+        //     bridgeCrewAtIdleText.text = $"Crew at idle: {i}";
+        // }).AddTo(this);
     }
 
     // Метод OnDestroy для очистки подписок (хотя AddTo(this) должен это делать)
