@@ -12,6 +12,7 @@ public class BridgeBlockController : StationBlockController
     private List<CharacterController> workingCrew = new List<CharacterController>();
     private List<CharacterController> restingCrew = new List<CharacterController>();
     private List<CharacterController> idleCrew = new List<CharacterController>();
+    private List<CharacterController> crewMembers = new List<CharacterController>();
     private List<CharacterController> allCrewMembers = new List<CharacterController>();
     
     private List<Transform> idlePositionList = new List<Transform>();
@@ -28,7 +29,8 @@ public class BridgeBlockController : StationBlockController
         blockData = _blockData;
         BenchesInitialization();
         CrewInitialization();
-        DistributeCrewToIdle(); // Изначально весь экипаж отправляем в Idle
+        // DistributeCrewToIdle(); // Изначально весь экипаж отправляем в Idle - теперь это делает RestoreCrewAssignment, если нужно
+        RestoreCrewAssignment(); // Распределяем экипаж на основе сохраненных данных
     }
 
     protected override void BenchesInitialization()
@@ -51,8 +53,11 @@ public class BridgeBlockController : StationBlockController
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
             var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
-            crewMembers.Add(newCrewMember.GetComponent<CharacterController>());
+            CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
+            crewMembers.Add(crewController);
+            allCrewMembers.Add(crewController);
         }
+        RestoreCrewAssignment(); // Распределяем экипаж после создания
     }
     
     private void HireNewCrewMemberInternal()
@@ -105,6 +110,7 @@ public class BridgeBlockController : StationBlockController
             {
                 crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
                 workingCrew.Add(crewMembers[i]);
+                
             }
             else if (workingCrew.Count < targetCrewAtWork) // Если не хватает верстаков, остальных в Idle
             {
@@ -115,6 +121,7 @@ public class BridgeBlockController : StationBlockController
                 }
             }
         }
+        blockData.CrewAtWork = workingCrew.Count;
 
         // Распределяем отдыхающих (начиная с тех, кто не работает)
         int restedCount = 0;
@@ -127,6 +134,7 @@ public class BridgeBlockController : StationBlockController
                 restedCount++;
             }
         }
+        blockData.CrewAtRest = restingCrew.Count;
 
         // Оставшихся отправляем в Idle
         foreach (var member in crewMembers)
@@ -196,6 +204,53 @@ public class BridgeBlockController : StationBlockController
             return idlePositionList[idleCrew.Count].position;
         }
         return transform.position; // В качестве запасного варианта
+    }
+    
+    private void RestoreCrewAssignment()
+    {
+        ClearCrewLists();
+
+        // Отправляем на работу столько членов экипажа, сколько было сохранено
+        for (int i = 0; i < Mathf.Min(blockData.CrewAtWork, crewMembers.Count); i++)
+        {
+            if (i < workBenchesList.Count && workBenchesList[i] != null)
+            {
+                crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
+                workingCrew.Add(crewMembers[i]);
+            }
+            else // Если рабочих мест меньше, чем сохраненное количество рабочих, отправляем в Idle
+            {
+                if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
+                {
+                    crewMembers[i].GotoIdle(GetAvailableIdlePosition());
+                    idleCrew.Add(crewMembers[i]);
+                }
+            }
+        }
+
+        // Отправляем отдыхать столько членов экипажа, сколько было сохранено (из тех, кто еще не работает)
+        int restedCount = 0;
+        for (int i = 0; i < crewMembers.Count && restedCount < blockData.CrewAtRest; i++)
+        {
+            if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
+            {
+                crewMembers[i].GoToRest(GetAvailableRestPosition());
+                restingCrew.Add(crewMembers[i]);
+                restedCount++;
+            }
+        }
+
+        // Оставшихся отправляем в Idle
+        foreach (var member in crewMembers)
+        {
+            if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
+            {
+                member.GotoIdle(GetAvailableIdlePosition());
+                idleCrew.Add(member);
+            }
+        }
+
+        UpdateCrewCounts();
     }
     
     private void InitializeLists()
