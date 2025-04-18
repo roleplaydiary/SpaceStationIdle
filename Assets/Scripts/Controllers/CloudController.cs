@@ -12,7 +12,7 @@ public class CloudController : MonoBehaviour
     {
         ServiceLocator.Register(this);
     }
-    
+
     public async Task Autentication()
     {
         try
@@ -21,23 +21,23 @@ public class CloudController : MonoBehaviour
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
             Debug.Log("Аутентификация прошла успешно.");
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError("Authentication failed: " + e);
         }
     }
-    
+
     public async Task SavePlayerData(PlayerData playerData)
     {
         try
         {
             Dictionary<string, object> playerDataDict = playerData.ToDictionary();
             await CloudSaveService.Instance.Data.Player.SaveAsync(new Dictionary<string, object> { { "player_data", playerDataDict } });
-            Debug.Log("Данные игрока успешно сохранены в Cloud Save.");
+            Debug.Log("Данные игрока (кредиты) успешно сохранены в Cloud Save.");
         }
         catch (CloudSaveException e)
         {
-            Debug.LogError($"Ошибка сохранения данных игрока: {e.Message}");
+            Debug.LogError($"Ошибка сохранения данных игрока (кредиты): {e.Message}");
         }
     }
 
@@ -48,14 +48,14 @@ public class CloudController : MonoBehaviour
             var playerDataItems = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "player_data" });
             if (playerDataItems != null && playerDataItems.TryGetValue("player_data", out var playerDataItem))
             {
-                Dictionary<string, object> playerDataDict = (Dictionary<string, object>)playerDataItem.Value.GetAs<Dictionary<string, object>>();
+                Dictionary<string, object> playerDataDict = playerDataItem.Value.GetAs<Dictionary<string, object>>();
                 return PlayerData.FromDictionary(playerDataDict);
             }
             return null;
         }
         catch (CloudSaveException e)
         {
-            Debug.LogError($"Ошибка загрузки данных игрока: {e.Message}");
+            Debug.LogError($"Ошибка загрузки данных игрока (кредиты): {e.Message}");
             return null;
         }
     }
@@ -64,21 +64,10 @@ public class CloudController : MonoBehaviour
     {
         try
         {
-            HashSet<string> keysToLoad = new HashSet<string>();
-            foreach (Department department in Enum.GetValues(typeof(Department)))
-            {
-                keysToLoad.Add(department.ToString());
-            }
-
-            var stationDataItems = await CloudSaveService.Instance.Data.Player.LoadAsync(keysToLoad);
+            var stationDataItems = await CloudSaveService.Instance.Data.Player.LoadAllAsync();
             if (stationDataItems != null)
             {
-                Dictionary<string, object> stationDataDict = new Dictionary<string, object>();
-                foreach (var pair in stationDataItems)
-                {
-                    stationDataDict[pair.Key] = pair.Value.Value.GetAsString();
-                }
-                return StationData.FromDictionary(stationDataDict);
+                return StationData.FromDictionary(stationDataItems); // Передаем Dictionary<string, Item>
             }
             return null;
         }
@@ -88,6 +77,7 @@ public class CloudController : MonoBehaviour
             return null;
         }
     }
+
 
     public async Task SaveStationData(StationData stationData)
     {
@@ -102,7 +92,7 @@ public class CloudController : MonoBehaviour
             Debug.LogError($"Ошибка сохранения данных станции: {e.Message}");
         }
     }
-    
+
     public async Task SaveResources(Resources resources)
     {
         try

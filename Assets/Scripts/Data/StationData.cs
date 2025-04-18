@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
+using Unity.Services.CloudSave.Models;
 
 [Serializable]
 public class StationData
@@ -12,8 +13,8 @@ public class StationData
 
     public StationData()
     {
-        maxCrew = new ReactiveProperty<int>(5);
-        crewMood = new ReactiveProperty<float>(1000f);
+        maxCrew = new ReactiveProperty<int>(5); // Дефолтное значение
+        crewMood = new ReactiveProperty<float>(1000f); // Дефолтное значение
     }
 
     public bool IsUnlocked(Department dept)
@@ -68,37 +69,63 @@ public class StationData
     public Dictionary<string, object> ToDictionary()
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
-        dict["maxCrew"] = maxCrew.Value;
-        dict["crewMood"] = crewMood.Value;
+        dict["maxCrew"] = maxCrew.Value; // int
+        dict["crewMood"] = crewMood.Value; // float
 
-        Dictionary<string, object> departmentDict = new Dictionary<string, object>();
         foreach (var pair in departmentData)
         {
-            departmentDict[pair.Key.ToString()] = JsonUtility.ToJson(pair.Value);
+            string json = JsonUtility.ToJson(pair.Value);
+            dict[$"department_{pair.Key}"] = json;
+            Debug.Log($"Сериализован department_{pair.Key}: {json}");
         }
-        dict["departmentData"] = departmentDict;
 
         return dict;
     }
 
-    public static StationData FromDictionary(Dictionary<string, object> dict)
+    public static StationData FromDictionary(Dictionary<string, Item> dict) // Принимаем Dictionary<string, Item>
     {
         StationData stationData = new StationData();
-        if (dict.TryGetValue("maxCrew", out object maxCrew))
-            stationData.maxCrew.Value = Convert.ToInt32(maxCrew);
-        if (dict.TryGetValue("crewMood", out object crewMood))
-            stationData.crewMood.Value = Convert.ToSingle(crewMood);
 
-        if (dict.TryGetValue("departmentData", out object departmentDataObj) && departmentDataObj is Dictionary<string, object> departmentDict)
+        if (dict.TryGetValue("maxCrew", out Item maxCrewItem))
         {
-            foreach (var pair in departmentDict)
+            stationData.maxCrew.Value = maxCrewItem.Value.GetAs<int>();
+        }
+        else
+        {
+            stationData.maxCrew.Value = 5;
+        }
+
+        if (dict.TryGetValue("crewMood", out Item crewMoodItem))
+        {
+            stationData.crewMood.Value = crewMoodItem.Value.GetAs<float>();
+        }
+        else
+        {
+            stationData.crewMood.Value = 1000f;
+        }
+
+        foreach (var pair in dict)
+        {
+            if (pair.Key.StartsWith("department_") && Enum.TryParse<Department>(pair.Key.Substring("department_".Length), out var department))
             {
-                if (Enum.TryParse(pair.Key, out Department department))
+                if (pair.Value is Item departmentItem)
                 {
-                    stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(pair.Value.ToString());
+                    try
+                    {
+                        stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError($"Ошибка при десериализации отдела {department}: {e.Message}, JSON: {departmentItem.Value.GetAsString()}");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Значение для ключа '{pair.Key}' не является Item.");
                 }
             }
         }
+
         return stationData;
     }
 }
