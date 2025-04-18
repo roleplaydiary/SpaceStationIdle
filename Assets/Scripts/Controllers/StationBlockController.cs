@@ -35,10 +35,21 @@ public class StationBlockController : MonoBehaviour
         crewAtIdle = new ReactiveProperty<int>(0);
 
         blockData = _blockData;
+        
         InitializeLists();
         BenchesInitialization();
         CrewInitialization();
         RestoreCrewAssignment();
+        
+        crewAtWork.Subscribe(_crewAtWork =>
+        {
+            blockData.CrewAtWork = _crewAtWork;
+        }).AddTo(this);
+
+        crewAtRest.Subscribe(_crewAtRest =>
+        {
+            blockData.CrewAtRest = _crewAtRest;
+        }).AddTo(this);
     }
 
     protected virtual void BenchesInitialization()
@@ -110,7 +121,6 @@ public class StationBlockController : MonoBehaviour
                 }
             }
         }
-        blockData.CrewAtWork = workingCrew.Count;
 
         // Распределяем отдыхающих (начиная с тех, кто не работает)
         int restedCount = 0;
@@ -123,7 +133,6 @@ public class StationBlockController : MonoBehaviour
                 restedCount++;
             }
         }
-        blockData.CrewAtRest = restingCrew.Count;
 
         // Оставшихся отправляем в Idle
         foreach (var member in crewMembers)
@@ -138,11 +147,28 @@ public class StationBlockController : MonoBehaviour
         UpdateCrewCounts();
     }
 
+    private async void SaveBlockData()
+    {
+        StationController stationController = ServiceLocator.Get<StationController>();
+        if (stationController != null)
+        {
+            // Получаем тип департамента текущего блока
+            Department currentDepartment = GetBlockType();
+            // Сохраняем данные департамента
+            await ServiceLocator.Get<CloudController>().SaveDepartmentData(blockData, currentDepartment);
+        }
+        else
+        {
+            Debug.LogError("StationController не найден в ServiceLocator!");
+        }
+    }
+
     public void SendCrewToWork(int crewCount)
     {
         targetCrewAtWork = Mathf.Clamp(crewCount, 0, blockData.CurrentCrewHired);
         targetCrewAtRest = Mathf.Clamp(targetCrewAtRest, 0, blockData.CurrentCrewHired - targetCrewAtWork);
         DistributeCrew();
+        SaveBlockData();
     }
 
     public void SendCrewToRest(int crewCount)
@@ -150,6 +176,7 @@ public class StationBlockController : MonoBehaviour
         targetCrewAtRest = Mathf.Clamp(crewCount, 0, blockData.CurrentCrewHired);
         targetCrewAtWork = Mathf.Clamp(targetCrewAtWork, 0, blockData.CurrentCrewHired - targetCrewAtRest);
         DistributeCrew();
+        SaveBlockData();
     }
 
     public void SendAllCrewToIdle()
@@ -157,6 +184,7 @@ public class StationBlockController : MonoBehaviour
         targetCrewAtWork = 0;
         targetCrewAtRest = 0;
         DistributeCrewToIdle();
+        SaveBlockData();
     }
 
     protected void DistributeCrewToIdle()

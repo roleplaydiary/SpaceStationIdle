@@ -66,6 +66,47 @@ public class StationData
             data.CurrentCrewHired = crewCount;
     }
 
+    // Метод для сериализации данных одного департамента в словарь
+    public Dictionary<string, object> SerializeDepartment(Department dept)
+    {
+        Dictionary<string, object> dict = new Dictionary<string, object>();
+        if (departmentData.TryGetValue(dept, out var data))
+        {
+            string json = JsonUtility.ToJson(data);
+            dict[$"department_{dept}"] = json;
+            Debug.Log($"Сериализован department_{dept}: {json}");
+        }
+        return dict;
+    }
+
+    // Статический метод для десериализации данных одного департамента из Item
+    public static bool TryDeserializeDepartment(Dictionary<string, Item> dict, Department dept, StationData stationData)
+    {
+        if (dict.TryGetValue($"department_{dept}", out Item departmentItem))
+        {
+            if (departmentItem != null)
+            {
+                try
+                {
+                    stationData.departmentData[dept] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
+                    Debug.Log($"Успешно десериализован отдел: {dept}, JSON: {departmentItem.Value.GetAsString()}");
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Ошибка при десериализации отдела {dept}: {e.Message}, JSON: {departmentItem.Value.GetAsString()}");
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Значение для ключа 'department_{dept}' является null Item.");
+                return false;
+            }
+        }
+        return false;
+    }
+
     public Dictionary<string, object> ToDictionary()
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();

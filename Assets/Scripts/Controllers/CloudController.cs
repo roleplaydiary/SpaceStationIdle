@@ -93,6 +93,23 @@ public class CloudController : MonoBehaviour
         }
     }
 
+    // Метод для сохранения данных отдельного департамента
+    public async Task SaveDepartmentData(StationBlockData departmentData, Department department)
+    {
+        try
+        {
+            Dictionary<string, object> dataToSave = new Dictionary<string, object>();
+            string json = JsonUtility.ToJson(departmentData);
+            dataToSave[$"department_{department}"] = json;
+            await CloudSaveService.Instance.Data.Player.SaveAsync(dataToSave);
+            Debug.Log($"Данные департамента {department} успешно сохранены в Cloud Save.");
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка сохранения данных департамента {department}: {e.Message}");
+        }
+    }
+
     public async Task SaveResources(Resources resources)
     {
         try
