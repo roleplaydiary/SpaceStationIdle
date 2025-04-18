@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 
 public class StationController : MonoBehaviour
@@ -8,6 +9,7 @@ public class StationController : MonoBehaviour
     [SerializeField] private List<StationBlockController> stationBlocks;
     [SerializeField] private StationData stationData;
     public StationData StationData { get => stationData; }
+
     private void Awake()
     {
         ServiceLocator.Register(this);
@@ -28,7 +30,21 @@ public class StationController : MonoBehaviour
         }
 
         stationData = loadData; // Присваиваем загруженные данные stationData
-        BlocksInitialize(stationData);
+        BlocksInitialize(StationData);
+        SubscribeToEnergyChanges(); // Подписываемся на изменения энергии в блоках
+    }
+
+    private void SubscribeToEnergyChanges()
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.EnergyController != null)
+            {
+                block.EnergyController.currentEnergyProduction.Subscribe(_ => UpdateTotalStationEnergy()).AddTo(this);
+                block.EnergyController.currentEnergyConsumption.Subscribe(_ => UpdateTotalStationEnergy()).AddTo(this);
+            }
+        }
+        UpdateTotalStationEnergy(); // Начальный расчет
     }
 
     private void BlocksInitialize(StationData stationData)
@@ -46,6 +62,23 @@ public class StationController : MonoBehaviour
                 block.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void UpdateTotalStationEnergy()
+    {
+        float totalProduction = 0f;
+        float totalConsumption = 0f;
+
+        foreach (var block in stationBlocks)
+        {
+            if (block.EnergyController)
+            {
+                totalProduction += block.EnergyController.currentEnergyProduction.Value;
+                totalConsumption += block.EnergyController.currentEnergyConsumption.Value;
+            }
+        }
+
+        StationData.stationEnergy.Value = totalProduction - totalConsumption;
     }
 
     public void TestHireCrewMember()
@@ -74,17 +107,15 @@ public class StationController : MonoBehaviour
             return;
         }
 
-        // Находим соответствующий блок и просим его нанять нового члена экипажа
         foreach (var block in stationBlocks)
         {
             if (block.GetBlockType() == department)
             {
                 block.HireNewCrewMember();
-                break; // Предполагаем один контроллер на отдел
+                break;
             }
         }
 
-        // Сохраняем обновленные данные всей станции
         await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
         Debug.Log($"Запрос на найм сотрудника в отдел {department} выполнен.");
         Debug.Log($"Текущее количество сотрудников в отделе {department}: {stationData.departmentData[department].CurrentCrewHired}");
@@ -101,18 +132,16 @@ public class StationController : MonoBehaviour
         {
             stationData.Unlock(department);
 
-            // Find the corresponding StationBlockController and activate it
             foreach (var block in stationBlocks)
             {
                 if (block.GetBlockType() == department)
                 {
                     block.BlockInitialization(stationData.departmentData[department]);
                     block.gameObject.SetActive(true);
-                    break; // Assuming only one block per department
+                    break;
                 }
             }
 
-            // Save the updated station data
             await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
             Debug.Log($"Отдел {department} разблокирован и данные сохранены.");
         }
@@ -129,7 +158,7 @@ public class StationController : MonoBehaviour
             if (block.GetBlockType() == department)
             {
                 block.UpgradeMaxCrew();
-                break; // Предполагаем один контроллер на отдел
+                break;
             }
         }
     }
@@ -141,7 +170,7 @@ public class StationController : MonoBehaviour
             if (block.GetBlockType() == department)
             {
                 block.UnlockWorkBench();
-                break; // Предполагаем один контроллер на отдел
+                break;
             }
         }
     }

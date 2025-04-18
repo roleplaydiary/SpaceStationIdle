@@ -669,6 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7438614522564629740}
   - component: {fileID: 2267031465293931233}
+  - component: {fileID: 1483836913569515208}
   m_Layer: 0
   m_Name: RND
   m_TagString: Untagged
@@ -709,6 +710,19 @@ MonoBehaviour:
   workBenchesParent: {fileID: 1625549020712278724}
   idlePositionParent: {fileID: 5349969253539619891}
   stationBlockDataSo: {fileID: 11400000, guid: f66a967337f93374d9ff571c70d73c1e, type: 2}
+  workBenchesList: []
+--- !u!114 &1483836913569515208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317668103596171476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2693c92340df69419c75d705bcfb4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6888715151891387969
 GameObject:
   m_ObjectHideFlags: 0

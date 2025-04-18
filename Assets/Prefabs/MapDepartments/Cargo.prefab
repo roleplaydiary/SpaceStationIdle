@@ -596,6 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3872247795946222215}
   - component: {fileID: 1668929380139760014}
+  - component: {fileID: 4383110325263293456}
   m_Layer: 0
   m_Name: Cargo
   m_TagString: Untagged
@@ -636,6 +637,19 @@ MonoBehaviour:
   workBenchesParent: {fileID: 6541607968344334874}
   idlePositionParent: {fileID: 878404797171565076}
   stationBlockDataSo: {fileID: 11400000, guid: 2f82f0574c0693547b7ebcd5904e2bfb, type: 2}
+  workBenchesList: []
+--- !u!114 &4383110325263293456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804315754376222948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2693c92340df69419c75d705bcfb4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7673095033188176724
 GameObject:
   m_ObjectHideFlags: 0

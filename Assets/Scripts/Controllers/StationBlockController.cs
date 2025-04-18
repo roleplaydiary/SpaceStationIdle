@@ -8,7 +8,7 @@ public class StationBlockController : MonoBehaviour
     [SerializeField] protected Transform workBenchesParent;
     [SerializeField] protected Transform idlePositionParent;
     [SerializeField] protected StationBlockDataSO stationBlockDataSo;
-    protected List<CharacterController> crewMembers = new List<CharacterController>(); //Персонал в отделе
+    protected List<CharacterController> crewMembers = new List<CharacterController>();
     public Department GetBlockType() { return stationBlockDataSo.BlockType; }
 
     protected StationBlockData blockData;
@@ -17,17 +17,19 @@ public class StationBlockController : MonoBehaviour
     public ReactiveProperty<int> crewAtRest { get; protected set; }
     public ReactiveProperty<int> crewAtIdle { get; protected set; }
 
-    protected ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
-    protected ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
+    public ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>();
+    protected ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>();
     protected ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
-    protected ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>(); // Изменено на ReactiveCollection
-
+    protected ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>();
 
     protected List<Transform> idlePositionList = new List<Transform>();
-    protected List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
+    public List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
 
     protected int targetCrewAtWork = 0;
     protected int targetCrewAtRest = 0;
+
+    protected StationController stationController;
+    public DepartmentEnergyController EnergyController { get; private set; }
 
     public virtual void BlockInitialization(StationBlockData _blockData)
     {
@@ -36,15 +38,20 @@ public class StationBlockController : MonoBehaviour
         crewAtIdle = new ReactiveProperty<int>(0);
 
         blockData = _blockData;
+        stationController = ServiceLocator.Get<StationController>();
 
         InitializeLists();
         BenchesInitialization();
         CrewInitialization();
         RestoreCrewAssignment();
 
+        EnergyController = gameObject.GetComponent<DepartmentEnergyController>();
+        EnergyController.Initialize(this);
+
         crewAtWork.Subscribe(_crewAtWork =>
         {
             blockData.CrewAtWork = _crewAtWork;
+            // Теперь DepartmentEnergyController сам подпишется на workingCrew
         }).AddTo(this);
 
         crewAtRest.Subscribe(_crewAtRest =>
@@ -79,7 +86,6 @@ public class StationBlockController : MonoBehaviour
 
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
-            // Дочерние классы должны определить, как создавать членов экипажа
             var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
             CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
             crewMembers.Add(crewController);
@@ -105,7 +111,6 @@ public class StationBlockController : MonoBehaviour
     {
         ClearCrewLists();
 
-        // Распределяем работающих
         for (int i = 0; i < Mathf.Min(targetCrewAtWork, crewMembers.Count); i++)
         {
             if (i < workBenchesList.Count && workBenchesList[i] != null)
@@ -113,7 +118,7 @@ public class StationBlockController : MonoBehaviour
                 crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
                 workingCrew.Add(crewMembers[i]);
             }
-            else if (workingCrew.Count < targetCrewAtWork) // Если не хватает верстаков, остальных в Idle
+            else if (workingCrew.Count < targetCrewAtWork)
             {
                 if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
                 {
@@ -123,40 +128,35 @@ public class StationBlockController : MonoBehaviour
             }
         }
 
-        // Распределяем отдыхающих (начиная с тех, кто не работает)
         int restedCount = 0;
         for (int i = 0; i < crewMembers.Count && restedCount < targetCrewAtRest; i++)
         {
             if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
             {
-                crewMembers[i].GoToRest(GetAvailableRestPosition()); // Дочерние классы могут переопределить
+                crewMembers[i].GoToRest(GetAvailableRestPosition());
                 restingCrew.Add(crewMembers[i]);
                 restedCount++;
             }
         }
 
-        // Оставшихся отправляем в Idle
         foreach (var member in crewMembers)
         {
             if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
             {
-                member.GotoIdle(GetAvailableIdlePosition()); // Дочерние классы могут переопределить
+                member.GotoIdle(GetAvailableIdlePosition());
                 idleCrew.Add(member);
             }
         }
 
         UpdateCrewCounts();
-        OnCrewDistributed(); // Вызываем виртуальный метод после распределения
+        OnCrewDistributed();
     }
 
     private async void SaveBlockData()
     {
-        StationController stationController = ServiceLocator.Get<StationController>();
         if (stationController != null)
         {
-            // Получаем тип департамента текущего блока
             Department currentDepartment = GetBlockType();
-            // Сохраняем данные департамента
             await ServiceLocator.Get<CloudController>().SaveDepartmentData(blockData, currentDepartment);
         }
         else
@@ -194,16 +194,15 @@ public class StationBlockController : MonoBehaviour
         ClearCrewLists();
         foreach (var member in crewMembers)
         {
-            member.GotoIdle(GetAvailableIdlePosition()); // Дочерние классы могут переопределить
+            member.GotoIdle(GetAvailableIdlePosition());
             idleCrew.Add(member);
         }
         UpdateCrewCounts();
-        OnCrewDistributed(); // Вызываем виртуальный метод после распределения
+        OnCrewDistributed();
     }
 
     protected virtual Vector3 GetAvailableRestPosition()
     {
-        // Логика поиска свободной зоны отдыха (может быть переопределена)
         return Vector3.zero;
     }
 
@@ -213,12 +212,11 @@ public class StationBlockController : MonoBehaviour
         {
             return idlePositionList[idleCrew.Count].position;
         }
-        return transform.position; // В качестве запасного варианта
+        return transform.position;
     }
 
     protected virtual void InitializeLists()
     {
-        // Получаем Transform для позиций Idle
         if (idlePositionParent != null)
         {
             foreach (Transform position in idlePositionParent)
@@ -244,7 +242,6 @@ public class StationBlockController : MonoBehaviour
     {
         ClearCrewLists();
 
-        // Отправляем на работу столько членов экипажа, сколько было сохранено
         for (int i = 0; i < Mathf.Min(blockData.CrewAtWork, crewMembers.Count); i++)
         {
             if (i < workBenchesList.Count && workBenchesList[i] != null)
@@ -252,7 +249,7 @@ public class StationBlockController : MonoBehaviour
                 crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
                 workingCrew.Add(crewMembers[i]);
             }
-            else // Если рабочих мест меньше, чем сохраненное количество рабочих, отправляем в Idle
+            else
             {
                 if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
                 {
@@ -262,7 +259,6 @@ public class StationBlockController : MonoBehaviour
             }
         }
 
-        // Отправляем отдыхать столько членов экипажа, сколько было сохранено (из тех, кто еще не работает)
         int restedCount = 0;
         for (int i = 0; i < crewMembers.Count && restedCount < blockData.CrewAtRest; i++)
         {
@@ -274,7 +270,6 @@ public class StationBlockController : MonoBehaviour
             }
         }
 
-        // Оставшихся отправляем в Idle
         foreach (var member in crewMembers)
         {
             if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
@@ -285,33 +280,24 @@ public class StationBlockController : MonoBehaviour
         }
 
         UpdateCrewCounts();
-        OnCrewDistributed(); // Вызываем виртуальный метод после восстановления назначения
+        OnCrewDistributed();
     }
 
     public virtual void HireNewCrewMember()
     {
-        // Базовая реализация, дочерние классы могут переопределить
         if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
         {
-            // Создаем нового члена экипажа
             var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
             CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
 
             if (newCrewController != null)
             {
-                // Добавляем его в список всех членов экипажа
                 crewMembers.Add(newCrewController);
                 allCrewMembers.Add(newCrewController);
-
-                // Отправляем нового члена экипажа в Idle
                 newCrewController.GotoIdle(GetAvailableIdlePosition());
                 idleCrew.Add(newCrewController);
-                UpdateCrewCounts(); // Обновляем счетчики экипажа
-
-                // Увеличиваем счетчик нанятых в данных блока
+                UpdateCrewCounts();
                 blockData.CurrentCrewHired++;
-
-                // Сохраняем изменения данных блока
                 SaveBlockData();
             }
         }

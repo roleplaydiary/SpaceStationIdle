@@ -57,7 +57,7 @@ public class BridgeBlockController : StationBlockController
             if (creditsThisFrame > 0)
             {
                 // Обновляем значение кредитов в *том же самом* экземпляре PlayerData
-                playerController.PlayerData.playerCredits.Value += Mathf.RoundToInt(creditsThisFrame);
+                playerController.PlayerData.playerCredits.Value += creditsThisFrame;
                 // Здесь можно вызвать событие обновления UI кредитов
             }
         }

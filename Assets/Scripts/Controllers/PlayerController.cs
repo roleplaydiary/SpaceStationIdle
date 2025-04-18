@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         // Пример подписки на изменения playerCredits
         playerData.playerCredits.Subscribe(credits =>
         {
-            Debug.Log($"Player Credits изменились на: {credits}");
             // Здесь вы можете вызвать другие методы или обновить UI
         }).AddTo(this); // AddTo(this) для автоматической отписки при уничтожении объекта
     }
