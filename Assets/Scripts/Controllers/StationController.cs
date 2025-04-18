@@ -122,20 +122,18 @@ public class StationController : MonoBehaviour
         }
     }
 
-    // Публичный метод для улучшения максимального количества персонала в отделе
-    public void UpgradeDepartmentMaxCrew(Department department, int increaseAmount)
+    public void UpgradeDepartmentMaxCrew(Department department)
     {
         foreach (var block in stationBlocks)
         {
             if (block.GetBlockType() == department)
             {
-                block.UpgradeMaxCrew(increaseAmount);
+                block.UpgradeMaxCrew();
                 break; // Предполагаем один контроллер на отдел
             }
         }
     }
 
-    // Публичный метод для улучшения уровня верстаков в отделе
     public void UpgradeDepartmentWorkbenches(Department department)
     {
         foreach (var block in stationBlocks)
