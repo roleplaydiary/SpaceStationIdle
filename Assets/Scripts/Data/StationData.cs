@@ -113,6 +113,7 @@ public class StationData
                     try
                     {
                         stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
+                        Debug.Log($"Успешно десериализован отдел: {department}, JSON: {departmentItem.Value.GetAsString()}");
                     }
                     catch (Exception e)
                     {
