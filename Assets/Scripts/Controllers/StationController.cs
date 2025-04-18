@@ -7,6 +7,7 @@ using UnityEngine;
 public class StationController : MonoBehaviour
 {
     [SerializeField] private List<StationBlockController> stationBlocks;
+    public List<StationBlockController> StationBlocks { get => stationBlocks; }
     [SerializeField] private StationData stationData;
     public StationData StationData { get => stationData; }
 

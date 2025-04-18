@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DepartmentMenuViewer : MonoBehaviour
@@ -8,9 +6,13 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private GameObject content;
     [SerializeField] private DepartmentInfoPanelViewer departmentInfoPanelViewer;
     [SerializeField] private CrewAssignmentPanelController crewAssignmentPanelController;
+    [SerializeField] private TMP_Text departmentName;
+    private StationController stationController;
+
     private void Awake()
     {
         ServiceLocator.Register(this);
+        stationController = ServiceLocator.Get<StationController>(); // Получаем ссылку на StationController при старте
     }
 
     public void Show(Department department)
@@ -23,9 +25,20 @@ public class DepartmentMenuViewer : MonoBehaviour
     {
         content.SetActive(false);
     }
-    
+
     private void Initialize(Department department)
     {
+        departmentName.text = department.ToString();
+
         departmentInfoPanelViewer.Initialization(department);
+
+        StationBlockController blockController = null;
+        if (stationController != null && stationController.StationBlocks != null)
+        {
+            blockController = stationController.StationBlocks.Find(block => block.GetBlockType() == department);
+        }
+
+        // Передаем найденный blockController в CrewAssignmentPanelController
+        crewAssignmentPanelController.Initialize(blockController);
     }
 }

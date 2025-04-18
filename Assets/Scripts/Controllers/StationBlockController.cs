@@ -18,9 +18,9 @@ public class StationBlockController : MonoBehaviour
     public ReactiveProperty<int> crewAtIdle { get; protected set; }
 
     public ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>();
-    protected ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>();
-    protected ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
-    protected ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>();
 
     protected List<Transform> idlePositionList = new List<Transform>();
     public List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
@@ -58,6 +58,8 @@ public class StationBlockController : MonoBehaviour
         {
             blockData.CrewAtRest = _crewAtRest;
         }).AddTo(this);
+
+        UpdateCrewCounts(); // Добавлено для начального отображения
     }
 
     protected virtual void BenchesInitialization()
@@ -165,19 +167,102 @@ public class StationBlockController : MonoBehaviour
         }
     }
 
-    public void SendCrewToWork(int crewCount)
+    // Новые методы для изменения количества рабочих и отдыхающих
+    public void AddCrewToWork()
     {
-        targetCrewAtWork = Mathf.Clamp(crewCount, 0, blockData.CurrentCrewHired);
-        targetCrewAtRest = Mathf.Clamp(targetCrewAtRest, 0, blockData.CurrentCrewHired - targetCrewAtWork);
-        DistributeCrew();
-        SaveBlockData();
+        if (idleCrew.Count > 0)
+        {
+            var crewMember = idleCrew.First();
+            idleCrew.Remove(crewMember);
+            crewMember.GoToWork(GetAvailableWorkPosition());
+            workingCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
+        else if (restingCrew.Count > 0)
+        {
+            var crewMember = restingCrew.First();
+            restingCrew.Remove(crewMember);
+            crewMember.GoToWork(GetAvailableWorkPosition());
+            workingCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
     }
 
-    public void SendCrewToRest(int crewCount)
+    public void RemoveCrewFromWork()
     {
-        targetCrewAtRest = Mathf.Clamp(crewCount, 0, blockData.CurrentCrewHired);
-        targetCrewAtWork = Mathf.Clamp(targetCrewAtWork, 0, blockData.CurrentCrewHired - targetCrewAtRest);
-        DistributeCrew();
+        if (workingCrew.Count > 0)
+        {
+            var crewMember = workingCrew.Last();
+            workingCrew.Remove(crewMember);
+            crewMember.GotoIdle(GetAvailableIdlePosition());
+            idleCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
+    }
+
+    public void AddCrewToRest()
+    {
+        if (idleCrew.Count > 0)
+        {
+            var crewMember = idleCrew.First();
+            idleCrew.Remove(crewMember);
+            crewMember.GoToRest(GetAvailableRestPosition());
+            restingCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
+        else if (workingCrew.Count > 0)
+        {
+            var crewMember = workingCrew.Last();
+            workingCrew.Remove(crewMember);
+            crewMember.GoToRest(GetAvailableRestPosition());
+            restingCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
+    }
+
+    public void RemoveCrewFromRest()
+    {
+        if (restingCrew.Count > 0)
+        {
+            var crewMember = restingCrew.Last();
+            restingCrew.Remove(crewMember);
+            crewMember.GotoIdle(GetAvailableIdlePosition());
+            idleCrew.Add(crewMember);
+            UpdateCrewCounts();
+            SaveBlockData();
+        }
+    }
+
+    public void SendCrewToIdle(int count)
+    {
+        int moved = 0;
+        // Перемещаем из рабочих в idle
+        for (int i = workingCrew.Count - 1; i >= 0 && moved < count; i--)
+        {
+            var crewMember = workingCrew[i];
+            workingCrew.RemoveAt(i);
+            crewMember.GotoIdle(GetAvailableIdlePosition());
+            idleCrew.Add(crewMember);
+            moved++;
+        }
+
+        // Если еще нужно переместить, перемещаем из отдыхающих в idle
+        for (int i = restingCrew.Count - 1; i >= 0 && moved < count; i--)
+        {
+            var crewMember = restingCrew[i];
+            restingCrew.RemoveAt(i);
+            crewMember.GotoIdle(GetAvailableIdlePosition());
+            idleCrew.Add(crewMember);
+            moved++;
+        }
+
+        UpdateCrewCounts();
+        OnCrewDistributed();
         SaveBlockData();
     }
 
@@ -213,6 +298,15 @@ public class StationBlockController : MonoBehaviour
             return idlePositionList[idleCrew.Count].position;
         }
         return transform.position;
+    }
+
+    protected virtual Vector3 GetAvailableWorkPosition()
+    {
+        if (workBenchesList.Count > workingCrew.Count && workBenchesList[workingCrew.Count] != null)
+        {
+            return workBenchesList[workingCrew.Count].GetWorkPosition();
+        }
+        return transform.position; // Или другая логика, если нет свободных верстаков
     }
 
     protected virtual void InitializeLists()

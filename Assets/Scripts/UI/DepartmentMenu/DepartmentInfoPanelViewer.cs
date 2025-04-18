@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class DepartmentInfoPanelViewer : MonoBehaviour
 {
@@ -11,18 +8,18 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
     [SerializeField] private TMP_Text workbenchesLabel;
     [SerializeField] private TMP_Text energyConsumptionLabel;
     [SerializeField] private TMP_Text moodLabel;
-    
+    private StationController stationController;
 
     public void Initialization(Department department)
     {
-        StationData stationData = ServiceLocator.Get<StationController>().StationData;
+        stationController = ServiceLocator.Get<StationController>();
 
-        if (stationData != null && stationData.departmentData.ContainsKey(department))
+        if (stationController.StationData != null && stationController.StationData.departmentData.ContainsKey(department))
         {
-            var departmentData = stationData.departmentData[department];
+            var departmentData = stationController.StationData.departmentData[department];
             crewLabel.text = $"Department crew: {departmentData.CurrentCrewHired}/{departmentData.MaxCrewUnlocked}";
             workbenchesLabel.text = $"Workbenches: {departmentData.WorkBenchesLevelUnlocked}/{departmentData.WorkBenchesLevelUnlocked}";
-            energyConsumptionLabel.text = $"Energy consumption: {GetBlockEnergyConsumption()}";
+            energyConsumptionLabel.text = $"Energy consumption: {GetBlockEnergyConsumption(department)}";
             moodLabel.text = $"Department mood: {GetBlockMood()}";
         }
         else
@@ -34,9 +31,15 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
         }
     }
 
-    private float GetBlockEnergyConsumption()
+    private float GetBlockEnergyConsumption(Department department)
     {
-        return 0f;
+        StationBlockController blockController = stationController.StationBlocks.FirstOrDefault(block => block.GetBlockType() == department);
+        float result = 0f;
+        if (blockController != null && blockController.EnergyController != null)
+        {
+            result = blockController.EnergyController.currentEnergyConsumption.Value;
+        }
+        return result;
     }
 
     private float GetBlockMood()
