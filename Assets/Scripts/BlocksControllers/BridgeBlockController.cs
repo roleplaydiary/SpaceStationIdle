@@ -34,40 +34,30 @@ public class BridgeBlockController : StationBlockController
 
     protected override void CrewInitialization()
     {
-        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0)
-            return;
-
-        for (int i = 0; i < blockData.CurrentCrewHired; i++)
-        {
-            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
-            CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
-            crewMembers.Add(crewController);
-            allCrewMembers.Add(crewController);
-        }
+        base.CrewInitialization();
     }
 
     private void HireNewCrewMemberInternal()
     {
-        var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
-        CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
-        if (crewController != null)
-        {
-            crewMembers.Add(crewController);
-            allCrewMembers.Add(crewController);
-        }
+        base.HireNewCrewMember();
     }
 
     public override void HireNewCrewMember()
     {
         if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
         {
-            HireNewCrewMemberInternal();
-            DistributeCrew(); // Используем метод из родительского класса
+            base.HireNewCrewMember(); // Вызываем метод найма из родительского класса
+            // Здесь можно добавить дополнительную логику для инженеров после найма, если необходимо
         }
         else
         {
             Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
         }
+    }
+
+    public override void UnlockWorkBench()
+    {
+        base.UnlockWorkBench();
     }
 
     protected override Vector3 GetAvailableIdlePosition()

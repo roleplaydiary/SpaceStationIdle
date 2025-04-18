@@ -74,22 +74,21 @@ public class StationController : MonoBehaviour
             return;
         }
 
-        // Нанимаем сотрудника
-        stationData.departmentData[department].CurrentCrewHired++;
-
-        // Находим соответствующий блок и просим его создать нового члена экипажа
+        // Находим соответствующий блок и просим его нанять нового члена экипажа
         foreach (var block in stationBlocks)
         {
             if (block.GetBlockType() == department)
             {
                 block.HireNewCrewMember();
+                // Счетчик CurrentCrewHired должен быть увеличен внутри HireNewCrewMember
                 break; // Предполагаем один контроллер на отдел
             }
         }
 
-        // Сохраняем обновленные данные
+        // Сохраняем обновленные данные всей станции
         await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
-        Debug.Log($"В отдел {department} нанят новый сотрудник. Текущее количество: {stationData.departmentData[department].CurrentCrewHired}");
+        Debug.Log($"Запрос на найм сотрудника в отдел {department} выполнен.");
+        Debug.Log($"Текущее количество сотрудников в отделе {department}: {stationData.departmentData[department].CurrentCrewHired}");
     }
 
     public void TestUnlockEngineering()

@@ -79,7 +79,7 @@ public class StationBlockController : MonoBehaviour
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
             // Дочерние классы должны определить, как создавать членов экипажа
-            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
+            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
             CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
             crewMembers.Add(crewController);
             allCrewMembers.Add(crewController);
@@ -198,12 +198,6 @@ public class StationBlockController : MonoBehaviour
         UpdateCrewCounts();
     }
 
-    protected virtual Vector3 GetAvailableWorkPosition(CharacterController crewMember)
-    {
-        // Логика поиска свободной рабочей станции (может быть переопределена)
-        return Vector3.zero;
-    }
-
     protected virtual Vector3 GetAvailableRestPosition()
     {
         // Логика поиска свободной зоны отдыха (может быть переопределена)
@@ -295,18 +289,59 @@ public class StationBlockController : MonoBehaviour
         // Базовая реализация, дочерние классы могут переопределить
         if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
         {
-            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[0], transform);
-            CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
-            if (crewController != null)
+            // Создаем нового члена экипажа
+            var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
+            CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
+
+            if (newCrewController != null)
             {
-                crewMembers.Add(crewController);
-                allCrewMembers.Add(crewController);
-                DistributeCrew();
+                // Добавляем его в список всех членов экипажа
+                crewMembers.Add(newCrewController);
+                allCrewMembers.Add(newCrewController);
+
+                // Отправляем нового члена экипажа в Idle
+                newCrewController.GotoIdle(GetAvailableIdlePosition());
+                idleCrew.Add(newCrewController);
+                UpdateCrewCounts(); // Обновляем счетчики экипажа
+
+                // Увеличиваем счетчик нанятых в данных блока
+                blockData.CurrentCrewHired++;
+
+                // Сохраняем изменения данных блока
+                SaveBlockData();
             }
         }
         else
         {
             Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
+        }
+    }
+
+    public virtual void UnlockWorkBench()
+    {
+        if (blockData.WorkBenchesLevelUnlocked < workBenchesParent.childCount)
+        {
+            blockData.WorkBenchesLevelUnlocked++;
+
+            if (blockData.WorkBenchesLevelUnlocked <= workBenchesParent.childCount)
+            {
+                Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesLevelUnlocked - 1);
+                WorkBenchController workBenchController = nextBench.GetComponent<WorkBenchController>();
+                if (workBenchController != null)
+                {
+                    workBenchesList.Add(workBenchController);
+                    workBenchController.gameObject.SetActive(true);
+                    SaveBlockData();
+                }
+            }
+            else
+            {
+                Debug.Log("Все верстаки в этом блоке уже разблокированы.");
+            }
+        }
+        else
+        {
+            Debug.Log("Достигнут максимальный уровень верстаков в этом блоке.");
         }
     }
 }
