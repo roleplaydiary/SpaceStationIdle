@@ -344,4 +344,11 @@ public class StationBlockController : MonoBehaviour
             Debug.Log("Достигнут максимальный уровень верстаков в этом блоке.");
         }
     }
+
+    public void UpgradeMaxCrew()
+    {
+        blockData.MaxCrewUnlocked ++;
+        SaveBlockData();
+        Debug.Log($"Максимальное количество экипажа в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.MaxCrewUnlocked}");
+    }
 }

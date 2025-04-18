@@ -7,7 +7,7 @@ public class StationController : MonoBehaviour
 {
     [SerializeField] private List<StationBlockController> stationBlocks;
     [SerializeField] private StationData stationData;
-    public StationData StationData { get => stationData;}
+    public StationData StationData { get => stationData; }
     private void Awake()
     {
         ServiceLocator.Register(this);
@@ -30,7 +30,7 @@ public class StationController : MonoBehaviour
         stationData = loadData; // Присваиваем загруженные данные stationData
         BlocksInitialize(stationData);
     }
-    
+
     private void BlocksInitialize(StationData stationData)
     {
         this.stationData = stationData;
@@ -52,7 +52,7 @@ public class StationController : MonoBehaviour
     {
         HireCrewMember(Department.Engineer);
     }
-    
+
     public async void HireCrewMember(Department department)
     {
         if (!stationData.IsUnlocked(department))
@@ -80,7 +80,6 @@ public class StationController : MonoBehaviour
             if (block.GetBlockType() == department)
             {
                 block.HireNewCrewMember();
-                // Счетчик CurrentCrewHired должен быть увеличен внутри HireNewCrewMember
                 break; // Предполагаем один контроллер на отдел
             }
         }
@@ -95,7 +94,7 @@ public class StationController : MonoBehaviour
     {
         UnlockStationBlock(Department.Engineer);
     }
-    
+
     public async void UnlockStationBlock(Department department)
     {
         if (!stationData.IsUnlocked(department))
@@ -120,6 +119,32 @@ public class StationController : MonoBehaviour
         else
         {
             Debug.Log($"Отдел {department} уже разблокирован.");
+        }
+    }
+
+    // Публичный метод для улучшения максимального количества персонала в отделе
+    public void UpgradeDepartmentMaxCrew(Department department, int increaseAmount)
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == department)
+            {
+                block.UpgradeMaxCrew(increaseAmount);
+                break; // Предполагаем один контроллер на отдел
+            }
+        }
+    }
+
+    // Публичный метод для улучшения уровня верстаков в отделе
+    public void UpgradeDepartmentWorkbenches(Department department)
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == department)
+            {
+                block.UnlockWorkBench();
+                break; // Предполагаем один контроллер на отдел
+            }
         }
     }
 
