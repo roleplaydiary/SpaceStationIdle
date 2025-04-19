@@ -37,13 +37,13 @@ public class StationData
 
     public int GetWorkbenchesLevelUnlocked(Department dept)
     {
-        return departmentData.TryGetValue(dept, out var data) ? data.WorkBenchesLevelUnlocked : 0;
+        return departmentData.TryGetValue(dept, out var data) ? data.WorkBenchesInstalled : 0;
     }
 
     public void SetWorkbenchesLevelUnlocked(Department dept, int level)
     {
         if (departmentData.TryGetValue(dept, out var data))
-            data.WorkBenchesLevelUnlocked = level;
+            data.WorkBenchesInstalled = level;
     }
 
     public int GetMaxCrewUnlocked(Department dept)

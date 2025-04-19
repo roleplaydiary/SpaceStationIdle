@@ -64,12 +64,12 @@ public class StationBlockController : MonoBehaviour
 
     protected virtual void BenchesInitialization()
     {
-        if (blockData.WorkBenchesLevelUnlocked == 0)
+        if (blockData.WorkBenchesInstalled == 0)
             return;
 
         if (workBenchesParent != null)
         {
-            for (int i = 0; i < blockData.WorkBenchesLevelUnlocked && i < workBenchesParent.childCount; i++)
+            for (int i = 0; i < blockData.WorkBenchesInstalled && i < workBenchesParent.childCount; i++)
             {
                 WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
                 if (workBenchController != null)
@@ -401,15 +401,15 @@ public class StationBlockController : MonoBehaviour
         }
     }
 
-    public virtual void UnlockWorkBench()
+    public virtual void AddWorkBench()
     {
-        if (blockData.WorkBenchesLevelUnlocked < workBenchesParent.childCount)
+        if (blockData.WorkBenchesInstalled < workBenchesParent.childCount)
         {
-            blockData.WorkBenchesLevelUnlocked++;
+            blockData.WorkBenchesInstalled++;
 
-            if (blockData.WorkBenchesLevelUnlocked <= workBenchesParent.childCount)
+            if (blockData.WorkBenchesInstalled <= workBenchesParent.childCount)
             {
-                Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesLevelUnlocked - 1);
+                Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesInstalled - 1);
                 WorkBenchController workBenchController = nextBench.GetComponent<WorkBenchController>();
                 if (workBenchController != null)
                 {
@@ -427,6 +427,13 @@ public class StationBlockController : MonoBehaviour
         {
             Debug.Log("Достигнут максимальный уровень верстаков в этом блоке.");
         }
+    }
+
+    public virtual void UpgradeWorkBenchMax()
+    {
+        blockData.WorkBenchesLevelMax++;
+        SaveBlockData();
+        Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkBenchesLevelMax}");
     }
 
     public void UpgradeMaxCrew()

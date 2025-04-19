@@ -71,12 +71,12 @@ public class BridgeBlockController : StationBlockController
 
     protected override void BenchesInitialization()
     {
-        if (blockData.WorkBenchesLevelUnlocked == 0)
+        if (blockData.WorkBenchesInstalled == 0)
             return;
 
         if (workBenchesParent != null)
         {
-            for (int i = 0; i < blockData.WorkBenchesLevelUnlocked && i < workBenchesParent.childCount; i++)
+            for (int i = 0; i < blockData.WorkBenchesInstalled && i < workBenchesParent.childCount; i++)
             {
                 WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
                 if (workBenchController != null)
@@ -111,9 +111,9 @@ public class BridgeBlockController : StationBlockController
         }
     }
 
-    public override void UnlockWorkBench()
+    public override void AddWorkBench()
     {
-        base.UnlockWorkBench();
+        base.AddWorkBench();
     }
 
     protected override Vector3 GetAvailableIdlePosition()

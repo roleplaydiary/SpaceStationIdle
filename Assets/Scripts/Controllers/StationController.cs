@@ -170,7 +170,7 @@ public class StationController : MonoBehaviour
         {
             if (block.GetBlockType() == department)
             {
-                block.UnlockWorkBench();
+                block.AddWorkBench();
                 break;
             }
         }

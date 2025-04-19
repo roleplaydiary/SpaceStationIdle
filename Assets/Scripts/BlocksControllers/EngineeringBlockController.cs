@@ -86,9 +86,9 @@ public class EngineeringBlockController : StationBlockController
         }
     }
 
-    public override void UnlockWorkBench()
+    public override void AddWorkBench()
     {
-        base.UnlockWorkBench();
+        base.AddWorkBench();
         // Пересчитываем производство, так как новый верстак может производить энергию
         CalculateEnergyProduction();
     }
