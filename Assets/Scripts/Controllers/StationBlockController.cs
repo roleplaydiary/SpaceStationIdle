@@ -403,29 +403,36 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void AddWorkBench()
     {
-        if (blockData.WorkBenchesInstalled < workBenchesParent.childCount)
+        if (blockData.WorkBenchesInstalled < blockData.WorkBenchesLevelMax)
         {
-            blockData.WorkBenchesInstalled++;
-
-            if (blockData.WorkBenchesInstalled <= workBenchesParent.childCount)
+            if (blockData.WorkBenchesInstalled < workBenchesParent.childCount)
             {
-                Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesInstalled - 1);
-                WorkBenchController workBenchController = nextBench.GetComponent<WorkBenchController>();
-                if (workBenchController != null)
+                blockData.WorkBenchesInstalled++;
+
+                if (blockData.WorkBenchesInstalled <= workBenchesParent.childCount)
                 {
-                    workBenchesList.Add(workBenchController);
-                    workBenchController.gameObject.SetActive(true);
-                    SaveBlockData();
+                    Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesInstalled - 1);
+                    WorkBenchController workBenchController = nextBench.GetComponent<WorkBenchController>();
+                    if (workBenchController != null)
+                    {
+                        workBenchesList.Add(workBenchController);
+                        workBenchController.gameObject.SetActive(true);
+                        SaveBlockData();
+                    }
+                }
+                else
+                {
+                    Debug.Log("Все верстаки в этом блоке уже разблокированы.");
                 }
             }
             else
             {
-                Debug.Log("Все верстаки в этом блоке уже разблокированы.");
+                Debug.Log("Достигнут максимальный уровень верстаков в этом блоке.");
             }
         }
         else
         {
-            Debug.Log("Достигнут максимальный уровень верстаков в этом блоке.");
+            Debug.Log("Достигнут максимум верстаков в отделе");
         }
     }
 
@@ -446,5 +453,10 @@ public class StationBlockController : MonoBehaviour
     protected virtual void OnCrewDistributed()
     {
         // Виртуальный метод, который дочерние классы могут переопределить
+    }
+
+    public virtual float GetProductionValue()
+    {
+        return 0f;
     }
 }

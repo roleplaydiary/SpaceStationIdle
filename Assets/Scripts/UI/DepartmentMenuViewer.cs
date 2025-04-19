@@ -6,6 +6,7 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private GameObject content;
     [SerializeField] private DepartmentInfoPanelViewer departmentInfoPanelViewer;
     [SerializeField] private CrewAssignmentPanelController crewAssignmentPanelController;
+    [SerializeField] private DepartmentProductionPanelController departmentProductionPanelController;
     [SerializeField] private TMP_Text departmentName;
     private StationController stationController;
 
@@ -38,7 +39,7 @@ public class DepartmentMenuViewer : MonoBehaviour
             blockController = stationController.StationBlocks.Find(block => block.GetBlockType() == department);
         }
 
-        // Передаем найденный blockController в CrewAssignmentPanelController
         crewAssignmentPanelController.Initialize(blockController);
+        departmentProductionPanelController.ProductivityPanelInit(department);
     }
 }

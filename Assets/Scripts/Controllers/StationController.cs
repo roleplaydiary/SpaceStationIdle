@@ -175,9 +175,4 @@ public class StationController : MonoBehaviour
             }
         }
     }
-
-    public StationData GetStationData()
-    {
-        return stationData;
-    }
 }

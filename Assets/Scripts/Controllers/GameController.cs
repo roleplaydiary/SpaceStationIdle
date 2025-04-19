@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     }
     private async Task TestSaveStation()
     {
-        var stationData = ServiceLocator.Get<StationController>().GetStationData();
+        var stationData = ServiceLocator.Get<StationController>().StationData;
         await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
     }
 }
