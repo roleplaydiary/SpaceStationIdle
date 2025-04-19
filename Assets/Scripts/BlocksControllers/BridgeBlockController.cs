@@ -71,7 +71,7 @@ public class BridgeBlockController : StationBlockController
         {
             if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
             {
-                result += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL;
+                result += workBenchesList[i].ProductionRate;
             }
         }
         

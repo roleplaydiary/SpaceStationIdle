@@ -48,6 +48,23 @@ public class EngineeringBlockController : StationBlockController
             EnergyController.currentEnergyProduction.Value = totalProduction;
         }
     }
+    
+    public override float GetProductionValue()
+    {
+        float result = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+
+        for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
+        {
+            if (workBenchesList[i].ProducedResource == WorkBenchResource.Energy)
+            {
+                result += workBenchesList[i].ProductionRate;
+            }
+        }
+        
+        return result;
+    }
 
     public override void BlockInitialization(StationBlockData _blockData)
     {

@@ -30,13 +30,27 @@ public class DepartmentProductionPanelController : MonoBehaviour
     
     private void BridgeProductivityPanelInit()
     {
+        CloseAllPanels();
         bridgeDepartmentProductionViewer.gameObject.SetActive(true);
         bridgeDepartmentProductionViewer.Initialize();
     }
 
     private void EngineerProductivityPanelInit()
     {
+        CloseAllPanels();
         engineeringDepartmentProductionViewer.gameObject.SetActive(true);
         engineeringDepartmentProductionViewer.Initialize();
     }
+
+    private void CloseAllPanels()
+    {
+        bridgeDepartmentProductionViewer.gameObject.SetActive(false);
+        engineeringDepartmentProductionViewer.gameObject.SetActive(false);
+        // rndDepartmentProductionViewer.gameObject.SetActive(false);
+        // cargoDepartmentProductionViewer.gameObject.SetActive(false);
+        // medbayDepartmentProductionViewer.gameObject.SetActive(false);
+        // securityDepartmentProductionViewer.gameObject.SetActive(false);
+        // kitchenDepartmentProductionViewer.gameObject.SetActive(false);
+    }
+    
 }
