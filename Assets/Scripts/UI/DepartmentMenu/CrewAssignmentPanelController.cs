@@ -28,9 +28,9 @@ public class CrewAssignmentPanelController : MonoBehaviour
         removeCrewToRest.OnClickAsObservable().Subscribe(_ => blockController?.RemoveCrewFromRest()).AddTo(disposables);
 
         // Подписываемся на изменения количества персонала для обновления UI
-        blockController?.crewAtWork.Subscribe(count => currentCrewAtWork.text = count.ToString()).AddTo(disposables);
-        blockController?.crewAtRest.Subscribe(count => currentCrewAtRest.text = count.ToString()).AddTo(disposables);
-        blockController?.crewAtIdle.Subscribe(count => currentCrewAtIdle.text = count.ToString()).AddTo(disposables);
+        blockController?.crewAtWork.Subscribe(count => currentCrewAtWork.text = $"Currently working: {count}").AddTo(disposables);
+        blockController?.crewAtRest.Subscribe(count => currentCrewAtRest.text = $"Currently resting: {count}").AddTo(disposables);
+        blockController?.crewAtIdle.Subscribe(count => currentCrewAtIdle.text = $"Currently idling: {count}").AddTo(disposables);
 
         // Начальное обновление UI
         UpdateCrewCounts();
@@ -40,9 +40,9 @@ public class CrewAssignmentPanelController : MonoBehaviour
     {
         if (blockController != null)
         {
-            currentCrewAtWork.text = blockController.crewAtWork.Value.ToString();
-            currentCrewAtRest.text = blockController.crewAtRest.Value.ToString();
-            currentCrewAtIdle.text = blockController.crewAtIdle.Value.ToString();
+            currentCrewAtWork.text = $"Currently working: {blockController.crewAtWork.Value}";
+            currentCrewAtRest.text = $"Currently resting: {blockController.crewAtRest.Value}";
+            currentCrewAtIdle.text = $"Currently idling: {blockController.crewAtIdle.Value}";
         }
         else
         {
