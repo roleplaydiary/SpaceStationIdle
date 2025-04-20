@@ -11,6 +11,9 @@ public class BridgeBlockController : StationBlockController
     private PlayerData playerData;
     private PlayerController playerController;
     
+    private ReactiveProperty<bool> isProductionOn = new ReactiveProperty<bool>(false);
+    private CompositeDisposable disposables = new CompositeDisposable();
+    
     private void Start()
     {
         playerController = ServiceLocator.Get<PlayerController>(); // Получаем PlayerController
@@ -25,39 +28,41 @@ public class BridgeBlockController : StationBlockController
             Debug.LogError("PlayerData не найден через PlayerController!");
             return;
         }
+
+        StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
+        energyService.CurrentStationEnergy
+            .Subscribe(value => isProductionOn.Value = value > 0)
+            .AddTo(disposables);
+
+        // Реактивный поток для производства кредитов
+        Observable.Interval(System.TimeSpan.FromSeconds(RESOURCE_UPDATE_INTERVAL))
+            .Where(_ => isProductionOn.Value && playerData != null)
+            .Subscribe(_ => ProduceCreditsReactive())
+            .AddTo(disposables);
     }
     
-    private void Update()
+    private void OnDestroy()
     {
-        if (Time.time - lastResourceUpdateTime >= RESOURCE_UPDATE_INTERVAL)
-        {
-            lastResourceUpdateTime = Time.time;
-            ProduceCredits();
-        }
+        disposables.Clear();
     }
     
-    private void ProduceCredits()
+    private void ProduceCreditsReactive()
     {
         float creditsThisFrame = 0f;
         int workingCrewCount = workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
-        if (playerData != null)
+        for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
+            if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
             {
-                if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
-                {
-                    creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
-                }
+                creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
             }
+        }
 
-            if (creditsThisFrame > 0)
-            {
-                // Обновляем значение кредитов в *том же самом* экземпляре PlayerData
-                playerController.PlayerData.playerCredits.Value += creditsThisFrame;
-                // Здесь можно вызвать событие обновления UI кредитов
-            }
+        if (creditsThisFrame > 0)
+        {
+            playerController.PlayerData.playerCredits.Value += creditsThisFrame;
         }
     }
 
@@ -67,6 +72,10 @@ public class BridgeBlockController : StationBlockController
         int workingCrewCount = workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
+        if (!IsStationEnergyEnough())
+        {
+            return result;
+        }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
             if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
@@ -76,6 +85,17 @@ public class BridgeBlockController : StationBlockController
         }
         
         return result;
+    }
+
+    private bool IsStationEnergyEnough()
+    {
+        StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
+        if (energyService != null && energyService.CurrentStationEnergy.Value <= 0)
+        {
+            Debug.Log("Недостаточно энергии для производства в " + name);
+            return false;
+        }
+        return true;
     }
 
     public override void BlockInitialization(StationBlockData _blockData)
