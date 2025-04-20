@@ -11,6 +11,9 @@ public class UpgradeButtonViewer : MonoBehaviour
 
     public void Initialize(string upgradeId)
     {
+        if (upgradeId == null)
+            return;
+        
         upgradeData = ServiceLocator.Get<DataLibrary>().upgradeData;
         var upgrade = upgradeData.GetUpgradeById(upgradeId);
         title.text = upgrade.displayName;
