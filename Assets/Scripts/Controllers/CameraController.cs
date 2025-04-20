@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float minFOV = 40;
     [SerializeField] private float maxFOV = 80f;
     [SerializeField] private float deceleration = 5f; // Скорость замедления
-    
+
     private Camera cam;
     private Vector3 dragStartPosition;
     private Vector3 dragCurrentPosition;
@@ -25,9 +26,17 @@ public class CameraController : MonoBehaviour
         // Для ПК (мышь)
         if (Input.GetMouseButtonDown(0))
         {
-            isDragging = true;
-            dragStartPosition = Input.mousePosition;
-            dragCurrentPosition = dragStartPosition;
+            // Проверяем, не находится ли мышь над UI
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                isDragging = true;
+                dragStartPosition = Input.mousePosition;
+                dragCurrentPosition = dragStartPosition;
+            }
+            else
+            {
+                isDragging = false; // Если над UI, не начинаем перетаскивание камеры
+            }
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -55,16 +64,24 @@ public class CameraController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                dragStartPosition = touch.position;
-                dragCurrentPosition = dragStartPosition;
+                // Проверяем, не находится ли касание над UI
+                if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                {
+                    dragStartPosition = touch.position;
+                    dragCurrentPosition = dragStartPosition;
+                }
             }
             else if (touch.phase == TouchPhase.Moved)
             {
-                dragCurrentPosition = touch.position;
-                Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
+                // Перемещаем камеру только если касание началось не над UI
+                if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+                {
+                    dragCurrentPosition = touch.position;
+                    Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
-                cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
-                dragStartPosition = dragCurrentPosition;
+                    cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
+                    dragStartPosition = dragCurrentPosition;
+                }
             }
         }
         // Приближение/отдаление (тач)
@@ -73,11 +90,14 @@ public class CameraController : MonoBehaviour
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
-            if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began)
+            // Проверяем, что ни одно из касаний не начиналось над UI
+            bool isOverUI = EventSystem.current.IsPointerOverGameObject(touchZero.fingerId) || EventSystem.current.IsPointerOverGameObject(touchOne.fingerId);
+
+            if ((touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began) && !isOverUI)
             {
                 initialPinchDistance = Vector2.Distance(touchZero.position, touchOne.position);
             }
-            else if (touchZero.phase == TouchPhase.Moved || touchOne.phase == TouchPhase.Moved)
+            else if ((touchZero.phase == TouchPhase.Moved || touchOne.phase == TouchPhase.Moved) && initialPinchDistance > 0 && !isOverUI)
             {
                 float currentPinchDistance = Vector2.Distance(touchZero.position, touchOne.position);
                 float pinchDelta = currentPinchDistance - initialPinchDistance;
