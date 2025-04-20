@@ -27,7 +27,9 @@ public class UpgradeDataSO : ScriptableObject
         DepartmentUnlock,
         DepartmentMaxCrew,
         StationMaxCrew,
-        DepartmentMaxWorkbenches
+        DepartmentCrewHire,
+        DepartmentMaxWorkstations,
+        DepartmentWorkstationAdd
     }
 
     public UpgradeEntry[] upgrades;

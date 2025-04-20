@@ -402,7 +402,7 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void AddWorkBench()
     {
-        if (blockData.WorkBenchesInstalled < blockData.WorkBenchesLevelMax)
+        if (blockData.WorkBenchesInstalled < blockData.WorkBenchesMax)
         {
             if (blockData.WorkBenchesInstalled < workBenchesParent.childCount)
             {
@@ -437,9 +437,9 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void UpgradeWorkBenchMax()
     {
-        blockData.WorkBenchesLevelMax++;
+        blockData.WorkBenchesMax++;
         SaveBlockData();
-        Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkBenchesLevelMax}");
+        Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkBenchesMax}");
     }
 
     public void UpgradeMaxCrew()

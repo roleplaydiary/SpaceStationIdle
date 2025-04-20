@@ -20,7 +20,7 @@ public class DepartmentProductionPanelController : MonoBehaviour
                 break;
             }
 
-            case Department.Engineer:
+            case Department.Engineering:
             {
                 EngineerProductivityPanelInit();
                 break;

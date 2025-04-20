@@ -7,6 +7,7 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private DepartmentInfoPanelViewer departmentInfoPanelViewer;
     [SerializeField] private CrewAssignmentPanelController crewAssignmentPanelController;
     [SerializeField] private DepartmentProductionPanelController departmentProductionPanelController;
+    [SerializeField] private DepartmentUpgradesScrollController departmentUpgradesScrollController;
     [SerializeField] private TMP_Text departmentName;
     private StationController stationController;
 
@@ -41,5 +42,6 @@ public class DepartmentMenuViewer : MonoBehaviour
 
         crewAssignmentPanelController.Initialize(blockController);
         departmentProductionPanelController.ProductivityPanelInit(department);
+        departmentUpgradesScrollController.Initialize(department);
     }
 }

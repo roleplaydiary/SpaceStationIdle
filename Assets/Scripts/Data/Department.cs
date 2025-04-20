@@ -3,7 +3,7 @@ public enum Department
 {
     Bridge,
     Science,
-    Engineer,
+    Engineering,
     Med,
     Security,
     Cargo,

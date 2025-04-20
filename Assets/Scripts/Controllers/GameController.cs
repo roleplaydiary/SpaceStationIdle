@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
         ResourceManagerInitialize();
-        
+        UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
         loadingImage.SetActive(false);
     }
@@ -32,6 +32,14 @@ public class GameController : MonoBehaviour
         ResourceManager resourceManager = new ResourceManager();
         ServiceLocator.Register(resourceManager);
         Debug.Log("ResourceManager зарегистрирован в ServiceLocator.");
+    }
+
+    private void UpgradeServiceInitialize()
+    {
+        UpgradeService upgradeService = new UpgradeService();
+        ServiceLocator.Register(upgradeService);
+
+        Debug.Log("UpgradeService зарегистрирован в ServiceLocator.");
     }
     
 

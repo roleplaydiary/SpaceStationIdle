@@ -27,7 +27,7 @@ public class DebugButtonsController : MonoBehaviour
                 .Subscribe(_ =>
                 {
                     StationController station = ServiceLocator.Get<StationController>();
-                    station.UpgradeDepartmentWorkbenchesMax(Department.Engineer);
+                    station.UpgradeDepartmentWorkbenchesMax(Department.Engineering);
                     Debug.Log("Upgrade Engineering workbenches max");
                 }).AddTo(_disposables);
         }
@@ -38,7 +38,7 @@ public class DebugButtonsController : MonoBehaviour
                 .Subscribe(_ => 
             {
                 StationController station = ServiceLocator.Get<StationController>();
-                station.UpgradeDepartmentWorkbenches(Department.Engineer);
+                station.UpgradeDepartmentWorkbenches(Department.Engineering);
                 Debug.Log("Add Workbenches to engineering");
             }).AddTo(_disposables);
         }

@@ -70,7 +70,7 @@ public class StationController : MonoBehaviour
 
     public void TestHireCrewMember()
     {
-        HireCrewMember(Department.Engineer);
+        HireCrewMember(Department.Engineering);
     }
 
     public async void HireCrewMember(Department department)
@@ -110,7 +110,7 @@ public class StationController : MonoBehaviour
 
     public void TestUnlockEngineering()
     {
-        UnlockStationBlock(Department.Engineer);
+        UnlockStationBlock(Department.Engineering);
     }
 
     public async void UnlockStationBlock(Department department)
@@ -172,5 +172,11 @@ public class StationController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void UpgradeStationMaxCrew()
+    {
+        stationData.maxCrew.Value ++;
+        Debug.Log($"Максимум экипажа на станции увеличено до {stationData.maxCrew.Value}.");
     }
 }

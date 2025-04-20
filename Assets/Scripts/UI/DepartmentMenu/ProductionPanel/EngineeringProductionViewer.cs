@@ -9,7 +9,7 @@ public class EngineeringProductionViewer : DepartmentProductionViewer
         var station = ServiceLocator.Get<StationController>();
         foreach (var block in station.StationBlocks)
         {
-            if (block.GetBlockType() == Department.Engineer)
+            if (block.GetBlockType() == Department.Engineering)
             {
                 productionLabel.text = $"Energy: {block.GetProductionValue()} in total";
                 break;
