@@ -175,4 +175,16 @@ public class StationController : MonoBehaviour
             }
         }
     }
+
+    public void UpgradeDepartmentWorkbenchesMax(Department department)
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == department)
+            {
+                block.UpgradeWorkBenchMax();
+                break;
+            }
+        }
+    }
 }

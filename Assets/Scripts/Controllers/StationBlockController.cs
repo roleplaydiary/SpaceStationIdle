@@ -457,6 +457,6 @@ public class StationBlockController : MonoBehaviour
 
     public virtual float GetProductionValue()
     {
-        return 0f;
+        return 0f;//  переопределено в дочерних классах
     }
 }
