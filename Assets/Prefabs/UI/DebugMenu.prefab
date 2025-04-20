@@ -3704,6 +3704,7 @@ MonoBehaviour:
   hireScientistButton: {fileID: 6443555171373284769}
   upgradeMaxWorkstationRNDButton: {fileID: 7429242767727712576}
   addWorkstationRNDButton: {fileID: 8477044887734947026}
+  saveResources: {fileID: 925411082896938602}
 --- !u!1 &6980884411026616520
 GameObject:
   m_ObjectHideFlags: 0
