@@ -36,10 +36,7 @@ public class EngineeringBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Energy)
-            {
-                totalProduction += workBenchesList[i].ProductionRate;
-            }
+            totalProduction += workBenchesList[i].ProductionRate;
         }
 
         // Устанавливаем значение производства энергии в DepartmentEnergyController
@@ -57,10 +54,7 @@ public class EngineeringBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Energy)
-            {
-                result += workBenchesList[i].ProductionRate;
-            }
+            result += workBenchesList[i].ProductionRate;
         }
         
         return result;

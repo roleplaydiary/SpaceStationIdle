@@ -54,10 +54,7 @@ public class BridgeBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
-            {
                 creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
-            }
         }
 
         if (creditsThisFrame > 0)
@@ -78,10 +75,7 @@ public class BridgeBlockController : StationBlockController
         }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
-            {
-                result += workBenchesList[i].ProductionRate;
-            }
+            result += workBenchesList[i].ProductionRate;
         }
         
         return result;

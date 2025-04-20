@@ -44,7 +44,7 @@ public class DepartmentEnergyController : MonoBehaviour, IDepartmentEnergyUser
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
             WorkBenchController bench = blockController.workBenchesList[i];
-            if (blockController is EngineeringBlockController && bench.ProducedResource == WorkBenchResource.Energy)
+            if (blockController is EngineeringBlockController)
             {
                 production += bench.ProductionRate;
             }

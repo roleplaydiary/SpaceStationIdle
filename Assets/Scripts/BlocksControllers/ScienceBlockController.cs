@@ -56,10 +56,7 @@ public class ScienceBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.ResearchPoints)
-            {
-                rpThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
-            }
+            rpThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
         }
 
         if (rpThisFrame > 0)
@@ -80,10 +77,7 @@ public class ScienceBlockController : StationBlockController
         }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.ResearchPoints)
-            {
-                result += workBenchesList[i].ProductionRate;
-            }
+            result += workBenchesList[i].ProductionRate;
         }
         
         return result;
