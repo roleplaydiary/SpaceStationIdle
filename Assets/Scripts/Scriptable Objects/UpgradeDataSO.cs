@@ -24,10 +24,10 @@ public class UpgradeDataSO : ScriptableObject
 
     public enum UpgradeType
     {
+        DepartmentUnlock,
         DepartmentMaxCrew,
         StationMaxCrew,
-        DepartmentMaxWorkbenches,
-        // Другие типы апгрейдов
+        DepartmentMaxWorkbenches
     }
 
     public UpgradeEntry[] upgrades;

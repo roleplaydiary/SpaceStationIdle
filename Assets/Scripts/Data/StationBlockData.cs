@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 public class StationBlockData 
 {
     public int WorkBenchesInstalled = 1;
-    public int WorkBenchesLevelMax = 1;
+    public int WorkBenchesMax = 1;
     public int MaxCrewUnlocked = 1;
     public int CurrentCrewHired = 0;
     public int CrewAtWork = 0;
