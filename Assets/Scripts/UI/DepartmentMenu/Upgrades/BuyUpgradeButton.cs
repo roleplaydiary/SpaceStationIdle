@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class BuyUpgradeButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
+    [SerializeField] private UpgradeButtonViewer upgradeButtonViewer;
     [SerializeField] private Department _department;
     [SerializeField] private string upgradeId;
 
@@ -20,5 +21,7 @@ public class BuyUpgradeButton : MonoBehaviour
             UpgradeService upgradeService = ServiceLocator.Get<UpgradeService>();
             upgradeService.PurchaseUpgrade(upgradeId, _department);
         }).AddTo(this);
+        
+        upgradeButtonViewer.Initialize(upgradeId);
     }
 }
