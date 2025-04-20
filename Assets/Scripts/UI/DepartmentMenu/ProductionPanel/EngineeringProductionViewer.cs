@@ -11,7 +11,7 @@ public class EngineeringProductionViewer : DepartmentProductionViewer
         {
             if (block.GetBlockType() == Department.Engineer)
             {
-                productionLabel.text = $"Energy: {block.GetProductionValue()}";
+                productionLabel.text = $"Energy: {block.GetProductionValue()} in total";
                 break;
             }
         }

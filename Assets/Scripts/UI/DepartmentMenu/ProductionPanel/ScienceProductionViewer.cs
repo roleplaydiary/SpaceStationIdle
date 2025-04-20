@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class BridgeProductionViewer : DepartmentProductionViewer
+public class ScienceProductionViewer : DepartmentProductionViewer
 {
     [SerializeField] private TMP_Text productionLabel;
     public override void Initialize()
@@ -9,9 +9,10 @@ public class BridgeProductionViewer : DepartmentProductionViewer
         var station = ServiceLocator.Get<StationController>();
         foreach (var block in station.StationBlocks)
         {
-            if (block.GetBlockType() == Department.Bridge)
+            if (block.GetBlockType() == Department.Science)
             {
-                productionLabel.text = $"Credits: {block.GetProductionValue()}/min";
+                productionLabel.text = $"Research points: {block.GetProductionValue()}/min";
+                
                 break;
             }
         }

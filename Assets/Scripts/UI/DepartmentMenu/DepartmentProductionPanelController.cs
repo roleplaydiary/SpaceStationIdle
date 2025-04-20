@@ -4,7 +4,7 @@ public class DepartmentProductionPanelController : MonoBehaviour
 {
     [SerializeField] private DepartmentProductionViewer bridgeDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer engineeringDepartmentProductionViewer;
-    [SerializeField] private DepartmentProductionViewer rndDepartmentProductionViewer;
+    [SerializeField] private DepartmentProductionViewer scienceDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer cargoDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer medbayDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer securityDepartmentProductionViewer;
@@ -25,6 +25,12 @@ public class DepartmentProductionPanelController : MonoBehaviour
                 EngineerProductivityPanelInit();
                 break;
             }
+
+            case Department.Science:
+            {
+                ScienceProductivityPanelInit();
+                break;
+            }
         }
     }
     
@@ -41,12 +47,19 @@ public class DepartmentProductionPanelController : MonoBehaviour
         engineeringDepartmentProductionViewer.gameObject.SetActive(true);
         engineeringDepartmentProductionViewer.Initialize();
     }
+    
+    private void ScienceProductivityPanelInit()
+    {
+        CloseAllPanels();
+        scienceDepartmentProductionViewer.gameObject.SetActive(true);
+        scienceDepartmentProductionViewer.Initialize();
+    }
 
     private void CloseAllPanels()
     {
         bridgeDepartmentProductionViewer.gameObject.SetActive(false);
         engineeringDepartmentProductionViewer.gameObject.SetActive(false);
-        // rndDepartmentProductionViewer.gameObject.SetActive(false);
+        scienceDepartmentProductionViewer.gameObject.SetActive(false);
         // cargoDepartmentProductionViewer.gameObject.SetActive(false);
         // medbayDepartmentProductionViewer.gameObject.SetActive(false);
         // securityDepartmentProductionViewer.gameObject.SetActive(false);

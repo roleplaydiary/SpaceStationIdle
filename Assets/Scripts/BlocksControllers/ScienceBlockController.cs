@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
-public class BridgeBlockController : StationBlockController
+public class ScienceBlockController : StationBlockController
 {
     // Здесь остаются только специфичные для мостика поля и методы
     private float creditsAccumulated = 0f;
@@ -34,10 +36,10 @@ public class BridgeBlockController : StationBlockController
             .Subscribe(value => isProductionOn.Value = value > 0)
             .AddTo(disposables);
 
-        // Реактивный поток для производства кредитов
+        // Реактивный поток для производства Ресерч поинтов
         Observable.Interval(System.TimeSpan.FromSeconds(RESOURCE_UPDATE_INTERVAL))
             .Where(_ => isProductionOn.Value && playerData != null)
-            .Subscribe(_ => ProduceCreditsReactive())
+            .Subscribe(_ => ProduceResearchPointsReactive())
             .AddTo(disposables);
     }
     
@@ -46,23 +48,23 @@ public class BridgeBlockController : StationBlockController
         disposables.Clear();
     }
     
-    private void ProduceCreditsReactive()
+    private void ProduceResearchPointsReactive()
     {
-        float creditsThisFrame = 0f;
+        float rpThisFrame = 0f;
         int workingCrewCount = workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
+            if (workBenchesList[i].ProducedResource == WorkBenchResource.ResearchPoints)
             {
-                creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
+                rpThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
             }
         }
 
-        if (creditsThisFrame > 0)
+        if (rpThisFrame > 0)
         {
-            playerController.PlayerData.playerCredits.Value += creditsThisFrame;
+            playerController.PlayerData.researchPoints.Value += rpThisFrame;
         }
     }
 
@@ -78,7 +80,7 @@ public class BridgeBlockController : StationBlockController
         }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            if (workBenchesList[i].ProducedResource == WorkBenchResource.Credits)
+            if (workBenchesList[i].ProducedResource == WorkBenchResource.ResearchPoints)
             {
                 result += workBenchesList[i].ProductionRate;
             }
@@ -96,12 +98,6 @@ public class BridgeBlockController : StationBlockController
             return false;
         }
         return true;
-    }
-
-    public override void BlockInitialization(StationBlockData _blockData)
-    {
-        base.BlockInitialization(_blockData);
-        // Дополнительная инициализация для мостика, если нужна
     }
 
     protected override void BenchesInitialization()
@@ -123,11 +119,6 @@ public class BridgeBlockController : StationBlockController
         }
     }
 
-    protected override void CrewInitialization()
-    {
-        base.CrewInitialization();
-    }
-
     private void HireNewCrewMemberInternal()
     {
         base.HireNewCrewMember();
@@ -137,18 +128,12 @@ public class BridgeBlockController : StationBlockController
     {
         if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
         {
-            base.HireNewCrewMember(); // Вызываем метод найма из родительского класса
-            // Здесь можно добавить дополнительную логику для инженеров после найма, если необходимо
+            base.HireNewCrewMember();
         }
         else
         {
             Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
         }
-    }
-
-    public override void AddWorkBench()
-    {
-        base.AddWorkBench();
     }
 
     protected override Vector3 GetAvailableIdlePosition()
@@ -157,12 +142,6 @@ public class BridgeBlockController : StationBlockController
         {
             return idlePositionList[idleCrew.Count].position;
         }
-        return transform.position; // В качестве запасного варианта
-    }
-
-    protected override void InitializeLists()
-    {
-        // Вызываем базовую реализацию для обработки idlePositionParent
-        base.InitializeLists();
+        return transform.position;
     }
 }

@@ -2,7 +2,7 @@
 public enum Department
 {
     Bridge,
-    RND,
+    Science,
     Engineer,
     Med,
     Security,
