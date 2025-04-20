@@ -29,7 +29,7 @@ public class StationBlockController : MonoBehaviour
     protected int targetCrewAtRest = 0;
 
     protected StationController stationController;
-    public DepartmentEnergyController EnergyController { get; private set; }
+    protected DepartmentEnergyController EnergyController;
 
     public virtual void BlockInitialization(StationBlockData _blockData)
     {
@@ -51,7 +51,6 @@ public class StationBlockController : MonoBehaviour
         crewAtWork.Subscribe(_crewAtWork =>
         {
             blockData.CrewAtWork = _crewAtWork;
-            // Теперь DepartmentEnergyController сам подпишется на workingCrew
         }).AddTo(this);
 
         crewAtRest.Subscribe(_crewAtRest =>

@@ -32,20 +32,6 @@ public class StationController : MonoBehaviour
 
         stationData = loadData; // Присваиваем загруженные данные stationData
         BlocksInitialize(StationData);
-        SubscribeToEnergyChanges(); // Подписываемся на изменения энергии в блоках
-    }
-
-    private void SubscribeToEnergyChanges()
-    {
-        foreach (var block in stationBlocks)
-        {
-            if (block.EnergyController != null)
-            {
-                block.EnergyController.currentEnergyProduction.Subscribe(_ => UpdateTotalStationEnergy()).AddTo(this);
-                block.EnergyController.currentEnergyConsumption.Subscribe(_ => UpdateTotalStationEnergy()).AddTo(this);
-            }
-        }
-        UpdateTotalStationEnergy(); // Начальный расчет
     }
 
     private void BlocksInitialize(StationData stationData)
@@ -65,22 +51,22 @@ public class StationController : MonoBehaviour
         }
     }
 
-    public void UpdateTotalStationEnergy()
-    {
-        float totalProduction = 0f;
-        float totalConsumption = 0f;
-
-        foreach (var block in stationBlocks)
-        {
-            if (block.EnergyController)
-            {
-                totalProduction += block.EnergyController.currentEnergyProduction.Value;
-                totalConsumption += block.EnergyController.currentEnergyConsumption.Value;
-            }
-        }
-
-        StationData.stationEnergy.Value = totalProduction - totalConsumption;
-    }
+    // public void UpdateTotalStationEnergy()
+    // {
+    //     float totalProduction = 0f;
+    //     float totalConsumption = 0f;
+    //
+    //     foreach (var block in stationBlocks)
+    //     {
+    //         if (block.EnergyController)
+    //         {
+    //             totalProduction += block.EnergyController.currentEnergyProduction.Value;
+    //             totalConsumption += block.EnergyController.currentEnergyConsumption.Value;
+    //         }
+    //     }
+    //
+    //     StationData.stationEnergy.Value = totalProduction - totalConsumption;
+    // }
 
     public void TestHireCrewMember()
     {

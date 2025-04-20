@@ -43,7 +43,7 @@ public class EngineeringBlockController : StationBlockController
         }
 
         // Устанавливаем значение производства энергии в DepartmentEnergyController
-        if (EnergyController != null)
+        if (EnergyController)
         {
             EnergyController.currentEnergyProduction.Value = totalProduction;
         }

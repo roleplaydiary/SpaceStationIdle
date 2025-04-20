@@ -33,11 +33,12 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
 
     private float GetBlockEnergyConsumption(Department department)
     {
-        StationBlockController blockController = stationController.StationBlocks.FirstOrDefault(block => block.GetBlockType() == department);
         float result = 0f;
-        if (blockController != null && blockController.EnergyController != null)
+        StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
+        if (energyService != null && department != null)
         {
-            result = blockController.EnergyController.currentEnergyConsumption.Value;
+            DepartmentEnergyInfo energyInfo = energyService.GetDepartmentEnergyInfo(department);
+            result = energyInfo.Consumption;
         }
         return result;
     }
