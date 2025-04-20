@@ -32,10 +32,6 @@ public class StationController : MonoBehaviour
 
         stationData = loadData; // Присваиваем загруженные данные stationData
         BlocksInitialize(StationData);
-        
-        ResourceManager resourceManager = new ResourceManager();
-        ServiceLocator.Register(resourceManager);
-        Debug.Log("ResourceManager зарегистрирован в ServiceLocator.");
     }
 
     private void BlocksInitialize(StationData stationData)

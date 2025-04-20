@@ -21,9 +21,19 @@ public class GameController : MonoBehaviour
         await ServiceLocator.Get<CloudController>().Autentication();
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
+        ResourceManagerInitialize();
+        
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
         loadingImage.SetActive(false);
     }
+
+    private void ResourceManagerInitialize()
+    {
+        ResourceManager resourceManager = new ResourceManager();
+        ServiceLocator.Register(resourceManager);
+        Debug.Log("ResourceManager зарегистрирован в ServiceLocator.");
+    }
+    
 
     public void TestSaveStationButton()
     {

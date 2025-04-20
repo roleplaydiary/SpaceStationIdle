@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     public PlayerData PlayerData { get => playerData; }
-    [SerializeField] private List<Resources> resources;
 
     private void Awake()
     {
