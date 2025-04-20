@@ -74,7 +74,7 @@ public class ResourceManager : IDisposable
                 return;
         }
         currentResources.Value = newResources;
-        SaveResources(); // Сохраняем при изменении
+        //Сохранение ресурсов было вынесено отсюда, чтобы в цикле не сохранять по сто раз
     }
 
     public bool TryRemoveResource(string type, float amount)

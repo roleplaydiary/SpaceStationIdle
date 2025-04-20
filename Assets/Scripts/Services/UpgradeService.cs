@@ -38,7 +38,6 @@ public class UpgradeService : IDisposable
         if (upgrade.cost.resources != null)
         {
             Resources costResources = upgrade.cost.resources;
-            Resources currentResources = _resourceManager.GetCurrentResources();
 
             foreach (var costResource in costResources)
             {
@@ -65,7 +64,7 @@ public class UpgradeService : IDisposable
         {
             // Списываем средства
             PlayerController playerController = ServiceLocator.Get<PlayerController>();
-            playerController.PlayerData.playerCredits.Value -= upgrade.cost.credits;
+            playerController.AddCredits((int)-upgrade.cost.credits);
             playerController.PlayerData.researchPoints.Value -= upgrade.cost.researchPoints;
     
             // Списываем ресурсы
@@ -75,6 +74,8 @@ public class UpgradeService : IDisposable
                 {
                     _resourceManager.AddResource(resourceCost.Key, -resourceCost.Value);
                 }
+                
+                _resourceManager.SaveResources(); // Сохраняем при изменении
             }
     
             // Применяем эффект апгрейда

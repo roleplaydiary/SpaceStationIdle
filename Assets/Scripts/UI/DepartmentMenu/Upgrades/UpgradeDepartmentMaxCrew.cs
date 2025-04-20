@@ -13,7 +13,7 @@ public class UpgradeDepartmentMaxCrew : MonoBehaviour
         _button.OnClickAsObservable().Subscribe(_ =>
         {
             UpgradeService upgradeService = ServiceLocator.Get<UpgradeService>();
-            upgradeService.ApplyUpgrade(UpgradeDataSO.UpgradeType.DepartmentMaxCrew, _department);
+            upgradeService.PurchaseUpgrade(upgradeId, _department);
         }).AddTo(this);
     }
 }
