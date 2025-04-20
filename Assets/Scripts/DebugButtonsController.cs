@@ -14,6 +14,8 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button hireScientistButton;
     [SerializeField] private Button upgradeMaxWorkstationRNDButton;
     [SerializeField] private Button addWorkstationRNDButton;
+
+    [SerializeField] private Button saveResources;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -64,6 +66,12 @@ public class DebugButtonsController : MonoBehaviour
         addWorkstationRNDButton.OnClickAsObservable().Subscribe(button =>
         {
             AddWorkstationRND();
+        }).AddTo(_disposables);
+
+        saveResources.OnClickAsObservable().Subscribe(async button =>
+        {
+            ResourceManager resourceManager = ServiceLocator.Get<ResourceManager>();
+            await ServiceLocator.Get<CloudController>().SaveResources(resourceManager.GetCurrentResources());
         }).AddTo(_disposables);
     }
 
