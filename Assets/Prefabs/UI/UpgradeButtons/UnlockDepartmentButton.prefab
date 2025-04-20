@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7760430515481456276}
   - component: {fileID: 5369712471010577586}
   - component: {fileID: 7025694329064386668}
-  - component: {fileID: 7668507677549165534}
+  - component: {fileID: 6387400667185479848}
   m_Layer: 5
   m_Name: UnlockDepartmentButton
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7668507677549165534
+--- !u!114 &6387400667185479848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,11 +131,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4917833715877978000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c397e44f41a3846b362b3696a9ccdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 636fab9f974068a4b91971aece7fb78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7025694329064386668}
   _department: 2
+  upgradeId: engineering_unlock
 --- !u!1 &6969574777828482670
 GameObject:
   m_ObjectHideFlags: 0

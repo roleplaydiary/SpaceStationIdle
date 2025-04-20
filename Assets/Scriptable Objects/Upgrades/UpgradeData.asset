@@ -13,23 +13,7 @@ MonoBehaviour:
   m_Name: UpgradeData
   m_EditorClassIdentifier: 
   upgrades:
-  - upgradeId: bridge_max_crew_level_1
-    displayName: Bridge Crew Max Upgrade
-    description: Max crew count at Bridge
-    type: 0
-    level: 1
-    cost:
-      credits: 100
-      researchPoints: 100
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: department_unlock_engineering
+  - upgradeId: engineering_unlock
     displayName: Unlock engineering
     description: Unlock department Engineering
     type: 0
@@ -58,6 +42,70 @@ MonoBehaviour:
         Metal: 10
         Glass: 10
         Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_add_workstation_1
+    displayName: Engineering New workstation
+    description: Add new workstation to Engineerong
+    type: 5
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: engineering_hire_1
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_workstation_max_1
+    displayName: Upgrade workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: station_max_crew_1
+    displayName: Upgrade station max crew
+    description: Upgrade station max crew
+    type: 2
+    level: 1
+    cost:
+      credits: 500
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0

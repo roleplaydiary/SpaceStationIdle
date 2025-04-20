@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7760430515481456276}
   - component: {fileID: 5369712471010577586}
   - component: {fileID: 7025694329064386668}
-  - component: {fileID: 6327588768120665503}
+  - component: {fileID: 7100193458328732832}
   m_Layer: 5
   m_Name: UpgradeStationMaxCrewButton
   m_TagString: Untagged
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6327588768120665503
+--- !u!114 &7100193458328732832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4917833715877978000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60aeda0b00f5d754d8b9008b22df286c, type: 3}
+  m_Script: {fileID: 11500000, guid: 636fab9f974068a4b91971aece7fb78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7025694329064386668}
+  _department: 0
+  upgradeId: 
 --- !u!1 &6969574777828482670
 GameObject:
   m_ObjectHideFlags: 0
