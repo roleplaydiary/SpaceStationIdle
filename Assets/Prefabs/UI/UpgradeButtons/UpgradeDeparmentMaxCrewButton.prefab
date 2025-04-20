@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 7025694329064386668}
   _department: 2
+  upgradeId: engineering_max_crew_level_1
 --- !u!1 &6969574777828482670
 GameObject:
   m_ObjectHideFlags: 0

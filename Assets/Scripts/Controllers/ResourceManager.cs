@@ -14,35 +14,59 @@ public class ResourceManager : IDisposable
         LoadResources();
     }
 
+    public float GetResourceAmount(string key)
+    {
+        switch (key)
+        {
+            case "Phoron":
+                return currentResources.Value.Phoron;
+            case "Metal":
+                return currentResources.Value.Metal;
+            case "Glass":
+                return currentResources.Value.Glass;
+            case "Plastic":
+                return currentResources.Value.Plastic;
+            case "Gold":
+                return currentResources.Value.Gold;
+            case "Silver":
+                return currentResources.Value.Silver;
+            case "Uranium":
+                return currentResources.Value.Uranium;
+            default:
+                Debug.LogError($"Неизвестный тип ресурса: {key}");
+                return 0f;
+        }
+    }
+
     public Resources GetCurrentResources()
     {
         return currentResources.Value;
     }
 
-    public void AddResource(ResourceType type, float amount)
+    public void AddResource(string type, float amount)
     {
         Resources newResources = currentResources.Value;
         switch (type)
         {
-            case ResourceType.Phoron:
+            case "Phoron":
                 newResources.Phoron += amount;
                 break;
-            case ResourceType.Metal:
+            case "Metal":
                 newResources.Metal += amount;
                 break;
-            case ResourceType.Glass:
+            case "Glass":
                 newResources.Glass += amount;
                 break;
-            case ResourceType.Plastic:
+            case "Plastic":
                 newResources.Plastic += amount;
                 break;
-            case ResourceType.Gold:
+            case "Gold":
                 newResources.Gold += amount;
                 break;
-            case ResourceType.Silver:
+            case "Silver":
                 newResources.Silver += amount;
                 break;
-            case ResourceType.Uranium:
+            case "Uranium":
                 newResources.Uranium += amount;
                 break;
             default:
@@ -53,32 +77,32 @@ public class ResourceManager : IDisposable
         SaveResources(); // Сохраняем при изменении
     }
 
-    public bool TryRemoveResource(ResourceType type, float amount)
+    public bool TryRemoveResource(string type, float amount)
     {
         Resources current = currentResources.Value;
         float currentAmount;
 
         switch (type)
         {
-            case ResourceType.Phoron:
+            case "Phoron":
                 currentAmount = current.Phoron;
                 break;
-            case ResourceType.Metal:
+            case "Metal":
                 currentAmount = current.Metal;
                 break;
-            case ResourceType.Glass:
+            case "Glass":
                 currentAmount = current.Glass;
                 break;
-            case ResourceType.Plastic:
+            case "Plastic":
                 currentAmount = current.Plastic;
                 break;
-            case ResourceType.Gold:
+            case "Gold":
                 currentAmount = current.Gold;
                 break;
-            case ResourceType.Silver:
+            case "Silver":
                 currentAmount = current.Silver;
                 break;
-            case ResourceType.Uranium:
+            case "Uranium":
                 currentAmount = current.Uranium;
                 break;
             default:
@@ -94,13 +118,13 @@ public class ResourceManager : IDisposable
         return false;
     }
 
-    private async void SaveResources()
+    public async void SaveResources()
     {
         await ServiceLocator.Get<CloudController>().SaveResources(currentResources.Value);
         Debug.Log($"Ресурсы сохранены: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, ...");
     }
 
-    private async void LoadResources()
+    public async void LoadResources()
     {
         Resources loadData = await ServiceLocator.Get<CloudController>().LoadResources();
 
@@ -121,16 +145,4 @@ public class ResourceManager : IDisposable
     {
         disposables.Clear();
     }
-}
-
-// Enum для удобного обращения к типам ресурсов
-public enum ResourceType
-{
-    Phoron,
-    Metal,
-    Glass,
-    Plastic,
-    Gold,
-    Silver,
-    Uranium
 }

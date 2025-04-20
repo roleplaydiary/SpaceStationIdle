@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - upgradeId: bridge_max_crew_level_1
-    displayName: Bridge Crew Max
+    displayName: Bridge Crew Max Upgrade
     description: Max crew count at Bridge
     type: 0
     level: 1
@@ -42,6 +42,22 @@ MonoBehaviour:
         Metal: 0
         Glass: 0
         Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_max_crew_level_1
+    displayName: Engineering Crew Max Upgrade
+    description: Update Max Crew Count in Engineering
+    type: 1
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
         Gold: 0
         Silver: 0
         Uranium: 0

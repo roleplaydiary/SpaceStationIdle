@@ -6,6 +6,7 @@ public class AddWorkstationButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Department _department;
+    [SerializeField] private string upgradeId;
 
     private void Awake()
     {

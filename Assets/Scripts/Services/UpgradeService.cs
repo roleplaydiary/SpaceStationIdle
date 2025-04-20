@@ -6,6 +6,7 @@ using UnityEngine;
 public class UpgradeService : IDisposable
 {
     private readonly StationController _stationController;
+    private readonly ResourceManager _resourceManager;
     private readonly UpgradeDataSO _upgradeDataSO;
     private readonly ReactiveDictionary<string, bool> _purchasedUpgrades = new ReactiveDictionary<string, bool>();
     public IReadOnlyReactiveDictionary<string, bool> PurchasedUpgrades => _purchasedUpgrades;
@@ -15,7 +16,80 @@ public class UpgradeService : IDisposable
     public UpgradeService()
     {
         _stationController = ServiceLocator.Get<StationController>();
+        _resourceManager = ServiceLocator.Get<ResourceManager>();
         _upgradeDataSO = ServiceLocator.Get<DataLibrary>().upgradeData;
+    }
+    
+    public bool CanPurchaseUpgrade(string upgradeId)
+    {
+        UpgradeDataSO.UpgradeEntry upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
+        if (upgrade.upgradeId == null) return false;
+
+        PlayerController playerController = ServiceLocator.Get<PlayerController>();
+        if (playerController == null || playerController.PlayerData == null)
+        {
+            Debug.LogError("PlayerController или PlayerData не найдены!");
+            return false;
+        }
+
+        if (playerController.PlayerData.playerCredits.Value < upgrade.cost.credits) return false;
+        if (playerController.PlayerData.researchPoints.Value < upgrade.cost.researchPoints) return false;
+
+        if (upgrade.cost.resources != null)
+        {
+            Resources costResources = upgrade.cost.resources;
+            Resources currentResources = _resourceManager.GetCurrentResources();
+
+            foreach (var costResource in costResources)
+            {
+                string resourceName = costResource.Key;
+                float requiredAmount = costResource.Value;
+                float currentAmount = _resourceManager.GetResourceAmount(resourceName);
+
+                if (currentAmount < requiredAmount)
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public void PurchaseUpgrade(string upgradeId, Department department = Department.Bridge)
+    {
+        var upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
+        if (upgrade.upgradeId == null || (_purchasedUpgrades.ContainsKey(upgrade.upgradeId) && _purchasedUpgrades[upgrade.upgradeId])) return;
+    
+        if (CanPurchaseUpgrade(upgradeId))
+        {
+            // Списываем средства
+            PlayerController playerController = ServiceLocator.Get<PlayerController>();
+            playerController.PlayerData.playerCredits.Value -= upgrade.cost.credits;
+            playerController.PlayerData.researchPoints.Value -= upgrade.cost.researchPoints;
+    
+            // Списываем ресурсы
+            if (upgrade.cost.resources != null)
+            {
+                foreach (var resourceCost in upgrade.cost.resources)
+                {
+                    _resourceManager.AddResource(resourceCost.Key, -resourceCost.Value);
+                }
+            }
+    
+            // Применяем эффект апгрейда
+            ApplyUpgrade(upgrade.type, department);
+    
+            // Помечаем апгрейд как купленный
+            _purchasedUpgrades[upgrade.upgradeId] = true;
+
+            _resourceManager.SaveResources();
+        }
+        else
+        {
+            Debug.LogWarning($"Невозможно купить апгрейд {upgradeId}. Недостаточно средств или ресурсов.");
+            // Оповестить игрока о неудачной попытке покупки (через UI)
+        }
     }
     
     public void ApplyUpgrade(UpgradeDataSO.UpgradeType type, Department department = Department.Bridge)
