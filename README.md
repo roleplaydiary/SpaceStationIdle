@@ -39,14 +39,3 @@
 SpaceStationIdle is an idle game where you take on the role of the captain of a space station. Your primary goal is to maintain the well-being and productivity of your crew. Various station blocks provide unique functions, from research and development to boosting crew morale. Manage resources, hire and control your crew, upgrade station blocks, and unlock new technologies to ensure a continuous supply of resources for the mysterious NanoTraisen corporation. Be prepared for unexpected station events that require your immediate attention!
 
 ---
-
-**How to Strikethrough Completed Tasks on GitHub:**
-
-To strikethrough completed tasks in Markdown (the format used by GitHub for READMEs and other text files), you need to use **two tildes** (`~~`) before and after the text you want to strikethrough.
-
-**Example:**
-
-To strikethrough the task "Basic gameplay", you would write:
-
-```markdown
-~~Basic gameplay~~
