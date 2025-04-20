@@ -8,6 +8,7 @@ public class StatsViewer : MonoBehaviour
     [SerializeField] private TMP_Text creditsText;
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text currentMoodText;
+    [SerializeField] private TMP_Text researchPointsText;
     
     private PlayerController playerController;
     private StationData stationData;
@@ -19,8 +20,6 @@ public class StatsViewer : MonoBehaviour
     
     public void StatsIninitlize()
     {
-        
-
         CreditsValueInitialize();
         EnergyValueInitialize();
         MoodValueInitialize();
@@ -59,6 +58,19 @@ public class StatsViewer : MonoBehaviour
             stationData.crewMood.Subscribe(mood =>
             {
                 currentMoodText.text = $"Mood: {mood}";
+            }).AddTo(this);
+        }
+    }
+
+    private void ResearchPointsValueInitialize()
+    {
+        playerController = ServiceLocator.Get<PlayerController>();
+        
+        if (playerController != null && researchPointsText != null)
+        {
+            playerController.GetPlayerData().researchPoints.Subscribe(credits =>
+            {
+                researchPointsText.text = $"Research points: {Math.Round(credits)}";
             }).AddTo(this);
         }
     }
