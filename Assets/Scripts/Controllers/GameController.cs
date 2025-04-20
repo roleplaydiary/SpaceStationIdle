@@ -7,7 +7,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     
     [SerializeField] private DataLibrary dataLibrary;
-    [SerializeField] private GameObject loadingImage;
 
     private async void Start()
     {
@@ -17,14 +16,14 @@ public class GameController : MonoBehaviour
 
     private async Task GameInitialization()
     {
-        loadingImage.SetActive(true);
+        ServiceLocator.Get<UIController>().LoadingScreenShow();
         await ServiceLocator.Get<CloudController>().Autentication();
         await playerController.PlayerInitialization();
         await stationController.StationInitializate();
         ResourceManagerInitialize();
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
-        loadingImage.SetActive(false);
+        ServiceLocator.Get<UIController>().LoadingScreenHide();
     }
 
     private void ResourceManagerInitialize()

@@ -46,4 +46,9 @@ public class PlayerController : MonoBehaviour
     {
         playerData.playerCredits.Value += amount;
     }
+
+    public void AddResearchPoints(int amount)
+    {
+        playerData.researchPoints.Value += amount;
+    }
 }
