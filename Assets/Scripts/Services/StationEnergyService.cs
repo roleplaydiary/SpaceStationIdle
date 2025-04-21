@@ -33,11 +33,9 @@ public class StationEnergyService : IDisposable
                 .Subscribe(changes =>
                 {
                     currentStationEnergy.Value = changes.Sum();
-                    // Логика обработки дефицита энергии
                     if (currentStationEnergy.Value < 0)
                     {
                         Debug.LogWarning("Дефицит энергии на станции!");
-                        ServiceLocator.Get<UIController>().ShowPopupMessage("Warning!", "Not enough energy at station!");
                     }
                 })
                 .AddTo(disposables);
