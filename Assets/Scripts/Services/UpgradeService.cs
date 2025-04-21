@@ -73,7 +73,8 @@ public class UpgradeService : IDisposable
             {
                 foreach (var resourceCost in upgrade.cost.resources)
                 {
-                    _resourceManager.AddResource(resourceCost.Key, -resourceCost.Value);
+                    var resourceType = ResourceManager.GetResourceTypeByName(resourceCost.Key);
+                    _resourceManager.AddResource(resourceType, -resourceCost.Value);
                 }
                 
                 await _resourceManager.SaveResources(); // Сохраняем при изменении

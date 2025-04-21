@@ -26,3 +26,4 @@ MonoBehaviour:
   - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
   upgradeData: {fileID: 11400000, guid: 2db7e1bffc06e8b4cabba49d3fdbc011, type: 2}
   donateData: {fileID: 11400000, guid: 73795ddee11c12d4d8ffc0f316e09fb2, type: 2}
+  resourceDropData: {fileID: 11400000, guid: 7c4bca45aef78404388a9ee336097633, type: 2}

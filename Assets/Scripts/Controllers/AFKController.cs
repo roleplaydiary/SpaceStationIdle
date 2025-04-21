@@ -36,10 +36,9 @@ public class AFKController : MonoBehaviour
 
         // Обновляем время последнего сохранения после расчета АФК
         playerController.PlayerData.lastSaveTime = DateTime.UtcNow;
-        playerController.SavePlayerData(); // Важно сохранить новое время
     }
 
-    private void CalculateDepartmentProduction(System.TimeSpan afkTime)
+    private void CalculateDepartmentProduction(TimeSpan afkTime)
     {
         var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationBlocks != null && stationController.StationData != null)

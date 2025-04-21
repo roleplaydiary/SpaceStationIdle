@@ -9,4 +9,6 @@ public class DataLibrary : ScriptableObject
     public UpgradeDataSO upgradeData;
     [Header("Донаты")]
     public DonateUpgradesSO donateData;
+    [Header("Ресурсы")]
+    public CargoResourceProductionDataSO resourceDropData;
 }

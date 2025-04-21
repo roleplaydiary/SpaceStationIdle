@@ -7,6 +7,7 @@ public class CargoBlockController : StationBlockController
     private float creditsAccumulated = 0f;
     private float lastResourceUpdateTime = 0f;
     private const float RESOURCE_UPDATE_INTERVAL = 1f; // Обновление каждую секунду
+    private const float RESOURCE_DROP_INTERVAL = 600; // Обновление каждую секунду
     
     private PlayerData playerData;
     private PlayerController playerController;
@@ -39,6 +40,11 @@ public class CargoBlockController : StationBlockController
             .Where(_ => isProductionOn.Value && playerData != null)
             .Subscribe(_ => ProduceCreditsReactive())
             .AddTo(disposables);
+        
+        Observable.Interval(System.TimeSpan.FromSeconds(RESOURCE_DROP_INTERVAL))
+            .Where(_ => isProductionOn.Value)
+            .Subscribe(_ => ProduceRandomResource())
+            .AddTo(disposables);
     }
     
     private void OnDestroy()
@@ -60,6 +66,35 @@ public class CargoBlockController : StationBlockController
         if (creditsThisFrame > 0)
         {
             playerController.PlayerData.playerCredits.Value += creditsThisFrame;
+        }
+    }
+    
+    private void ProduceRandomResource()
+    {
+        // добавить проверку, что если 4 и 5 станки - работают
+        var dataLibrary = ServiceLocator.Get<DataLibrary>();
+        if (dataLibrary == null || dataLibrary.resourceDropData == null)
+        {
+            Debug.LogError("CargoResourceProductionDataSO не найден в DataLibrary!");
+            return;
+        }
+
+        CargoResourceProductionDataSO resourceData = dataLibrary.resourceDropData;
+        var resourceManager = ServiceLocator.Get<ResourceManager>();
+        if (resourceManager == null)
+        {
+            Debug.LogError("ResourceManager не найден!");
+            return;
+        }
+
+        foreach (var entry in resourceData.possibleResources)
+        {
+            if (Random.Range(0f, 1f) <= entry.dropProbability)
+            {
+                float amount = Random.Range(entry.minAmount, entry.maxAmount);
+                resourceManager.AddResource(entry.resource, amount);
+                Debug.Log($"Карго отдел обнаружил {amount:F2} ед. ресурса '{entry.resource}'.");
+            }
         }
     }
 

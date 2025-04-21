@@ -24,7 +24,8 @@ public class GameController : MonoBehaviour
         ResourceManagerInitialize();
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
-        
+
+        await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера
         ServiceLocator.Get<UIController>().LoadingScreenHide();
     }
 

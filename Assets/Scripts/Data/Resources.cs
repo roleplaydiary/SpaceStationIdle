@@ -29,3 +29,14 @@ public class Resources : IEnumerable<KeyValuePair<string, float>>
         return GetEnumerator();
     }
 }
+
+public enum ResourceType
+{
+    Phoron,
+    Metal,
+    Glass,
+    Plastic,
+    Gold,
+    Silver,
+    Uranium
+}

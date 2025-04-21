@@ -44,30 +44,30 @@ public class ResourceManager : IDisposable
         return currentResources.Value;
     }
 
-    public void AddResource(string type, float amount)
+    public void AddResource(ResourceType type, float amount)
     {
         Resources newResources = currentResources.Value;
         switch (type)
         {
-            case "Phoron":
+            case ResourceType.Phoron:
                 newResources.Phoron += amount;
                 break;
-            case "Metal":
+            case ResourceType.Metal:
                 newResources.Metal += amount;
                 break;
-            case "Glass":
+            case ResourceType.Glass:
                 newResources.Glass += amount;
                 break;
-            case "Plastic":
+            case ResourceType.Plastic:
                 newResources.Plastic += amount;
                 break;
-            case "Gold":
+            case ResourceType.Gold:
                 newResources.Gold += amount;
                 break;
-            case "Silver":
+            case ResourceType.Silver:
                 newResources.Silver += amount;
                 break;
-            case "Uranium":
+            case ResourceType.Uranium:
                 newResources.Uranium += amount;
                 break;
             default:
@@ -78,32 +78,32 @@ public class ResourceManager : IDisposable
         //Сохранение ресурсов было вынесено отсюда, чтобы в цикле не сохранять по сто раз
     }
 
-    public bool TryRemoveResource(string type, float amount)
+    public bool TryRemoveResource(ResourceType type, float amount)
     {
         Resources current = currentResources.Value;
         float currentAmount;
 
         switch (type)
         {
-            case "Phoron":
+            case ResourceType.Phoron:
                 currentAmount = current.Phoron;
                 break;
-            case "Metal":
+            case ResourceType.Metal:
                 currentAmount = current.Metal;
                 break;
-            case "Glass":
+            case ResourceType.Glass:
                 currentAmount = current.Glass;
                 break;
-            case "Plastic":
+            case ResourceType.Plastic:
                 currentAmount = current.Plastic;
                 break;
-            case "Gold":
+            case ResourceType.Gold:
                 currentAmount = current.Gold;
                 break;
-            case "Silver":
+            case ResourceType.Silver:
                 currentAmount = current.Silver;
                 break;
-            case "Uranium":
+            case ResourceType.Uranium:
                 currentAmount = current.Uranium;
                 break;
             default:
@@ -139,6 +139,30 @@ public class ResourceManager : IDisposable
             // Если загрузка не удалась, устанавливаем значения по умолчанию
             currentResources.Value = new Resources { Phoron = 0, Metal = 0, Glass = 0, Plastic = 0, Gold = 0, Silver = 0, Uranium = 0 };
             Debug.Log($"Не удалось загрузить ресурсы из облака, установлены значения по умолчанию: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, {currentResources.Value.Glass}, {currentResources.Value.Plastic}, {currentResources.Value.Gold}, {currentResources.Value.Silver}, {currentResources.Value.Uranium}");
+        }
+    }
+
+    public static ResourceType GetResourceTypeByName(string name)
+    {
+        switch (name)
+        {
+            case "Phoron":
+                return ResourceType.Phoron;
+            case "Metal":
+                return ResourceType.Metal;
+            case "Glass":
+                return ResourceType.Glass;
+            case "Plastic":
+                return ResourceType.Plastic;
+            case "Gold":
+                return ResourceType.Gold;
+            case "Silver":
+                return ResourceType.Silver;
+            case "Uranium":
+                return ResourceType.Uranium;
+            default:
+                Debug.LogError($"Неизвестный тип ресурса: {name}");
+                return default;
         }
     }
 
