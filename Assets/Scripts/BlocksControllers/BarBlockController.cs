@@ -115,11 +115,6 @@ public class BarBlockController : StationBlockController
         CalculateMoodProduction();
     }
 
-    protected override Vector3 GetAvailableIdlePosition()
-    {
-        return base.GetAvailableIdlePosition();
-    }
-
     protected override void InitializeLists()
     {
         base.InitializeLists();

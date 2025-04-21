@@ -104,11 +104,6 @@ public class EngineeringBlockController : StationBlockController
         CalculateEnergyProduction();
     }
 
-    protected override Vector3 GetAvailableIdlePosition()
-    {
-        return base.GetAvailableIdlePosition();
-    }
-
     protected override void InitializeLists()
     {
         base.InitializeLists();

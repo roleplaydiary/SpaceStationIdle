@@ -204,13 +204,4 @@ public class CargoBlockController : StationBlockController
             Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
         }
     }
-
-    protected override Vector3 GetAvailableIdlePosition()
-    {
-        if (idlePositionList.Count > idleCrew.Count)
-        {
-            return idlePositionList[idleCrew.Count].position;
-        }
-        return transform.position; // В качестве запасного варианта
-    }
 }
