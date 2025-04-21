@@ -86,15 +86,38 @@ public class StationBlockController : MonoBehaviour
 
     protected virtual void CrewInitialization()
     {
-        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0)
+        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0 ||
+            stationBlockDataSo.crewPrefabs == null || stationBlockDataSo.crewPrefabs.Length == 0)
+        {
+            Debug.LogError("Ошибка инициализации экипажа");
             return;
+        }
 
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
-            var newCrewMember = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
-            CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
-            crewMembers.Add(crewController);
-            allCrewMembers.Add(crewController);
+            // Определяем индекс префаба для спавна по порядку
+            int prefabIndex = i % stationBlockDataSo.crewPrefabs.Length;
+            GameObject prefabToSpawn = stationBlockDataSo.crewPrefabs[prefabIndex];
+
+            if (prefabToSpawn != null)
+            {
+                var newCrewMember = Instantiate(prefabToSpawn, transform);
+                CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
+                if (crewController != null)
+                {
+                    crewMembers.Add(crewController);
+                    allCrewMembers.Add(crewController);
+                }
+                else
+                {
+                    Debug.LogError($"Префаб экипажа {prefabToSpawn.name} не имеет компонента CharacterController!");
+                    Destroy(newCrewMember); // Уничтожаем проблемный объект
+                }
+            }
+            else
+            {
+                Debug.LogError($"Префаб экипажа с индексом {prefabIndex} в StationBlockDataSO для {GetBlockType()} - null!");
+            }
         }
     }
 

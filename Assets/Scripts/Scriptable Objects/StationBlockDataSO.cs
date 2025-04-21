@@ -7,4 +7,5 @@ public class StationBlockDataSO : ScriptableObject
     public int MaxCrew;
     public int MaxWorkBenches;
     public Department BlockType;
+    public GameObject[] crewPrefabs;
 }

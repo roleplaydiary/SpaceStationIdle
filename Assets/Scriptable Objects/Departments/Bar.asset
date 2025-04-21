@@ -16,3 +16,7 @@ MonoBehaviour:
   MaxCrew: 3
   MaxWorkBenches: 3
   BlockType: 7
+  crewPrefabs:
+  - {fileID: 5351046217388698124, guid: 44b30171031312d468a8f25c37c97aa5, type: 3}
+  - {fileID: 5351046217388698124, guid: 44b30171031312d468a8f25c37c97aa5, type: 3}
+  - {fileID: 5351046217388698124, guid: 44b30171031312d468a8f25c37c97aa5, type: 3}
