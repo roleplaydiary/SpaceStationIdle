@@ -14,6 +14,23 @@ public class PlayerController : MonoBehaviour
     {
         ServiceLocator.Register(this);
     }
+    
+    private void Start()
+    {
+        AutoSaveTimer();
+    }
+
+    private void AutoSaveTimer()
+    {
+        Observable
+            .Interval(TimeSpan.FromMinutes(2))
+            .Subscribe(async _ =>
+            {
+                await SavePlayerData();
+            })
+            .AddTo(this);
+    }
+
 
     public PlayerData GetPlayerData()
     {
