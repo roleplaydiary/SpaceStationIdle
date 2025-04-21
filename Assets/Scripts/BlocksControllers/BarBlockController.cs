@@ -6,6 +6,9 @@ using UnityEngine;
 public class BarBlockController : StationBlockController
 {
     private StationData stationData;
+    
+    private ReactiveProperty<bool> isProductionOn = new ReactiveProperty<bool>(false);
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private void Start()
     {
@@ -21,9 +24,16 @@ public class BarBlockController : StationBlockController
             Debug.LogError("StationData не найден через StationController!");
             return;
         }
+        
+        StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
+        energyService.CurrentStationEnergy
+            .Subscribe(value => isProductionOn.Value = value > 0)
+            .AddTo(disposables);
 
         // Подписываемся на изменение количества рабочих и пересчитываем производство
-        workingCrew.ObserveCountChanged().Subscribe(_ => CalculateMoodProduction()).AddTo(this);
+        workingCrew.ObserveCountChanged()
+            .Where(_ => isProductionOn.Value)
+            .Subscribe(_ => CalculateMoodProduction()).AddTo(this);
     }
 
     private void CalculateMoodProduction()
@@ -37,9 +47,9 @@ public class BarBlockController : StationBlockController
             totalProduction += workBenchesList[i].ProductionRate;
         }
 
-        if (EnergyController)
+        if (MoodController != null)
         {
-            EnergyController.currentEnergyProduction.Value = totalProduction;
+            MoodController.currentMoodEffect.Value = totalProduction;
         }
     }
     

@@ -53,10 +53,10 @@ public class StatsViewer : MonoBehaviour
 
     private void MoodValueInitialize()
     {
-        stationData = ServiceLocator.Get<StationController>().StationData;
-        if (stationData != null)
+        var StationMoodService = ServiceLocator.Get<StationMoodService>();
+        if (StationMoodService != null)
         {
-            stationData.crewMood.Subscribe(mood =>
+            StationMoodService.CurrentStationMood.Subscribe(mood =>
             {
                 currentMoodText.text = $"Mood: {mood}";
             }).AddTo(this);

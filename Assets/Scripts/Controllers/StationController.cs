@@ -27,7 +27,6 @@ public class StationController : MonoBehaviour
             loadData.SetMaxCrewUnlocked(Department.Bridge, 1);
             loadData.SetCurrentCrewHired(Department.Bridge, 1);
             loadData.maxCrew.Value = 5;
-            loadData.crewMood.Value = 1000f;
             await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
         }
 

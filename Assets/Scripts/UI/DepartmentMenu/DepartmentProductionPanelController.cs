@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class DepartmentProductionPanelController : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class DepartmentProductionPanelController : MonoBehaviour
     [SerializeField] private DepartmentProductionViewer cargoDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer medbayDepartmentProductionViewer;
     [SerializeField] private DepartmentProductionViewer securityDepartmentProductionViewer;
-    [SerializeField] private DepartmentProductionViewer kitchenDepartmentProductionViewer;
+    [SerializeField] private DepartmentProductionViewer barDepartmentProductionViewer;
 
     public void ProductivityPanelInit(Department department)
     {
@@ -35,6 +36,18 @@ public class DepartmentProductionPanelController : MonoBehaviour
             case Department.Cargo:
             {
                 CargoProductivityPanelInit();
+                break;
+            }
+
+            case Department.Bar:
+            {
+                BarProductivityPanelInit();
+                break;
+            }
+
+            default:
+            {
+                Debug.LogError($"Unknown department: {department}");
                 break;
             }
         }
@@ -88,6 +101,18 @@ public class DepartmentProductionPanelController : MonoBehaviour
         cargoDepartmentProductionViewer.gameObject.SetActive(true);
         cargoDepartmentProductionViewer.Initialize();
     }
+    
+    private void BarProductivityPanelInit()
+    {
+        CloseAllPanels();
+        if (barDepartmentProductionViewer == null)
+        {
+            Debug.LogError("Cargo production viewer is null");
+            return;
+        }
+        barDepartmentProductionViewer.gameObject.SetActive(true);
+        barDepartmentProductionViewer.Initialize();
+    }
 
     private void CloseAllPanels()
     {
@@ -97,7 +122,7 @@ public class DepartmentProductionPanelController : MonoBehaviour
         cargoDepartmentProductionViewer.gameObject.SetActive(false);
         // medbayDepartmentProductionViewer.gameObject.SetActive(false);
         // securityDepartmentProductionViewer.gameObject.SetActive(false);
-        // kitchenDepartmentProductionViewer.gameObject.SetActive(false);
+        barDepartmentProductionViewer.gameObject.SetActive(false);
     }
     
 }

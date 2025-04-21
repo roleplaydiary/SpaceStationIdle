@@ -8,15 +8,11 @@ using Unity.Services.CloudSave.Models;
 public class StationData
 {
     public ReactiveProperty<int> maxCrew { get; private set; }
-    public ReactiveProperty<float> crewMood { get; private set; }
-    public ReactiveProperty<float> stationEnergy { get; private set; }
     public Dictionary<Department, StationBlockData> departmentData = new();
 
     public StationData()
     {
         maxCrew = new ReactiveProperty<int>(5); // Дефолтное значение
-        crewMood = new ReactiveProperty<float>(1000f); // Дефолтное значение
-        stationEnergy = new ReactiveProperty<float>(0f); // Дефолтное значение
     }
 
     public bool IsUnlocked(Department dept)
@@ -113,8 +109,6 @@ public class StationData
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
         dict["maxCrew"] = maxCrew.Value; // int
-        dict["crewMood"] = crewMood.Value; // float
-        // dict["stationEnergy"] = stationEnergy.Value;//float Думаю, сохранять это не будем, пусть считается каждый раз
 
         foreach (var pair in departmentData)
         {
@@ -138,24 +132,6 @@ public class StationData
         {
             stationData.maxCrew.Value = 5;
         }
-
-        if (dict.TryGetValue("crewMood", out Item crewMoodItem))
-        {
-            stationData.crewMood.Value = crewMoodItem.Value.GetAs<float>();
-        }
-        else
-        {
-            stationData.crewMood.Value = 1000f;
-        }
-
-        // if (dict.TryGetValue("stationEnergy", out Item stationEnergyItem))
-        // {
-        //     stationData.stationEnergy.Value = stationEnergyItem.Value.GetAs<float>();
-        // }
-        // else
-        // {
-        //     stationData.stationEnergy.Value = 0f;
-        // }
 
         foreach (var pair in dict)
         {

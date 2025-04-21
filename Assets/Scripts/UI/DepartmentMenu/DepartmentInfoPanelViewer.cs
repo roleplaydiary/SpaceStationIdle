@@ -20,7 +20,7 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
             crewLabel.text = $"Department crew: {departmentData.CurrentCrewHired}/{departmentData.MaxCrewUnlocked}";
             workbenchesLabel.text = $"Workbenches: {departmentData.WorkBenchesInstalled}/{departmentData.WorkBenchesMax}";
             energyConsumptionLabel.text = $"Energy consumption: {GetBlockEnergyConsumption(department)}";
-            moodLabel.text = $"Department mood: {GetBlockMood()}";
+            moodLabel.text = $"Department mood: {GetBlockMood(department)}";
         }
         else
         {
@@ -43,9 +43,11 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
         return result;
     }
 
-    private float GetBlockMood()
+    private float GetBlockMood(Department department)
     {
-        return 0f;
+        StationMoodService stationMoodService = ServiceLocator.Get<StationMoodService>();
+        var mood = stationMoodService.GetDepartmentMoodInfo(department);
+        return mood.MoodEffect;
     }
     
 }

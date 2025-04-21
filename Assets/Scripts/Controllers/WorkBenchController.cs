@@ -4,7 +4,8 @@ public class WorkBenchController : MonoBehaviour
 {
     [SerializeField] private Transform workPosition;
     [SerializeField] private float productionRate;
-    [SerializeField] private float energyConsumptionRate; // Потребление энергии в единицу времени (например, в секунду)
+    [SerializeField] private float energyConsumptionRate;
+    [SerializeField] private float moodConsumptionRate;
 
     public void Start()
     {
@@ -18,4 +19,5 @@ public class WorkBenchController : MonoBehaviour
 
     public float ProductionRate => productionRate;
     public float EnergyConsumptionRate => energyConsumptionRate;
+    public float MoodConsumptionRate => moodConsumptionRate;
 }

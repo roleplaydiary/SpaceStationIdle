@@ -659,6 +659,7 @@ GameObject:
   - component: {fileID: 3872247795946222215}
   - component: {fileID: 2970473863206734738}
   - component: {fileID: 4383110325263293456}
+  - component: {fileID: 4230877820136472849}
   - component: {fileID: 2708025614773454750}
   m_Layer: 0
   m_Name: Cargo
@@ -711,6 +712,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2693c92340df69419c75d705bcfb4aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4230877820136472849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804315754376222948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e110697de8b7a43b9190ef63a7645c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2708025614773454750

@@ -30,6 +30,7 @@ public class StationBlockController : MonoBehaviour
 
     protected StationController stationController;
     protected DepartmentEnergyController EnergyController;
+    protected DepartmentMoodController MoodController;
 
     public virtual void BlockInitialization(StationBlockData _blockData)
     {
@@ -47,6 +48,9 @@ public class StationBlockController : MonoBehaviour
 
         EnergyController = gameObject.GetComponent<DepartmentEnergyController>();
         EnergyController.Initialize(this);
+        
+        MoodController = gameObject.GetComponent<DepartmentMoodController>();
+        MoodController.Initialize(this);
 
         crewAtWork.Subscribe(_crewAtWork =>
         {

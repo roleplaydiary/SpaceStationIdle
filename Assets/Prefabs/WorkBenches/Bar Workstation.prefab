@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workPosition: {fileID: 4858000620178942912}
-  producedResource: 0
-  productionRate: 5
+  productionRate: 20
   energyConsumptionRate: 1
+  moodConsumptionRate: 1
 --- !u!1 &3652801998640143632
 GameObject:
   m_ObjectHideFlags: 0
