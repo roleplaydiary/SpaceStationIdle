@@ -10,6 +10,10 @@ public class BarBlockController : StationBlockController
     private ReactiveProperty<bool> isProductionOn = new ReactiveProperty<bool>(false);
     private CompositeDisposable disposables = new CompositeDisposable();
 
+    [SerializeField] private Transform restPositionParent;
+    private List<Transform> restPositionList = new List<Transform>();
+
+    
     private void Start()
     {
         stationController = ServiceLocator.Get<StationController>();
@@ -119,5 +123,12 @@ public class BarBlockController : StationBlockController
     protected override void InitializeLists()
     {
         base.InitializeLists();
+        if (restPositionParent != null)
+        {
+            foreach (Transform position in restPositionParent)
+            {
+                restPositionList.Add(position);
+            }
+        }
     }
 }

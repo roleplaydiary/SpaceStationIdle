@@ -2238,8 +2238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stationBlocks:
-  - {fileID: 6987324142835076380}
   - {fileID: 1896494533}
+  - {fileID: 6987324142835076380}
   - {fileID: 6987324142835076379}
   - {fileID: 6987324142835076381}
   - {fileID: 1327016146}

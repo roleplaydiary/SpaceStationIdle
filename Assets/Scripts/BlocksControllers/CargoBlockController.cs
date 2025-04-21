@@ -160,7 +160,7 @@ public class CargoBlockController : StationBlockController
     private bool IsStationEnergyEnough()
     {
         StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
-        if (energyService != null && energyService.CurrentStationEnergy.Value <= 0)
+        if (energyService != null && energyService.CurrentStationEnergy.Value < 0)
         {
             Debug.Log("Недостаточно энергии для производства в " + name);
             return false;
