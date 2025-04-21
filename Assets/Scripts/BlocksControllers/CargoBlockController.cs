@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-public class BridgeBlockController : StationBlockController
+public class CargoBlockController : StationBlockController
 {
     // Здесь остаются только специфичные для мостика поля и методы
     private float creditsAccumulated = 0f;
