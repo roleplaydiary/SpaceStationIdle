@@ -4,6 +4,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private DepartmentMenuViewer departmentMenuViewer;
+    [SerializeField] private PopupMessageHandler popupMessageHandler;
     
     private void Awake()
     {
@@ -28,5 +29,15 @@ public class UIController : MonoBehaviour
     public void DepartmentScreenHide()
     {
         departmentMenuViewer.Hide();        
+    }
+
+    public void ShowPopupMessage(string title, string message)
+    {
+        popupMessageHandler.Show(title, message);
+    }
+
+    public void HidePopupMessage()
+    {
+        popupMessageHandler.Hide();
     }
 }

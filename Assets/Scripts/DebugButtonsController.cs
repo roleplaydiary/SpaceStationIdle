@@ -30,6 +30,9 @@ public class DebugButtonsController : MonoBehaviour
         {
             PlayerController playerController = ServiceLocator.Get<PlayerController>();
             playerController.AddCredits(100);
+            
+            UIController uiController = ServiceLocator.Get<UIController>();
+            uiController.ShowPopupMessage("Debug UI", "Вы получили 100 кредитов, радуйтесь.");
         }).AddTo(_disposables);
     }
 
