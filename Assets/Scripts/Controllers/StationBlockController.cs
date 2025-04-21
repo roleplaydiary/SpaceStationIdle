@@ -456,7 +456,16 @@ public class StationBlockController : MonoBehaviour
 
     public virtual float GetProductionValue()
     {
-        return 0f;//  переопределено в дочерних классах
+        float result = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+
+        for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
+        {
+            result += workBenchesList[i].ProductionRate;
+        }
+        
+        return result;
     }
     
     /// <summary>
