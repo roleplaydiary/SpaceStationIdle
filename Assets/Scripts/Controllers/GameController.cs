@@ -10,19 +10,21 @@ public class GameController : MonoBehaviour
 
     private async void Start()
     {
-        ServiceLocator.Register(dataLibrary);
         await GameInitialization();
     }
 
     private async Task GameInitialization()
     {
         ServiceLocator.Get<UIController>().LoadingScreenShow();
+        ServiceLocator.Register(dataLibrary);
+        
         await ServiceLocator.Get<CloudController>().Autentication();
-        await playerController.PlayerInitialization();
         await stationController.StationInitializate();
+        await playerController.PlayerInitialization();
         ResourceManagerInitialize();
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
+        
         ServiceLocator.Get<UIController>().LoadingScreenHide();
     }
 

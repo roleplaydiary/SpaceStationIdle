@@ -7,6 +7,6 @@ public class DataLibrary : ScriptableObject
     public GameObject[] characterPrefabs;
     [Header("Апгрейды")]
     public UpgradeDataSO upgradeData;
-
-    // Можно добавить другие данные: станции, предметы и т.п.
+    [Header("Донаты")]
+    public DonateUpgradesSO donateData;
 }

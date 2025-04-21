@@ -80,6 +80,34 @@ public class CargoBlockController : StationBlockController
         
         return result;
     }
+    
+    public override void AddAFKProduction(System.TimeSpan afkTime)
+    {
+        float totalCreditsEarned = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+        float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
+
+        for (int i = 0; i < workBenchesCount; i++)
+        {
+            productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
+        }
+
+        // Учитываем только работающий экипаж и доступную энергию
+        if (IsStationEnergyEnough())
+        {
+            totalCreditsEarned = productionRatePerMinutePerBench * workingCrewCount * (float)afkTime.TotalMinutes;
+            if (totalCreditsEarned > 0)
+            {
+                ServiceLocator.Get<PlayerController>().PlayerData.playerCredits.Value += totalCreditsEarned;
+                Debug.Log($"Карго отдел произвел {(int)totalCreditsEarned} кредитов за время отсутствия.");
+            }
+        }
+        else
+        {
+            Debug.Log($"Производство кредитов в Карго остановлено из-за нехватки энергии во время отсутствия.");
+        }
+    }
 
     private bool IsStationEnergyEnough()
     {

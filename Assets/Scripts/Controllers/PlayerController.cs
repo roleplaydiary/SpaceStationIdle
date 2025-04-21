@@ -1,7 +1,9 @@
+// PlayerController.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UniRx;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,16 +30,13 @@ public class PlayerController : MonoBehaviour
             loadData.researchPoints.Value = 0;
         }
         playerData = loadData;
-
-        // Пример подписки на изменения playerCredits
-        playerData.playerCredits.Subscribe(credits =>
-        {
-            // Здесь вы можете вызвать другие методы или обновить UI
-        }).AddTo(this); // AddTo(this) для автоматической отписки при уничтожении объекта
+        // Вызываем проверку AFK после инициализации данных игрока
+        ServiceLocator.Get<AFKController>().CheckAFKProduction();
     }
 
     public async Task SavePlayerData()
     {
+        playerData.lastSaveTime = DateTime.UtcNow; // Обновляем время сохранения перед записью
         await ServiceLocator.Get<CloudController>().SavePlayerData(playerData);
     }
 
@@ -48,13 +47,18 @@ public class PlayerController : MonoBehaviour
     }
 
     // Пример изменения значения Player Credits извне
-    public void AddCredits(int amount)
+    public void AddCredits(float amount) // Изменил на float, чтобы соответствовать ReactiveProperty<float>
     {
         playerData.playerCredits.Value += amount;
     }
 
-    public void AddResearchPoints(int amount)
+    public void AddResearchPoints(float amount) // Изменил на float
     {
         playerData.researchPoints.Value += amount;
+    }
+
+    public DateTime GetLastSaveTime()
+    {
+        return playerData.lastSaveTime;
     }
 }

@@ -458,4 +458,14 @@ public class StationBlockController : MonoBehaviour
     {
         return 0f;//  переопределено в дочерних классах
     }
+    
+    /// <summary>
+    /// Виртуальный метод для начисления ресурсов, произведенных за время отсутствия игрока.
+    /// Должен быть переопределен в дочерних классах, которые занимаются производством.
+    /// </summary>
+    /// <param name="afkTime">Время отсутствия игрока.</param>
+    public virtual void AddAFKProduction(System.TimeSpan afkTime)
+    {
+        // По умолчанию ничего не производим.
+    }
 }

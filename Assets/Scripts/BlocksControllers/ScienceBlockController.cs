@@ -82,6 +82,34 @@ public class ScienceBlockController : StationBlockController
         
         return result;
     }
+    
+    public override void AddAFKProduction(System.TimeSpan afkTime)
+    {
+        float totalResearchPointsEarned = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+        float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
+
+        for (int i = 0; i < workBenchesCount; i++)
+        {
+            productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
+        }
+
+        // Учитываем только работающий экипаж и доступную энергию
+        if (IsStationEnergyEnough())
+        {
+            totalResearchPointsEarned = productionRatePerMinutePerBench * workingCrewCount * (float)afkTime.TotalMinutes;
+            if (totalResearchPointsEarned > 0)
+            {
+                ServiceLocator.Get<PlayerController>().PlayerData.researchPoints.Value += totalResearchPointsEarned;
+                Debug.Log($"РНД отдел произвел {(int)totalResearchPointsEarned} очков исследований за время отсутствия.");
+            }
+        }
+        else
+        {
+            Debug.Log($"Производство очков исследований в РНД остановлено из-за нехватки энергии во время отсутствия.");
+        }
+    }
 
     private bool IsStationEnergyEnough()
     {

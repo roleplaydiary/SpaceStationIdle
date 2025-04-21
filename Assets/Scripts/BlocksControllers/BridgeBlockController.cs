@@ -80,11 +80,39 @@ public class BridgeBlockController : StationBlockController
         
         return result;
     }
+    
+    public override void AddAFKProduction(System.TimeSpan afkTime)
+    {
+        float totalCreditsEarned = 0f;
+        int workingCrewCount = workingCrew.Count;
+        int workBenchesCount = workBenchesList.Count;
+        float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
+
+        for (int i = 0; i < workBenchesCount; i++)
+        {
+            productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
+        }
+
+        // Учитываем только работающий экипаж и доступную энергию
+        if (IsStationEnergyEnough())
+        {
+            totalCreditsEarned = productionRatePerMinutePerBench * workingCrewCount * (float)afkTime.TotalMinutes;
+            if (totalCreditsEarned > 0)
+            {
+                ServiceLocator.Get<PlayerController>().PlayerData.playerCredits.Value += totalCreditsEarned;
+                Debug.Log($"Мостик произвел {(int)totalCreditsEarned} кредитов за время отсутствия.");
+            }
+        }
+        else
+        {
+            Debug.Log($"Производство кредитов на мостике остановлено из-за нехватки энергии во время отсутствия.");
+        }
+    }
 
     private bool IsStationEnergyEnough()
     {
         StationEnergyService energyService = ServiceLocator.Get<StationEnergyService>();
-        if (energyService != null && energyService.CurrentStationEnergy.Value <= 0)
+        if (energyService != null && energyService.CurrentStationEnergy.Value < 0)
         {
             Debug.Log("Недостаточно энергии для производства в " + name);
             return false;
