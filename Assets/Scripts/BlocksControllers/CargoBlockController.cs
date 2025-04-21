@@ -71,7 +71,12 @@ public class CargoBlockController : StationBlockController
     
     private void ProduceRandomResource()
     {
-        // добавить проверку, что если 4 и 5 станки - работают
+        if (workingCrew.Count < 4)// В карго 4 и 5 станок - станки шахтёров
+        {
+            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
+            return;
+        }
+        
         var dataLibrary = ServiceLocator.Get<DataLibrary>();
         if (dataLibrary == null || dataLibrary.resourceDropData == null)
         {
