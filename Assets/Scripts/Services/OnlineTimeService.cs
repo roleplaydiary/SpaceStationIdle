@@ -7,38 +7,37 @@ public static class OnlineTimeService
 {
     private const string TimeServerURL = "https://worldtimeapi.org/api/utc/now";
 
-    public static Task<DateTime?> GetUTCTimeAsync()
+    public static async Task<DateTime?> GetUTCTimeAsync()
     {
-        var tcs = new TaskCompletionSource<DateTime?>();
-
         using (UnityWebRequest request = UnityWebRequest.Get(TimeServerURL))
         {
+            request.timeout = 10; // Добавим таймаут, чтобы избежать зависаний
+
             var asyncOperation = request.SendWebRequest();
 
-            asyncOperation.completed += (operation) =>
+            while (!asyncOperation.isDone)
             {
-                if (request.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.LogError($"Ошибка при получении онлайн-времени: {request.error}");
-                    tcs.SetResult(null);
-                    return;
-                }
+                await Task.Yield();
+            }
 
-                try
-                {
-                    string jsonResponse = request.downloadHandler.text;
-                    var timeData = JsonUtility.FromJson<TimeResponse>(jsonResponse);
-                    tcs.SetResult(DateTime.Parse(timeData.datetime).ToUniversalTime());
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError($"Ошибка при парсинге времени: {e.Message}");
-                    tcs.SetResult(null);
-                }
-            };
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Ошибка при получении онлайн-времени: {request.error}");
+                return null;
+            }
+
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var timeData = JsonUtility.FromJson<TimeResponse>(jsonResponse);
+                return DateTime.Parse(timeData.datetime).ToUniversalTime();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Ошибка при парсинге времени: {e.Message} - JSON: {request.downloadHandler.text}");
+                return null;
+            }
         }
-
-        return tcs.Task; // Возвращаем Task из TaskCompletionSource
     }
 
     [Serializable]

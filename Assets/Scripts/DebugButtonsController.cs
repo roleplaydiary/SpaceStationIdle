@@ -8,6 +8,8 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button saveResources;
     [SerializeField] private Button addCredits;
     [SerializeField] private Button addResearchPoints;
+    [SerializeField] private Button addResource;
+    [SerializeField] private CargoBlockController cargoController;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -22,6 +24,7 @@ public class DebugButtonsController : MonoBehaviour
 
         AddCredits();
         AddResearchPoints();
+        AddResource();
     }
 
     private void AddCredits()
@@ -45,6 +48,16 @@ public class DebugButtonsController : MonoBehaviour
             
             UIController uiController = ServiceLocator.Get<UIController>();
             uiController.ShowPopupMessage("Debug UI", "Вы получили 100 RP, радуйтесь.");
+        }).AddTo(_disposables);
+    }
+
+    private void AddResource()
+    {
+        addResource.OnClickAsObservable().Subscribe(_ =>
+        {
+            ResourceManager resourceManager = ServiceLocator.Get<ResourceManager>();
+            //cargoController.ProduceRandomResource();
+            //resourceManager.AddResource(ResourceType.Phoron, 0.1);
         }).AddTo(_disposables);
     }
 

@@ -20,8 +20,8 @@ public class GameController : MonoBehaviour
         
         await ServiceLocator.Get<CloudController>().Autentication();
         await stationController.StationInitializate();
+        ResourceManagerInitialize();// Должно инициализироваться перед игроком, чтобы не инициализироваться дважды
         await playerController.PlayerInitialization();
-        ResourceManagerInitialize();
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
 

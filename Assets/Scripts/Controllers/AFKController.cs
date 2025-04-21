@@ -20,16 +20,8 @@ public class AFKController : MonoBehaviour
             return;
         }
 
-        DateTime lastSaveTimeUtc = playerController.GetLastSaveTime().ToUniversalTime();
-        DateTime? onlineTimeResult = await OnlineTimeService.GetUTCTimeAsync();
-
-        if (!onlineTimeResult.HasValue)
-        {
-            Debug.LogError("Не удалось получить онлайн-время. Используется локальное время.");
-            onlineTimeResult = DateTime.UtcNow;
-        }
-
-        DateTime nowUtc = onlineTimeResult.Value;
+        DateTime lastSaveTimeUtc = playerController.GetLastSaveTime();
+        DateTime nowUtc = DateTime.UtcNow;
 
         TimeSpan afkTime = nowUtc - lastSaveTimeUtc;
         Debug.Log($"Время отсутствия: {afkTime}");
@@ -46,7 +38,6 @@ public class AFKController : MonoBehaviour
 
         // Обновляем время последнего сохранения после расчета АФК
         playerController.PlayerData.lastSaveTime = nowUtc.ToLocalTime(); // Сохраняем локальное время
-        playerController.SavePlayerData();
     }
 
     private async Task CalculateDepartmentProduction(TimeSpan afkTime)
