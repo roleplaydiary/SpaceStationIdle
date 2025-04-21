@@ -15,4 +15,4 @@ MonoBehaviour:
   BlockName: Cargo
   MaxCrew: 5
   MaxWorkBenches: 5
-  BlockType: 5
+  BlockType: 3
