@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CargoBlockController : StationBlockController
 {
-    // Здесь остаются только специфичные для мостика поля и методы
+    // Здесь остаются только специфичные для карго поля и методы
     private float creditsAccumulated = 0f;
     private float lastResourceUpdateTime = 0f;
     private const float RESOURCE_UPDATE_INTERVAL = 1f; // Обновление каждую секунду
