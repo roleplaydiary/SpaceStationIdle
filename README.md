@@ -20,6 +20,6 @@ SpaceStationIdle is an idle game where you take on the role of the captain of a 
 * ✅ **Crew hiring**
 * ☐ **Crew control (work, rest)**
 * ✅ **Progress saving**
-* ☐ **AFK production (Credits, resources, energy)**
+* ✅ **AFK production (Credits, resources, energy)**
 * ☐ **Station events (catch the clown, fix the station, fight monsters, cleaning)**
 * ☐ **Endgame goals (find out)**
