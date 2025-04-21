@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour
 
     public void ShowPopupMessage(string title, string message)
     {
-        popupMessageHandler.Show(title, message);
+        popupMessageHandler.ShowPopupMessage(title, message);
     }
 
     public void HidePopupMessage()

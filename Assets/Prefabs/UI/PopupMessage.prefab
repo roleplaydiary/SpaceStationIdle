@@ -628,8 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4cc2588490189409cf08864046c186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 4791535167214591154}
-  closeButton: {fileID: 9005660842763341896}
+  windowContent: {fileID: 4791535167214591154}
+  closeWindowButton: {fileID: 9005660842763341896}
   title: {fileID: 3461244534553200245}
   message: {fileID: 8468815067880603482}
 --- !u!1 &6031806639391222131

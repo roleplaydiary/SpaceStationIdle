@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
@@ -118,7 +119,7 @@ public class ResourceManager : IDisposable
         return false;
     }
 
-    public async void SaveResources()
+    public async Task SaveResources()
     {
         await ServiceLocator.Get<CloudController>().SaveResources(currentResources.Value);
         Debug.Log($"Ресурсы сохранены: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, ...");

@@ -23,6 +23,7 @@ public class StatsViewer : MonoBehaviour
         CreditsValueInitialize();
         EnergyValueInitialize();
         MoodValueInitialize();
+        ResearchPointsValueInitialize();
     }
     
     private void CreditsValueInitialize()

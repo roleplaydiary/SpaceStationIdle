@@ -67,7 +67,7 @@ public class CloudController : MonoBehaviour
             var stationDataItems = await CloudSaveService.Instance.Data.Player.LoadAllAsync();
             if (stationDataItems != null)
             {
-                return StationData.FromDictionary(stationDataItems); // Передаем Dictionary<string, Item>
+                return StationData.FromDictionary(stationDataItems);
             }
             return null;
         }

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         if (loadData == null)
         {
             loadData = new PlayerData();
-            loadData.playerCredits.Value = 20;
+            loadData.playerCredits.Value = 30;
             loadData.researchPoints.Value = 0;
         }
         playerData = loadData;
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
         {
             // Здесь вы можете вызвать другие методы или обновить UI
         }).AddTo(this); // AddTo(this) для автоматической отписки при уничтожении объекта
+    }
+
+    public async Task SavePlayerData()
+    {
+        await ServiceLocator.Get<CloudController>().SavePlayerData(playerData);
     }
 
     private async Task<PlayerData> LoadPlayerData()

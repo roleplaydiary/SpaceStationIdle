@@ -55,7 +55,7 @@ public class UpgradeService : IDisposable
         return true;
     }
 
-    public void PurchaseUpgrade(string upgradeId, Department department = Department.Bridge)
+    public async void PurchaseUpgrade(string upgradeId, Department department = Department.Bridge)
     {
         var upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
         if (upgrade.upgradeId == null || (_purchasedUpgrades.ContainsKey(upgrade.upgradeId) && _purchasedUpgrades[upgrade.upgradeId])) return;
@@ -65,7 +65,8 @@ public class UpgradeService : IDisposable
             // Списываем средства
             PlayerController playerController = ServiceLocator.Get<PlayerController>();
             playerController.AddCredits((int)-upgrade.cost.credits);
-            playerController.PlayerData.researchPoints.Value -= upgrade.cost.researchPoints;
+            playerController.AddResearchPoints(-upgrade.cost.researchPoints);
+            await playerController.SavePlayerData();
     
             // Списываем ресурсы
             if (upgrade.cost.resources != null)
@@ -75,21 +76,22 @@ public class UpgradeService : IDisposable
                     _resourceManager.AddResource(resourceCost.Key, -resourceCost.Value);
                 }
                 
-                _resourceManager.SaveResources(); // Сохраняем при изменении
+                await _resourceManager.SaveResources(); // Сохраняем при изменении
             }
     
             // Применяем эффект апгрейда
             ApplyUpgrade(upgrade.type, department);
     
+            ServiceLocator.Get<UIController>()
+                .ShowPopupMessage("Congrats", $"You've purchased a new upgrade - {upgrade.displayName}.");
             // Помечаем апгрейд как купленный
             _purchasedUpgrades[upgrade.upgradeId] = true;
-
-            _resourceManager.SaveResources();
         }
         else
         {
-            Debug.LogWarning($"Невозможно купить апгрейд {upgradeId}. Недостаточно средств или ресурсов.");
-            // Оповестить игрока о неудачной попытке покупки (через UI)
+            Debug.LogWarning($"Ошибка покупки {upgradeId}. Недостаточно средств или ресурсов.");
+            ServiceLocator.Get<UIController>()
+                .ShowPopupMessage("Error", $"Can't purchase upgrade - {upgrade.displayName}. Not enough credits or resources available.");
         }
     }
     

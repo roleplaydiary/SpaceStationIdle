@@ -19,7 +19,7 @@ public class StationController : MonoBehaviour
     public async Task StationInitializate()
     {
         var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
-        if (loadData == null)
+        if (loadData == null || loadData.departmentData.Count == 0)
         {
             loadData = new StationData();
             loadData.Unlock(Department.Bridge);
@@ -28,6 +28,7 @@ public class StationController : MonoBehaviour
             loadData.SetCurrentCrewHired(Department.Bridge, 1);
             loadData.maxCrew.Value = 5;
             loadData.crewMood.Value = 1000f;
+            await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
         }
 
         stationData = loadData; // Присваиваем загруженные данные stationData

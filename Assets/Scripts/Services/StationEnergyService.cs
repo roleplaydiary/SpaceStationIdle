@@ -34,10 +34,10 @@ public class StationEnergyService : IDisposable
                 {
                     currentStationEnergy.Value = changes.Sum();
                     // Логика обработки дефицита энергии
-                    if (currentStationEnergy.Value <= 0)
+                    if (currentStationEnergy.Value < 0)
                     {
                         Debug.LogWarning("Дефицит энергии на станции!");
-                        // Предпринять какие-то действия
+                        ServiceLocator.Get<UIController>().ShowPopupMessage("Warning!", "Not enough energy at station!");
                     }
                 })
                 .AddTo(disposables);
