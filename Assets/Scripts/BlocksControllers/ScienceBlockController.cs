@@ -87,10 +87,9 @@ public class ScienceBlockController : StationBlockController
     {
         float totalResearchPointsEarned = 0f;
         int workingCrewCount = workingCrew.Count;
-        int workBenchesCount = workBenchesList.Count;
         float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
 
-        for (int i = 0; i < workBenchesCount; i++)
+        for (int i = 0; i < workingCrewCount; i++)
         {
             productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
         }
@@ -101,7 +100,7 @@ public class ScienceBlockController : StationBlockController
             totalResearchPointsEarned = productionRatePerMinutePerBench * workingCrewCount * (float)afkTime.TotalMinutes;
             if (totalResearchPointsEarned > 0)
             {
-                ServiceLocator.Get<PlayerController>().PlayerData.researchPoints.Value += totalResearchPointsEarned;
+                ServiceLocator.Get<PlayerController>().AddResearchPoints(totalResearchPointsEarned);
                 Debug.Log($"РНД отдел произвел {(int)totalResearchPointsEarned} очков исследований за время отсутствия.");
             }
         }
