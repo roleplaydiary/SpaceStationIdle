@@ -14,18 +14,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - upgradeId: engineering_unlock
-    displayName: Unlock engineering
-    description: Unlock department Engineering
+    displayName: Unlock Engineering
+    description: Generate energy for the station
     type: 0
     level: 1
     cost:
-      credits: 100
+      credits: 10
       researchPoints: 0
       resources:
         Phoron: 0
         Metal: 0
         Glass: 0
         Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_unlock
+    displayName: Unlock Science
+    description: Science department provides research points for upgrades
+    type: 0
+    level: 1
+    cost:
+      credits: 15
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_unlock
+    displayName: Unlock Cargo
+    description: Unlock resource trading and mining
+    type: 0
+    level: 1
+    cost:
+      credits: 10
+      researchPoints: 50
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_max_crew_level_1
+    displayName: Bridge Crew Max Upgrade
+    description: Update Max Crew Count in Bridge
+    type: 1
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -44,6 +92,86 @@ MonoBehaviour:
         Plastic: 20
         Gold: 0
         Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_1
+    displayName: Science Crew Max Upgrade
+    description: Update Max Crew Count in Science
+    type: 1
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_1
+    displayName: Cargo Crew Max Upgrade
+    description: Update Max Crew Count in Cargo
+    type: 1
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_add_workstation_1
+    displayName: Bridge New workstation
+    description: Add new workstation to Bridge
+    type: 5
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: science_add_workstation_1
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_1
+    displayName: Cargo New workstation
+    description: Add new workstation to Cargo
+    type: 5
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
         Uranium: 0
   - upgradeId: engineering_add_workstation_1
     displayName: Engineering New workstation
@@ -77,7 +205,103 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
+  - upgradeId: bridge_hire_1
+    displayName: Hire commander
+    description: Hire new commander to the bridge
+    type: 3
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_hire_1
+    displayName: Hire scientist
+    description: Hire new scientist
+    type: 3
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_hire_1
+    displayName: Hire cargo
+    description: Hire new miner or cargo worker
+    type: 3
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_workstation_max_1
+    displayName: Upgrade workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
   - upgradeId: engineering_workstation_max_1
+    displayName: Upgrade workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_1
+    displayName: Upgrade workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 1
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_1
     displayName: Upgrade workstation max
     description: Upgrade workstation max
     type: 4
@@ -98,6 +322,70 @@ MonoBehaviour:
     description: Upgrade station max crew
     type: 2
     level: 1
+    cost:
+      credits: 500
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: station_max_crew_2
+    displayName: Upgrade station max crew
+    description: Upgrade station max crew
+    type: 2
+    level: 2
+    cost:
+      credits: 500
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: station_max_crew_3
+    displayName: Upgrade station max crew
+    description: Upgrade station max crew
+    type: 2
+    level: 3
+    cost:
+      credits: 500
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: station_max_crew_4
+    displayName: Upgrade station max crew
+    description: Upgrade station max crew
+    type: 2
+    level: 4
+    cost:
+      credits: 500
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: station_max_crew_5
+    displayName: Upgrade station max crew
+    description: Upgrade station max crew
+    type: 2
+    level: 5
     cost:
       credits: 500
       researchPoints: 500
