@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 
 public class AFKController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class AFKController : MonoBehaviour
         ServiceLocator.Register(this); // Регистрируем контроллер при создании
     }
 
-    public void CheckAFKProduction()
+    public async void CheckAFKProduction()
     {
         PlayerController playerController = ServiceLocator.Get<PlayerController>();
         if (playerController == null || playerController.PlayerData == null)
@@ -20,7 +21,16 @@ public class AFKController : MonoBehaviour
         }
 
         DateTime lastSaveTimeUtc = playerController.GetLastSaveTime().ToUniversalTime();
-        DateTime nowUtc = DateTime.UtcNow;
+        DateTime? onlineTimeResult = await OnlineTimeService.GetUTCTimeAsync();
+
+        if (!onlineTimeResult.HasValue)
+        {
+            Debug.LogError("Не удалось получить онлайн-время. Используется локальное время.");
+            onlineTimeResult = DateTime.UtcNow;
+        }
+
+        DateTime nowUtc = onlineTimeResult.Value;
+
         TimeSpan afkTime = nowUtc - lastSaveTimeUtc;
         Debug.Log($"Время отсутствия: {afkTime}");
 
@@ -32,13 +42,14 @@ public class AFKController : MonoBehaviour
             Debug.Log($"Производство за время отсутствия ограничено до {limitedAFKTime}");
         }
 
-        CalculateDepartmentProduction(limitedAFKTime);
+        await CalculateDepartmentProduction(limitedAFKTime);
 
         // Обновляем время последнего сохранения после расчета АФК
-        playerController.PlayerData.lastSaveTime = DateTime.UtcNow;
+        playerController.PlayerData.lastSaveTime = nowUtc.ToLocalTime(); // Сохраняем локальное время
+        playerController.SavePlayerData();
     }
 
-    private void CalculateDepartmentProduction(TimeSpan afkTime)
+    private async Task CalculateDepartmentProduction(TimeSpan afkTime)
     {
         var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationBlocks != null && stationController.StationData != null)
@@ -49,12 +60,34 @@ public class AFKController : MonoBehaviour
                 if (stationController.StationData.IsUnlocked(blockType))
                 {
                     blockController.AddAFKProduction(afkTime);
+
+                    // Добавляем логику для имитации добычи ресурсов в карго
+                    if (blockController is CargoBlockController cargoController)
+                    {
+                        float afkTimeInMinutes = (float)afkTime.TotalMinutes;
+                        float dropIntervalMinutes = CargoBlockController.RESOURCE_DROP_INTERVAL / 60f;
+                        int numberOfResourceDrops = Mathf.FloorToInt(afkTimeInMinutes / dropIntervalMinutes);
+
+                        Debug.Log($"Имитация добычи ресурсов в карго за {afkTimeInMinutes:F2} минут (попыток: {numberOfResourceDrops}).");
+
+                        for (int i = 0; i < numberOfResourceDrops; i++)
+                        {
+                            cargoController.ProduceRandomResource();
+                        }
+                    }
                 }
             }
         }
         else
         {
             Debug.LogError("StationController или StationBlocks или StationData не найдены!");
+        }
+
+        // Сохраняем ресурсы после обработки всего АФК
+        var resourceManager = ServiceLocator.Get<ResourceManager>();
+        if (resourceManager != null)
+        {
+            await resourceManager.SaveResources();
         }
     }
 

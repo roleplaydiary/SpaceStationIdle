@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public static class OnlineTimeService
 {
-    private const string TimeServerURL = "http://worldtimeapi.org/api/utc/now"; // Пример API
+    private const string TimeServerURL = "https://worldtimeapi.org/api/utc/now";
 
     public static Task<DateTime?> GetUTCTimeAsync()
     {
@@ -38,7 +38,7 @@ public static class OnlineTimeService
             };
         }
 
-        return tcs.Task;
+        return tcs.Task; // Возвращаем Task из TaskCompletionSource
     }
 
     [Serializable]

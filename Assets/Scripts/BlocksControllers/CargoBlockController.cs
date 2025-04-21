@@ -75,7 +75,7 @@ public class CargoBlockController : StationBlockController
         }
     }
     
-    public async void ProduceRandomResource()// апаблик сделал для теста
+    public void ProduceRandomResource()
     {
         // if (workingCrew.Count < 4)// В карго 4 и 5 станок - станки шахтёров
         // {
