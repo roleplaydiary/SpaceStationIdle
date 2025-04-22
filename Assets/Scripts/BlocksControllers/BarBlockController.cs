@@ -1,8 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
+[Serializable]
+public class RestPosition
+{
+    public Transform position;
+    public bool IsOccupied;
+    
+    public RestPosition(Transform pos)
+    {
+        position = pos;
+        IsOccupied = false;
+    }
+}
 public class BarBlockController : StationBlockController
 {
     private StationData stationData;
@@ -11,7 +24,7 @@ public class BarBlockController : StationBlockController
     private CompositeDisposable disposables = new CompositeDisposable();
 
     [SerializeField] private Transform restPositionParent;
-    private List<Transform> restPositionList = new List<Transform>();
+    private List<RestPosition> restPositionList = new List<RestPosition>();
 
     
     private void Start()
@@ -118,12 +131,40 @@ public class BarBlockController : StationBlockController
     protected override void InitializeLists()
     {
         base.InitializeLists();
+        restPositionList.Clear();
         if (restPositionParent != null)
         {
             foreach (Transform position in restPositionParent)
             {
-                restPositionList.Add(position);
+                restPositionList.Add(new RestPosition(position));
             }
         }
+    }
+    
+    public override Transform GetBlockRestPosition()
+    {
+        foreach (var restPosition in restPositionList)
+        {
+            if (!restPosition.IsOccupied)
+            {
+                restPosition.IsOccupied = true;
+                return restPosition.position;
+            }
+        }
+    
+        return null;
+    }
+    
+    public override void ReleaseRestPosition(Transform positionToRelease)
+    {
+        foreach (var restPos in restPositionList)
+        {
+            if (restPos.position.position == positionToRelease.position)
+            {
+                restPos.IsOccupied = false;
+                return;
+            }
+        }
+        Debug.LogWarning($"Попытка освободить несуществующую позицию отдыха: {positionToRelease}");
     }
 }

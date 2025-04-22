@@ -108,11 +108,6 @@ public class StationController : MonoBehaviour
         Debug.Log($"Текущее количество сотрудников в отделе {department}: {stationData.departmentData[department].CurrentCrewHired}");
     }
 
-    public void TestUnlockEngineering()
-    {
-        UnlockStationBlock(Department.Engineering);
-    }
-
     public async void UnlockStationBlock(Department department)
     {
         if (!stationData.IsUnlocked(department))
@@ -178,5 +173,31 @@ public class StationController : MonoBehaviour
     {
         stationData.maxCrew.Value ++;
         Debug.Log($"Максимум экипажа на станции увеличено до {stationData.maxCrew.Value}.");
+    }
+
+    public Transform GetRestPosition()
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == Department.Bar || block.GetBlockType() == Department.Kitchen)
+            {
+                return block.GetBlockRestPosition();
+            }
+        }
+        return null;
+    }
+
+    public void ReleaseRestPosition(Transform positionToRelease)
+    {
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == Department.Bar || block.GetBlockType() == Department.Kitchen)
+            {
+                block.ReleaseRestPosition(positionToRelease);
+                return;
+            }
+        }
+        
+        Debug.LogError("ReleaseRestPosition: Позиция отдыха не была найдена");
     }
 }

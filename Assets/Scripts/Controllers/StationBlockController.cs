@@ -135,50 +135,6 @@ public class StationBlockController : MonoBehaviour
         crewAtIdle.Value = idleCrew.Count;
     }
 
-    protected void DistributeCrew()
-    {
-        ClearCrewLists();
-
-        int workBenchIndex = 0;
-        for (int i = 0; i < Mathf.Min(targetCrewAtWork, crewMembers.Count); i++)
-        {
-            if (workBenchIndex < workBenchesList.Count && workBenchesList[workBenchIndex] != null)
-            {
-                crewMembers[i].GoToWork(workBenchesList[workBenchIndex].GetWorkPosition());
-                workingCrew.Add(crewMembers[i]);
-                workBenchIndex++;
-            }
-            else if (workingCrew.Count < targetCrewAtWork)
-            {
-                crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i]));
-                idleCrew.Add(crewMembers[i]);
-            }
-        }
-
-        int restedCount = 0;
-        for (int i = 0; i < crewMembers.Count && restedCount < targetCrewAtRest; i++)
-        {
-            if (!workingCrew.Contains(crewMembers[i]) && !restingCrew.Contains(crewMembers[i]))
-            {
-                crewMembers[i].GoToRest(GetAvailableRestPosition(crewMembers[i]));
-                restingCrew.Add(crewMembers[i]);
-                restedCount++;
-            }
-        }
-
-        foreach (var member in crewMembers)
-        {
-            if (!workingCrew.Contains(member) && !restingCrew.Contains(member) && !idleCrew.Contains(member))
-            {
-                member.GotoIdle(GetAvailableIdlePosition(member));
-                idleCrew.Add(member);
-            }
-        }
-
-        UpdateCrewCounts();
-        OnCrewDistributed();
-    }
-
     private async void SaveBlockData()
     {
         if (stationController != null)
@@ -210,6 +166,7 @@ public class StationBlockController : MonoBehaviour
                 else if (restingCrew.Contains(workerToSend))
                 {
                     restingCrew.Remove(workerToSend);
+                    stationController.ReleaseRestPosition(workerToSend.transform);
                 }
 
                 workerToSend.GoToWork(workBenchesList[currentWorkers].GetWorkPosition());
@@ -222,7 +179,7 @@ public class StationBlockController : MonoBehaviour
 
     public void RemoveCrewFromWork()
     {
-        var workerToIdle = workingCrew.FirstOrDefault();
+        var workerToIdle = workingCrew.LastOrDefault();
         if (workerToIdle != null)
         {
             workingCrew.Remove(workerToIdle);
@@ -239,23 +196,31 @@ public class StationBlockController : MonoBehaviour
         var workerToSend = idleCrew.FirstOrDefault();
         if (workerToSend != null)
         {
-            idleCrew.Remove(workerToSend);
-            workerToSend.GoToRest(GetAvailableRestPosition(workerToSend)); // Используйте персональную позицию отдыха, если она есть
-            restingCrew.Add(workerToSend);
-            UpdateCrewCounts();
-            SaveBlockData();
+            var restPosition = stationController.GetRestPosition();
+            if (restPosition != null)
+            {
+                idleCrew.Remove(workerToSend);
+                workerToSend.GoToRest(restPosition.position);
+                restingCrew.Add(workerToSend);
+                UpdateCrewCounts();
+                SaveBlockData();
+            }
         }
         else
         {
             // Если в idle никого нет, берем первого работающего
-            workerToSend = workingCrew.FirstOrDefault();
+            workerToSend = workingCrew.LastOrDefault();
             if (workerToSend != null)
             {
-                workingCrew.Remove(workerToSend);
-                workerToSend.GoToRest(GetAvailableRestPosition(workerToSend)); // Используйте персональную позицию отдыха, если она есть
-                restingCrew.Add(workerToSend);
-                UpdateCrewCounts();
-                SaveBlockData();
+                var restPosition = stationController.GetRestPosition();
+                if (restPosition != null)
+                {
+                    workingCrew.Remove(workerToSend);
+                    workerToSend.GoToRest(restPosition.position);
+                    restingCrew.Add(workerToSend);
+                    UpdateCrewCounts();
+                    SaveBlockData();
+                }
             }
         }
     }
@@ -266,6 +231,7 @@ public class StationBlockController : MonoBehaviour
         if (workerToIdle != null)
         {
             restingCrew.Remove(workerToIdle);
+            stationController.ReleaseRestPosition(workerToIdle.transform);
             workerToIdle.GotoIdle(GetAvailableIdlePosition(workerToIdle));
             idleCrew.Add(workerToIdle);
             UpdateCrewCounts();
@@ -283,11 +249,6 @@ public class StationBlockController : MonoBehaviour
         }
         UpdateCrewCounts();
         OnCrewDistributed();
-    }
-
-    protected virtual Vector3 GetAvailableRestPosition(CharacterController crewMember)
-    {
-        return Vector3.zero;
     }
 
     protected virtual Vector3 GetAvailableWorkPosition(CharacterController crewMember)
@@ -362,9 +323,18 @@ public class StationBlockController : MonoBehaviour
         {
             if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
             {
-                crewMembers[i].GoToRest(GetAvailableRestPosition(crewMembers[i]));
-                restingCrew.Add(crewMembers[i]);
-                restedCount++;
+                var restPosition = stationController.GetRestPosition();
+                if (restPosition != null)
+                {
+                    crewMembers[i].GoToRest(restPosition.position);
+                    restingCrew.Add(crewMembers[i]);
+                    restedCount++;
+                }
+                else
+                {
+                    crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i]));
+                    idleCrew.Add(crewMembers[i]);
+                }
             }
         }
 
@@ -472,7 +442,18 @@ public class StationBlockController : MonoBehaviour
         
         return result;
     }
-    
+
+    public virtual Transform GetBlockRestPosition()
+    {
+        return null;
+    }
+
+    public virtual void ReleaseRestPosition(Transform positionToRelease)
+    {
+        return;
+    }
+
+
     /// <summary>
     /// Виртуальный метод для начисления ресурсов, произведенных за время отсутствия игрока.
     /// Должен быть переопределен в дочерних классах, которые занимаются производством.
