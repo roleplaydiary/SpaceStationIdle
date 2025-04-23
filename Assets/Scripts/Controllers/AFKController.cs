@@ -11,7 +11,7 @@ public class AFKController : MonoBehaviour
         ServiceLocator.Register(this); // Регистрируем контроллер при создании
     }
 
-    public async void CheckAFKProduction()
+    public async Task CheckAFKProduction()
     {
         PlayerController playerController = ServiceLocator.Get<PlayerController>();
         if (playerController == null || playerController.PlayerData == null)

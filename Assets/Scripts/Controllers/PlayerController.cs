@@ -47,8 +47,6 @@ public class PlayerController : MonoBehaviour
             loadData.researchPoints.Value = 0;
         }
         playerData = loadData;
-        // Вызываем проверку AFK после инициализации данных игрока
-        ServiceLocator.Get<AFKController>().CheckAFKProduction();
     }
 
     public async Task SavePlayerData()

@@ -10,9 +10,9 @@ public class ResourceManager : IDisposable
 
     private CompositeDisposable disposables = new CompositeDisposable();
 
-    public ResourceManager()
+    public async Task InitializeAsync()
     {
-        LoadResources();
+        await LoadResources();
     }
 
     public float GetResourceAmount(ResourceType resourceType)
@@ -121,11 +121,12 @@ public class ResourceManager : IDisposable
 
     public async Task SaveResources()
     {
-        await ServiceLocator.Get<CloudController>().SaveResources(currentResources.Value);
-        Debug.Log($"Ресурсы сохранены: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, ...");
+        var resourcesToSave = currentResources.Value; // Создаем локальную копию
+        await ServiceLocator.Get<CloudController>().SaveResources(resourcesToSave);
+        Debug.Log($"Ресурсы сохранены: {resourcesToSave.Phoron}, {resourcesToSave.Metal}, {resourcesToSave.Glass}, {resourcesToSave.Plastic}, {resourcesToSave.Gold}, {resourcesToSave.Silver}, {resourcesToSave.Uranium}");
     }
 
-    public async void LoadResources()
+    public async Task LoadResources()
     {
         Resources loadData = await ServiceLocator.Get<CloudController>().LoadResources();
 
@@ -140,6 +141,8 @@ public class ResourceManager : IDisposable
             currentResources.Value = new Resources { Phoron = 0, Metal = 0, Glass = 0, Plastic = 0, Gold = 0, Silver = 0, Uranium = 0 };
             Debug.Log($"Не удалось загрузить ресурсы из облака, установлены значения по умолчанию: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, {currentResources.Value.Glass}, {currentResources.Value.Plastic}, {currentResources.Value.Gold}, {currentResources.Value.Silver}, {currentResources.Value.Uranium}");
         }
+        
+        
     }
 
     public static ResourceType GetResourceTypeByName(string name)

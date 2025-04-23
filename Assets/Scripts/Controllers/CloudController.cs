@@ -115,8 +115,9 @@ public class CloudController : MonoBehaviour
         try
         {
             string resourcesJson = JsonUtility.ToJson(resources);
+            Debug.Log($"CloudController: JSON перед сохранением = {resourcesJson}");
             await CloudSaveService.Instance.Data.Player.SaveAsync(new Dictionary<string, object> { { "resources", resourcesJson } });
-            Debug.Log("Ресурсы успешно сохранены в Cloud Save.");
+            Debug.Log($"CloudController: Ресурсы успешно сохранены в Cloud Save.resourceItems = {resourcesJson}");
         }
         catch (CloudSaveException e)
         {
@@ -129,6 +130,7 @@ public class CloudController : MonoBehaviour
         try
         {
             var resourcesItems = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "resources" });
+            Debug.Log($"CloudController: Ресурсы загружены, resourceItems = {resourcesItems["resources"].Value.GetAsString()}");
             if (resourcesItems != null && resourcesItems.TryGetValue("resources", out var resourcesItem))
             {
                 return JsonUtility.FromJson<Resources>(resourcesItem.Value.GetAsString());

@@ -21,8 +21,10 @@ public class GameController : MonoBehaviour
         await ServiceLocator.Get<CloudController>().Autentication();
         await stationController.StationInitializate();
         stationController.BlockCrewInitialize();
-        ResourceManagerInitialize();// Должно инициализироваться перед игроком, чтобы не инициализироваться дважды
+        await ResourceManagerInitialize();// Должно инициализироваться перед игроком, чтобы не инициализироваться дважды
         await playerController.PlayerInitialization();
+        
+        await ServiceLocator.Get<AFKController>().CheckAFKProduction(); // обязательно после инициализации игрока
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
 
@@ -33,10 +35,11 @@ public class GameController : MonoBehaviour
         ServiceLocator.Get<UIController>().TradeScreenShow(); // FOR TESTS
     }
 
-    private void ResourceManagerInitialize()
+    private async Task ResourceManagerInitialize()
     {
         ResourceManager resourceManager = new ResourceManager();
         ServiceLocator.Register(resourceManager);
+        await resourceManager.InitializeAsync();
         Debug.Log("ResourceManager зарегистрирован в ServiceLocator.");
     }
 
