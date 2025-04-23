@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UniRx;
 using UnityEngine;
 
@@ -151,10 +152,13 @@ public class BarBlockController : StationBlockController
     {
         foreach (var restPosition in restPositionList)
         {
-            if (!restPosition.IsOccupied)
+            if (restPosition.IsUnlocked)
             {
-                restPosition.OccupyRestPosition(crewMember);
-                return restPosition.transform;
+                if (!restPosition.IsOccupied)
+                {
+                    restPosition.OccupyRestPosition(crewMember);
+                    return restPosition.transform;
+                }
             }
         }
     

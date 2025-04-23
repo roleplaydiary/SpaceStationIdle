@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class RestPositionController : MonoBehaviour
 {
-    public bool IsUnlocked { get; private set; }
-    public bool IsOccupied { get; private set; }
+    public bool IsUnlocked { get; private set; } = false;
+    public bool IsOccupied { get; private set; } = false;
     [SerializeField] private CharacterController crewMember = null;
 
     public void OccupyRestPosition(CharacterController crewMember)
@@ -19,7 +19,7 @@ public class RestPositionController : MonoBehaviour
 
     public void ReleaseRestPosition()
     {
-        IsUnlocked = false;
+        IsOccupied = false;
         crewMember = null;
     }
 
