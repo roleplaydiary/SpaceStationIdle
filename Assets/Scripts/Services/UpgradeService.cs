@@ -44,7 +44,8 @@ public class UpgradeService : IDisposable
         {
             string resourceName = costResource.Key;
             float requiredAmount = costResource.Value;
-            float currentAmount = _resourceManager.GetResourceAmount(resourceName);
+            var resourceType = ResourceManager.GetResourceTypeByName(resourceName);
+            float currentAmount = _resourceManager.GetResourceAmount(resourceType);
 
             if (currentAmount < requiredAmount)
             {

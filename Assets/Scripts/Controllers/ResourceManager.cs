@@ -15,26 +15,26 @@ public class ResourceManager : IDisposable
         LoadResources();
     }
 
-    public float GetResourceAmount(string key)
+    public float GetResourceAmount(ResourceType resourceType)
     {
-        switch (key)
+        switch (resourceType)
         {
-            case "Phoron":
+            case ResourceType.Phoron:
                 return currentResources.Value.Phoron;
-            case "Metal":
+            case ResourceType.Metal:
                 return currentResources.Value.Metal;
-            case "Glass":
+            case ResourceType.Glass:
                 return currentResources.Value.Glass;
-            case "Plastic":
+            case ResourceType.Plastic:
                 return currentResources.Value.Plastic;
-            case "Gold":
+            case ResourceType.Gold:
                 return currentResources.Value.Gold;
-            case "Silver":
+            case ResourceType.Silver:
                 return currentResources.Value.Silver;
-            case "Uranium":
+            case ResourceType.Uranium:
                 return currentResources.Value.Uranium;
             default:
-                Debug.LogError($"Неизвестный тип ресурса: {key}");
+                Debug.LogError($"Неизвестный тип ресурса: {resourceType}");
                 return 0f;
         }
     }
