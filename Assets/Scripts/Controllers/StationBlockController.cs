@@ -43,15 +43,19 @@ public class StationBlockController : MonoBehaviour
 
         InitializeLists();
         BenchesInitialization();
-        CrewInitialization();
-        RestoreCrewAssignment();
 
         EnergyController = gameObject.GetComponent<DepartmentEnergyController>();
         EnergyController.Initialize(this);
         
         MoodController = gameObject.GetComponent<DepartmentMoodController>();
         MoodController.Initialize(this);
+    }
 
+    public void BlockCrewInitialization()
+    {
+        CrewInitialization();
+        RestoreCrewAssignment();
+        
         crewAtWork.Subscribe(_crewAtWork =>
         {
             blockData.CrewAtWork = _crewAtWork;

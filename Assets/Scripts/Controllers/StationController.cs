@@ -34,6 +34,18 @@ public class StationController : MonoBehaviour
         BlocksInitialize(StationData);
     }
 
+    public void BlockCrewInitialize()
+    {
+        foreach (var block in stationBlocks)
+        {
+            var blockType = block.GetBlockType();
+            if (stationData.IsUnlocked(blockType))
+            {
+                block.BlockCrewInitialization();
+            }
+        }
+    }
+
     private void BlocksInitialize(StationData stationData)
     {
         this.stationData = stationData;
