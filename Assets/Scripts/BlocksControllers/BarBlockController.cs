@@ -109,7 +109,7 @@ public class BarBlockController : StationBlockController
 
     public override void HireNewCrewMember()
     {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
+        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
         {
             base.HireNewCrewMember();
             // CalculateEnergyProduction вызовется через подписку на workingCrew

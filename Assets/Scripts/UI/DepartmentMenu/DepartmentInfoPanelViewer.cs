@@ -14,9 +14,9 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
     {
         stationController = ServiceLocator.Get<StationController>();
 
-        if (stationController.StationData != null && stationController.StationData.departmentData.ContainsKey(department))
+        if (stationController.StationData != null && stationController.StationData.DepartmentData.ContainsKey(department))
         {
-            var departmentData = stationController.StationData.departmentData[department];
+            var departmentData = stationController.StationData.DepartmentData[department];
             crewLabel.text = $"Department crew: {departmentData.CurrentCrewHired}/{departmentData.MaxCrewUnlocked}";
             workbenchesLabel.text = $"Workbenches: {departmentData.WorkBenchesInstalled}/{departmentData.WorkBenchesMax}";
             energyConsumptionLabel.text = $"Energy consumption: {GetBlockEnergyConsumption(department)}";

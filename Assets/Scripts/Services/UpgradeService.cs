@@ -20,47 +20,48 @@ public class UpgradeService : IDisposable
         _upgradeDataSO = ServiceLocator.Get<DataLibrary>().upgradeData;
     }
     
-    public bool CanPurchaseUpgrade(string upgradeId)
+    public bool CanPurchaseUpgrade(string upgradeId, Department department)
+{
+    UpgradeDataSO.UpgradeEntry upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
+    if (upgrade.upgradeId == null) return false;
+
+    PlayerController playerController = ServiceLocator.Get<PlayerController>();
+    if (playerController == null || playerController.PlayerData == null)
     {
-        UpgradeDataSO.UpgradeEntry upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
-        if (upgrade.upgradeId == null) return false;
+        Debug.LogError("PlayerController или PlayerData не найдены!");
+        return false;
+    }
 
-        PlayerController playerController = ServiceLocator.Get<PlayerController>();
-        if (playerController == null || playerController.PlayerData == null)
+    if (playerController.PlayerData.playerCredits.Value < upgrade.cost.credits) return false;
+    if (playerController.PlayerData.researchPoints.Value < upgrade.cost.researchPoints) return false;
+    if (!CheckUpgradeValue(department, upgrade)) return false;
+
+    if (upgrade.cost.resources != null)
+    {
+        Resources costResources = upgrade.cost.resources;
+
+        foreach (var costResource in costResources)
         {
-            Debug.LogError("PlayerController или PlayerData не найдены!");
-            return false;
-        }
+            string resourceName = costResource.Key;
+            float requiredAmount = costResource.Value;
+            float currentAmount = _resourceManager.GetResourceAmount(resourceName);
 
-        if (playerController.PlayerData.playerCredits.Value < upgrade.cost.credits) return false;
-        if (playerController.PlayerData.researchPoints.Value < upgrade.cost.researchPoints) return false;
-
-        if (upgrade.cost.resources != null)
-        {
-            Resources costResources = upgrade.cost.resources;
-
-            foreach (var costResource in costResources)
+            if (currentAmount < requiredAmount)
             {
-                string resourceName = costResource.Key;
-                float requiredAmount = costResource.Value;
-                float currentAmount = _resourceManager.GetResourceAmount(resourceName);
-
-                if (currentAmount < requiredAmount)
-                {
-                    return false;
-                }
+                return false;
             }
         }
-
-        return true;
     }
+
+    return true;
+}
 
     public async void PurchaseUpgrade(string upgradeId, Department department = Department.Bridge)
     {
         var upgrade = _upgradeDataSO.GetUpgradeById(upgradeId);
         if (upgrade.upgradeId == null || (_purchasedUpgrades.ContainsKey(upgrade.upgradeId) && _purchasedUpgrades[upgrade.upgradeId])) return;
     
-        if (CanPurchaseUpgrade(upgradeId))
+        if (CanPurchaseUpgrade(upgradeId, department))
         {
             // Списываем средства
             PlayerController playerController = ServiceLocator.Get<PlayerController>();
@@ -138,6 +139,45 @@ public class UpgradeService : IDisposable
                 Debug.LogWarning($"Неизвестный тип апгрейда: {type}");
                 break;
         }
+    }
+
+    private bool CheckUpgradeValue(Department department, UpgradeDataSO.UpgradeEntry upgrade)
+    {
+        var stationBlock = _stationController.StationBlocks
+            .FirstOrDefault(block => block.GetBlockType() == department);
+        var stationBlockData = _stationController.StationData.DepartmentData
+            .FirstOrDefault(block => block.Key == department);
+    
+        switch (upgrade.type)
+        {
+            case UpgradeDataSO.UpgradeType.DepartmentUnlock:
+                if (_stationController.StationData.IsUnlocked(department)) return false;
+                break;
+            case UpgradeDataSO.UpgradeType.DepartmentMaxCrew:
+                if (stationBlockData.Value.MaxCrewUnlocked >= upgrade.value) return false;
+                break;
+            case UpgradeDataSO.UpgradeType.StationMaxCrew:
+                if (_stationController.StationData.MaxCrew.Value >= upgrade.value) return false;
+                break;
+            case UpgradeDataSO.UpgradeType.DepartmentCrewHire:
+                if (stationBlock != null 
+                    && (_stationController.StationData.MaxCrew.Value <= stationBlockData.Value.CurrentCrewHired
+                    || stationBlockData.Value.MaxCrewUnlocked < upgrade.value
+                    || stationBlockData.Value.CurrentCrewHired != upgrade.value - 1))
+                    return false;
+                break;
+            case UpgradeDataSO.UpgradeType.DepartmentMaxWorkstations:
+                if (stationBlock != null && stationBlockData.Value.WorkBenchesMax >= upgrade.value) return false;
+                break;
+            case UpgradeDataSO.UpgradeType.DepartmentWorkstationAdd:
+                if (stationBlock != null && stationBlockData.Value.WorkBenchesInstalled >= stationBlockData.Value.WorkBenchesMax) return false;
+                break;
+            default:
+                Debug.LogError($"UpgradeService: Проверка для типа апгрейда {upgrade.type} не реализована.");
+                return true;
+        }
+
+        return true;
     }
 
     public void Dispose()

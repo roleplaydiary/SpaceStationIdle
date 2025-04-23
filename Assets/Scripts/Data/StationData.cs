@@ -7,60 +7,60 @@ using Unity.Services.CloudSave.Models;
 [Serializable]
 public class StationData
 {
-    public ReactiveProperty<int> maxCrew { get; private set; }
-    public Dictionary<Department, StationBlockData> departmentData = new();
+    public ReactiveProperty<int> MaxCrew { get; private set; }
+    public Dictionary<Department, StationBlockData> DepartmentData = new();
 
     public StationData()
     {
-        maxCrew = new ReactiveProperty<int>(5); // Дефолтное значение
+        MaxCrew = new ReactiveProperty<int>(5); // Дефолтное значение
     }
 
     public bool IsUnlocked(Department dept)
     {
-        return departmentData.ContainsKey(dept);
+        return DepartmentData.ContainsKey(dept);
     }
 
     public void Unlock(Department dept)
     {
         if (!IsUnlocked(dept))
-            departmentData[dept] = new StationBlockData();
+            DepartmentData[dept] = new StationBlockData();
     }
 
     public void Lock(Department dept)
     {
-        departmentData.Remove(dept);
+        DepartmentData.Remove(dept);
     }
 
     public int GetWorkbenchesLevelUnlocked(Department dept)
     {
-        return departmentData.TryGetValue(dept, out var data) ? data.WorkBenchesInstalled : 0;
+        return DepartmentData.TryGetValue(dept, out var data) ? data.WorkBenchesInstalled : 0;
     }
 
     public void SetWorkbenchesLevelUnlocked(Department dept, int level)
     {
-        if (departmentData.TryGetValue(dept, out var data))
+        if (DepartmentData.TryGetValue(dept, out var data))
             data.WorkBenchesInstalled = level;
     }
 
     public int GetMaxCrewUnlocked(Department dept)
     {
-        return departmentData.TryGetValue(dept, out var data) ? data.MaxCrewUnlocked : 0;
+        return DepartmentData.TryGetValue(dept, out var data) ? data.MaxCrewUnlocked : 0;
     }
 
     public void SetMaxCrewUnlocked(Department dept, int maxCrew)
     {
-        if (departmentData.TryGetValue(dept, out var data))
+        if (DepartmentData.TryGetValue(dept, out var data))
             data.MaxCrewUnlocked = maxCrew;
     }
 
     public int GetCurrentCrewHired(Department dept)
     {
-        return departmentData.TryGetValue(dept, out var data) ? data.CurrentCrewHired : 0;
+        return DepartmentData.TryGetValue(dept, out var data) ? data.CurrentCrewHired : 0;
     }
 
     public void SetCurrentCrewHired(Department dept, int crewCount)
     {
-        if (departmentData.TryGetValue(dept, out var data))
+        if (DepartmentData.TryGetValue(dept, out var data))
             data.CurrentCrewHired = crewCount;
     }
 
@@ -68,7 +68,7 @@ public class StationData
     public Dictionary<string, object> SerializeDepartment(Department dept)
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
-        if (departmentData.TryGetValue(dept, out var data))
+        if (DepartmentData.TryGetValue(dept, out var data))
         {
             string json = JsonUtility.ToJson(data);
             dict[$"department_{dept}"] = json;
@@ -86,7 +86,7 @@ public class StationData
             {
                 try
                 {
-                    stationData.departmentData[dept] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
+                    stationData.DepartmentData[dept] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
                     Debug.Log($"Успешно десериализован отдел: {dept}, JSON: {departmentItem.Value.GetAsString()}");
                     return true;
                 }
@@ -108,9 +108,9 @@ public class StationData
     public Dictionary<string, object> ToDictionary()
     {
         Dictionary<string, object> dict = new Dictionary<string, object>();
-        dict["maxCrew"] = maxCrew.Value; // int
+        dict["maxCrew"] = MaxCrew.Value; // int
 
-        foreach (var pair in departmentData)
+        foreach (var pair in DepartmentData)
         {
             string json = JsonUtility.ToJson(pair.Value);
             dict[$"department_{pair.Key}"] = json;
@@ -126,11 +126,11 @@ public class StationData
 
         if (dict.TryGetValue("maxCrew", out Item maxCrewItem))
         {
-            stationData.maxCrew.Value = maxCrewItem.Value.GetAs<int>();
+            stationData.MaxCrew.Value = maxCrewItem.Value.GetAs<int>();
         }
         else
         {
-            stationData.maxCrew.Value = 5;
+            stationData.MaxCrew.Value = 5;
         }
 
         foreach (var pair in dict)
@@ -141,7 +141,7 @@ public class StationData
                 {
                     try
                     {
-                        stationData.departmentData[department] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
+                        stationData.DepartmentData[department] = JsonUtility.FromJson<StationBlockData>(departmentItem.Value.GetAsString());
                         Debug.Log($"Успешно десериализован отдел: {department}, JSON: {departmentItem.Value.GetAsString()}");
                     }
                     catch (Exception e)

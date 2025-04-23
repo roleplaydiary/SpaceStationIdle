@@ -19,14 +19,14 @@ public class StationController : MonoBehaviour
     public async Task StationInitializate()
     {
         var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
-        if (loadData == null || loadData.departmentData.Count == 0)
+        if (loadData == null || loadData.DepartmentData.Count == 0)
         {
             loadData = new StationData();
             loadData.Unlock(Department.Bridge);
             loadData.SetWorkbenchesLevelUnlocked(Department.Bridge, 1);
             loadData.SetMaxCrewUnlocked(Department.Bridge, 1);
             loadData.SetCurrentCrewHired(Department.Bridge, 1);
-            loadData.maxCrew.Value = 5;
+            loadData.MaxCrew.Value = 5;
             await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
         }
 
@@ -54,70 +54,13 @@ public class StationController : MonoBehaviour
             var blockType = block.GetBlockType();
             if (this.stationData.IsUnlocked(blockType))
             {
-                block.BlockInitialization(this.stationData.departmentData[blockType]);
+                block.BlockInitialization(this.stationData.DepartmentData[blockType]);
             }
             else
             {
                 block.gameObject.SetActive(false);
             }
         }
-    }
-
-    // public void UpdateTotalStationEnergy()
-    // {
-    //     float totalProduction = 0f;
-    //     float totalConsumption = 0f;
-    //
-    //     foreach (var block in stationBlocks)
-    //     {
-    //         if (block.EnergyController)
-    //         {
-    //             totalProduction += block.EnergyController.currentEnergyProduction.Value;
-    //             totalConsumption += block.EnergyController.currentEnergyConsumption.Value;
-    //         }
-    //     }
-    //
-    //     StationData.stationEnergy.Value = totalProduction - totalConsumption;
-    // }
-
-    public void TestHireCrewMember()
-    {
-        HireCrewMember(Department.Engineering);
-    }
-
-    public async void HireCrewMember(Department department)
-    {
-        if (!stationData.IsUnlocked(department))
-        {
-            Debug.Log($"Отдел {department} не разблокирован. Невозможно нанять сотрудника.");
-            return;
-        }
-
-        if (stationData.departmentData[department].CurrentCrewHired >=
-            stationData.departmentData[department].MaxCrewUnlocked)
-        {
-            Debug.Log($"Достигнут лимит личного состава в отделе {department}.");
-            return;
-        }
-
-        if (stationData.departmentData.Values.Sum(data => data.CurrentCrewHired) >= stationData.maxCrew.Value)
-        {
-            Debug.Log("Достигнут лимит личного состава станции.");
-            return;
-        }
-
-        foreach (var block in stationBlocks)
-        {
-            if (block.GetBlockType() == department)
-            {
-                block.HireNewCrewMember();
-                break;
-            }
-        }
-
-        await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
-        Debug.Log($"Запрос на найм сотрудника в отдел {department} выполнен.");
-        Debug.Log($"Текущее количество сотрудников в отделе {department}: {stationData.departmentData[department].CurrentCrewHired}");
     }
 
     public async void UnlockStationBlock(Department department)
@@ -130,7 +73,7 @@ public class StationController : MonoBehaviour
             {
                 if (block.GetBlockType() == department)
                 {
-                    block.BlockInitialization(stationData.departmentData[department]);
+                    block.BlockInitialization(stationData.DepartmentData[department]);
                     block.gameObject.SetActive(true);
                     break;
                 }
@@ -183,8 +126,8 @@ public class StationController : MonoBehaviour
 
     public void UpgradeStationMaxCrew()
     {
-        stationData.maxCrew.Value ++;
-        Debug.Log($"Максимум экипажа на станции увеличено до {stationData.maxCrew.Value}.");
+        stationData.MaxCrew.Value ++;
+        Debug.Log($"Максимум экипажа на станции увеличено до {stationData.MaxCrew.Value}.");
     }
 
     public Transform GetRestPosition(CharacterController crewMember)

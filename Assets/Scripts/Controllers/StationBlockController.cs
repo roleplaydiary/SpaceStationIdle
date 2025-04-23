@@ -336,7 +336,7 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void HireNewCrewMember()
     {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
+        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
         {
             int prefabIndex = crewMembers.Count % stationBlockDataSo.crewPrefabs.Length;
             CharacterController newCrewController = SpawnNewCrewMember(prefabIndex);

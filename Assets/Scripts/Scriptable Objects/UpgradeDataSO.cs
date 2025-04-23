@@ -11,6 +11,7 @@ public class UpgradeDataSO : ScriptableObject
         [TextArea] public string description; // Описание апгрейда
         public UpgradeType type; // Тип апгрейда (см. enum ниже)
         public int level; // Уровень апгрейда (если есть несколько уровней)
+        public int value;
         public UpgradeCost cost;
     }
 
