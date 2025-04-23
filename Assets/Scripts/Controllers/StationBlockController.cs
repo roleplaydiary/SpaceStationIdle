@@ -99,29 +99,8 @@ public class StationBlockController : MonoBehaviour
 
         for (int i = 0; i < blockData.CurrentCrewHired; i++)
         {
-            // Определяем индекс префаба для спавна по порядку
             int prefabIndex = i % stationBlockDataSo.crewPrefabs.Length;
-            GameObject prefabToSpawn = stationBlockDataSo.crewPrefabs[prefabIndex];
-
-            if (prefabToSpawn != null)
-            {
-                var newCrewMember = Instantiate(prefabToSpawn, transform);
-                CharacterController crewController = newCrewMember.GetComponent<CharacterController>();
-                if (crewController != null)
-                {
-                    crewMembers.Add(crewController);
-                    allCrewMembers.Add(crewController);
-                }
-                else
-                {
-                    Debug.LogError($"Префаб экипажа {prefabToSpawn.name} не имеет компонента CharacterController!");
-                    Destroy(newCrewMember); // Уничтожаем проблемный объект
-                }
-            }
-            else
-            {
-                Debug.LogError($"Префаб экипажа с индексом {prefabIndex} в StationBlockDataSO для {GetBlockType()} - null!");
-            }
+            SpawnNewCrewMember(prefabIndex);
         }
     }
 
@@ -359,13 +338,10 @@ public class StationBlockController : MonoBehaviour
     {
         if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.maxCrew.Value)
         {
-            var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)GetBlockType()], transform);
-            CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
-
+            int prefabIndex = crewMembers.Count % stationBlockDataSo.crewPrefabs.Length;
+            CharacterController newCrewController = SpawnNewCrewMember(prefabIndex);
             if (newCrewController != null)
             {
-                crewMembers.Add(newCrewController);
-                allCrewMembers.Add(newCrewController);
                 newCrewController.GotoIdle(GetAvailableIdlePosition(newCrewController));
                 idleCrew.Add(newCrewController);
                 UpdateCrewCounts();
@@ -376,6 +352,41 @@ public class StationBlockController : MonoBehaviour
         else
         {
             Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
+        }
+    }
+    
+    private CharacterController SpawnNewCrewMember(int prefabIndex)
+    {
+        if (prefabIndex >= 0 && prefabIndex < stationBlockDataSo.crewPrefabs.Length)
+        {
+            GameObject prefabToSpawn = stationBlockDataSo.crewPrefabs[prefabIndex];
+            if (prefabToSpawn != null)
+            {
+                var newCrewMemberGO = Instantiate(prefabToSpawn, transform);
+                CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
+                if (newCrewController != null)
+                {
+                    crewMembers.Add(newCrewController);
+                    allCrewMembers.Add(newCrewController);
+                    return newCrewController;
+                }
+                else
+                {
+                    Debug.LogError($"Префаб экипажа {prefabToSpawn.name} не имеет компонента CharacterController!");
+                    Destroy(newCrewMemberGO);
+                    return null;
+                }
+            }
+            else
+            {
+                Debug.LogError($"Префаб экипажа с индексом {prefabIndex} в StationBlockDataSO для {GetBlockType()} - null!");
+                return null;
+            }
+        }
+        else
+        {
+            Debug.LogError($"Некорректный индекс префаба: {prefabIndex}");
+            return null;
         }
     }
 

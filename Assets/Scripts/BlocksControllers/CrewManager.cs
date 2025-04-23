@@ -26,16 +26,16 @@ public class CrewManager : MonoBehaviour
         UpdateCrewCounts();
     }
 
-    public void HireNewCrewMember(Department department)
-    {
-        var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)department], _departmentTransform);
-        CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
-        if (newCrewController != null)
-        {
-            AllCrewMembers.Add(newCrewController);
-            SendToIdle(newCrewController);
-        }
-    }
+    // public void HireNewCrewMember(Department department)
+    // {
+    //     var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)department], _departmentTransform);
+    //     CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
+    //     if (newCrewController != null)
+    //     {
+    //         AllCrewMembers.Add(newCrewController);
+    //         SendToIdle(newCrewController);
+    //     }
+    // }
 
     public void AddCrewToWork()
     {
