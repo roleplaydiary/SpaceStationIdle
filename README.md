@@ -18,7 +18,7 @@ SpaceStationIdle is an idle game where you take on the role of the captain of a 
 * ✅ **Blocks unlocking**
 * ✅ **Blocks upgrade**
 * ✅ **Crew hiring**
-* ☐ **Crew control (work, rest)**
+* ✅ **Crew control (work, rest)**
 * ☐ **Crew Mood**
 * ☐ **Oxygen and Atmos department**
 * ✅ **Progress saving**
