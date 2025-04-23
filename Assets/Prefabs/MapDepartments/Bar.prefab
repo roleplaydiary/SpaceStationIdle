@@ -315,6 +315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 109044591641035058}
+  - component: {fileID: 7548551833489598342}
   m_Layer: 0
   m_Name: Waypoint
   m_TagString: Untagged
@@ -337,6 +338,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2152796159175958680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7548551833489598342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234931166278151630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d780e26ff137498b30ad403cfbefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMember: {fileID: 0}
 --- !u!1 &4221159976449947598
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 373931439375298137}
+  - component: {fileID: 4428620430632405959}
   m_Layer: 0
   m_Name: Waypoint (3)
   m_TagString: Untagged
@@ -713,6 +728,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2152796159175958680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4428620430632405959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337907079122005937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d780e26ff137498b30ad403cfbefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMember: {fileID: 0}
 --- !u!1 &5887972746123825835
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4923405577016721404}
+  - component: {fileID: 2282327821431770866}
   m_Layer: 0
   m_Name: Waypoint (4)
   m_TagString: Untagged
@@ -811,6 +840,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2152796159175958680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2282327821431770866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692194054905577092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d780e26ff137498b30ad403cfbefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMember: {fileID: 0}
 --- !u!1 &6804315754376222948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8350015545042374083}
+  - component: {fileID: 5553435250778469532}
   m_Layer: 0
   m_Name: Waypoint (2)
   m_TagString: Untagged
@@ -1071,6 +1114,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2152796159175958680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5553435250778469532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763305809034020178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d780e26ff137498b30ad403cfbefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMember: {fileID: 0}
 --- !u!1 &9176486239685826725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3466014965379120543}
+  - component: {fileID: 268644701086240655}
   m_Layer: 0
   m_Name: Waypoint (1)
   m_TagString: Untagged
@@ -1102,6 +1159,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2152796159175958680}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268644701086240655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176486239685826725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d780e26ff137498b30ad403cfbefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crewMember: {fileID: 0}
 --- !u!1001 &723463863985755975
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -170,7 +170,7 @@ public class StationBlockController : MonoBehaviour
                 else if (restingCrew.Contains(workerToSend))
                 {
                     restingCrew.Remove(workerToSend);
-                    stationController.ReleaseRestPosition(workerToSend.transform);
+                    stationController.ReleaseRestPosition(workerToSend);
                 }
 
                 workerToSend.GoToWork(workBenchesList[currentWorkers].GetWorkPosition());
@@ -200,7 +200,7 @@ public class StationBlockController : MonoBehaviour
         var workerToSend = idleCrew.FirstOrDefault();
         if (workerToSend != null)
         {
-            var restPosition = stationController.GetRestPosition();
+            var restPosition = stationController.GetRestPosition(workerToSend);
             if (restPosition != null)
             {
                 idleCrew.Remove(workerToSend);
@@ -216,7 +216,7 @@ public class StationBlockController : MonoBehaviour
             workerToSend = workingCrew.LastOrDefault();
             if (workerToSend != null)
             {
-                var restPosition = stationController.GetRestPosition();
+                var restPosition = stationController.GetRestPosition(workerToSend);
                 if (restPosition != null)
                 {
                     workingCrew.Remove(workerToSend);
@@ -235,7 +235,7 @@ public class StationBlockController : MonoBehaviour
         if (workerToIdle != null)
         {
             restingCrew.Remove(workerToIdle);
-            stationController.ReleaseRestPosition(workerToIdle.transform);
+            stationController.ReleaseRestPosition(workerToIdle);
             workerToIdle.GotoIdle(GetAvailableIdlePosition(workerToIdle));
             idleCrew.Add(workerToIdle);
             UpdateCrewCounts();
@@ -327,7 +327,7 @@ public class StationBlockController : MonoBehaviour
         {
             if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
             {
-                var restPosition = stationController.GetRestPosition();
+                var restPosition = stationController.GetRestPosition(crewMembers[i]);
                 if (restPosition != null)
                 {
                     crewMembers[i].GoToRest(restPosition.position);
@@ -447,12 +447,12 @@ public class StationBlockController : MonoBehaviour
         return result;
     }
 
-    public virtual Transform GetBlockRestPosition()
+    public virtual Transform GetBlockRestPosition(CharacterController crewMember)
     {
         return null;
     }
 
-    public virtual void ReleaseRestPosition(Transform positionToRelease)
+    public virtual void ReleaseRestPosition(CharacterController crewMember)
     {
         return;
     }

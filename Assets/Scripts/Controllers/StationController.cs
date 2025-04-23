@@ -187,25 +187,25 @@ public class StationController : MonoBehaviour
         Debug.Log($"Максимум экипажа на станции увеличено до {stationData.maxCrew.Value}.");
     }
 
-    public Transform GetRestPosition()
+    public Transform GetRestPosition(CharacterController crewMember)
     {
         foreach (var block in stationBlocks)
         {
             if (block.GetBlockType() == Department.Bar || block.GetBlockType() == Department.Kitchen)
             {
-                return block.GetBlockRestPosition();
+                return block.GetBlockRestPosition(crewMember);
             }
         }
         return null;
     }
 
-    public void ReleaseRestPosition(Transform positionToRelease)
+    public void ReleaseRestPosition(CharacterController crewMember)
     {
         foreach (var block in stationBlocks)
         {
             if (block.GetBlockType() == Department.Bar || block.GetBlockType() == Department.Kitchen)
             {
-                block.ReleaseRestPosition(positionToRelease);
+                block.ReleaseRestPosition(crewMember);
                 return;
             }
         }

@@ -1,21 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
-[Serializable]
-public class RestPosition
-{
-    public Transform position;
-    public bool IsOccupied;
-    
-    public RestPosition(Transform pos)
-    {
-        position = pos;
-        IsOccupied = false;
-    }
-}
 public class BarBlockController : StationBlockController
 {
     private StationData stationData;
@@ -24,7 +10,7 @@ public class BarBlockController : StationBlockController
     private CompositeDisposable disposables = new CompositeDisposable();
 
     [SerializeField] private Transform restPositionParent;
-    private List<RestPosition> restPositionList = new List<RestPosition>();
+    private List<RestPositionController> restPositionList = new List<RestPositionController>();
 
     
     private void Start()
@@ -87,7 +73,19 @@ public class BarBlockController : StationBlockController
     public override void BlockInitialization(StationBlockData _blockData)
     {
         base.BlockInitialization(_blockData);
+        RestPositionInitialization();
         CalculateMoodProduction(); // Первоначальный расчет при инициализации
+    }
+
+    private void RestPositionInitialization()
+    {
+        for (int i = 0; i < restPositionList.Count; i++)
+        {
+            if (i < blockData.WorkBenchesInstalled * 2)// TODO: Сейчас у нас просто на 1 барную стойку - 2 рест позишн. Надо перепродумать этот момент
+            {
+                restPositionList[i].UnlockRestPosition();
+            }
+        }
     }
 
     protected override void OnCrewDistributed()
@@ -134,37 +132,44 @@ public class BarBlockController : StationBlockController
         restPositionList.Clear();
         if (restPositionParent != null)
         {
-            foreach (Transform position in restPositionParent)
+            foreach (Transform child in restPositionParent)
             {
-                restPositionList.Add(new RestPosition(position));
+                RestPositionController restPositionController = child.GetComponent<RestPositionController>();
+                if (restPositionController != null)
+                {
+                    restPositionList.Add(restPositionController);
+                }
+                else
+                {
+                    Debug.LogError($"Дочерний объект {child.name} в {restPositionParent.name} не имеет компонента RestPositionController!");
+                }
             }
         }
     }
     
-    public override Transform GetBlockRestPosition()
+    public override Transform GetBlockRestPosition(CharacterController crewMember)
     {
         foreach (var restPosition in restPositionList)
         {
             if (!restPosition.IsOccupied)
             {
-                restPosition.IsOccupied = true;
-                return restPosition.position;
+                restPosition.OccupyRestPosition(crewMember);
+                return restPosition.transform;
             }
         }
     
         return null;
     }
     
-    public override void ReleaseRestPosition(Transform positionToRelease)
+    public override void ReleaseRestPosition(CharacterController crewMember)
     {
         foreach (var restPos in restPositionList)
         {
-            if (restPos.position.position == positionToRelease.position)
+            if (restPos.GetRestCrewMember() == crewMember)
             {
-                restPos.IsOccupied = false;
+                restPos.ReleaseRestPosition();;
                 return;
             }
         }
-        Debug.LogWarning($"Попытка освободить несуществующую позицию отдыха: {positionToRelease}");
     }
 }
