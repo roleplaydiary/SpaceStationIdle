@@ -30,6 +30,7 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
     {
         confirmationButton.OnClickAsObservable().Subscribe(async _ =>
         {
+            confirmationButton.enabled = false;
             await TradeButtonClick();
         }).AddTo(this);
         
@@ -38,10 +39,10 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
             CloseButtonClick();
         }).AddTo(this);
 
-        BuyButtonsInit();
+        SellButtonsInit();
     }
 
-    private void BuyButtonsInit()
+    private void SellButtonsInit()
     {
         plusOneButton.OnClickAsObservable().Subscribe(_ =>
         {
@@ -73,6 +74,8 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
             tradeResourceClass.ResourceAmount -= 10;
             Initialize(tradeResourceClass);
         }).AddTo(this);
+        
+        confirmationButton.enabled = true;
     }
     
 

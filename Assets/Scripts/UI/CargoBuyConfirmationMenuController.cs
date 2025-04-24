@@ -36,6 +36,7 @@ public class CargoBuyConfirmationMenuController : MonoBehaviour
     {
         confirmationButton.OnClickAsObservable().Subscribe(async _ =>
         {
+            confirmationButton.enabled = false;
             await TradeButtonClick();
         }).AddTo(this);
         
@@ -79,6 +80,8 @@ public class CargoBuyConfirmationMenuController : MonoBehaviour
             tradeResourceClass.ResourceAmount -= 10;
             Initialize(tradeResourceClass);
         }).AddTo(this);
+        
+        confirmationButton.enabled = true;
     }
     
     public void Show(TradeResourceClass tradeResourceClass)
