@@ -7,6 +7,8 @@ public class CargoResourceProductionDataSO : ScriptableObject
     public struct ResourceEntry
     {
         public ResourceType resource;
+        public Sprite icon;
+        public float resourcePrice;
         [Range(0f, 1f)] public float dropProbability; // Вероятность выпадения (от 0 до 1)
         public float minAmount;
         public float maxAmount;

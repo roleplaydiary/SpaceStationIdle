@@ -12,6 +12,20 @@ public class Resources : IEnumerable<KeyValuePair<string, float>>
     public float Gold;
     public float Silver;
     public float Uranium;
+    
+    public Resources() { }
+
+    // Конструктор копирования
+    public Resources(Resources other)
+    {
+        Phoron = other.Phoron;
+        Metal = other.Metal;
+        Glass = other.Glass;
+        Plastic = other.Plastic;
+        Gold = other.Gold;
+        Silver = other.Silver;
+        Uranium = other.Uranium;
+    }
 
     public IEnumerator<KeyValuePair<string, float>> GetEnumerator()
     {

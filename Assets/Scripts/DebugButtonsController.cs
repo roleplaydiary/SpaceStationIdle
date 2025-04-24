@@ -9,7 +9,7 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button addCredits;
     [SerializeField] private Button addResearchPoints;
     [SerializeField] private Button addResource;
-    [SerializeField] private CargoBlockController cargoController;
+    [SerializeField] private Button tradeButton;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -19,7 +19,12 @@ public class DebugButtonsController : MonoBehaviour
         saveResources.OnClickAsObservable().Subscribe(async button =>
         {
             ResourceManager resourceManager = ServiceLocator.Get<ResourceManager>();
-            await ServiceLocator.Get<CloudController>().SaveResources(resourceManager.GetCurrentResources());
+            await ServiceLocator.Get<CloudController>().SaveResources(resourceManager.CurrentResources.Value);
+        }).AddTo(_disposables);
+        
+        tradeButton.OnClickAsObservable().Subscribe(async button =>
+        {
+            ServiceLocator.Get<UIController>().TradeScreenShow();
         }).AddTo(_disposables);
 
         AddCredits();

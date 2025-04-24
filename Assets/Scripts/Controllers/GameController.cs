@@ -30,9 +30,6 @@ public class GameController : MonoBehaviour
 
         await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера
         ServiceLocator.Get<UIController>().LoadingScreenHide();
-        
-        
-        ServiceLocator.Get<UIController>().TradeScreenShow(); // FOR TESTS
     }
 
     private async Task ResourceManagerInitialize()

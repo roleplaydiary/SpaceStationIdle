@@ -426,6 +426,8 @@ MonoBehaviour:
   icon: {fileID: 6318940130030275944}
   resourceName: {fileID: 737112628807823268}
   resourceValue: {fileID: 2665483528207505525}
+  buyButton: {fileID: 5549625366907825380}
+  sellButton: {fileID: 8936982355316795764}
 --- !u!1 &4792730426461194513
 GameObject:
   m_ObjectHideFlags: 0

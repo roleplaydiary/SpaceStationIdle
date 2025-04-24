@@ -14,30 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleResources:
   - resource: 0
+    resourcePrice: 1000
     dropProbability: 0.04
     minAmount: 0.05
     maxAmount: 0.1
   - resource: 1
+    resourcePrice: 5
     dropProbability: 0.4
     minAmount: 0.2
     maxAmount: 2
   - resource: 2
+    resourcePrice: 6
     dropProbability: 0.3
     minAmount: 0.2
     maxAmount: 2
   - resource: 3
+    resourcePrice: 8
     dropProbability: 0.15
     minAmount: 0.2
     maxAmount: 2
   - resource: 4
+    resourcePrice: 20
     dropProbability: 0.08
     minAmount: 0.05
     maxAmount: 0.2
   - resource: 5
+    resourcePrice: 15
     dropProbability: 0.12
     minAmount: 0.05
     maxAmount: 0.3
   - resource: 6
+    resourcePrice: 500
     dropProbability: 0.08
     minAmount: 0.01
     maxAmount: 0.5

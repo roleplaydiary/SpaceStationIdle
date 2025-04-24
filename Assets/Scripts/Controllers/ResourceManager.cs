@@ -39,14 +39,9 @@ public class ResourceManager : IDisposable
         }
     }
 
-    public Resources GetCurrentResources()
-    {
-        return currentResources.Value;
-    }
-
     public void AddResource(ResourceType type, float amount)
     {
-        Resources newResources = currentResources.Value;
+        Resources newResources = new Resources(currentResources.Value);
         switch (type)
         {
             case ResourceType.Phoron:
@@ -79,45 +74,78 @@ public class ResourceManager : IDisposable
     }
 
     public bool TryRemoveResource(ResourceType type, float amount)
-    {
-        Resources current = currentResources.Value;
-        float currentAmount;
+{
+    Resources current = currentResources.Value;
+    float currentAmount;
 
+    switch (type)
+    {
+        case ResourceType.Phoron:
+            currentAmount = current.Phoron;
+            break;
+        case ResourceType.Metal:
+            currentAmount = current.Metal;
+            break;
+        case ResourceType.Glass:
+            currentAmount = current.Glass;
+            break;
+        case ResourceType.Plastic:
+            currentAmount = current.Plastic;
+            break;
+        case ResourceType.Gold:
+            currentAmount = current.Gold;
+            break;
+        case ResourceType.Silver:
+            currentAmount = current.Silver;
+            break;
+        case ResourceType.Uranium:
+            currentAmount = current.Uranium;
+            break;
+        default:
+            Debug.LogError($"Неизвестный тип ресурса: {type}");
+            return false;
+    }
+
+    if (currentAmount >= amount)
+    {
+        // 1. Создаем НОВЫЙ экземпляр Resources, копируя значения из старого
+        Resources newResources = new Resources(current);
+
+        // 2. Уменьшаем значение нужного ресурса в НОВОМ экземпляре
         switch (type)
         {
             case ResourceType.Phoron:
-                currentAmount = current.Phoron;
+                newResources.Phoron -= amount;
                 break;
             case ResourceType.Metal:
-                currentAmount = current.Metal;
+                newResources.Metal -= amount;
                 break;
             case ResourceType.Glass:
-                currentAmount = current.Glass;
+                newResources.Glass -= amount;
                 break;
             case ResourceType.Plastic:
-                currentAmount = current.Plastic;
+                newResources.Plastic -= amount;
                 break;
             case ResourceType.Gold:
-                currentAmount = current.Gold;
+                newResources.Gold -= amount;
                 break;
             case ResourceType.Silver:
-                currentAmount = current.Silver;
+                newResources.Silver -= amount;
                 break;
             case ResourceType.Uranium:
-                currentAmount = current.Uranium;
+                newResources.Uranium -= amount;
                 break;
             default:
                 Debug.LogError($"Неизвестный тип ресурса: {type}");
-                return false;
+                return false; // Дополнительная защита
         }
 
-        if (currentAmount >= amount)
-        {
-            AddResource(type, -amount); // Используем AddResource с отрицательным значением для вычитания
-            return true;
-        }
-        return false;
+        // 3. Присваиваем НОВЫЙ экземпляр ReactiveProperty.
+        currentResources.Value = newResources;
+        return true;
     }
+    return false;
+}
 
     public async Task SaveResources()
     {
