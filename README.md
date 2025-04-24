@@ -23,7 +23,7 @@ SpaceStationIdle is an idle game where you take on the role of the captain of a 
 * ☐ **Oxygen and Atmos department**
 * ✅ **Progress saving**
 * ✅ **AFK production (Credits, resources, energy)**
-* 3d enviropment(Characters models, station interior)
-* UI design
+* ☐ 3d enviropment(Characters models, station interior)
+* ☐ UI design
 * ☐ **Station events (catch the clown, fix the station, fight monsters, cleaning)**
 * ☐ **Endgame goals (find out)**
