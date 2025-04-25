@@ -6,9 +6,11 @@ using UnityEngine;
 public class StatsViewer : MonoBehaviour
 {
     [SerializeField] private TMP_Text creditsText;
+    [SerializeField] private TMP_Text creditsProductionText;
     [SerializeField] private TMP_Text energyText;
     [SerializeField] private TMP_Text currentMoodText;
     [SerializeField] private TMP_Text researchPointsText;
+    [SerializeField] private TMP_Text researchPointsProductionText;
     
     private PlayerController playerController;
     private StationData stationData;
@@ -36,6 +38,15 @@ public class StatsViewer : MonoBehaviour
             {
                 creditsText.text = $"Credits: {Math.Round(credits)}";
             }).AddTo(this);
+            
+        }
+        
+        var stationContoller = ServiceLocator.Get<StationController>();
+        if (stationContoller != null && creditsProductionText != null)
+        {
+            var productionValue = stationContoller.GetStationCreditProductionValue();
+            var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
+            creditsProductionText.text = $"{text}";
         }
     }
 
@@ -71,8 +82,17 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().researchPoints.Subscribe(credits =>
             {
-                researchPointsText.text = $"Research points: {Math.Round(credits)}";
+                researchPointsText.text = $"RP: {Math.Round(credits)}";
             }).AddTo(this);
+        }
+        
+        var stationContoller = ServiceLocator.Get<StationController>();
+        if (stationContoller != null && researchPointsProductionText != null)
+        {
+            var productionValue = stationContoller.GetStationResearchProductionValue();
+            var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
+            creditsProductionText.text = $"{text}";
+            researchPointsProductionText.text = $"{text}";
         }
     }
 }

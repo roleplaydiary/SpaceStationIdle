@@ -155,4 +155,32 @@ public class StationController : MonoBehaviour
         
         Debug.LogError("ReleaseRestPosition: Позиция отдыха не была найдена");
     }
+
+    public float GetStationCreditProductionValue()
+    {
+        float result = 0f;
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == Department.Bridge || block.GetBlockType() == Department.Cargo)
+            {
+                result += block.GetProductionValue();
+            }
+        }
+
+        return result;
+    }
+    
+    public float GetStationResearchProductionValue()
+    {
+        float result = 0f;
+        foreach (var block in stationBlocks)
+        {
+            if (block.GetBlockType() == Department.Science)
+            {
+                result += block.GetProductionValue();
+            }
+        }
+
+        return result;
+    }
 }
