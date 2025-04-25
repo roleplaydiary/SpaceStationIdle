@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7760430515481456276}
   - component: {fileID: 5369712471010577586}
   - component: {fileID: 7025694329064386668}
-  - component: {fileID: 4778726294318500072}
+  - component: {fileID: 3819599562451309713}
   - component: {fileID: 5857177724812084660}
   m_Layer: 5
   m_Name: HireCrewMemberButton
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4778726294318500072
+--- !u!114 &3819599562451309713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,13 +133,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4917833715877978000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 636fab9f974068a4b91971aece7fb78f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dcaebede7d88e048b7f544c9a0f9548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7025694329064386668}
   upgradeButtonViewer: {fileID: 5857177724812084660}
-  _department: 2
-  upgradeId: engineering_hire_1
+  _department: 0
+  upgradeId: bridge_hire_1
 --- !u!114 &5857177724812084660
 MonoBehaviour:
   m_ObjectHideFlags: 0

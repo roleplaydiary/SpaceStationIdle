@@ -6,10 +6,10 @@ public class BuyUpgradeButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private UpgradeButtonViewer upgradeButtonViewer;
-    [SerializeField] private Department _department;
-    [SerializeField] private string upgradeId;
+    [SerializeField] protected Department _department;
+    [SerializeField] protected string upgradeId;
 
-    private void Awake()
+    protected virtual void Start()
     {
         if (upgradeId == null)
         {
@@ -23,5 +23,8 @@ public class BuyUpgradeButton : MonoBehaviour
         }).AddTo(this);
         
         upgradeButtonViewer.Initialize(upgradeId);
+        Initialize();
     }
+    
+    protected virtual void Initialize(){}
 }

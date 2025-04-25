@@ -222,7 +222,7 @@ MonoBehaviour:
     description: Hire new engineer
     type: 3
     level: 1
-    value: 0
+    value: 1
     cost:
       credits: 10
       researchPoints: 0
@@ -268,12 +268,29 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
+  - upgradeId: bridge_hire_3
+    displayName: Hire commander Lv3
+    description: Hire new commander to the bridge
+    type: 3
+    level: 3
+    value: 3
+    cost:
+      credits: 5
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
   - upgradeId: science_hire_1
     displayName: Hire scientist
     description: Hire new scientist
     type: 3
     level: 1
-    value: 0
+    value: 1
     cost:
       credits: 100
       researchPoints: 0
@@ -290,7 +307,7 @@ MonoBehaviour:
     description: Hire new miner or cargo worker
     type: 3
     level: 1
-    value: 0
+    value: 1
     cost:
       credits: 100
       researchPoints: 0
@@ -307,7 +324,7 @@ MonoBehaviour:
     description: Hire new bar worker
     type: 3
     level: 1
-    value: 0
+    value: 1
     cost:
       credits: 100
       researchPoints: 0
