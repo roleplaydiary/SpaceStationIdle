@@ -16,7 +16,7 @@ public class StationController : MonoBehaviour
         ServiceLocator.Register(this);
     }
 
-    public async Task StationInitializate()
+    public async Task StationInitialize()
     {
         var loadData = await ServiceLocator.Get<CloudController>().LoadStationData();
         if (loadData == null || loadData.DepartmentData.Count == 0)
