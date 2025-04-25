@@ -32,9 +32,9 @@ public class CrewAssignmentPanelController : MonoBehaviour
         blockController?.GetCrewManager().workingCrew.ObserveCountChanged()
             .Subscribe( value => currentCrewAtWork.text = $"Currently working: {blockController.GetCrewManager().workingCrew.Count}").AddTo(disposables);
         blockController?.GetCrewManager().restingCrew.ObserveCountChanged()
-            .Subscribe( value => currentCrewAtWork.text = $"Currently resting: {blockController.GetCrewManager().restingCrew.Count}").AddTo(disposables);
+            .Subscribe( value => currentCrewAtRest.text = $"Currently resting: {blockController.GetCrewManager().restingCrew.Count}").AddTo(disposables);
         blockController?.GetCrewManager().idleCrew.ObserveCountChanged()
-            .Subscribe( value => currentCrewAtWork.text = $"Currently idling: {blockController.GetCrewManager().idleCrew.Count}").AddTo(disposables);
+            .Subscribe( value => currentCrewAtIdle.text = $"Currently idling: {blockController.GetCrewManager().idleCrew.Count}").AddTo(disposables);
 
         // Начальное обновление UI
         UpdateCrewCounts();

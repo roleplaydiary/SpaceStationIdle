@@ -27,5 +27,8 @@ public class CrewService : MonoBehaviour
                 OnRestingCrewValueUpdate.OnNext(crewAtRest);
             }).AddTo(this);
         }
+        
+        OnWorkingCrewValueUpdate.OnNext(0);
+        OnRestingCrewValueUpdate.OnNext(0);
     }
 }

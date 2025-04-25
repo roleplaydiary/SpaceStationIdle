@@ -41,7 +41,6 @@ public class StatsViewer : MonoBehaviour
             {
                 creditsText.text = $"Credits: {Math.Round(credits)}";
             }).AddTo(this);
-            
         }
         
         var stationContoller = ServiceLocator.Get<StationController>();
