@@ -5,145 +5,238 @@ using System.Linq;
 
 public class CrewManager : MonoBehaviour
 {
-    public ReactiveProperty<int> CrewAtWork { get; private set; } = new ReactiveProperty<int>(0);
-    public ReactiveProperty<int> CrewAtRest { get; private set; } = new ReactiveProperty<int>(0);
-    public ReactiveProperty<int> CrewAtIdle { get; private set; } = new ReactiveProperty<int>(0);
-
-    public ReactiveCollection<CharacterController> WorkingCrew { get; private set; } = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> RestingCrew { get; private set; } = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> IdleCrew { get; private set; } = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> AllCrewMembers { get; private set; } = new ReactiveCollection<CharacterController>();
-
-    private List<Transform> _idlePositions;
-    private List<WorkBenchController> _workBenches;
-    private Transform _departmentTransform;
-
-    public void Initialize(List<Transform> idlePositions, List<WorkBenchController> workBenches, Transform departmentTransform)
+    private StationController stationController;
+    private StationBlockData blockData;
+    private StationBlockDataSO stationBlockDataSo;
+    
+    private List<CharacterController> crewMembers = new List<CharacterController>();
+    public ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
+    public ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>();
+    
+    public virtual void CrewInitialization(StationBlockData blockData, StationBlockDataSO stationBlockDataSo)
     {
-        _idlePositions = idlePositions;
-        _workBenches = workBenches;
-        _departmentTransform = departmentTransform;
-        UpdateCrewCounts();
+        stationController = ServiceLocator.Get<StationController>();
+        this.blockData = blockData;
+        this.stationBlockDataSo = stationBlockDataSo;
+        
+        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0 ||
+            stationBlockDataSo.crewPrefabs == null || stationBlockDataSo.crewPrefabs.Length == 0)
+        {
+            Debug.LogError("Ошибка инициализации экипажа");
+            return;
+        }
+
+        for (int i = 0; i < blockData.CurrentCrewHired; i++)
+        {
+            int prefabIndex = i % stationBlockDataSo.crewPrefabs.Length;
+            var newCrewMember = SpawnNewCrewMember(prefabIndex);
+        }
+        
+        workingCrew.ObserveCountChanged()
+            .Subscribe(value =>
+            {
+                blockData.CrewAtWork = value;
+            })
+            .AddTo(this);
+
+        restingCrew.ObserveCountChanged().Subscribe(value =>
+        {
+            blockData.CrewAtRest = value;
+        }).AddTo(this);
     }
 
-    // public void HireNewCrewMember(Department department)
-    // {
-    //     var newCrewMemberGO = Instantiate(ServiceLocator.Get<DataLibrary>().characterPrefabs[(int)department], _departmentTransform);
-    //     CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
-    //     if (newCrewController != null)
-    //     {
-    //         AllCrewMembers.Add(newCrewController);
-    //         SendToIdle(newCrewController);
-    //     }
-    // }
-
-    public void AddCrewToWork()
+    private CharacterController SpawnNewCrewMember(int prefabIndex)
     {
-        if (IdleCrew.Count > 0) MoveToWorking(IdleCrew.First());
-        else if (RestingCrew.Count > 0) MoveToWorking(RestingCrew.First());
-    }
+        if (prefabIndex >= 0 && prefabIndex < stationBlockDataSo.crewPrefabs.Length)
+        {
+            GameObject prefabToSpawn = stationBlockDataSo.crewPrefabs[prefabIndex];
+            if (prefabToSpawn != null)
+            {
+                var newCrewMemberGO = Instantiate(prefabToSpawn, transform);
+                CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
+                if (newCrewController != null)
+                {
+                    crewMembers.Add(newCrewController);
+                    allCrewMembers.Add(newCrewController);
+                    return newCrewController;
+                }
+            }
+        }
 
-    public void RemoveCrewFromWork()
+        return null;
+    }
+    
+    public void HireNewCrewMember(List<Transform> idlePositionList)
     {
-        if (WorkingCrew.Count > 0) SendToIdle(WorkingCrew.Last());
+        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
+        {
+            int prefabIndex = crewMembers.Count % stationBlockDataSo.crewPrefabs.Length;
+            CharacterController newCrewController = SpawnNewCrewMember(prefabIndex);
+            if (newCrewController != null)
+            {
+                newCrewController.GotoIdle(GetAvailableIdlePosition(newCrewController, idlePositionList));
+                idleCrew.Add(newCrewController);
+                blockData.CurrentCrewHired++;
+            }
+        }
+        else
+        {
+            Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
+        }
     }
+    
+    // Новые методы для изменения количества рабочих и отдыхающих
+    public void AddCrewToWork(List<WorkBenchController> workBenchesList)
+    {
+        int currentWorkers = workingCrew.Count;
 
+        if (currentWorkers < blockData.WorkBenchesInstalled && currentWorkers < crewMembers.Count)
+        {
+            var workerToSend = crewMembers[currentWorkers];
+
+            if (idleCrew.Contains(workerToSend) || restingCrew.Contains(workerToSend))
+            {
+                if (idleCrew.Contains(workerToSend))
+                {
+                    idleCrew.Remove(workerToSend);
+                }
+                else if (restingCrew.Contains(workerToSend))
+                {
+                    restingCrew.Remove(workerToSend);
+                    stationController.ReleaseRestPosition(workerToSend);
+                }
+
+                workerToSend.GoToWork(GetWorkPosition(workerToSend, workBenchesList));
+                workingCrew.Add(workerToSend);
+            }
+        }
+    }
+    
+    public void RemoveCrewFromWork( List<Transform> idlePositionList)
+    {
+        var workerToIdle = workingCrew.LastOrDefault();
+        if (workerToIdle != null)
+        {
+            workingCrew.Remove(workerToIdle);
+            workerToIdle.GotoIdle(GetAvailableIdlePosition(workerToIdle, idlePositionList));
+            idleCrew.Add(workerToIdle);
+        }
+    }
+    
     public void AddCrewToRest()
     {
-        if (IdleCrew.Count > 0) MoveToResting(IdleCrew.First());
-        else if (WorkingCrew.Count > 0) MoveToResting(WorkingCrew.Last());
-    }
-
-    public void RemoveCrewFromRest()
-    {
-        if (RestingCrew.Count > 0) SendToIdle(RestingCrew.Last());
-    }
-
-    public void SendAllToIdle()
-    {
-        foreach (var member in WorkingCrew.ToList()) SendToIdle(member);
-        foreach (var member in RestingCrew.ToList()) SendToIdle(member);
-    }
-
-    public void SendToIdle(CharacterController crewMember)
-    {
-        if (WorkingCrew.Remove(crewMember))
+        // Ищем первого бездействующего (idle) сотрудника
+        var workerToSend = idleCrew.FirstOrDefault();
+        if (workerToSend != null)
         {
-            crewMember.GotoIdle(GetAvailableIdlePosition());
-            IdleCrew.Add(crewMember);
-            UpdateCrewCounts();
+            var restPosition = stationController.GetRestPosition(workerToSend);
+            if (restPosition != null)
+            {
+                idleCrew.Remove(workerToSend);
+                workerToSend.GoToRest(restPosition.position);
+                restingCrew.Add(workerToSend);
+            }
         }
-        else if (RestingCrew.Remove(crewMember))
+        else
         {
-            crewMember.GotoIdle(GetAvailableIdlePosition());
-            IdleCrew.Add(crewMember);
-            UpdateCrewCounts();
+            // Если в idle никого нет, берем первого работающего
+            workerToSend = workingCrew.LastOrDefault();
+            if (workerToSend != null)
+            {
+                var restPosition = stationController.GetRestPosition(workerToSend);
+                if (restPosition != null)
+                {
+                    workingCrew.Remove(workerToSend);
+                    workerToSend.GoToRest(restPosition.position);
+                    restingCrew.Add(workerToSend);
+                }
+            }
         }
     }
-
-    private void MoveToWorking(CharacterController crewMember)
+    
+    public void RemoveCrewFromRest(List<Transform> idlePositionList)
     {
-        if (crewMember == null) return;
-        WorkingCrew.Add(crewMember);
-        IdleCrew.Remove(crewMember);
-        RestingCrew.Remove(crewMember);
-        crewMember.GoToWork(GetAvailableWorkPosition());
-        UpdateCrewCounts();
-    }
-
-    private void MoveToResting(CharacterController crewMember)
-    {
-        if (crewMember == null) return;
-        RestingCrew.Add(crewMember);
-        IdleCrew.Remove(crewMember);
-        WorkingCrew.Remove(crewMember);
-        crewMember.GoToRest(GetAvailableRestPosition());
-        UpdateCrewCounts();
-    }
-
-    public Vector3 GetAvailableRestPosition() => Vector3.zero; // Реализуй логику получения позиции отдыха
-
-    public Vector3 GetAvailableIdlePosition()
-    {
-        if (_idlePositions != null && IdleCrew.Count < _idlePositions.Count)
+        var workerToIdle = restingCrew.FirstOrDefault();
+        if (workerToIdle != null)
         {
-            return _idlePositions[IdleCrew.Count].position;
-        }
-        return _departmentTransform.position;
-    }
+            restingCrew.Remove(workerToIdle);
+            stationController.ReleaseRestPosition(workerToIdle);
 
-    public Vector3 GetAvailableWorkPosition()
-    {
-        if (_workBenches != null && WorkingCrew.Count < _workBenches.Count)
-        {
-            return _workBenches[WorkingCrew.Count].GetWorkPosition();
-        }
-        return _departmentTransform.position; // Или другая логика, если нет свободных верстаков
-    }
-
-    public void RestoreCrewAssignment(int workCrewCount, int restCrewCount)
-    {
-        SendAllToIdle();
-        var availableCrew = AllCrewMembers.ToList();
-        for (int i = 0; i < Mathf.Min(workCrewCount, availableCrew.Count); i++)
-        {
-            MoveToWorking(availableCrew[i]);
-        }
-        for (int i = workCrewCount; i < workCrewCount + Mathf.Min(restCrewCount, availableCrew.Count - workCrewCount); i++)
-        {
-            MoveToResting(availableCrew[i]);
+            var idlePosition = GetAvailableIdlePosition(workerToIdle, idlePositionList);
+            workerToIdle.GotoIdle(idlePosition);
+            idleCrew.Add(workerToIdle);
         }
     }
-
-    public void UpdateWorkBenches(List<WorkBenchController> workBenches)
+    
+    public void RestoreCrewAssignment(List<WorkBenchController> workBenchesList, List<Transform> idlePositionList)
     {
-        _workBenches = workBenches;
+        for (int i = 0; i < Mathf.Min(blockData.CrewAtWork, crewMembers.Count); i++)
+        {
+            if (i < workBenchesList.Count && workBenchesList[i] != null)
+            {
+                crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
+                workingCrew.Add(crewMembers[i]);
+            }
+            else
+            {
+                if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
+                {
+                    var idlePosition = GetAvailableIdlePosition(crewMembers[i], idlePositionList);
+                    crewMembers[i].GotoIdle(idlePosition);
+                    idleCrew.Add(crewMembers[i]);
+                }
+            }
+        }
+
+        int restedCount = 0;
+        for (int i = 0; i < crewMembers.Count && restedCount < blockData.CrewAtRest; i++)
+        {
+            if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
+            {
+                var restPosition = stationController.GetRestPosition(crewMembers[i]);
+                if (restPosition != null)
+                {
+                    crewMembers[i].GoToRest(restPosition.position);
+                    restingCrew.Add(crewMembers[i]);
+                    restedCount++;
+                }
+                else
+                {
+                    crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i], idlePositionList));
+                    idleCrew.Add(crewMembers[i]);
+                }
+            }
+        }
+
+        foreach (var member in crewMembers)
+        {
+            if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
+            {
+                member.GotoIdle(GetAvailableIdlePosition(member, idlePositionList));
+                idleCrew.Add(member);
+            }
+        }
+    }
+    
+    protected virtual Vector3 GetAvailableIdlePosition(CharacterController crewMember, List<Transform> idlePositionList)
+    {
+        int index = crewMembers.IndexOf(crewMember);
+        if (index >= 0 && index < idlePositionList.Count)
+        {
+            return idlePositionList[index].position;
+        }
+        return transform.position; // Запасной вариант
     }
 
-    private void UpdateCrewCounts()
+    private Vector3 GetWorkPosition(CharacterController crewMember, List<WorkBenchController> workBenchesList)
     {
-        CrewAtWork.Value = WorkingCrew.Count;
-        CrewAtRest.Value = RestingCrew.Count;
-        CrewAtIdle.Value = IdleCrew.Count;
+        int index = crewMembers.IndexOf(crewMember);
+        if (index >= 0 && index < workBenchesList.Count)
+        {
+            return workBenchesList[index].GetWorkPosition();
+        }
+        return Vector3.zero;
     }
 }

@@ -17,7 +17,7 @@ public class DepartmentEnergyController : MonoBehaviour, IDepartmentEnergyUser
         blockController = block;
 
         // Подписываемся на изменение количества рабочих
-        blockController.workingCrew.ObserveCountChanged().Subscribe(_ => RecalculateEnergy()).AddTo(disposables);
+        blockController.GetCrewManager().workingCrew.ObserveCountChanged().Subscribe(_ => RecalculateEnergy()).AddTo(disposables);
 
         // Начальный расчет энергии
         RecalculateEnergy();
@@ -38,7 +38,7 @@ public class DepartmentEnergyController : MonoBehaviour, IDepartmentEnergyUser
     {
         float production = 0f;
         float consumption = 0f;
-        int workingCrewCount = blockController.workingCrew.Count;
+        int workingCrewCount = blockController.GetCrewManager().workingCrew.Count;
         int workBenchesCount = blockController.workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)

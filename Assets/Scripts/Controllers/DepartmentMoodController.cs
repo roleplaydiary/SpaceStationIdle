@@ -16,7 +16,7 @@ public class DepartmentMoodController : MonoBehaviour, IDepartmentMoodUser
         blockController = block;
 
         // Подписываемся на изменение количества рабочих
-        blockController.workingCrew.ObserveCountChanged().Subscribe(_ => RecalculateMood()).AddTo(disposables);
+        blockController.GetCrewManager().workingCrew.ObserveCountChanged().Subscribe(_ => RecalculateMood()).AddTo(disposables);
 
         // Начальный расчет настроения
         RecalculateMood();
@@ -36,7 +36,7 @@ public class DepartmentMoodController : MonoBehaviour, IDepartmentMoodUser
     private void RecalculateMood()
     {
         float totalMoodChange = 0f;
-        int workingCrewCount = blockController.workingCrew.Count;
+        int workingCrewCount = blockController.GetCrewManager().workingCrew.Count;
         int workBenchesCount = blockController.workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)

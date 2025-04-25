@@ -13,34 +13,25 @@ public class StationBlockController : MonoBehaviour
 
     protected StationBlockData blockData;
 
-    public ReactiveProperty<int> crewAtWork { get; protected set; }
-    public ReactiveProperty<int> crewAtRest { get; protected set; }
-    public ReactiveProperty<int> crewAtIdle { get; protected set; }
-
-    public ReactiveCollection<CharacterController> workingCrew = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> restingCrew = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> idleCrew = new ReactiveCollection<CharacterController>();
-    public ReactiveCollection<CharacterController> allCrewMembers = new ReactiveCollection<CharacterController>();
-
     protected List<Transform> idlePositionList = new List<Transform>();
     public List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
 
     protected StationController stationController;
     protected DepartmentEnergyController EnergyController;
     protected DepartmentMoodController MoodController;
+    protected CrewManager crewManager;
+    public CrewManager GetCrewManager() { return crewManager; }
 
     public virtual void BlockInitialization(StationBlockData _blockData)
     {
-        crewAtWork = new ReactiveProperty<int>(0);
-        crewAtRest = new ReactiveProperty<int>(0);
-        crewAtIdle = new ReactiveProperty<int>(0);
-
         blockData = _blockData;
         stationController = ServiceLocator.Get<StationController>();
 
         InitializeLists();
         BenchesInitialization();
 
+        crewManager = gameObject.GetComponent<CrewManager>();
+        
         EnergyController = gameObject.GetComponent<DepartmentEnergyController>();
         EnergyController.Initialize(this);
         
@@ -50,23 +41,11 @@ public class StationBlockController : MonoBehaviour
 
     public void BlockCrewInitialization()
     {
-        CrewInitialization();
+        crewManager.CrewInitialization(blockData, stationBlockDataSo);
         RestoreCrewAssignment();
-        
-        crewAtWork.Subscribe(_crewAtWork =>
-        {
-            blockData.CrewAtWork = _crewAtWork;
-        }).AddTo(this);
-
-        crewAtRest.Subscribe(_crewAtRest =>
-        {
-            blockData.CrewAtRest = _crewAtRest;
-        }).AddTo(this);
-
-        UpdateCrewCounts(); // Добавлено для начального отображения
     }
 
-    protected virtual void BenchesInitialization()
+    protected void BenchesInitialization()
     {
         if (blockData.WorkBenchesInstalled == 0)
             return;
@@ -85,36 +64,6 @@ public class StationBlockController : MonoBehaviour
         }
     }
 
-    protected virtual void CrewInitialization()
-    {
-        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0 ||
-            stationBlockDataSo.crewPrefabs == null || stationBlockDataSo.crewPrefabs.Length == 0)
-        {
-            Debug.LogError("Ошибка инициализации экипажа");
-            return;
-        }
-
-        for (int i = 0; i < blockData.CurrentCrewHired; i++)
-        {
-            int prefabIndex = i % stationBlockDataSo.crewPrefabs.Length;
-            SpawnNewCrewMember(prefabIndex);
-        }
-    }
-
-    protected void ClearCrewLists()
-    {
-        workingCrew.Clear();
-        restingCrew.Clear();
-        idleCrew.Clear();
-    }
-
-    protected void UpdateCrewCounts()
-    {
-        crewAtWork.Value = workingCrew.Count;
-        crewAtRest.Value = restingCrew.Count;
-        crewAtIdle.Value = idleCrew.Count;
-    }
-
     private async void SaveBlockData()
     {
         if (stationController != null)
@@ -128,121 +77,39 @@ public class StationBlockController : MonoBehaviour
         }
     }
 
-    // Новые методы для изменения количества рабочих и отдыхающих
     public void AddCrewToWork()
     {
-        int currentWorkers = workingCrew.Count;
-
-        if (currentWorkers < blockData.WorkBenchesInstalled && currentWorkers < crewMembers.Count)
-        {
-            var workerToSend = crewMembers[currentWorkers];
-
-            if (idleCrew.Contains(workerToSend) || restingCrew.Contains(workerToSend))
-            {
-                if (idleCrew.Contains(workerToSend))
-                {
-                    idleCrew.Remove(workerToSend);
-                }
-                else if (restingCrew.Contains(workerToSend))
-                {
-                    restingCrew.Remove(workerToSend);
-                    stationController.ReleaseRestPosition(workerToSend);
-                }
-
-                workerToSend.GoToWork(workBenchesList[currentWorkers].GetWorkPosition());
-                workingCrew.Add(workerToSend);
-                UpdateCrewCounts();
-                SaveBlockData();
-            }
-        }
+        crewManager.AddCrewToWork(workBenchesList);
+        SaveBlockData();
     }
 
     public void RemoveCrewFromWork()
     {
-        var workerToIdle = workingCrew.LastOrDefault();
-        if (workerToIdle != null)
-        {
-            workingCrew.Remove(workerToIdle);
-            workerToIdle.GotoIdle(GetAvailableIdlePosition(workerToIdle));
-            idleCrew.Add(workerToIdle);
-            UpdateCrewCounts();
-            SaveBlockData();
-        }
+        crewManager.RemoveCrewFromWork(idlePositionList);
+        SaveBlockData();
     }
 
     public void AddCrewToRest()
     {
-        // Ищем первого бездействующего (idle) сотрудника
-        var workerToSend = idleCrew.FirstOrDefault();
-        if (workerToSend != null)
-        {
-            var restPosition = stationController.GetRestPosition(workerToSend);
-            if (restPosition != null)
-            {
-                idleCrew.Remove(workerToSend);
-                workerToSend.GoToRest(restPosition.position);
-                restingCrew.Add(workerToSend);
-                UpdateCrewCounts();
-                SaveBlockData();
-            }
-        }
-        else
-        {
-            // Если в idle никого нет, берем первого работающего
-            workerToSend = workingCrew.LastOrDefault();
-            if (workerToSend != null)
-            {
-                var restPosition = stationController.GetRestPosition(workerToSend);
-                if (restPosition != null)
-                {
-                    workingCrew.Remove(workerToSend);
-                    workerToSend.GoToRest(restPosition.position);
-                    restingCrew.Add(workerToSend);
-                    UpdateCrewCounts();
-                    SaveBlockData();
-                }
-            }
-        }
+       crewManager.AddCrewToRest();
+       SaveBlockData();
     }
 
     public void RemoveCrewFromRest()
     {
-        var workerToIdle = restingCrew.FirstOrDefault();
-        if (workerToIdle != null)
-        {
-            restingCrew.Remove(workerToIdle);
-            stationController.ReleaseRestPosition(workerToIdle);
-            workerToIdle.GotoIdle(GetAvailableIdlePosition(workerToIdle));
-            idleCrew.Add(workerToIdle);
-            UpdateCrewCounts();
-            SaveBlockData();
-        }
+        crewManager.RemoveCrewFromRest(idlePositionList);
+        SaveBlockData();
     }
 
-    protected void DistributeCrewToIdle()
-    {
-        ClearCrewLists();
-        foreach (var member in crewMembers)
-        {
-            member.GotoIdle(GetAvailableIdlePosition(member));
-            idleCrew.Add(member);
-        }
-        UpdateCrewCounts();
-        OnCrewDistributed();
-    }
-
-    protected virtual Vector3 GetAvailableWorkPosition(CharacterController crewMember)
-    {
-        int index = crewMembers.IndexOf(crewMember);
-        if (index >= 0 && index < workBenchesList.Count && workBenchesList[index] != null)
-        {
-            if (blockData.WorkBenchesInstalled >= index)
-            {
-                return workBenchesList[index].GetWorkPosition();
-            }
-        }
-        return transform.position; // Запасной вариант
-    }
+    // protected void DistributeCrewToIdle()
+    // {
+    //     foreach (var member in crewMembers)
+    //     {
+    //         member.GotoIdle(GetAvailableIdlePosition(member));
+    //         idleCrew.Add(member);
+    //     }
+    //     OnCrewDistributed();
+    // }
 
     protected virtual Vector3 GetAvailableIdlePosition(CharacterController crewMember)
     {
@@ -279,112 +146,14 @@ public class StationBlockController : MonoBehaviour
 
     protected void RestoreCrewAssignment()
     {
-        ClearCrewLists();
-
-        for (int i = 0; i < Mathf.Min(blockData.CrewAtWork, crewMembers.Count); i++)
-        {
-            if (i < workBenchesList.Count && workBenchesList[i] != null)
-            {
-                crewMembers[i].GoToWork(workBenchesList[i].GetWorkPosition());
-                workingCrew.Add(crewMembers[i]);
-            }
-            else
-            {
-                if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
-                {
-                    crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i]));
-                    idleCrew.Add(crewMembers[i]);
-                }
-            }
-        }
-
-        int restedCount = 0;
-        for (int i = 0; i < crewMembers.Count && restedCount < blockData.CrewAtRest; i++)
-        {
-            if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
-            {
-                var restPosition = stationController.GetRestPosition(crewMembers[i]);
-                if (restPosition != null)
-                {
-                    crewMembers[i].GoToRest(restPosition.position);
-                    restingCrew.Add(crewMembers[i]);
-                    restedCount++;
-                }
-                else
-                {
-                    crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i]));
-                    idleCrew.Add(crewMembers[i]);
-                }
-            }
-        }
-
-        foreach (var member in crewMembers)
-        {
-            if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
-            {
-                member.GotoIdle(GetAvailableIdlePosition(member));
-                idleCrew.Add(member);
-            }
-        }
-
-        UpdateCrewCounts();
+        crewManager.RestoreCrewAssignment(workBenchesList, idlePositionList);
         OnCrewDistributed();
     }
 
     public virtual void HireNewCrewMember()
     {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
-        {
-            int prefabIndex = crewMembers.Count % stationBlockDataSo.crewPrefabs.Length;
-            CharacterController newCrewController = SpawnNewCrewMember(prefabIndex);
-            if (newCrewController != null)
-            {
-                newCrewController.GotoIdle(GetAvailableIdlePosition(newCrewController));
-                idleCrew.Add(newCrewController);
-                UpdateCrewCounts();
-                blockData.CurrentCrewHired++;
-                SaveBlockData();
-            }
-        }
-        else
-        {
-            Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
-        }
-    }
-    
-    private CharacterController SpawnNewCrewMember(int prefabIndex)
-    {
-        if (prefabIndex >= 0 && prefabIndex < stationBlockDataSo.crewPrefabs.Length)
-        {
-            GameObject prefabToSpawn = stationBlockDataSo.crewPrefabs[prefabIndex];
-            if (prefabToSpawn != null)
-            {
-                var newCrewMemberGO = Instantiate(prefabToSpawn, transform);
-                CharacterController newCrewController = newCrewMemberGO.GetComponent<CharacterController>();
-                if (newCrewController != null)
-                {
-                    crewMembers.Add(newCrewController);
-                    allCrewMembers.Add(newCrewController);
-                    return newCrewController;
-                }
-                else
-                {
-                    Debug.LogError($"Префаб экипажа {prefabToSpawn.name} не имеет компонента CharacterController!");
-                    Destroy(newCrewMemberGO);
-                    return null;
-                }
-            }
-            else
-            {
-                Debug.LogError($"Префаб экипажа с индексом {prefabIndex} в StationBlockDataSO для {GetBlockType()} - null!");
-                return null;
-            }
-        }
-        else
-        {
-            Debug.LogError($"Некорректный индекс префаба: {prefabIndex}");
-            return null;
-        }
+        crewManager.HireNewCrewMember(idlePositionList);
+        SaveBlockData();
     }
 
     public virtual void AddWorkBench()
@@ -444,7 +213,7 @@ public class StationBlockController : MonoBehaviour
     public virtual float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -464,7 +233,6 @@ public class StationBlockController : MonoBehaviour
     {
         return;
     }
-
 
     /// <summary>
     /// Виртуальный метод для начисления ресурсов, произведенных за время отсутствия игрока.

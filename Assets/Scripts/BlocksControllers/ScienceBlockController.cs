@@ -16,14 +16,10 @@ public class ScienceBlockController : StationBlockController
     private ReactiveProperty<bool> isProductionOn = new ReactiveProperty<bool>(false);
     private CompositeDisposable disposables = new CompositeDisposable();
     
-    private void Start()
+    public override void BlockInitialization(StationBlockData _blockData)
     {
-        playerController = ServiceLocator.Get<PlayerController>(); // Получаем PlayerController
-        if (playerController == null)
-        {
-            Debug.LogError("PlayerController не найден в ServiceLocator!");
-            return;
-        }
+        base.BlockInitialization(_blockData);
+        playerController = ServiceLocator.Get<PlayerController>();
         playerData = playerController.PlayerData; // Получаем ссылку на PlayerData через контроллер
         if (playerData == null)
         {
@@ -51,7 +47,7 @@ public class ScienceBlockController : StationBlockController
     private void ProduceResearchPointsReactive()
     {
         float rpThisFrame = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -68,7 +64,7 @@ public class ScienceBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         if (!IsStationEnergyEnough())
@@ -86,7 +82,7 @@ public class ScienceBlockController : StationBlockController
     public override void AddAFKProduction(System.TimeSpan afkTime)
     {
         float totalResearchPointsEarned = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
 
         for (int i = 0; i < workingCrewCount; i++)
@@ -119,41 +115,5 @@ public class ScienceBlockController : StationBlockController
             return false;
         }
         return true;
-    }
-
-    protected override void BenchesInitialization()
-    {
-        if (blockData.WorkBenchesInstalled == 0)
-            return;
-
-        if (workBenchesParent != null)
-        {
-            for (int i = 0; i < blockData.WorkBenchesInstalled && i < workBenchesParent.childCount; i++)
-            {
-                WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
-                if (workBenchController != null)
-                {
-                    workBenchesList.Add(workBenchController);
-                    workBenchController.gameObject.SetActive(true);
-                }
-            }
-        }
-    }
-
-    private void HireNewCrewMemberInternal()
-    {
-        base.HireNewCrewMember();
-    }
-
-    public override void HireNewCrewMember()
-    {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
-        {
-            base.HireNewCrewMember();
-        }
-        else
-        {
-            Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
-        }
     }
 }

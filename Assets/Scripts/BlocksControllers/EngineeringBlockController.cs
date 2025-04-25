@@ -8,14 +8,11 @@ public class EngineeringBlockController : StationBlockController
 {
     private StationData stationData;
 
-    private void Start()
+    public override void BlockInitialization(StationBlockData _blockData)
     {
-        stationController = ServiceLocator.Get<StationController>();
-        if (stationController == null)
-        {
-            Debug.LogError("StationController не найден в ServiceLocator!");
-            return;
-        }
+        base.BlockInitialization(_blockData);
+        CalculateEnergyProduction(); // Первоначальный расчет при инициализации
+        
         stationData = stationController.StationData;
         if (stationData == null)
         {
@@ -24,14 +21,14 @@ public class EngineeringBlockController : StationBlockController
         }
 
         // Подписываемся на изменение количества рабочих и пересчитываем производство
-        workingCrew.ObserveCountChanged().Subscribe(_ => CalculateEnergyProduction()).AddTo(this);
+        crewManager.workingCrew.ObserveCountChanged().Subscribe(_ => CalculateEnergyProduction()).AddTo(this);
         CalculateEnergyProduction(); // Первоначальный расчет при старте
     }
 
     private void CalculateEnergyProduction()
     {
         float totalProduction = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -49,7 +46,7 @@ public class EngineeringBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = workingCrew.Count;
+        int workingCrewCount = crewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -60,41 +57,12 @@ public class EngineeringBlockController : StationBlockController
         return result;
     }
 
-    public override void BlockInitialization(StationBlockData _blockData)
-    {
-        base.BlockInitialization(_blockData);
-        CalculateEnergyProduction(); // Первоначальный расчет при инициализации
-    }
+    
 
     protected override void OnCrewDistributed()
     {
         base.OnCrewDistributed();
         CalculateEnergyProduction(); // Перерасчет после распределения экипажа
-    }
-
-    protected override void BenchesInitialization()
-    {
-        base.BenchesInitialization();
-        // Расчет произойдет при BlockInitialization или распределении, когда экипаж будет назначен.
-    }
-
-    protected override void CrewInitialization()
-    {
-        base.CrewInitialization();
-        // Расчет произойдет при BlockInitialization или распределении.
-    }
-
-    public override void HireNewCrewMember()
-    {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
-        {
-            base.HireNewCrewMember();
-            // CalculateEnergyProduction вызовется через подписку на workingCrew
-        }
-        else
-        {
-            Debug.Log("Невозможно нанять нового члена экипажа в этом отделе.");
-        }
     }
 
     public override void AddWorkBench()

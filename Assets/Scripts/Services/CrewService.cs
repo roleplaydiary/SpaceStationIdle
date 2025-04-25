@@ -17,12 +17,12 @@ public class CrewService : MonoBehaviour
         var stationController = ServiceLocator.Get<StationController>();
         foreach (var block in stationController.StationBlocks)
         {
-            block.crewAtWork.Subscribe(crewAtWork =>
+            block.GetCrewManager().workingCrew.ObserveCountChanged().Subscribe(crewAtWork =>
             {
                 OnWorkingCrewValueUpdate.OnNext(crewAtWork);
             }).AddTo(this);
             
-            block.crewAtRest.Subscribe(crewAtRest =>
+            block.GetCrewManager().restingCrew.ObserveCountChanged().Subscribe(crewAtRest =>
             {
                 OnRestingCrewValueUpdate.OnNext(crewAtRest);
             }).AddTo(this);
