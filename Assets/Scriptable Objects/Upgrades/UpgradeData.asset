@@ -217,23 +217,6 @@ MonoBehaviour:
         Gold: 2
         Silver: 3
         Uranium: 0
-  - upgradeId: engineering_hire_1
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
-    level: 1
-    value: 1
-    cost:
-      credits: 10
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
   - upgradeId: bridge_hire_1
     displayName: Hire commander
     description: Hire new commander to the bridge
@@ -285,12 +268,165 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
+  - upgradeId: engineering_hire_1
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 1
+    value: 1
+    cost:
+      credits: 10
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_2
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 2
+    value: 2
+    cost:
+      credits: 10
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_3
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 3
+    value: 3
+    cost:
+      credits: 10
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_4
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 4
+    value: 4
+    cost:
+      credits: 10
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_5
+    displayName: Hire engineer
+    description: Hire new engineer
+    type: 3
+    level: 5
+    value: 5
+    cost:
+      credits: 10
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
   - upgradeId: science_hire_1
     displayName: Hire scientist
     description: Hire new scientist
     type: 3
     level: 1
     value: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_hire_2
+    displayName: Hire scientist
+    description: Hire new scientist
+    type: 3
+    level: 2
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_hire_3
+    displayName: Hire scientist
+    description: Hire new scientist
+    type: 3
+    level: 3
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_hire_4
+    displayName: Hire scientist
+    description: Hire new scientist
+    type: 3
+    level: 4
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_hire_5
+    displayName: Hire scientist
+    description: Hire new scientist
+    type: 3
+    level: 5
+    value: 5
     cost:
       credits: 100
       researchPoints: 0
@@ -319,12 +455,114 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
+  - upgradeId: cargo_hire_2
+    displayName: Hire cargo
+    description: Hire new miner or cargo worker
+    type: 3
+    level: 2
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_hire_3
+    displayName: Hire cargo
+    description: Hire new miner or cargo worker
+    type: 3
+    level: 3
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_hire_4
+    displayName: Hire cargo
+    description: Hire new miner or cargo worker
+    type: 3
+    level: 4
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_hire_5
+    displayName: Hire cargo
+    description: Hire new miner or cargo worker
+    type: 3
+    level: 5
+    value: 5
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
   - upgradeId: bar_hire_1
     displayName: Hire bartender
     description: Hire new bar worker
     type: 3
     level: 1
     value: 1
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_hire_2
+    displayName: Hire bartender
+    description: Hire new bar worker
+    type: 3
+    level: 2
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_hire_3
+    displayName: Hire bartender
+    description: Hire new bar worker
+    type: 3
+    level: 3
+    value: 3
     cost:
       credits: 100
       researchPoints: 0
