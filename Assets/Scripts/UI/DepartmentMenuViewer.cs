@@ -1,5 +1,7 @@
 using TMPro;
+using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DepartmentMenuViewer : MonoBehaviour
 {
@@ -9,12 +11,15 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private DepartmentProductionPanelController departmentProductionPanelController;
     [SerializeField] private DepartmentUpgradesScrollController departmentUpgradesScrollController;
     [SerializeField] private TMP_Text departmentName;
+    [SerializeField] private Button closeButton;
     private StationController stationController;
 
     private void Awake()
     {
         ServiceLocator.Register(this);
         stationController = ServiceLocator.Get<StationController>(); // Получаем ссылку на StationController при старте
+
+        closeButton.OnClickAsObservable().Subscribe(_ => Hide());
     }
 
     public void Show(Department department)
