@@ -33,7 +33,10 @@ public class CrewManager : MonoBehaviour
             int prefabIndex = i % stationBlockDataSo.crewPrefabs.Length;
             var newCrewMember = SpawnNewCrewMember(prefabIndex);
         }
-        
+    }
+
+    public void ReactiveVariabliesSubscribe()
+    {
         workingCrew.ObserveCountChanged()
             .Subscribe(value =>
             {
@@ -172,6 +175,7 @@ public class CrewManager : MonoBehaviour
     
     public void RestoreCrewAssignment(List<WorkBenchController> workBenchesList, List<Transform> idlePositionList)
     {
+        // Назначаем рабочих
         for (int i = 0; i < Mathf.Min(blockData.CrewAtWork, crewMembers.Count); i++)
         {
             if (i < workBenchesList.Count && workBenchesList[i] != null)
@@ -181,19 +185,16 @@ public class CrewManager : MonoBehaviour
             }
             else
             {
-                if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
-                {
-                    var idlePosition = GetAvailableIdlePosition(crewMembers[i], idlePositionList);
-                    crewMembers[i].GotoIdle(idlePosition);
-                    idleCrew.Add(crewMembers[i]);
-                }
+                crewMembers[i].GotoIdle(GetAvailableIdlePosition(crewMembers[i], idlePositionList));
+                idleCrew.Add(crewMembers[i]);
             }
         }
 
+        // Назначаем отдыхающих (те, кто не работают)
         int restedCount = 0;
         for (int i = 0; i < crewMembers.Count && restedCount < blockData.CrewAtRest; i++)
         {
-            if (workingCrew.All(c => c != crewMembers[i]) && restingCrew.All(c => c != crewMembers[i]))
+            if (!workingCrew.Contains(crewMembers[i]) && !restingCrew.Contains(crewMembers[i]))
             {
                 var restPosition = stationController.GetRestPosition(crewMembers[i]);
                 if (restPosition != null)
@@ -210,9 +211,10 @@ public class CrewManager : MonoBehaviour
             }
         }
 
+        // Все остальные, кто не работают и не отдыхают, отправляются в idle
         foreach (var member in crewMembers)
         {
-            if (workingCrew.All(c => c != member) && restingCrew.All(c => c != member) && idleCrew.All(c => c != member))
+            if (!workingCrew.Contains(member) && !restingCrew.Contains(member) && !idleCrew.Contains(member))
             {
                 member.GotoIdle(GetAvailableIdlePosition(member, idlePositionList));
                 idleCrew.Add(member);

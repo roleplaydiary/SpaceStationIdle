@@ -43,6 +43,7 @@ public class StationBlockController : MonoBehaviour
     {
         crewManager.CrewInitialization(blockData, stationBlockDataSo);
         RestoreCrewAssignment();
+        crewManager.ReactiveVariabliesSubscribe();
     }
 
     protected void BenchesInitialization()
