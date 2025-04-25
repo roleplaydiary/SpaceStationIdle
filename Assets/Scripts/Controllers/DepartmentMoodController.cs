@@ -10,13 +10,19 @@ public class DepartmentMoodController : MonoBehaviour, IDepartmentMoodUser
 
     private StationBlockController blockController;
     private CompositeDisposable disposables = new CompositeDisposable();
+    
+    public const int rest_mood_const = 2;
 
     public void Initialize(StationBlockController block)
     {
         blockController = block;
+        var crewManager = blockController.GetCrewManager();
 
-        // Подписываемся на изменение количества рабочих
-        blockController.GetCrewManager().workingCrew.ObserveCountChanged().Subscribe(_ => RecalculateMood()).AddTo(disposables);
+        // Объединяем потоки изменений workingCrew и restingCrew
+        Observable.Merge(crewManager.workingCrew.ObserveCountChanged().AsUnitObservable(),
+                crewManager.restingCrew.ObserveCountChanged().AsUnitObservable())
+            .Subscribe(_ => RecalculateMood())
+            .AddTo(disposables);
 
         // Начальный расчет настроения
         RecalculateMood();
@@ -48,6 +54,12 @@ public class DepartmentMoodController : MonoBehaviour, IDepartmentMoodUser
             {
                 totalMoodChange += blockController.workBenchesList[i].ProductionRate; // Значение повышения настроения в баре
             }
+        }
+
+        int restingCrewCount = blockController.GetCrewManager().restingCrew.Count;
+        for (int i = 0; i < restingCrewCount; i++)
+        {
+            totalMoodChange += rest_mood_const;
         }
 
         currentMoodEffect.Value = totalMoodChange;
