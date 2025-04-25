@@ -154,7 +154,24 @@ MonoBehaviour:
     description: Add new workstation to Bridge
     type: 5
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: bridge_add_workstation_2
+    displayName: Bridge New workstation
+    description: Add new workstation to Bridge
+    type: 5
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 0
@@ -171,7 +188,58 @@ MonoBehaviour:
     description: Add new workstation to Science
     type: 5
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: science_add_workstation_2
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: science_add_workstation_3
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: science_add_workstation_4
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 4
+    value: 5
     cost:
       credits: 100
       researchPoints: 0
@@ -188,7 +256,58 @@ MonoBehaviour:
     description: Add new workstation to Cargo
     type: 5
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_2
+    displayName: Cargo New workstation
+    description: Add new workstation to Cargo
+    type: 5
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_3
+    displayName: Cargo New workstation
+    description: Add new workstation to Cargo
+    type: 5
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_4
+    displayName: Cargo New workstation
+    description: Add new workstation to Cargo
+    type: 5
+    level: 4
+    value: 5
     cost:
       credits: 100
       researchPoints: 0
@@ -205,7 +324,92 @@ MonoBehaviour:
     description: Add new workstation to Engineerong
     type: 5
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: engineering_add_workstation_2
+    displayName: Engineering New workstation
+    description: Add new workstation to Engineerong
+    type: 5
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: engineering_add_workstation_3
+    displayName: Engineering New workstation
+    description: Add new workstation to Engineerong
+    type: 5
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: engineering_add_workstation_4
+    displayName: Engineering New workstation
+    description: Add new workstation to Engineerong
+    type: 5
+    level: 4
+    value: 5
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: bar_add_workstation_1
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 1
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 20
+        Glass: 5
+        Plastic: 10
+        Gold: 2
+        Silver: 3
+        Uranium: 0
+  - upgradeId: bar_add_workstation_2
+    displayName: Science New workstation
+    description: Add new workstation to Science
+    type: 5
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 0
@@ -235,7 +439,7 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: bridge_hire_2
-    displayName: Hire commander Lv2
+    displayName: Hire commander
     description: Hire new commander to the bridge
     type: 3
     level: 2
