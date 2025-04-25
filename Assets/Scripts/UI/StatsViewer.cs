@@ -45,13 +45,17 @@ public class StatsViewer : MonoBehaviour
         }
         
         var stationContoller = ServiceLocator.Get<StationController>();
-        if (stationContoller != null && creditsProductionText != null)
+        var crewService = ServiceLocator.Get<CrewService>();
+        crewService.OnWorkingCrewValueUpdate.Subscribe(crewAtWork =>
         {
-            var productionValue = stationContoller.GetStationCreditProductionValue();
-            var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
-            creditsProductionText.text = $"{text}";
-            LabelColorUpdate(creditsProductionText, productionValue);
-        }
+            if (stationContoller != null && creditsProductionText != null)
+            {
+                var productionValue = stationContoller.GetStationCreditProductionValue();
+                var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
+                creditsProductionText.text = $"{text}";
+                LabelColorUpdate(creditsProductionText, productionValue);
+            }
+        }).AddTo(this);
     }
 
     private void EnergyValueInitialize()

@@ -25,9 +25,6 @@ public class StationBlockController : MonoBehaviour
     protected List<Transform> idlePositionList = new List<Transform>();
     public List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
 
-    protected int targetCrewAtWork = 0;
-    protected int targetCrewAtRest = 0;
-
     protected StationController stationController;
     protected DepartmentEnergyController EnergyController;
     protected DepartmentMoodController MoodController;
