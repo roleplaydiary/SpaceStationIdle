@@ -27,4 +27,5 @@ public class BuyUpgradeButton : MonoBehaviour
     }
     
     protected virtual void Initialize(){}
+    protected virtual void ButtonEnableUpdate(){} // TODO: Имплементировать, в зависимости от того, хватает ли ресурсов
 }

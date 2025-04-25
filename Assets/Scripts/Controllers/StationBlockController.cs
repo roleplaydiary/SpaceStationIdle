@@ -48,12 +48,12 @@ public class StationBlockController : MonoBehaviour
 
     protected void BenchesInitialization()
     {
-        if (blockData.WorkBenchesInstalled == 0)
+        if (blockData.WorkStationsInstalled == 0)
             return;
 
         if (workBenchesParent != null)
         {
-            for (int i = 0; i < blockData.WorkBenchesInstalled && i < workBenchesParent.childCount; i++)
+            for (int i = 0; i < blockData.WorkStationsInstalled && i < workBenchesParent.childCount; i++)
             {
                 WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
                 if (workBenchController != null)
@@ -159,15 +159,15 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void AddWorkBench()
     {
-        if (blockData.WorkBenchesInstalled < blockData.WorkBenchesMax)
+        if (blockData.WorkStationsInstalled < blockData.WorkStationsMax)
         {
-            if (blockData.WorkBenchesInstalled < workBenchesParent.childCount)
+            if (blockData.WorkStationsInstalled < workBenchesParent.childCount)
             {
-                blockData.WorkBenchesInstalled++;
+                blockData.WorkStationsInstalled++;
 
-                if (blockData.WorkBenchesInstalled <= workBenchesParent.childCount)
+                if (blockData.WorkStationsInstalled <= workBenchesParent.childCount)
                 {
-                    Transform nextBench = workBenchesParent.GetChild(blockData.WorkBenchesInstalled - 1);
+                    Transform nextBench = workBenchesParent.GetChild(blockData.WorkStationsInstalled - 1);
                     WorkBenchController workBenchController = nextBench.GetComponent<WorkBenchController>();
                     if (workBenchController != null)
                     {
@@ -194,9 +194,9 @@ public class StationBlockController : MonoBehaviour
 
     public virtual void UpgradeWorkBenchMax()
     {
-        blockData.WorkBenchesMax++;
+        blockData.WorkStationsMax++;
         SaveBlockData();
-        Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkBenchesMax}");
+        Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkStationsMax}");
     }
 
     public void UpgradeMaxCrew()

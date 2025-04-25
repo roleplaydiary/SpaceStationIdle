@@ -3478,18 +3478,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8844760505218107295, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
-        type: 3}
-      propertyPath: upgradeId
-      value: science_add_workstation_3
-      objectReference: {fileID: 0}
     - target: {fileID: 8947992781085928375, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86,
         type: 3}
       propertyPath: m_Name
       value: DepartmentMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4288922581565651873, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}
+    - {fileID: 8604098870984036869, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}
+    - {fileID: 363437854210888572, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}
+    - {fileID: 1285071753062477634, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7cdb0fc31ec7e04f83a8a626a6d8b86, type: 3}

@@ -95,7 +95,7 @@ public class CrewManager : MonoBehaviour
     {
         int currentWorkers = workingCrew.Count;
 
-        if (currentWorkers < blockData.WorkBenchesInstalled && currentWorkers < crewMembers.Count)
+        if (currentWorkers < blockData.WorkStationsInstalled && currentWorkers < crewMembers.Count)
         {
             var workerToSend = crewMembers[currentWorkers];
 

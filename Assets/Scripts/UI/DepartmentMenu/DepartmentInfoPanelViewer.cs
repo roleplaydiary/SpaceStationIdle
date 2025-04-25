@@ -18,7 +18,7 @@ public class DepartmentInfoPanelViewer : MonoBehaviour
         {
             var departmentData = stationController.StationData.DepartmentData[department];
             crewLabel.text = $"Department crew: {departmentData.CurrentCrewHired}/{departmentData.MaxCrewUnlocked}";
-            workbenchesLabel.text = $"Workbenches: {departmentData.WorkBenchesInstalled}/{departmentData.WorkBenchesMax}";
+            workbenchesLabel.text = $"Workbenches: {departmentData.WorkStationsInstalled}/{departmentData.WorkStationsMax}";
             energyConsumptionLabel.text = $"Energy consumption: {GetBlockEnergyConsumption(department)}";
             moodLabel.text = $"Department mood: {GetBlockMood(department)}";
         }

@@ -74,7 +74,7 @@ public class BarBlockController : StationBlockController
     {
         for (int i = 0; i < restPositionList.Count; i++)
         {
-            if (i < blockData.WorkBenchesInstalled * 2)// TODO: Сейчас у нас просто на 1 барную стойку - 2 рест позишн. Надо перепродумать этот момент
+            if (i < blockData.WorkStationsInstalled * 2)// TODO: Сейчас у нас просто на 1 барную стойку - 2 рест позишн. Надо перепродумать этот момент
             {
                 restPositionList[i].UnlockRestPosition();
             }

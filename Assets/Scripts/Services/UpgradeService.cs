@@ -168,10 +168,10 @@ public class UpgradeService : IDisposable
                     return false;
                 break;
             case UpgradeDataSO.UpgradeType.DepartmentMaxWorkstations:
-                if (stationBlock != null && stationBlockData.Value.WorkBenchesMax >= upgrade.value) return false;
+                if (stationBlock != null && stationBlockData.Value.WorkStationsMax >= upgrade.value) return false;
                 break;
             case UpgradeDataSO.UpgradeType.DepartmentWorkstationAdd:
-                if (stationBlock != null && stationBlockData.Value.WorkBenchesInstalled >= stationBlockData.Value.WorkBenchesMax) return false;
+                if (stationBlock != null && stationBlockData.Value.WorkStationsInstalled >= stationBlockData.Value.WorkStationsMax) return false;
                 break;
             default:
                 Debug.LogError($"UpgradeService: Проверка для типа апгрейда {upgrade.type} не реализована.");

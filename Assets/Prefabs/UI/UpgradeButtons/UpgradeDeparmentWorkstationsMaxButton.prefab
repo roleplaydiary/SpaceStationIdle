@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 7760430515481456276}
   - component: {fileID: 5369712471010577586}
   - component: {fileID: 7025694329064386668}
-  - component: {fileID: 8419985343645106897}
+  - component: {fileID: 1573182077712941934}
   - component: {fileID: 1255935589355788004}
   m_Layer: 5
   m_Name: UpgradeDeparmentWorkstationsMaxButton
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8419985343645106897
+--- !u!114 &1573182077712941934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4917833715877978000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 636fab9f974068a4b91971aece7fb78f, type: 3}
+  m_Script: {fileID: 11500000, guid: 51a2e2feb851cf548803fb0519a01177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 7025694329064386668}

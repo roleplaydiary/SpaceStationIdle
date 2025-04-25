@@ -1,4 +1,4 @@
-public class AddWorkstationUpgrade : BuyUpgradeButton
+public class UpgradeDepartmentWorkstationMax : BuyUpgradeButton
 {
     protected override void Initialize()
     {
@@ -9,7 +9,7 @@ public class AddWorkstationUpgrade : BuyUpgradeButton
         var isUpgradeAvailable = false;
         if (departmentData.TryGetValue(_department, out var data))
         {
-            isUpgradeAvailable = data.WorkStationsInstalled == upgrade.value - 1 
+            isUpgradeAvailable = data.WorkStationsMax == upgrade.value - 1 
                                  && stationController.StationData.IsUnlocked(_department);
         }
 
