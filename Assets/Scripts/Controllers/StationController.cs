@@ -161,9 +161,12 @@ public class StationController : MonoBehaviour
         float result = 0f;
         foreach (var block in stationBlocks)
         {
-            if (block.GetBlockType() == Department.Bridge || block.GetBlockType() == Department.Cargo)
+            if (stationData.IsUnlocked(block.GetBlockType()))
             {
-                result += block.GetProductionValue();
+                if (block.GetBlockType() == Department.Bridge || block.GetBlockType() == Department.Cargo)
+                {
+                    result += block.GetProductionValue();
+                }
             }
         }
 

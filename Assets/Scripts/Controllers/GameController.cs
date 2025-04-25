@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour
         await ResourceManagerInitialize();// Должно инициализироваться перед игроком, чтобы не инициализироваться дважды
         await playerController.PlayerInitialization();
         
+        ServiceLocator.Get<WorldDepartmentsButtonsController>().Initialize();
         await ServiceLocator.Get<AFKController>().CheckAFKProduction(); // обязательно после инициализации игрока
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
