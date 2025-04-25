@@ -52,7 +52,7 @@ public class ScienceBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            rpThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
+            rpThisFrame += workBenchesList[i].GetProductionRate() * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
         }
 
         if (rpThisFrame > 0)
@@ -73,7 +73,7 @@ public class ScienceBlockController : StationBlockController
         }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            result += workBenchesList[i].ProductionRate;
+            result += workBenchesList[i].GetProductionRate();
         }
         
         return result;
@@ -87,7 +87,7 @@ public class ScienceBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount; i++)
         {
-            productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
+            productionRatePerMinutePerBench += workBenchesList[i].GetProductionRate();
         }
 
         // Учитываем только работающий экипаж и доступную энергию

@@ -17,6 +17,23 @@ public class WorkBenchController : MonoBehaviour
         return workPosition.position;
     }
 
+    public float GetProductionRate()
+    {
+        var stationMood = ServiceLocator.Get<StationMoodService>().CurrentStationMood.Value;
+        if (stationMood <= StationMoodService.negativeProductionValue)
+        {
+            return productionRate * StationMoodService.negativeProductionRate;
+        }
+        else if(stationMood >= StationMoodService.positiveProductionValue)
+        {
+            return productionRate * StationMoodService.positiveProductionRate;
+        }
+        else
+        {
+            return productionRate;
+        }
+    }
+
     public float ProductionRate => productionRate;
     public float EnergyConsumptionRate => energyConsumptionRate;
     public float MoodConsumptionRate => moodConsumptionRate;

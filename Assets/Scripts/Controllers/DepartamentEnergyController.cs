@@ -46,7 +46,7 @@ public class DepartmentEnergyController : MonoBehaviour, IDepartmentEnergyUser
             WorkBenchController bench = blockController.workBenchesList[i];
             if (blockController is EngineeringBlockController)
             {
-                production += bench.ProductionRate;
+                production += bench.GetProductionRate();
             }
             consumption += bench.EnergyConsumptionRate;
         }

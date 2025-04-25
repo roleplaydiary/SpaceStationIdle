@@ -52,7 +52,7 @@ public class DepartmentMoodController : MonoBehaviour, IDepartmentMoodUser
             totalMoodChange -= bench.MoodConsumptionRate;
             if (blockController is BarBlockController)
             {
-                totalMoodChange += blockController.workBenchesList[i].ProductionRate; // Значение повышения настроения в баре
+                totalMoodChange += blockController.workBenchesList[i].GetProductionRate(); // Значение повышения настроения в баре
             }
         }
 

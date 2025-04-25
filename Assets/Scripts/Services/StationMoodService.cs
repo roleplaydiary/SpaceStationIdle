@@ -13,6 +13,10 @@ public class StationMoodService : IDisposable
     private CompositeDisposable disposables = new CompositeDisposable();
     private const float defaultStationMood = 100f;
 
+    public static float negativeProductionRate = 0.1f;
+    public static float negativeProductionValue = 10;
+    public static float positiveProductionRate = 1.1f;
+    public static float positiveProductionValue = 100;
     public StationMoodService()
     {
         // Подписываемся на изменения настроения от всех пользователей

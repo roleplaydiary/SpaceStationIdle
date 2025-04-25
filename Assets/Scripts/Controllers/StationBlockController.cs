@@ -219,7 +219,7 @@ public class StationBlockController : MonoBehaviour
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            result += workBenchesList[i].ProductionRate;
+            result += workBenchesList[i].GetProductionRate();
         }
         
         return result;

@@ -52,7 +52,7 @@ public class BridgeBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-                creditsThisFrame += workBenchesList[i].ProductionRate * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
+                creditsThisFrame += workBenchesList[i].GetProductionRate() * RESOURCE_UPDATE_INTERVAL / 60f; // Переводим в секунды
         }
 
         if (creditsThisFrame > 0)
@@ -73,7 +73,7 @@ public class BridgeBlockController : StationBlockController
         }
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            result += workBenchesList[i].ProductionRate;
+            result += workBenchesList[i].GetProductionRate();
         }
         
         return result;
@@ -87,7 +87,7 @@ public class BridgeBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount; i++)
         {
-            productionRatePerMinutePerBench += workBenchesList[i].ProductionRate;
+            productionRatePerMinutePerBench += workBenchesList[i].GetProductionRate();
         }
 
         // Учитываем только работающий экипаж и доступную энергию

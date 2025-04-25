@@ -45,7 +45,7 @@ public class BarBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            totalProduction += workBenchesList[i].ProductionRate;
+            totalProduction += workBenchesList[i].GetProductionRate();
         }
 
         if (MoodController != null)
@@ -62,7 +62,7 @@ public class BarBlockController : StationBlockController
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
         {
-            result += workBenchesList[i].ProductionRate;
+            result += workBenchesList[i].GetProductionRate();
         }
         
         return result;
