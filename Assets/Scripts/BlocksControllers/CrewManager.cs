@@ -21,7 +21,7 @@ public class CrewManager : MonoBehaviour
         this.blockData = blockData;
         this.stationBlockDataSo = stationBlockDataSo;
         
-        if (blockData.MaxCrewUnlocked == 0 || blockData.CurrentCrewHired == 0 ||
+        if (blockData.MaxCrewUnlocked == 0 ||
             stationBlockDataSo.crewPrefabs == null || stationBlockDataSo.crewPrefabs.Length == 0)
         {
             Debug.LogError("Ошибка инициализации экипажа");

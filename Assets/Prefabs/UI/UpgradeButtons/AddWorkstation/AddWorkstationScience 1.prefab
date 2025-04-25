@@ -116,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 8373968787563995356, guid: ed370aaf71804fc4ea7b93e38ae68dcc,
         type: 3}
       propertyPath: upgradeId
-      value: bridge_add_workstation_1
+      value: science_add_workstation_1
       objectReference: {fileID: 0}
     - target: {fileID: 8373968787563995356, guid: ed370aaf71804fc4ea7b93e38ae68dcc,
         type: 3}
