@@ -86,7 +86,24 @@ MonoBehaviour:
     description: Update Max Crew Count in Bridge
     type: 1
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 10
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_max_crew_level_2
+    displayName: Bridge Crew Max Upgrade
+    description: Update Max Crew Count in Bridge
+    type: 1
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 0
@@ -171,7 +188,58 @@ MonoBehaviour:
     description: Update Max Crew Count in Science
     type: 1
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_2
+    displayName: Science Crew Max Upgrade
+    description: Update Max Crew Count in Science
+    type: 1
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_3
+    displayName: Science Crew Max Upgrade
+    description: Update Max Crew Count in Science
+    type: 1
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_4
+    displayName: Science Crew Max Upgrade
+    description: Update Max Crew Count in Science
+    type: 1
+    level: 4
+    value: 5
     cost:
       credits: 100
       researchPoints: 0
@@ -188,7 +256,92 @@ MonoBehaviour:
     description: Update Max Crew Count in Cargo
     type: 1
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_2
+    displayName: Cargo Crew Max Upgrade
+    description: Update Max Crew Count in Cargo
+    type: 1
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_3
+    displayName: Cargo Crew Max Upgrade
+    description: Update Max Crew Count in Cargo
+    type: 1
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_4
+    displayName: Cargo Crew Max Upgrade
+    description: Update Max Crew Count in Cargo
+    type: 1
+    level: 4
+    value: 5
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_max_crew_level_1
+    displayName: Bar Crew Max Upgrade
+    description: Update Max Crew Count in Bar
+    type: 1
+    level: 1
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 0
+      resources:
+        Phoron: 1
+        Metal: 10
+        Glass: 10
+        Plastic: 20
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_max_crew_level_2
+    displayName: Bar Crew Max Upgrade
+    description: Update Max Crew Count in Bar
+    type: 1
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 0
@@ -830,11 +983,28 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: bridge_workstation_max_1
-    displayName: Upgrade workstation max
+    displayName: Upgrade Bridge Workstation max
     description: Upgrade workstation max
     type: 4
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_workstation_max_2
+    displayName: Upgrade Bridge Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 500
@@ -915,11 +1085,96 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: science_workstation_max_1
-    displayName: Upgrade workstation max
+    displayName: Upgrade Science Workstation max
     description: Upgrade workstation max
     type: 4
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_2
+    displayName: Upgrade Science Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_3
+    displayName: Upgrade Science Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_4
+    displayName: Upgrade Science Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 4
+    value: 5
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_workstation_max_1
+    displayName: Upgrade Bar Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 1
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_workstation_max_2
+    displayName: Upgrade Bar Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 2
+    value: 3
     cost:
       credits: 100
       researchPoints: 500
@@ -932,11 +1187,62 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_workstation_max_1
-    displayName: Upgrade workstation max
+    displayName: Upgrade Cargo Workstation max
     description: Upgrade workstation max
     type: 4
     level: 1
-    value: 0
+    value: 2
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_2
+    displayName: Upgrade Cargo Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 2
+    value: 3
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_3
+    displayName: Upgrade Cargo Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 3
+    value: 4
+    cost:
+      credits: 100
+      researchPoints: 500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_4
+    displayName: Upgrade Cargo Workstation max
+    description: Upgrade workstation max
+    type: 4
+    level: 4
+    value: 5
     cost:
       credits: 100
       researchPoints: 500
