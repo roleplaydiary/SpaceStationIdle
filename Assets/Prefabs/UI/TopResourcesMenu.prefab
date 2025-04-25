@@ -601,6 +601,9 @@ MonoBehaviour:
   currentMoodText: {fileID: 5947311642167503993}
   researchPointsText: {fileID: 6760421357060013057}
   researchPointsProductionText: {fileID: 4369555924324555645}
+  negativeValueColor: {r: 0.764151, g: 0, b: 0, a: 1}
+  positiveValueColor: {r: 0, g: 0.7647059, b: 0.04193107, a: 1}
+  normalValueColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &4947404788444531945
 GameObject:
   m_ObjectHideFlags: 0
