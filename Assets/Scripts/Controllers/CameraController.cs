@@ -26,12 +26,6 @@ public class CameraController : MonoBehaviour
         // Для ПК (мышь)
         if (Input.GetMouseButtonDown(0))
         {
-            Touch touchCheck = Input.GetTouch(0);
-            if (EventSystem.current.IsPointerOverGameObject(touchCheck.fingerId))
-            {
-                return;
-            }
-            
             isDragging = true;
             dragStartPosition = Input.mousePosition;
             dragCurrentPosition = dragStartPosition;
@@ -44,6 +38,11 @@ public class CameraController : MonoBehaviour
 
         if (isDragging)
         {
+            if (EventSystem.current.IsPointerOverGameObject(-1))
+            {
+                return; // Если над UI, прекращаем движение камеры
+            }
+            
             dragCurrentPosition = Input.mousePosition;
             Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
