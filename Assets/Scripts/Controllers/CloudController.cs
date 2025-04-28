@@ -143,4 +143,37 @@ public class CloudController : MonoBehaviour
             return null;
         }
     }
+    
+    // Generic метод для сохранения данных по ключу
+    public async Task SaveGenericData(string key, Dictionary<string, object> data)
+    {
+        try
+        {
+            await CloudSaveService.Instance.Data.Player.SaveAsync(new Dictionary<string, object> { { key, data } });
+            Debug.Log($"Данные '{key}' успешно сохранены в Cloud Save.");
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка сохранения данных '{key}': {e.Message}");
+        }
+    }
+
+    // Generic метод для загрузки данных по ключу
+    public async Task<Dictionary<string, object>> LoadGenericData(string key)
+    {
+        try
+        {
+            var loadedData = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { key });
+            if (loadedData != null && loadedData.TryGetValue(key, out var dataItem))
+            {
+                return dataItem.Value.GetAs<Dictionary<string, object>>();
+            }
+            return null;
+        }
+        catch (CloudSaveException e)
+        {
+            Debug.LogError($"Ошибка загрузки данных '{key}': {e.Message}");
+            return null;
+        }
+    }
 }

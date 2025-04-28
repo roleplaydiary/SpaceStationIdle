@@ -33,7 +33,8 @@ public class GameController : MonoBehaviour
         UpgradeServiceInitialize();
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
         ServiceLocator.Get<CrewService>().Initialize();
-
+        await ServiceLocator.Get<AudioManager>().LoadSoundSettings();
+        
         OnGameInitialized.OnNext(true);
         Debug.Log("GameController: GameInitialization OnGameInitialized");
         await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера

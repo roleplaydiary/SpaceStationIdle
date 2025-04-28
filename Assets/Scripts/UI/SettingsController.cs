@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,14 +32,13 @@ public class SettingsController : MonoBehaviour
         {
             
         }).AddTo(this);
-
-        volumePanel.LabelsInitialize();
     }
     
 
     public void Show()
     {
         content.SetActive(true);
+        volumePanel.LabelsInitialize();
     }
 
     public void Hide()
