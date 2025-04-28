@@ -1,4 +1,5 @@
 using System;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,18 @@ public class WorldDepartmentsButtonsController : MonoBehaviour
     }
 
     public void Initialize()
+    {
+        var upgradeService = ServiceLocator.Get<UpgradeService>();
+        upgradeService.OnUpgradePurchased.Subscribe(_ =>
+        {
+            ButtonsInitialize();
+        }).AddTo(this);
+
+
+        ButtonsInitialize();
+    }
+
+    private void ButtonsInitialize()
     {
         var stationController = ServiceLocator.Get<StationController>();
 
