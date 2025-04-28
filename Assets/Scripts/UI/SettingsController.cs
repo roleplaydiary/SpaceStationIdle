@@ -33,9 +33,10 @@ public class SettingsController : MonoBehaviour
             uIController.ShowPopupMessage("Player ID", "Your ID has been copied successfully");
         }).AddTo(this);
         
+        var feedbackFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeIRcXgcGFkpMegkS-Zkt0BzPPIWpJLvnYUnYTYssggdtTF8w/viewform?usp=dialog";
         feedbackButton.OnClickAsObservable().Subscribe(_ =>
         {
-            
+            Application.OpenURL(feedbackFormURL);
         }).AddTo(this);
     }
     
