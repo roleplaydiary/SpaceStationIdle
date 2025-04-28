@@ -47,7 +47,7 @@ public class SoundLibrarySO : ScriptableObject
     }
 
     // Метод для получения звука отсека по имени
-    public AudioClip GetDepartmentSound(string soundName)
+    public AudioClip GetDepartmentAmbientSound(string soundName)
     {
         if (ambientSoundsCache != null && ambientSoundsCache.TryGetValue(soundName, out var sound))
         {

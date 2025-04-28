@@ -18,4 +18,6 @@ MonoBehaviour:
   uiSoundsList:
   - name: button_click_1
     clip: {fileID: 8300000, guid: a82cecc47edef5248b77674531c74f83, type: 3}
-  ambientSoundsList: []
+  ambientSoundsList:
+  - name: station_ambient
+    clip: {fileID: 8300000, guid: 52b615668d92e68458b08766ac42cd6e, type: 3}

@@ -7,13 +7,14 @@ public class AudioManager : MonoBehaviour
     public ReactiveProperty<float> backgroundMusicVolume { get; private set; } = new ReactiveProperty<float>(0.1f); // Начальная громкость музыки
     public AudioSource uiSoundSource;
     public ReactiveProperty<float> effectsVolume { get; private set; } = new ReactiveProperty<float>(0.1f); // Начальная громкость эффектов (включая отсеки)
+    public ReactiveProperty<float> ambientVolume { get; private set; } = new ReactiveProperty<float>(0.1f); // Начальная громкость эффектов (включая отсеки)
+    public static float sound_volume_constant = 0.1f;
 
     private void Awake()
     { 
         ServiceLocator.Register(this);
 
         // TODO: add sound volume loading
-        // Подписываемся на изменения громкости музыки и применяем их
         backgroundMusicVolume.Subscribe(volume =>
         {
             if (backgroundMusicSource != null)
@@ -48,9 +49,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SetBackgroundMusicVolume(float volume)
+    public float UpdateBackgroundMusicVolume(float volumeChange)
     {
-        backgroundMusicVolume.Value = Mathf.Clamp01(volume);
+        float newVolume = backgroundMusicVolume.Value + volumeChange;
+        backgroundMusicVolume.Value = Mathf.Clamp01(newVolume);
+        return newVolume;
     }
 
     public void PlayUISound(AudioClip clip)
@@ -62,8 +65,17 @@ public class AudioManager : MonoBehaviour
     }
 
     // Метод для установки громкости эффектов (будет вызываться из настроек)
-    public void SetEffectsVolume(float volume)
+    public float UpdateEffectsVolume(float volume)
     {
-        effectsVolume.Value = Mathf.Clamp01(volume);
+        float newVolume = effectsVolume.Value + volume;
+        effectsVolume.Value = Mathf.Clamp01(newVolume);
+        return newVolume;
+    }
+    
+    public float UpdateAmbientVolume(float volume)
+    {
+        float newVolume = ambientVolume.Value + volume;
+        ambientVolume.Value = Mathf.Clamp01(newVolume);
+        return newVolume;
     }
 }

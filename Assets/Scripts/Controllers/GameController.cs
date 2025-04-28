@@ -9,15 +9,16 @@ public class GameController : MonoBehaviour
     
     [SerializeField] private DataLibrary dataLibrary;
     
-    public Subject<bool> OnGameInitialized = new Subject<bool>();
+    public readonly BehaviorSubject<bool> OnGameInitialized = new BehaviorSubject<bool>(false);
 
-    private async void Start()
+    private async void Awake()
     {
         await GameInitialization();
     }
 
     private async Task GameInitialization()
     {
+        ServiceLocator.Register(this);
         ServiceLocator.Get<UIController>().LoadingScreenShow();
         ServiceLocator.Register(dataLibrary);
         
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
         ServiceLocator.Get<CrewService>().Initialize();
 
         OnGameInitialized.OnNext(true);
+        Debug.Log("GameController: GameInitialization OnGameInitialized");
         await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера
         ServiceLocator.Get<AudioManager>().PlayBackgroundMusic(dataLibrary.soundLibrary.backgroundMusicTracks[0]);//TODO: Стартуем случайную композицию
         ServiceLocator.Get<UIController>().LoadingScreenHide();
@@ -53,16 +55,5 @@ public class GameController : MonoBehaviour
         ServiceLocator.Register(upgradeService);
 
         Debug.Log("UpgradeService зарегистрирован в ServiceLocator.");
-    }
-    
-
-    public void TestSaveStationButton()
-    {
-        TestSaveStation();
-    }
-    private async Task TestSaveStation()
-    {
-        var stationData = ServiceLocator.Get<StationController>().StationData;
-        await ServiceLocator.Get<CloudController>().SaveStationData(stationData);
     }
 }
