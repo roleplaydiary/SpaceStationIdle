@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class CameraController : MonoBehaviour
         // Для ПК (мышь)
         if (Input.GetMouseButtonDown(0))
         {
+            Touch touchCheck = Input.GetTouch(0);
+            if (EventSystem.current.IsPointerOverGameObject(touchCheck.fingerId))
+            {
+                return;
+            }
+            
             isDragging = true;
             dragStartPosition = Input.mousePosition;
             dragCurrentPosition = dragStartPosition;
