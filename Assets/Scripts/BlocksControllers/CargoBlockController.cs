@@ -43,8 +43,6 @@ public class CargoBlockController : StationBlockController
             .Subscribe(_ =>
             {
                 ProduceRandomResource();
-                var resourceManager = ServiceLocator.Get<ResourceManager>();
-                resourceManager.SaveResources();
             })
             .AddTo(disposables);
     }
@@ -73,12 +71,6 @@ public class CargoBlockController : StationBlockController
     
     public void ProduceRandomResource()
     {
-        if (crewManager.workingCrew.Count < 4)// В карго 4 и 5 станок - станки шахтёров
-        {
-            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
-            return;
-        }
-        
         var dataLibrary = ServiceLocator.Get<DataLibrary>();
         if (dataLibrary == null || dataLibrary.resourceDropData == null)
         {

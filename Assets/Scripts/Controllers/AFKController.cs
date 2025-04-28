@@ -42,6 +42,10 @@ public class AFKController : MonoBehaviour
 
     private async Task CalculateDepartmentProduction(TimeSpan afkTime)
     {
+        var resourceManager = ServiceLocator.Get<ResourceManager>();
+        resourceManager = ServiceLocator.Get<ResourceManager>();
+        
+        var crewManager = ServiceLocator.Get<CrewManager>();
         var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationBlocks != null && stationController.StationData != null)
         {
@@ -51,10 +55,15 @@ public class AFKController : MonoBehaviour
                 if (stationController.StationData.IsUnlocked(blockType))
                 {
                     blockController.AddAFKProduction(afkTime);
-
                     // Добавляем логику для имитации добычи ресурсов в карго
                     if (blockController is CargoBlockController cargoController)
                     {
+                        if (crewManager.workingCrew.Count < 4)// В карго 4 и 5 станок - станки шахтёров
+                        {
+                            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
+                            return;
+                        }
+                        
                         float afkTimeInMinutes = (float)afkTime.TotalMinutes;
                         float dropIntervalMinutes = CargoBlockController.RESOURCE_DROP_INTERVAL / 60f;
                         int numberOfResourceDrops = Mathf.FloorToInt(afkTimeInMinutes / dropIntervalMinutes);
@@ -65,6 +74,8 @@ public class AFKController : MonoBehaviour
                         {
                             cargoController.ProduceRandomResource();
                         }
+                        
+                        await resourceManager.SaveResources();
                     }
                 }
             }
@@ -75,7 +86,6 @@ public class AFKController : MonoBehaviour
         }
 
         // Сохраняем ресурсы после обработки всего АФК
-        var resourceManager = ServiceLocator.Get<ResourceManager>();
         if (resourceManager != null)
         {
             await resourceManager.SaveResources();
