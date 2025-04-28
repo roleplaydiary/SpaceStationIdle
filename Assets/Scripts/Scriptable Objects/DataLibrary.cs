@@ -9,4 +9,6 @@ public class DataLibrary : ScriptableObject
     public DonateUpgradesSO donateData;
     [Header("Ресурсы")]
     public CargoResourceProductionDataSO resourceDropData;
+    [Header("Библиотека звуков")]
+    public SoundLibrarySO soundLibrary;
 }

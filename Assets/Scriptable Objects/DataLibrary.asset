@@ -12,18 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aaa006a20e0f54f88c9ab743c65563, type: 3}
   m_Name: DataLibrary
   m_EditorClassIdentifier: 
-  characterPrefabs:
-  - {fileID: 5351046217388698124, guid: f87fafca82980e5408c236208ec837bb, type: 3}
-  - {fileID: 5351046217388698124, guid: 0212c711b2fab854a9c94a16a72e3ad1, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: c69f53a283c84a745918c51727132f4c, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: 44b30171031312d468a8f25c37c97aa5, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
-  - {fileID: 5351046217388698124, guid: af364cf3019cee347b3c2433a802c0e1, type: 3}
   upgradeData: {fileID: 11400000, guid: 2db7e1bffc06e8b4cabba49d3fdbc011, type: 2}
   donateData: {fileID: 11400000, guid: 73795ddee11c12d4d8ffc0f316e09fb2, type: 2}
   resourceDropData: {fileID: 11400000, guid: 7c4bca45aef78404388a9ee336097633, type: 2}
+  soundLibrary: {fileID: 11400000, guid: 80f1701975f02b049a09a6fab559502d, type: 2}

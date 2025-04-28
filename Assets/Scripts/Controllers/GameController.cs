@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -7,6 +8,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     
     [SerializeField] private DataLibrary dataLibrary;
+    
+    public Subject<bool> OnGameInitialized = new Subject<bool>();
 
     private async void Start()
     {
@@ -30,7 +33,9 @@ public class GameController : MonoBehaviour
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
         ServiceLocator.Get<CrewService>().Initialize();
 
+        OnGameInitialized.OnNext(true);
         await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера
+        ServiceLocator.Get<AudioManager>().PlayBackgroundMusic(dataLibrary.soundLibrary.backgroundMusicTracks[0]);//TODO: Стартуем случайную композицию
         ServiceLocator.Get<UIController>().LoadingScreenHide();
     }
 
