@@ -8,7 +8,6 @@ public class BlockAmbientHandler : MonoBehaviour
     [SerializeField] private Department department;
 
     private CompositeDisposable disposables = new CompositeDisposable();
-    private bool isInitialized = false;
 
     private void Start()
     {
@@ -17,7 +16,6 @@ public class BlockAmbientHandler : MonoBehaviour
 
     private void Initialize()
     {
-        Debug.Log("BlockAmbientHandler: Initializing Ambient Sound for " + department);
         var gameController = ServiceLocator.Get<GameController>();
         if (gameController == null)
         {
@@ -26,14 +24,13 @@ public class BlockAmbientHandler : MonoBehaviour
         }
 
         gameController.OnGameInitialized
-            .Where(initialized => initialized && !isInitialized)
+            .Where(initialized => initialized)
             .Subscribe(_ => OnGameInitializedHandler())
             .AddTo(disposables);
     }
 
     private void OnGameInitializedHandler()
     {
-        isInitialized = true;
         var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationData != null && stationController.StationData.IsUnlocked(department))
         {
