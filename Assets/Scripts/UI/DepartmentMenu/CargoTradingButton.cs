@@ -16,13 +16,19 @@ public class CargoTradingButton : MonoBehaviour
             Initialize();
         }).AddTo(this);
         
+        _button.OnClickAsObservable().Subscribe(_ =>
+        {
+            var uiController = ServiceLocator.Get<UIController>();
+            uiController.TradeScreenShow();
+        }).AddTo(this);
+        
         Initialize();
     }
 
     private void Initialize()
     {
         var stationController = ServiceLocator.Get<StationController>();
-        if (stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork > 4)
+        if (stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork >= 4)
         {
             backgroundActive.SetActive(true);
             backgroundInActive.SetActive(false);

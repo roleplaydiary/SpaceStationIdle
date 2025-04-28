@@ -74,8 +74,6 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
             tradeResourceClass.ResourceAmount -= 10;
             Initialize(tradeResourceClass);
         }).AddTo(this);
-        
-        confirmationButton.enabled = true;
     }
     
 
@@ -101,6 +99,8 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
         
         var price = GetSellPrice();
         descriptionLabel.text = $"Do you want to sell {tradeResourceClass.ResourceAmount} amount of {tradeResourceClass.ResourceType} \n for {price}?";
+        
+        confirmationButton.enabled = true;
     }
     
     private async Task TradeButtonClick()
