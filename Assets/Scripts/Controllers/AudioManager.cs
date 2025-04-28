@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource uiSoundSource;
     public ReactiveProperty<float> effectsVolume { get; private set; } = new ReactiveProperty<float>(0.1f); // Начальная громкость эффектов (включая отсеки)
     public ReactiveProperty<float> ambientVolume { get; private set; } = new ReactiveProperty<float>(0.1f); // Начальная громкость эмбиента
-    public static float sound_volume_constant = 0.1f;
+    public static float sound_volume_constant = 0.05f;
 
     private static string BackgroundMusicVolumeKey = "backgroundMusicVolume";
     private static string EffectsVolumeKey = "effectsVolume";
