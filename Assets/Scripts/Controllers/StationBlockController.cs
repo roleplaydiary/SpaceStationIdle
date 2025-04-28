@@ -51,6 +51,8 @@ public class StationBlockController : MonoBehaviour
         if (blockData.WorkStationsInstalled == 0)
             return;
 
+        Debug.Log($"StationBlockController: {name} Benches Initialization");
+        workBenchesList.Clear();
         if (workBenchesParent != null)
         {
             for (int i = 0; i < blockData.WorkStationsInstalled && i < workBenchesParent.childCount; i++)
@@ -129,18 +131,6 @@ public class StationBlockController : MonoBehaviour
             foreach (Transform position in idlePositionParent)
             {
                 idlePositionList.Add(position);
-            }
-        }
-
-        if (workBenchesParent != null)
-        {
-            for (int i = 0; i < workBenchesParent.childCount; i++)
-            {
-                WorkBenchController workBenchController = workBenchesParent.GetChild(i).GetComponent<WorkBenchController>();
-                if (workBenchController != null)
-                {
-                    workBenchesList.Add(workBenchController);
-                }
             }
         }
     }
