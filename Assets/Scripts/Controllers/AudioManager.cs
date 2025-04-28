@@ -12,12 +12,21 @@ public class AudioManager : MonoBehaviour
     { 
         ServiceLocator.Register(this);
 
+        // TODO: add sound volume loading
         // Подписываемся на изменения громкости музыки и применяем их
         backgroundMusicVolume.Subscribe(volume =>
         {
             if (backgroundMusicSource != null)
             {
                 backgroundMusicSource.volume = Mathf.Clamp01(volume);
+            }
+        }).AddTo(this);
+        
+        effectsVolume.Subscribe(volume =>
+        {
+            if (uiSoundSource != null)
+            {
+                uiSoundSource.volume = Mathf.Clamp01(volume);
             }
         }).AddTo(this);
     }
