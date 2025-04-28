@@ -10,6 +10,7 @@ public class UpgradeService : IDisposable
     private readonly UpgradeDataSO _upgradeDataSO;
     private readonly ReactiveDictionary<string, bool> _purchasedUpgrades = new ReactiveDictionary<string, bool>();
     public IReadOnlyReactiveDictionary<string, bool> PurchasedUpgrades => _purchasedUpgrades;
+    public Subject<bool> OnUpgradePurchased { get; } = new Subject<bool>();
 
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -140,6 +141,7 @@ public class UpgradeService : IDisposable
                 Debug.LogWarning($"Неизвестный тип апгрейда: {type}");
                 break;
         }
+        OnUpgradePurchased.OnNext(true);
     }
 
     private bool CheckUpgradeValue(Department department, UpgradeDataSO.UpgradeEntry upgrade)
