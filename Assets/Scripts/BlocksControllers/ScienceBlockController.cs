@@ -57,7 +57,7 @@ public class ScienceBlockController : StationBlockController
 
         if (rpThisFrame > 0)
         {
-            playerController.PlayerData.researchPoints.Value += rpThisFrame;
+            playerController.AddResearchPoints(rpThisFrame);
         }
     }
 

@@ -96,14 +96,18 @@ public class StatsViewer : MonoBehaviour
             }).AddTo(this);
         }
         
+        var crewService = ServiceLocator.Get<CrewService>();
         var stationContoller = ServiceLocator.Get<StationController>();
-        if (stationContoller != null && researchPointsProductionText != null)
+        crewService.OnWorkingCrewValueUpdate.Subscribe(crewAtWork =>
         {
-            var productionValue = stationContoller.GetStationResearchProductionValue();
-            var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
-            researchPointsProductionText.text = $"{text}";
-            LabelColorUpdate(researchPointsProductionText, productionValue);
-        }
+            if (stationContoller != null && researchPointsProductionText != null)
+            {
+                var productionValue = stationContoller.GetStationResearchProductionValue();
+                var text = productionValue >= 0 ? "+" + productionValue : "-" + productionValue;
+                researchPointsProductionText.text = $"{text}";
+                LabelColorUpdate(researchPointsProductionText, productionValue);
+            }
+        }).AddTo(this);
     }
     
     private void LabelColorUpdate(TMP_Text label, float value)

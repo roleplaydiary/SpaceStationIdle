@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
     }
 
     // Пример изменения значения Player Credits извне
-    public void AddCredits(float amount) // Изменил на float, чтобы соответствовать ReactiveProperty<float>
+    public void AddCredits(float amount)
     {
         playerData.playerCredits.Value += amount;
     }
 
-    public void AddResearchPoints(float amount) // Изменил на float
+    public void AddResearchPoints(float amount) 
     {
         playerData.researchPoints.Value += amount;
     }
