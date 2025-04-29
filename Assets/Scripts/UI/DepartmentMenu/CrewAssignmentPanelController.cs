@@ -17,11 +17,19 @@ public class CrewAssignmentPanelController : MonoBehaviour
     private StationBlockController blockController;
     private CompositeDisposable disposables = new CompositeDisposable();
 
+    private void OnEnable()
+    {
+        Debug.Log("Crew Assignment Panel Enabled");
+    }
+
     public void Initialize(StationBlockController block)
     {
         Debug.Log("Initializing crew assignment panel");
         blockController = block;
 
+        disposables?.Dispose(); // Очищаем предыдущий, если он был
+        disposables = new CompositeDisposable();
+        
         // Подписываемся на клики кнопок
         addCrewToWork.OnClickAsObservable().Subscribe(_ => blockController?.AddCrewToWork()).AddTo(disposables);
         removeCrewToWork.OnClickAsObservable().Subscribe(_ =>blockController?.RemoveCrewFromWork()).AddTo(disposables);

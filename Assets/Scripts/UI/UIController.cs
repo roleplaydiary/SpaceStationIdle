@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -8,7 +9,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private SettingsController settingsMenu;
     [SerializeField] private PopupMessageHandler popupMessageHandler;
 
-    public static bool UIOpen;
+    public static List<GameObject> OpenUIWindows = new List<GameObject>();
+
     private void Awake()
     {
         ServiceLocator.Register(this);
@@ -17,60 +19,63 @@ public class UIController : MonoBehaviour
     public void LoadingScreenShow()
     {
         loadingScreen.SetActive(true);
-        UIOpen = true;
+        OpenUIWindows.Add(loadingScreen);
     }
-    
+
     public void LoadingScreenHide()
     {
         loadingScreen.SetActive(false);
-        UIOpen = false;
+        OpenUIWindows.Remove(loadingScreen);
     }
 
     public void DepartmentScreenShow(Department department)
     {
         departmentMenuViewer.Show(department);
-        UIOpen = true;
+        OpenUIWindows.Add(departmentMenuViewer.gameObject);
     }
-    
+
     public void DepartmentScreenHide()
     {
-        departmentMenuViewer.Hide();   
-        UIOpen = false;
+        departmentMenuViewer.Hide();
+        OpenUIWindows.Remove(departmentMenuViewer.gameObject);
     }
-    
+
     public void TradeScreenShow()
     {
         tradeMenu.Show();
-        UIOpen = true;
+        OpenUIWindows.Add(tradeMenu.gameObject);
     }
-    
+
     public void TradeScreenHide()
     {
-        tradeMenu.Hide();   
-        UIOpen = false;
+        tradeMenu.Hide();
+        OpenUIWindows.Remove(tradeMenu.gameObject);
     }
-    
+
     public void SettingsMenuShow()
     {
         settingsMenu.Show();
-        UIOpen = true;
+        OpenUIWindows.Add(settingsMenu.gameObject);
     }
-    
+
     public void SettingsMenuHide()
     {
-        settingsMenu.Hide();        
-        UIOpen = false;
+        settingsMenu.Hide();
+        OpenUIWindows.Remove(settingsMenu.gameObject);
     }
 
     public void PopupMessageShow(string title, string message)
     {
         popupMessageHandler.ShowPopupMessage(title, message);
-        UIOpen = true;
+        OpenUIWindows.Add(popupMessageHandler.gameObject);
     }
 
     public void PopupMessageHide()
     {
         popupMessageHandler.Hide();
-        UIOpen = false;
+        OpenUIWindows.Remove(popupMessageHandler.gameObject);
     }
+
+    // Вспомогательное свойство, чтобы легко проверить, открыто ли какое-либо UI окно
+    public static bool IsAnyUIOpen => OpenUIWindows.Count > 0;
 }

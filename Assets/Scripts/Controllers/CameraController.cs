@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
 
         if (isDragging)
         {
-            if (UIController.UIOpen)
+            if (UIController.IsAnyUIOpen)
             {
                 return;
             }

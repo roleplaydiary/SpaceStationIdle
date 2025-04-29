@@ -24,7 +24,7 @@ public class DepartmentMenuViewer : MonoBehaviour
         closeButton.OnClickAsObservable().Subscribe(_ =>
         {
             ServiceLocator.Get<UIController>().DepartmentScreenHide();
-        });
+        }).AddTo(this);
     }
 
     public void Show(Department department)
