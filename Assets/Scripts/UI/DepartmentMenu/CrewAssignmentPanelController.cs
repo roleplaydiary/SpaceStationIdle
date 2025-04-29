@@ -19,6 +19,7 @@ public class CrewAssignmentPanelController : MonoBehaviour
 
     public void Initialize(StationBlockController block)
     {
+        Debug.Log("Initializing crew assignment panel");
         blockController = block;
 
         // Подписываемся на клики кнопок
@@ -56,7 +57,7 @@ public class CrewAssignmentPanelController : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         disposables.Dispose();
     }

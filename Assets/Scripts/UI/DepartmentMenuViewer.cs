@@ -13,6 +13,8 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private TMP_Text departmentName;
     [SerializeField] private Button closeButton;
     private StationController stationController;
+    
+    private CompositeDisposable disposables = new CompositeDisposable();
 
     private void Awake()
     {
@@ -28,11 +30,22 @@ public class DepartmentMenuViewer : MonoBehaviour
     public void Show(Department department)
     {
         content.SetActive(true);
+        
+        var crewService = ServiceLocator.Get<CrewService>();
+        Observable.Merge(crewService.OnWorkingCrewValueUpdate, crewService.OnRestingCrewValueUpdate)
+            .Subscribe(value =>
+            {
+               departmentInfoPanelViewer.Initialization(department);
+               departmentProductionPanelController.ProductivityPanelInit(department);
+            })
+            .AddTo(disposables);
+        
         Initialize(department);
     }
 
     public void Hide()
     {
+        disposables.Dispose();
         content.SetActive(false);
     }
 
