@@ -91,10 +91,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 10
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -108,10 +108,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 10
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -125,10 +125,10 @@ MonoBehaviour:
       credits: 10
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -142,10 +142,10 @@ MonoBehaviour:
       credits: 10
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -159,10 +159,10 @@ MonoBehaviour:
       credits: 10
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -176,10 +176,10 @@ MonoBehaviour:
       credits: 10
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -193,10 +193,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -210,10 +210,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -227,10 +227,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -244,10 +244,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -261,10 +261,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -278,10 +278,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -295,10 +295,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -312,10 +312,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -329,10 +329,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -346,10 +346,10 @@ MonoBehaviour:
       credits: 100
       researchPoints: 0
       resources:
-        Phoron: 1
-        Metal: 10
-        Glass: 10
-        Plastic: 20
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
         Gold: 0
         Silver: 0
         Uranium: 0
@@ -364,11 +364,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: bridge_add_workstation_2
     displayName: Bridge New workstation
@@ -381,11 +381,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: science_add_workstation_1
     displayName: Science New workstation
@@ -398,11 +398,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: science_add_workstation_2
     displayName: Science New workstation
@@ -415,11 +415,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: science_add_workstation_3
     displayName: Science New workstation
@@ -432,11 +432,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: science_add_workstation_4
     displayName: Science New workstation
@@ -449,11 +449,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: cargo_add_workstation_1
     displayName: Cargo New workstation
@@ -466,11 +466,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: cargo_add_workstation_2
     displayName: Cargo New workstation
@@ -483,11 +483,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: cargo_add_workstation_3
     displayName: Cargo New workstation
@@ -500,11 +500,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: cargo_add_workstation_4
     displayName: Cargo New workstation
@@ -517,11 +517,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_1
     displayName: Engineering New workstation
@@ -551,11 +551,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_3
     displayName: Engineering New workstation
@@ -568,11 +568,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_4
     displayName: Engineering New workstation
@@ -585,11 +585,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: bar_add_workstation_1
     displayName: Science New workstation
@@ -602,11 +602,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: bar_add_workstation_2
     displayName: Science New workstation
@@ -619,11 +619,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: bridge_hire_1
     displayName: Hire commander
