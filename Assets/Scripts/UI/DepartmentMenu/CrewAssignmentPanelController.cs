@@ -15,7 +15,7 @@ public class CrewAssignmentPanelController : MonoBehaviour
     [SerializeField] private TMP_Text currentCrewAtIdle;
 
     private StationBlockController blockController;
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private CompositeDisposable disposables;
 
     private void OnEnable()
     {
