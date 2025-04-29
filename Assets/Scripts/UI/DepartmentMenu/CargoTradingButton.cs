@@ -10,8 +10,8 @@ public class CargoTradingButton : MonoBehaviour
     [SerializeField] private Button _button;
     private void Start()
     {
-        var crewService = ServiceLocator.Get<CrewManager>();
-        crewService.workingCrew.ObserveCountChanged().Subscribe(value =>
+        var crewService = ServiceLocator.Get<CrewService>();
+        crewService.OnWorkingCrewValueUpdate.Subscribe(value =>
         {
             Initialize();
         }).AddTo(this);
