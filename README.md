@@ -27,3 +27,10 @@ SpaceStationIdle is an idle game where you take on the role of the captain of a 
 * ☐ UI design
 * ☐ **Station events (catch the clown, fix the station, fight monsters, cleaning)**
 * ☐ **Endgame goals (find out)**
+
+## ⚠️ License & Usage
+
+This repository is intended for demonstration and portfolio purposes only.  
+All content is the intellectual property of Denis Vorontsov and may not be used, copied, distributed, or modified without explicit permission.
+
+If you'd like to reference or discuss this project — feel free to contact me at [dvoron10@gmail.com](mailto:dvoron10@gmail.com).
