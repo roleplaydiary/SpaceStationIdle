@@ -2,6 +2,10 @@ Copyright (c) 2024 Denis Vorontsov
 
 All rights reserved.
 
-This code is provided for demonstration purposes only. It may not be copied, modified, distributed, or used in any form without explicit written permission from the author.
+This project is the intellectual property of Denis Vorontsov. It is provided solely for demonstration and evaluation purposes as part of a personal portfolio.
 
-For inquiries, please contact: dvoron10@gmail.com
+No part of this repository, including but not limited to source code, assets, designs, or documentation, may be copied, reproduced, modified, distributed, sublicensed, or used in any other way without the express prior written permission of the author.
+
+Unauthorized use of this project in any form is strictly prohibited.
+
+For inquiries or permission requests, please contact: dvoron10@gmail.com
