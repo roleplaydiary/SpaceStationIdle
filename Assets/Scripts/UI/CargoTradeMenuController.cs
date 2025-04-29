@@ -25,7 +25,7 @@ public class CargoTradeMenuController : MonoBehaviour
     private void Initialize()
     {
         closeButton.OnClickAsObservable()
-            .Subscribe(_ => Hide())
+            .Subscribe(_ => ServiceLocator.Get<UIController>().TradeScreenHide())
             .AddTo(_disposables);
         
         var availableResources = new Resources(); // Создаем экземпляр Resources, чтобы получить список ресурсов

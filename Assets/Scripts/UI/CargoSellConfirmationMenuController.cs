@@ -124,7 +124,7 @@ public class CargoSellConfirmationMenuController : MonoBehaviour
         }
         else
         {
-            ServiceLocator.Get<UIController>().ShowPopupMessage("Warning", $"You do not have {tradeResourceClass.ResourceAmount} {tradeResourceClass.ResourceType}");
+            ServiceLocator.Get<UIController>().PopupMessageShow("Warning", $"You do not have {tradeResourceClass.ResourceAmount} {tradeResourceClass.ResourceType}");
         }
         
     }

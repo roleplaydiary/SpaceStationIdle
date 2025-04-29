@@ -2226,9 +2226,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1669338422}
   - component: {fileID: 1669338421}
-  - component: {fileID: 1669338423}
   - component: {fileID: 1669338420}
   - component: {fileID: 1669338419}
+  - component: {fileID: 1669338423}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged

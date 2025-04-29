@@ -14,7 +14,7 @@ public class PopupMessageHandler : MonoBehaviour
     {
         closeWindowButton.OnClickAsObservable().Subscribe(_ =>
         {
-            Hide();
+            ServiceLocator.Get<UIController>().PopupMessageHide();
         }).AddTo(this);
     }
 

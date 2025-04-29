@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Need cargo workers at 4th or 5th console to trade
+  m_text: Need cargo workers at 1st console to trade
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fcf68eb5f83f0184b9b8cad87b00f08e, type: 2}
   m_sharedMaterial: {fileID: 6212665164877570279, guid: fcf68eb5f83f0184b9b8cad87b00f08e,

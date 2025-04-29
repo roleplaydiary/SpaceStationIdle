@@ -122,7 +122,7 @@ public class CargoBuyConfirmationMenuController : MonoBehaviour
         var price = GetBuyPrice();
         if (playerController.PlayerData.playerCredits.Value < price)
         {
-            ServiceLocator.Get<UIController>().ShowPopupMessage("Warning", $"You do not have enough credits to buy {tradeResourceClass.ResourceAmount} {tradeResourceClass.ResourceType} for {price}");
+            ServiceLocator.Get<UIController>().PopupMessageShow("Warning", $"You do not have enough credits to buy {tradeResourceClass.ResourceAmount} {tradeResourceClass.ResourceType} for {price}");
             return;
         }
 

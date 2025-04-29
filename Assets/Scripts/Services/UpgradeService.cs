@@ -87,7 +87,7 @@ public class UpgradeService : IDisposable
             ApplyUpgrade(upgrade.type, department);
     
             ServiceLocator.Get<UIController>()
-                .ShowPopupMessage("Congrats", $"You've purchased a new upgrade - {upgrade.displayName}.");
+                .PopupMessageShow("Congrats", $"You've purchased a new upgrade - {upgrade.displayName}.");
             // Помечаем апгрейд как купленный
             _purchasedUpgrades[upgrade.upgradeId] = true;
         }
@@ -95,7 +95,7 @@ public class UpgradeService : IDisposable
         {
             Debug.LogWarning($"Ошибка покупки {upgradeId}. Недостаточно средств или ресурсов.");
             ServiceLocator.Get<UIController>()
-                .ShowPopupMessage("Error", $"Can't purchase upgrade - {upgrade.displayName}. Not enough credits or resources available.");
+                .PopupMessageShow("Error", $"Can't purchase upgrade - {upgrade.displayName}. Not enough credits or resources available.");
         }
     }
     

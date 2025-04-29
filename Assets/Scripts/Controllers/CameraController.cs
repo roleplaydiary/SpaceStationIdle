@@ -38,9 +38,9 @@ public class CameraController : MonoBehaviour
 
         if (isDragging)
         {
-            if (EventSystem.current.IsPointerOverGameObject(-1))
+            if (UIController.UIOpen)
             {
-                return; // Если над UI, прекращаем движение камеры
+                return;
             }
             
             dragCurrentPosition = Input.mousePosition;

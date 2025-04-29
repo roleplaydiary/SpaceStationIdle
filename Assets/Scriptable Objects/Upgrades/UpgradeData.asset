@@ -75,8 +75,8 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 0
-        Glass: 0
+        Metal: 10
+        Glass: 5
         Plastic: 0
         Gold: 0
         Silver: 0
@@ -534,11 +534,11 @@ MonoBehaviour:
       researchPoints: 0
       resources:
         Phoron: 0
-        Metal: 20
-        Glass: 5
-        Plastic: 10
-        Gold: 2
-        Silver: 3
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_2
     displayName: Engineering New workstation

@@ -19,7 +19,10 @@ public class DepartmentMenuViewer : MonoBehaviour
         ServiceLocator.Register(this);
         stationController = ServiceLocator.Get<StationController>(); // Получаем ссылку на StationController при старте
 
-        closeButton.OnClickAsObservable().Subscribe(_ => Hide());
+        closeButton.OnClickAsObservable().Subscribe(_ =>
+        {
+            ServiceLocator.Get<UIController>().DepartmentScreenHide();
+        });
     }
 
     public void Show(Department department)

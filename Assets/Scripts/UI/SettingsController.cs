@@ -30,7 +30,7 @@ public class SettingsController : MonoBehaviour
         {
             string playerId = AuthenticationService.Instance.PlayerId;
             GUIUtility.systemCopyBuffer = playerId;
-            uIController.ShowPopupMessage("Player ID", "Your ID has been copied successfully");
+            uIController.PopupMessageShow("Player ID", "Your ID has been copied successfully");
         }).AddTo(this);
         
         var feedbackFormURL = "https://docs.google.com/forms/d/e/1FAIpQLSeIRcXgcGFkpMegkS-Zkt0BzPPIWpJLvnYUnYTYssggdtTF8w/viewform?usp=dialog";

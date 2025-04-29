@@ -28,7 +28,7 @@ public class CargoTradingButton : MonoBehaviour
     private void Initialize()
     {
         var stationController = ServiceLocator.Get<StationController>();
-        if (stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork >= 4)
+        if (stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork > 0)
         {
             backgroundActive.SetActive(true);
             backgroundInActive.SetActive(false);

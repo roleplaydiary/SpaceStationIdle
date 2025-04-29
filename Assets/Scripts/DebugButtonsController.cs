@@ -40,7 +40,7 @@ public class DebugButtonsController : MonoBehaviour
             playerController.AddCredits(100);
             
             UIController uiController = ServiceLocator.Get<UIController>();
-            uiController.ShowPopupMessage("Debug UI", "Вы получили 100 кредитов, радуйтесь.");
+            uiController.PopupMessageShow("Debug UI", "Вы получили 100 кредитов, радуйтесь.");
         }).AddTo(_disposables);
     }
 
@@ -52,7 +52,7 @@ public class DebugButtonsController : MonoBehaviour
             playerController.AddResearchPoints(100);
             
             UIController uiController = ServiceLocator.Get<UIController>();
-            uiController.ShowPopupMessage("Debug UI", "Вы получили 100 RP, радуйтесь.");
+            uiController.PopupMessageShow("Debug UI", "Вы получили 100 RP, радуйтесь.");
         }).AddTo(_disposables);
     }
 

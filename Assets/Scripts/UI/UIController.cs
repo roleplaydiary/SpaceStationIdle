@@ -7,7 +7,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private CargoTradeMenuController tradeMenu;
     [SerializeField] private SettingsController settingsMenu;
     [SerializeField] private PopupMessageHandler popupMessageHandler;
-    
+
+    public static bool UIOpen;
     private void Awake()
     {
         ServiceLocator.Register(this);
@@ -16,50 +17,60 @@ public class UIController : MonoBehaviour
     public void LoadingScreenShow()
     {
         loadingScreen.SetActive(true);
+        UIOpen = true;
     }
     
     public void LoadingScreenHide()
     {
         loadingScreen.SetActive(false);
+        UIOpen = false;
     }
 
     public void DepartmentScreenShow(Department department)
     {
         departmentMenuViewer.Show(department);
+        UIOpen = true;
     }
     
     public void DepartmentScreenHide()
     {
-        departmentMenuViewer.Hide();        
+        departmentMenuViewer.Hide();   
+        UIOpen = false;
     }
     
     public void TradeScreenShow()
     {
         tradeMenu.Show();
+        UIOpen = true;
     }
     
     public void TradeScreenHide()
     {
-        tradeMenu.Hide();        
+        tradeMenu.Hide();   
+        UIOpen = false;
     }
     
     public void SettingsMenuShow()
     {
         settingsMenu.Show();
+        UIOpen = true;
     }
     
     public void SettingsMenuHide()
     {
         settingsMenu.Hide();        
+        UIOpen = false;
     }
 
-    public void ShowPopupMessage(string title, string message)
+    public void PopupMessageShow(string title, string message)
     {
         popupMessageHandler.ShowPopupMessage(title, message);
+        UIOpen = true;
     }
 
-    public void HidePopupMessage()
+    public void PopupMessageHide()
     {
         popupMessageHandler.Hide();
+        UIOpen = false;
     }
 }
