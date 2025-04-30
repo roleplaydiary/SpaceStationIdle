@@ -1480,7 +1480,7 @@ MonoBehaviour:
   addCredits: {fileID: 7181429953290157154}
   addResearchPoints: {fileID: 7757419942989164459}
   addResource: {fileID: 3207937302767858327}
-  tradeButton: {fileID: 1581500368721251951}
+  testButton: {fileID: 1581500368721251951}
 --- !u!1 &6770192726730185236
 GameObject:
   m_ObjectHideFlags: 0
