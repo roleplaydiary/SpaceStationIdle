@@ -5,6 +5,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private DepartmentMenuViewer departmentMenuViewer;
+    [SerializeField] private DailyRewardMenuController dailyRewardMenu;
     [SerializeField] private CargoTradeMenuController tradeMenu;
     [SerializeField] private SettingsController settingsMenu;
     [SerializeField] private PopupMessageHandler popupMessageHandler;
@@ -74,6 +75,18 @@ public class UIController : MonoBehaviour
     {
         popupMessageHandler.Hide();
         OpenUIWindows.Remove(popupMessageHandler.gameObject);
+    }
+    
+    public void DailyRewardShow()
+    {
+        dailyRewardMenu.Show();
+        OpenUIWindows.Add(dailyRewardMenu.gameObject);
+    }
+
+    public void DailyRewardHide()
+    {
+        dailyRewardMenu.Hide();
+        OpenUIWindows.Remove(dailyRewardMenu.gameObject);
     }
 
     // Вспомогательное свойство, чтобы легко проверить, открыто ли какое-либо UI окно
