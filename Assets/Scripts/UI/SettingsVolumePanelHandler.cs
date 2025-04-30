@@ -88,8 +88,8 @@ public class SettingsVolumePanelHandler : MonoBehaviour
     public void LabelsInitialize()
     {
         var audioManager = ServiceLocator.Get<AudioManager>();
-        musicVolumeLabel.text = $"Music volume: {audioManager.backgroundMusicVolume.Value * 100}%";
-        effectsVolumeLabel.text = $"Effects and UI volume: {audioManager.effectsVolume.Value * 100}%";
-        ambientVolumeLabel.text = $"Ambient volume: {audioManager.ambientVolume.Value * 100}%";
+        musicVolumeLabel.text = $"Music volume: {Math.Round(audioManager.backgroundMusicVolume.Value * 100)}%";
+        effectsVolumeLabel.text = $"Effects and UI volume: {Math.Round(audioManager.effectsVolume.Value * 100)}%";
+        ambientVolumeLabel.text = $"Ambient volume: {Math.Round(audioManager.ambientVolume.Value * 100)}%";
     }
 }
