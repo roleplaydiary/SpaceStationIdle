@@ -41,36 +41,45 @@ public class ResourceManager : IDisposable
 
     public void AddResource(ResourceType type, float amount)
     {
+        float currentAmount = GetResourceAmount(type);
+        float maxAmount = GetResourceLimit(type);
+        float clampedAmount = Mathf.Min(amount, maxAmount - currentAmount);
+
+        if (clampedAmount <= 0f)
+        {
+            Debug.Log($"Ресурс {type} уже достиг лимита, добавление отменено.");
+            return;
+        }
+
         Resources newResources = new Resources(currentResources.Value);
         switch (type)
         {
             case ResourceType.Phoron:
-                newResources.Phoron += amount;
+                newResources.Phoron += clampedAmount;
                 break;
             case ResourceType.Metal:
-                newResources.Metal += amount;
+                newResources.Metal += clampedAmount;
                 break;
             case ResourceType.Glass:
-                newResources.Glass += amount;
+                newResources.Glass += clampedAmount;
                 break;
             case ResourceType.Plastic:
-                newResources.Plastic += amount;
+                newResources.Plastic += clampedAmount;
                 break;
             case ResourceType.Gold:
-                newResources.Gold += amount;
+                newResources.Gold += clampedAmount;
                 break;
             case ResourceType.Silver:
-                newResources.Silver += amount;
+                newResources.Silver += clampedAmount;
                 break;
             case ResourceType.Uranium:
-                newResources.Uranium += amount;
+                newResources.Uranium += clampedAmount;
                 break;
             default:
                 Debug.LogError($"Неизвестный тип ресурса: {type}");
                 return;
         }
         currentResources.Value = newResources;
-        //Сохранение ресурсов было вынесено отсюда, чтобы в цикле не сохранять по сто раз
     }
 
     public bool TryRemoveResource(ResourceType type, float amount)
@@ -199,4 +208,20 @@ public class ResourceManager : IDisposable
     {
         disposables.Clear();
     }
+
+    private float GetResourceLimit(ResourceType resourceType)
+    {
+        switch (resourceType)
+        {
+            case ResourceType.Phoron: return 10f;
+            case ResourceType.Metal: return 100f;
+            case ResourceType.Glass: return 100f;
+            case ResourceType.Plastic: return 100f;
+            case ResourceType.Gold: return 30f;
+            case ResourceType.Silver: return 30f;
+            case ResourceType.Uranium: return 10f;
+            default: return 0f;
+        }
+    }
+
 }

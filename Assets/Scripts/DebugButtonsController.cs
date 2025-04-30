@@ -62,7 +62,7 @@ public class DebugButtonsController : MonoBehaviour
         {
             ResourceManager resourceManager = ServiceLocator.Get<ResourceManager>();
             //cargoController.ProduceRandomResource();
-            //resourceManager.AddResource(ResourceType.Phoron, 0.1);
+            resourceManager.AddResource(ResourceType.Phoron, 1f);
         }).AddTo(_disposables);
     }
 
