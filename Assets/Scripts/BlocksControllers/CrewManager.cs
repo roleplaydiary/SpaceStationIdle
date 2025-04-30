@@ -73,7 +73,7 @@ public class CrewManager : MonoBehaviour
     
     public void HireNewCrewMember(List<Transform> idlePositionList)
     {
-        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < ServiceLocator.Get<StationController>().StationData.MaxCrew.Value)
+        if (allCrewMembers.Count < blockData.MaxCrewUnlocked && allCrewMembers.Count < stationController.StationData.MaxCrew.Value)
         {
             int prefabIndex = crewMembers.Count % stationBlockDataSo.crewPrefabs.Length;
             CharacterController newCrewController = SpawnNewCrewMember(prefabIndex);

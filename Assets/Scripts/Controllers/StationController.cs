@@ -72,6 +72,7 @@ public class StationController : MonoBehaviour
                 if (block.GetBlockType() == department)
                 {
                     block.BlockInitialization(stationData.DepartmentData[department]);
+                    block.BlockCrewInitialization();
                     block.gameObject.SetActive(true);
                     break;
                 }
