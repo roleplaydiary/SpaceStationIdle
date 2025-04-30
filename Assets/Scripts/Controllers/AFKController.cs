@@ -58,9 +58,8 @@ public class AFKController : MonoBehaviour
                     // Добавляем логику для имитации добычи ресурсов в карго
                     if (blockController is CargoBlockController cargoController)
                     {
-                        if (crewManager.workingCrew.Count < 4)// В карго 4 и 5 станок - станки шахтёров
+                        if (!cargoController.IsMinerProducingResoruces())
                         {
-                            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
                             return;
                         }
                         

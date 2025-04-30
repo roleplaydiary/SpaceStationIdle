@@ -8,7 +8,7 @@ public class CargoBlockController : StationBlockController
     private float creditsAccumulated = 0f;
     private float lastResourceUpdateTime = 0f;
     private const float RESOURCE_UPDATE_INTERVAL = 1f; // Обновление каждую секунду
-    public static float RESOURCE_DROP_INTERVAL = 600; // Обновление каждую секунду
+    public static float RESOURCE_DROP_INTERVAL = 600; 
     
     private PlayerData playerData;
     private PlayerController playerController;
@@ -68,6 +68,16 @@ public class CargoBlockController : StationBlockController
             playerController.PlayerData.playerCredits.Value += creditsThisFrame;
         }
     }
+
+    public bool IsMinerProducingResoruces()
+    {
+        if (crewManager.workingCrew.Count < 2)// В карго 2 - станок шахтёров
+        {
+            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
+            return false;
+        }
+        return true;
+    }
     
     public void ProduceRandomResource()
     {
@@ -75,6 +85,11 @@ public class CargoBlockController : StationBlockController
         if (dataLibrary == null || dataLibrary.resourceDropData == null)
         {
             Debug.LogError("CargoResourceProductionDataSO не найден в DataLibrary!");
+            return;
+        }
+
+        if (!IsMinerProducingResoruces())
+        {
             return;
         }
 
