@@ -16,3 +16,4 @@ MonoBehaviour:
   donateData: {fileID: 11400000, guid: 73795ddee11c12d4d8ffc0f316e09fb2, type: 2}
   resourceDropData: {fileID: 11400000, guid: 7c4bca45aef78404388a9ee336097633, type: 2}
   soundLibrary: {fileID: 11400000, guid: 80f1701975f02b049a09a6fab559502d, type: 2}
+  dailyRewardsConfig: {fileID: 11400000, guid: 04de981f0f013b44583a0cac7b0a505d, type: 2}

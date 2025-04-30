@@ -76,4 +76,10 @@ public class PlayerController : MonoBehaviour
     {
         return playerData.lastSaveTime;
     }
+
+    public void UpdateDailyRewardData()
+    {
+        playerData.lastDailyRewardClaimedDate = DateTime.Now.Date;
+        playerData.dailyRewardClaimedDaysCount++;
+    }
 }

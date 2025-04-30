@@ -26,7 +26,12 @@ public class GameController : MonoBehaviour
         await stationController.StationInitialize();
         stationController.BlockCrewInitialize();
         await ResourceManagerInitialize();// Должно инициализироваться перед игроком, чтобы не инициализироваться дважды
-        await playerController.PlayerInitialization();
+        await playerController.PlayerInitialization(); 
+        
+        // Инициализация DailyRewardService после инициализации PlayerController
+        DailyRewardService dailyRewardService = new DailyRewardService();
+        ServiceLocator.Register(dailyRewardService);
+        dailyRewardService.LoadDailyRewardData(playerController.GetPlayerData());
         
         ServiceLocator.Get<WorldDepartmentsButtonsController>().Initialize();
         await ServiceLocator.Get<AFKController>().CheckAFKProduction(); // обязательно после инициализации игрока

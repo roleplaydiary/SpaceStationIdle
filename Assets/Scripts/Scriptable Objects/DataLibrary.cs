@@ -11,4 +11,6 @@ public class DataLibrary : ScriptableObject
     public CargoResourceProductionDataSO resourceDropData;
     [Header("Библиотека звуков")]
     public SoundLibrarySO soundLibrary;
+    [Header("Ежедневные награды")]
+    public DailyRewardsConfig dailyRewardsConfig;
 }

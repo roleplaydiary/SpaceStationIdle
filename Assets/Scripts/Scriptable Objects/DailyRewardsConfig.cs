@@ -19,5 +19,4 @@ public class DailyRewardsConfig : ScriptableObject
     }
 
     public List<Reward> rewards;
-    public int cycleLengthInDays = 28; // 4 недели
 }
