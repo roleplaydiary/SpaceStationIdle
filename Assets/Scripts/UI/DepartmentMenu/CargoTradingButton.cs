@@ -11,10 +11,7 @@ public class CargoTradingButton : MonoBehaviour
     private void Start()
     {
         var crewService = ServiceLocator.Get<CrewService>();
-        crewService.OnWorkingCrewValueUpdate.Subscribe(value =>
-        {
-            Initialize();
-        }).AddTo(this);
+        crewService.OnWorkingCrewValueUpdate.Subscribe(Initialize).AddTo(this);
         
         _button.OnClickAsObservable().Subscribe(_ =>
         {
@@ -22,13 +19,14 @@ public class CargoTradingButton : MonoBehaviour
             uiController.TradeScreenShow();
         }).AddTo(this);
         
-        Initialize();
+        var stationController = ServiceLocator.Get<StationController>();
+        var workingCrew = stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork;
+        Initialize(workingCrew);
     }
 
-    private void Initialize()
+    private void Initialize(int workingCrew)
     {
-        var stationController = ServiceLocator.Get<StationController>();
-        if (stationController.StationData.DepartmentData[Department.Cargo].CrewAtWork > 0)
+        if (workingCrew > 0)
         {
             backgroundActive.SetActive(true);
             backgroundInActive.SetActive(false);
