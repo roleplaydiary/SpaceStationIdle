@@ -73,7 +73,7 @@ public class CargoBlockController : StationBlockController
     {
         if (crewManager.workingCrew.Count < 2)// В карго 2 - станок шахтёров
         {
-            Debug.Log("Ресурс не производится, потому что никто не работает на 4 и 5 станке");
+            Debug.Log("Ресурс не производится, потому что никто не работает на 2 станке");
             return false;
         }
         return true;
