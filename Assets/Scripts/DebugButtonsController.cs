@@ -1,4 +1,3 @@
-using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +8,7 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button addCredits;
     [SerializeField] private Button addResearchPoints;
     [SerializeField] private Button addResource;
-    [SerializeField] private Button tradeButton;
+    [SerializeField] private Button testButton;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -22,9 +21,10 @@ public class DebugButtonsController : MonoBehaviour
             await ServiceLocator.Get<CloudController>().SaveResources(resourceManager.CurrentResources.Value);
         }).AddTo(_disposables);
         
-        tradeButton.OnClickAsObservable().Subscribe(async button =>
+        testButton.OnClickAsObservable().Subscribe(async button =>
         {
-            ServiceLocator.Get<UIController>().TradeScreenShow();
+            var currentTime = await OnlineTimeService.GetUTCTimeAsync();
+            Debug.Log($"Current time is {currentTime}");
         }).AddTo(_disposables);
 
         AddCredits();

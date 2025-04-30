@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 public static class OnlineTimeService
 {
-    private const string TimeServerURL = "https://worldtimeapi.org/api/utc/now";
+    private const string TimeServerURL = "https://worldtimeapi.org/api/timezone/utc";
 
     public static async Task<DateTime?> GetUTCTimeAsync()
     {
@@ -30,7 +30,7 @@ public static class OnlineTimeService
             {
                 string jsonResponse = request.downloadHandler.text;
                 var timeData = JsonUtility.FromJson<TimeResponse>(jsonResponse);
-                return DateTime.Parse(timeData.datetime).ToUniversalTime();
+                return DateTime.Parse(timeData.utc_datetime).ToUniversalTime();
             }
             catch (Exception e)
             {
@@ -43,6 +43,6 @@ public static class OnlineTimeService
     [Serializable]
     private struct TimeResponse
     {
-        public string datetime;
+        public string utc_datetime; // Используем это поле, так как оно содержит UTC время
     }
 }
