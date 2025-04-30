@@ -14,7 +14,7 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private Button closeButton;
     private StationController stationController;
     
-    private CompositeDisposable disposables = new CompositeDisposable();
+    private CompositeDisposable disposables;
 
     private void Awake()
     {
@@ -32,6 +32,9 @@ public class DepartmentMenuViewer : MonoBehaviour
         content.SetActive(true);
         
         var crewService = ServiceLocator.Get<CrewService>();
+
+        disposables?.Clear();
+        disposables = new CompositeDisposable();
         Observable.Merge(crewService.OnWorkingCrewValueUpdate, crewService.OnRestingCrewValueUpdate)
             .Subscribe(value =>
             {
