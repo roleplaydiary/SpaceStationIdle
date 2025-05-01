@@ -64,6 +64,40 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
+  - upgradeId: medbay_unlock
+    displayName: Unlock Medbay
+    description: Unlock medical bay to reduce chances of crew injuries
+    type: 0
+    level: 1
+    value: 0
+    cost:
+      credits: 60
+      researchPoints: 600
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: security_unlock
+    displayName: Unlock Security
+    description: Unlock security to reduce chances of attacks
+    type: 0
+    level: 1
+    value: 0
+    cost:
+      credits: 60
+      researchPoints: 600
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
   - upgradeId: bar_unlock
     displayName: Unlock Bar
     description: Unlock Bar to generate a good mood
