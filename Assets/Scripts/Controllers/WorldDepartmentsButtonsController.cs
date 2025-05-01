@@ -9,6 +9,8 @@ public class WorldDepartmentsButtonsController : MonoBehaviour
     [SerializeField] private Button engineeringMenuButton;
     [SerializeField] private Button scienceMenuButton;
     [SerializeField] private Button cargoMenuButton;
+    [SerializeField] private Button medbayMenuButton;
+    [SerializeField] private Button securityMenuButton;
     [SerializeField] private Button barMenuButton;
 
     private void Awake()
@@ -43,6 +45,12 @@ public class WorldDepartmentsButtonsController : MonoBehaviour
         
         var isCargoUnlocked = stationController.StationData.IsUnlocked(Department.Cargo);
         cargoMenuButton.gameObject.SetActive(isCargoUnlocked);
+        
+        var isMedbayUnlocked = stationController.StationData.IsUnlocked(Department.Med);
+        medbayMenuButton.gameObject.SetActive(isMedbayUnlocked);
+        
+        var isSecurityUnlocked = stationController.StationData.IsUnlocked(Department.Security);
+        securityMenuButton.gameObject.SetActive(isSecurityUnlocked);
         
         var isBarUnlocked = stationController.StationData.IsUnlocked(Department.Bar);
         barMenuButton.gameObject.SetActive(isBarUnlocked);
