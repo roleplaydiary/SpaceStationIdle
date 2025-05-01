@@ -46,11 +46,35 @@ public class BonusEventController : MonoBehaviour
     private void BonusEventStart()
     {
         Debug.Log("BonusEventController: Bonus Event Start");
+
+        // Проверяем, есть ли уже активные бонусы
+        if (bonusObjects.Count > 0)
+        {
+            Debug.Log("Уже есть активные бонусы. Удаляем их.");
+            // Удаляем все существующие бонусные объекты
+            foreach (var bonusObject in bonusObjects.ToArray()) // Используем ToArray, чтобы избежать проблем с изменением коллекции во время итерации
+            {
+                if (bonusObject != null)
+                {
+                    Destroy(bonusObject);
+                    PlaySound("error_sound");
+                }
+            }
+            bonusObjects.Clear(); // Очищаем список отслеживаемых бонусов
+        }
+        else
+        {
+            // Если бонусов нет, создаем новый
+            var bonusType = BonusTypeRandomize();
+            bonusType = BonusEventType.Credits; //TODO: FOR TESTS, DELETE AFTER!
+            BonusInitialization(bonusType);
+        }
+    }
+
+    private void PlaySound(string soundName)
+    {
         var audioManager = ServiceLocator.Get<AudioManager>();
-        audioManager.PlayUISound(audioManager.GetUISound("bonus_spawn"));
-        var bonus = BonusTypeRandomize();
-        bonus = BonusEventType.Credits;//TODO: FOR TESTS, DELETE AFTER!
-        BonusInitialization(bonus);
+        audioManager.PlayUISound(audioManager.GetUISound(soundName));
     }
 
     private void BonusInitialization(BonusEventType bonusEventType)
@@ -94,7 +118,41 @@ public class BonusEventController : MonoBehaviour
         var spawnedBonus = Instantiate(creditBonusPrefab);
         spawnedBonus.transform.position = GetRandomBonusPosition();
         bonusObjects.Add(spawnedBonus);
+        
+        PlaySound("bonus_spawn");
         //подписаться на бонус и удалить его из списка, когда его подберут
+        // Получаем компонент BonusPickup у созданного объекта
+        var bonusPickup = spawnedBonus.GetComponent<BonusPickup>();
+
+        if (bonusPickup != null)
+        {
+            // Подписываемся на событие OnBonusPickedUp этого конкретного бонуса
+            bonusPickup.OnBonusPickedUp
+                .Where(pickedUp => pickedUp) // Фильтруем, чтобы обработать только true
+                .First() // Берем только первое срабатывание (один раз подобрали - удаляем)
+                .Subscribe(_ =>
+                {
+                    // Вызываем метод выдачи награды
+                    //GrantReward(BonusEventType.Credits, amount);
+                    var playerController = ServiceLocator.Get<PlayerController>();
+                    playerController.AddCredits(amount);
+                    Debug.Log("Игрок получил бонус в размере " + amount);
+                    
+                    var audioManager = ServiceLocator.Get<AudioManager>();
+                    audioManager.PlayUISound(audioManager.GetUISound("reward_obtain"));
+                    // Удаляем объект бонуса
+                    if (spawnedBonus != null) // Проверка на случай, если объект уже был уничтожен
+                    {
+                        Destroy(spawnedBonus);
+                        bonusObjects.Remove(spawnedBonus); // Удаляем из списка отслеживаемых бонусов
+                    }
+                })
+                .AddTo(spawnedBonus); // Важно привязать подписку к жизненному циклу бонуса
+        }
+        else
+        {
+            Debug.LogError("BonusPickup компонент не найден на созданном Credit Bonus!");
+        }
     }
     
     private void BonusRPSpawn()

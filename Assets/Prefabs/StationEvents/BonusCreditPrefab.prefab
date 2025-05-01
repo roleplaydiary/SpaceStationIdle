@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7359161984135122533}
   - component: {fileID: 3410191635750756691}
+  - component: {fileID: 7159129170730628838}
   - component: {fileID: 5574521306573805246}
   m_Layer: 0
   m_Name: BonusCreditPrefab
@@ -139,6 +140,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7159129170730628838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594845244927077316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7589c793cbced9e48a465137e062341e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5574521306573805246
 MonoBehaviour:
   m_ObjectHideFlags: 0
