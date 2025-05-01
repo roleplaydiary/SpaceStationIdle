@@ -80,6 +80,12 @@ public class AudioManager : MonoBehaviour
         return newVolume;
     }
 
+    public AudioClip GetUISound(string soundName)
+    {
+        var result = ServiceLocator.Get<DataLibrary>().soundLibrary.GetUISound(soundName);
+        return result;
+    }
+
     // Метод для сохранения настроек звука в Cloud Save
     public async void SaveSoundSettings()
     {

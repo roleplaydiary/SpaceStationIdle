@@ -15,6 +15,8 @@ public class StationEventsController : MonoBehaviour
     // Максимальная вероятность опасности - 50%.
     // Может быть, добавить инженеров и учёных(перебои с энергией и сбежавшая аномалия)
     
+    public readonly BehaviorSubject<StationEventType> OnEventStarted = new BehaviorSubject<StationEventType>(StationEventType.None);
+    
     private IDisposable eventTimerSubscription;
     
     private void Awake()
@@ -97,22 +99,25 @@ public class StationEventsController : MonoBehaviour
 
     private void BonusEventInitialize()
     {
+        OnEventStarted.OnNext(StationEventType.BonusEvent);
         Debug.Log("Randomized Station Event: Bonus Event");
     }
 
     private void MinorEventInitialize()
     {
+        OnEventStarted.OnNext(StationEventType.MinorEvent);
         Debug.Log("Randomized Station Event: Minor Event");
     }
 
     private void MajorEventInitialize()
     {
+        OnEventStarted.OnNext(StationEventType.MajorEvent);
         Debug.Log("Randomized Station Event: Major Event");
     }
 
     public void TestEvent()
     {
-        RandomizeStationEvent();
+        RandomizeAndInitializeEvent();
     }
 }
 
