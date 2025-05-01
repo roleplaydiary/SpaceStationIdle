@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
         ServiceLocator.Get<StatsViewer>().StatsIninitlize();
         ServiceLocator.Get<CrewService>().Initialize();
         await ServiceLocator.Get<AudioManager>().LoadSoundSettings();
+        ServiceLocator.Get<StationEventsController>().Initialize();
         
         OnGameInitialized.OnNext(true);
         Debug.Log("GameController: GameInitialization OnGameInitialized");

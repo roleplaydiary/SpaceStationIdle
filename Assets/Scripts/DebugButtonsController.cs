@@ -9,6 +9,7 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button addResearchPoints;
     [SerializeField] private Button addResource;
     [SerializeField] private Button testButton;
+    [SerializeField] private Button eventTestButton;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -25,6 +26,11 @@ public class DebugButtonsController : MonoBehaviour
         {
             var currentTime = await OnlineTimeService.GetUTCTimeAsync();
             Debug.Log($"Current time is {currentTime}");
+        }).AddTo(_disposables);
+        
+        eventTestButton.OnClickAsObservable().Subscribe(_ =>
+        {
+            ServiceLocator.Get<StationEventsController>().TestEvent();
         }).AddTo(_disposables);
 
         AddCredits();
