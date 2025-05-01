@@ -49,6 +49,7 @@ public class BonusEventController : MonoBehaviour
         var audioManager = ServiceLocator.Get<AudioManager>();
         audioManager.PlayUISound(audioManager.GetUISound("bonus_spawn"));
         var bonus = BonusTypeRandomize();
+        bonus = BonusEventType.Credits;//TODO: FOR TESTS, DELETE AFTER!
         BonusInitialization(bonus);
     }
 
