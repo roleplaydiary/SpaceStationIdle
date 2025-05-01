@@ -19,7 +19,7 @@ public class BarBlockController : StationBlockController
         RestPositionInitialization();
         CalculateMoodProduction(); // Первоначальный расчет при инициализации
         
-        stationData = stationController.StationData;
+        stationData = StationController.StationData;
         if (stationData == null)
         {
             Debug.LogError("StationData не найден через StationController!");
@@ -32,7 +32,7 @@ public class BarBlockController : StationBlockController
             .AddTo(disposables);
 
         // Подписываемся на изменение количества рабочих и пересчитываем производство
-        crewManager.workingCrew.ObserveCountChanged()
+        CrewManager.workingCrew.ObserveCountChanged()
             .Where(_ => isProductionOn.Value)
             .Subscribe(_ => CalculateMoodProduction()).AddTo(this);
     }
@@ -40,7 +40,7 @@ public class BarBlockController : StationBlockController
     private void CalculateMoodProduction()
     {
         float totalProduction = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -57,7 +57,7 @@ public class BarBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)

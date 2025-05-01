@@ -1,3 +1,5 @@
+using Controllers;
+
 public class UnlockDepartmentUpgrade : BuyUpgradeButton
 {
     protected override void Initialize()

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using Controllers;
 
 public class AFKController : MonoBehaviour
 {
@@ -45,7 +46,6 @@ public class AFKController : MonoBehaviour
         var resourceManager = ServiceLocator.Get<ResourceManager>();
         resourceManager = ServiceLocator.Get<ResourceManager>();
         
-        var crewManager = ServiceLocator.Get<CrewManager>();
         var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationBlocks != null && stationController.StationData != null)
         {

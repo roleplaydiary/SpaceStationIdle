@@ -1,58 +1,60 @@
-using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WorldDepartmentsButtonsController : MonoBehaviour
+namespace Controllers
 {
-    [SerializeField] private Button bridgeMenuButton;
-    [SerializeField] private Button engineeringMenuButton;
-    [SerializeField] private Button scienceMenuButton;
-    [SerializeField] private Button cargoMenuButton;
-    [SerializeField] private Button medbayMenuButton;
-    [SerializeField] private Button securityMenuButton;
-    [SerializeField] private Button barMenuButton;
-
-    private void Awake()
+    public class WorldDepartmentsButtonsController : MonoBehaviour
     {
-        ServiceLocator.Register(this);
-    }
+        [SerializeField] private Button bridgeMenuButton;
+        [SerializeField] private Button engineeringMenuButton;
+        [SerializeField] private Button scienceMenuButton;
+        [SerializeField] private Button cargoMenuButton;
+        [SerializeField] private Button medbayMenuButton;
+        [SerializeField] private Button securityMenuButton;
+        [SerializeField] private Button barMenuButton;
 
-    public void Initialize()
-    {
-        var upgradeService = ServiceLocator.Get<UpgradeService>();
-        upgradeService.OnUpgradePurchased.Subscribe(_ =>
+        private void Awake()
         {
+            ServiceLocator.Register(this);
+        }
+
+        public void Initialize()
+        {
+            var upgradeService = ServiceLocator.Get<UpgradeService>();
+            upgradeService.OnUpgradePurchased.Subscribe(_ =>
+            {
+                ButtonsInitialize();
+            }).AddTo(this);
+
+
             ButtonsInitialize();
-        }).AddTo(this);
+        }
 
+        private void ButtonsInitialize()
+        {
+            var stationController = ServiceLocator.Get<StationController>();
 
-        ButtonsInitialize();
-    }
-
-    private void ButtonsInitialize()
-    {
-        var stationController = ServiceLocator.Get<StationController>();
-
-        var isBridgeUnlocked = stationController.StationData.IsUnlocked(Department.Bridge);
-        bridgeMenuButton.gameObject.SetActive(isBridgeUnlocked);
+            var isBridgeUnlocked = stationController.StationData.IsUnlocked(Department.Bridge);
+            bridgeMenuButton.gameObject.SetActive(isBridgeUnlocked);
         
-        var isEngineeringUnlocked = stationController.StationData.IsUnlocked(Department.Engineering);
-        engineeringMenuButton.gameObject.SetActive(isEngineeringUnlocked);
+            var isEngineeringUnlocked = stationController.StationData.IsUnlocked(Department.Engineering);
+            engineeringMenuButton.gameObject.SetActive(isEngineeringUnlocked);
         
-        var isScienceUnlocked = stationController.StationData.IsUnlocked(Department.Science);
-        scienceMenuButton.gameObject.SetActive(isScienceUnlocked);
+            var isScienceUnlocked = stationController.StationData.IsUnlocked(Department.Science);
+            scienceMenuButton.gameObject.SetActive(isScienceUnlocked);
         
-        var isCargoUnlocked = stationController.StationData.IsUnlocked(Department.Cargo);
-        cargoMenuButton.gameObject.SetActive(isCargoUnlocked);
+            var isCargoUnlocked = stationController.StationData.IsUnlocked(Department.Cargo);
+            cargoMenuButton.gameObject.SetActive(isCargoUnlocked);
         
-        var isMedbayUnlocked = stationController.StationData.IsUnlocked(Department.Med);
-        medbayMenuButton.gameObject.SetActive(isMedbayUnlocked);
+            var isMedbayUnlocked = stationController.StationData.IsUnlocked(Department.Med);
+            medbayMenuButton.gameObject.SetActive(isMedbayUnlocked);
         
-        var isSecurityUnlocked = stationController.StationData.IsUnlocked(Department.Security);
-        securityMenuButton.gameObject.SetActive(isSecurityUnlocked);
+            var isSecurityUnlocked = stationController.StationData.IsUnlocked(Department.Security);
+            securityMenuButton.gameObject.SetActive(isSecurityUnlocked);
         
-        var isBarUnlocked = stationController.StationData.IsUnlocked(Department.Bar);
-        barMenuButton.gameObject.SetActive(isBarUnlocked);
+            var isBarUnlocked = stationController.StationData.IsUnlocked(Department.Bar);
+            barMenuButton.gameObject.SetActive(isBarUnlocked);
+        }
     }
 }

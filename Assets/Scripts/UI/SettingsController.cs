@@ -1,4 +1,5 @@
 using TMPro;
+using UI;
 using UniRx;
 using Unity.Services.Authentication;
 using UnityEngine;
@@ -13,9 +14,9 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Button copyIdButton;
     [SerializeField] private Button feedbackButton;
 
-    private void Awake()
+    private void Start()
     {
-        ButtonsInitialize();
+        //ButtonsInitialize();
     }
 
     private void ButtonsInitialize()

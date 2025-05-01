@@ -12,23 +12,16 @@ public class EngineeringBlockController : StationBlockController
     {
         base.BlockInitialization(_blockData);
         CalculateEnergyProduction(); // Первоначальный расчет при инициализации
-        
-        stationData = stationController.StationData;
-        if (stationData == null)
-        {
-            Debug.LogError("StationData не найден через StationController!");
-            return;
-        }
 
         // Подписываемся на изменение количества рабочих и пересчитываем производство
-        crewManager.workingCrew.ObserveCountChanged().Subscribe(_ => CalculateEnergyProduction()).AddTo(this);
+        CrewManager.workingCrew.ObserveCountChanged().Subscribe(_ => CalculateEnergyProduction()).AddTo(this);
         CalculateEnergyProduction(); // Первоначальный расчет при старте
     }
 
     private void CalculateEnergyProduction()
     {
         float totalProduction = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -46,7 +39,7 @@ public class EngineeringBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)

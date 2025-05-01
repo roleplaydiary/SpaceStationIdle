@@ -55,7 +55,7 @@ public class CargoBlockController : StationBlockController
     private void ProduceCreditsReactive()
     {
         float creditsThisFrame = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -71,7 +71,7 @@ public class CargoBlockController : StationBlockController
 
     public bool IsMinerProducingResoruces()
     {
-        if (crewManager.workingCrew.Count < 2)// В карго 2 - станок шахтёров
+        if (CrewManager.workingCrew.Count < 2)// В карго 2 - станок шахтёров
         {
             Debug.Log("Ресурс не производится, потому что никто не работает на 2 станке");
             return false;
@@ -118,7 +118,7 @@ public class CargoBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         if (!IsStationEnergyEnough())
@@ -136,7 +136,7 @@ public class CargoBlockController : StationBlockController
     public override void AddAFKProduction(System.TimeSpan afkTime)
     {
         float totalCreditsEarned = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
 
         for (int i = 0; i < workingCrewCount; i++)

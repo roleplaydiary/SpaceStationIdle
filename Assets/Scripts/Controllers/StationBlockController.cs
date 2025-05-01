@@ -2,13 +2,14 @@ using UniRx;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Controllers;
 
 public class StationBlockController : MonoBehaviour
 {
     [SerializeField] protected Transform workBenchesParent;
     [SerializeField] protected Transform idlePositionParent;
     [SerializeField] protected StationBlockDataSO stationBlockDataSo;
-    protected List<CharacterController> crewMembers = new List<CharacterController>();
+    protected List<CharacterController> CrewMembers = new List<CharacterController>();
     public Department GetBlockType() { return stationBlockDataSo.BlockType; }
 
     protected StationBlockData blockData;
@@ -16,21 +17,21 @@ public class StationBlockController : MonoBehaviour
     protected List<Transform> idlePositionList = new List<Transform>();
     public List<WorkBenchController> workBenchesList = new List<WorkBenchController>();
 
-    protected StationController stationController;
+    protected StationController StationController;
     protected DepartmentEnergyController EnergyController;
     protected DepartmentMoodController MoodController;
-    protected CrewManager crewManager;
-    public CrewManager GetCrewManager() { return crewManager; }
+    protected CrewManager CrewManager;
+    public CrewManager GetCrewManager() { return CrewManager; }
 
     public virtual void BlockInitialization(StationBlockData _blockData)
     {
         blockData = _blockData;
-        stationController = ServiceLocator.Get<StationController>();
+        StationController = ServiceLocator.Get<StationController>();
 
         InitializeLists();
         BenchesInitialization();
 
-        crewManager = gameObject.GetComponent<CrewManager>();
+        CrewManager = gameObject.GetComponent<CrewManager>();
         
         EnergyController = gameObject.GetComponent<DepartmentEnergyController>();
         EnergyController.Initialize(this);
@@ -41,9 +42,9 @@ public class StationBlockController : MonoBehaviour
 
     public void BlockCrewInitialization()
     {
-        crewManager.CrewInitialization(blockData, stationBlockDataSo);
+        CrewManager.CrewInitialization(blockData, stationBlockDataSo);
         RestoreCrewAssignment();
-        crewManager.ReactiveVariabliesSubscribe();
+        CrewManager.ReactiveVariabliesSubscribe();
     }
 
     protected void BenchesInitialization()
@@ -69,7 +70,7 @@ public class StationBlockController : MonoBehaviour
 
     private async void SaveBlockData()
     {
-        if (stationController != null)
+        if (StationController != null)
         {
             Department currentDepartment = GetBlockType();
             await ServiceLocator.Get<CloudController>().SaveDepartmentData(blockData, currentDepartment);
@@ -82,25 +83,25 @@ public class StationBlockController : MonoBehaviour
 
     public void AddCrewToWork()
     {
-        crewManager.AddCrewToWork(workBenchesList);
+        CrewManager.AddCrewToWork(workBenchesList);
         SaveBlockData();
     }
 
     public void RemoveCrewFromWork()
     {
-        crewManager.RemoveCrewFromWork(idlePositionList);
+        CrewManager.RemoveCrewFromWork(idlePositionList);
         SaveBlockData();
     }
 
     public void AddCrewToRest()
     {
-       crewManager.AddCrewToRest();
+       CrewManager.AddCrewToRest();
        SaveBlockData();
     }
 
     public void RemoveCrewFromRest()
     {
-        crewManager.RemoveCrewFromRest(idlePositionList);
+        CrewManager.RemoveCrewFromRest(idlePositionList);
         SaveBlockData();
     }
 
@@ -116,7 +117,7 @@ public class StationBlockController : MonoBehaviour
 
     protected virtual Vector3 GetAvailableIdlePosition(CharacterController crewMember)
     {
-        int index = crewMembers.IndexOf(crewMember);
+        int index = CrewMembers.IndexOf(crewMember);
         if (index >= 0 && index < idlePositionList.Count)
         {
             return idlePositionList[index].position;
@@ -137,13 +138,13 @@ public class StationBlockController : MonoBehaviour
 
     protected void RestoreCrewAssignment()
     {
-        crewManager.RestoreCrewAssignment(workBenchesList, idlePositionList);
+        CrewManager.RestoreCrewAssignment(workBenchesList, idlePositionList);
         OnCrewDistributed();
     }
 
     public virtual void HireNewCrewMember()
     {
-        crewManager.HireNewCrewMember(idlePositionList);
+        CrewManager.HireNewCrewMember(idlePositionList);
         SaveBlockData();
     }
 
@@ -204,7 +205,7 @@ public class StationBlockController : MonoBehaviour
     public virtual float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)

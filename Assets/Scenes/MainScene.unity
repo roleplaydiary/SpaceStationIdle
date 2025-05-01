@@ -1256,6 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c144d1e39a604f85bacac2d84aacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 963194227}
   moveSpeed: 5
   zoomSpeed: 10
   minFOV: 40
@@ -2396,7 +2397,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4298635339556183202, guid: 6d4feccf826a4ad48837a19c4e02fbec, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d4feccf826a4ad48837a19c4e02fbec, type: 3}

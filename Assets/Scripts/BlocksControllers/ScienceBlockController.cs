@@ -47,7 +47,7 @@ public class ScienceBlockController : StationBlockController
     private void ProduceResearchPointsReactive()
     {
         float rpThisFrame = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         for (int i = 0; i < workingCrewCount && i < workBenchesCount; i++)
@@ -64,7 +64,7 @@ public class ScienceBlockController : StationBlockController
     public override float GetProductionValue()
     {
         float result = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         int workBenchesCount = workBenchesList.Count;
 
         if (!IsStationEnergyEnough())
@@ -82,7 +82,7 @@ public class ScienceBlockController : StationBlockController
     public override void AddAFKProduction(System.TimeSpan afkTime)
     {
         float totalResearchPointsEarned = 0f;
-        int workingCrewCount = crewManager.workingCrew.Count;
+        int workingCrewCount = CrewManager.workingCrew.Count;
         float productionRatePerMinutePerBench = 0f; // Нужно получить фактическую скорость производства верстака
 
         for (int i = 0; i < workingCrewCount; i++)

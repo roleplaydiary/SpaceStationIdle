@@ -1,24 +1,27 @@
+using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private Camera gameCamera;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float zoomSpeed = 5f;
     [SerializeField] private float minFOV = 40;
     [SerializeField] private float maxFOV = 80f;
     [SerializeField] private float deceleration = 5f; // Скорость замедления
     
-    private Camera cam;
     private Vector3 dragStartPosition;
     private Vector3 dragCurrentPosition;
     private float initialPinchDistance;
     private bool isDragging; // Добавляем флаг для отслеживания перетаскивания
     private Vector3 velocity; // Скорость движения камеры
 
+    private UIController uiController;
     void Start()
     {
-        cam = GetComponent<Camera>();
+        uiController = ServiceLocator.Get<UIController>();
     }
 
     void Update()
@@ -38,7 +41,11 @@ public class CameraController : MonoBehaviour
 
         if (isDragging)
         {
-            if (UIController.IsAnyUIOpen)
+            if (!uiController)
+            {
+                return;
+            }
+            if (uiController.IsAnyUIOpen)
             {
                 return;
             }
@@ -46,13 +53,13 @@ public class CameraController : MonoBehaviour
             dragCurrentPosition = Input.mousePosition;
             Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
-            cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
+            gameCamera.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
             dragStartPosition = dragCurrentPosition;
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
-        float newFOV = cam.fieldOfView - scroll * zoomSpeed;
-        cam.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
+        float newFOV = gameCamera.fieldOfView - scroll * zoomSpeed;
+        gameCamera.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
 
         // Перемещение камеры (тач)
         if (Input.touchCount == 1)
@@ -69,7 +76,7 @@ public class CameraController : MonoBehaviour
                 dragCurrentPosition = touch.position;
                 Vector3 moveDelta = dragStartPosition - dragCurrentPosition;
 
-                cam.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
+                gameCamera.transform.position += new Vector3(moveDelta.x * moveSpeed * Time.deltaTime, 0, moveDelta.y * moveSpeed * Time.deltaTime);
                 dragStartPosition = dragCurrentPosition;
             }
         }
@@ -88,8 +95,8 @@ public class CameraController : MonoBehaviour
                 float currentPinchDistance = Vector2.Distance(touchZero.position, touchOne.position);
                 float pinchDelta = currentPinchDistance - initialPinchDistance;
 
-                float newFOVTouch = cam.fieldOfView - pinchDelta * zoomSpeed * Time.deltaTime;
-                cam.fieldOfView = Mathf.Clamp(newFOVTouch, minFOV, maxFOV);
+                float newFOVTouch = gameCamera.fieldOfView - pinchDelta * zoomSpeed * Time.deltaTime;
+                gameCamera.fieldOfView = Mathf.Clamp(newFOVTouch, minFOV, maxFOV);
 
                 initialPinchDistance = currentPinchDistance;
             }

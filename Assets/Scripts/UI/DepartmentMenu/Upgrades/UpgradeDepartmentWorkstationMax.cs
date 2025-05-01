@@ -1,3 +1,5 @@
+using Controllers;
+
 public class UpgradeDepartmentWorkstationMax : BuyUpgradeButton
 {
     protected override void Initialize()

@@ -1,3 +1,5 @@
+using Controllers;
+
 public class UpgradeDepartmentMaxCrew : BuyUpgradeButton
 {
     protected override void Initialize()
