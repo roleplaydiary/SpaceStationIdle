@@ -15,14 +15,12 @@ public class DepartmentMenuViewer : MonoBehaviour
     [SerializeField] private DepartmentUpgradesScrollController departmentUpgradesScrollController;
     [SerializeField] private TMP_Text departmentName;
     [SerializeField] private Button closeButton;
-    private StationController stationController;
     
     private CompositeDisposable disposables;
 
     private void Awake()
     {
         ServiceLocator.Register(this);
-        stationController = ServiceLocator.Get<StationController>(); // Получаем ссылку на StationController при старте
 
         closeButton.OnClickAsObservable().Subscribe(_ =>
         {
@@ -62,6 +60,7 @@ public class DepartmentMenuViewer : MonoBehaviour
         departmentInfoPanelViewer.Initialization(department);
 
         StationBlockController blockController = null;
+        var stationController = ServiceLocator.Get<StationController>();
         if (stationController != null && stationController.StationBlocks != null)
         {
             blockController = stationController.StationBlocks.Find(block => block.GetBlockType() == department);
