@@ -31,7 +31,6 @@ public class GameController : MonoBehaviour
         // Инициализация DailyRewardService после инициализации PlayerController
         DailyRewardService dailyRewardService = new DailyRewardService();
         ServiceLocator.Register(dailyRewardService);
-        dailyRewardService.LoadDailyRewardData(playerController.GetPlayerData());
         
         ServiceLocator.Get<WorldDepartmentsButtonsController>().Initialize();
         await ServiceLocator.Get<AFKController>().CheckAFKProduction(); // обязательно после инициализации игрока

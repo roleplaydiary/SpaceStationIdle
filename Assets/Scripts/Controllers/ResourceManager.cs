@@ -169,8 +169,6 @@ public class ResourceManager : IDisposable
             currentResources.Value = new Resources { Phoron = 0, Metal = 0, Glass = 0, Plastic = 0, Gold = 0, Silver = 0, Uranium = 0 };
             Debug.Log($"Не удалось загрузить ресурсы из облака, установлены значения по умолчанию: {currentResources.Value.Phoron}, {currentResources.Value.Metal}, {currentResources.Value.Glass}, {currentResources.Value.Plastic}, {currentResources.Value.Gold}, {currentResources.Value.Silver}, {currentResources.Value.Uranium}");
         }
-        
-        
     }
 
     public static ResourceType GetResourceTypeByName(string name)
