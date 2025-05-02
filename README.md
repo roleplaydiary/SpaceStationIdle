@@ -32,6 +32,7 @@ SpaceStationIdle is an idle game where you take on the role of the captain of a 
 ### Additional Mechanics:
 * ✅ **Daily rewards (find out)**
 * ☐ **Advertisement**
+* ☐ **In-game shop**
 * ☐ Autentication with Google account
 * ☐ **Daily missions**
 * ☐ **Community missions** (With leaderboard)
