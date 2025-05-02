@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c429d6729c03248b71e1af9739d9c6, type: 3}
+  m_Name: DonateUpgradeData
+  m_EditorClassIdentifier: 
+  upgrades:
+  - upgradeId: afk_upgrade_1
+    displayName: AFK Limit Lv.1
+    description: Upgrade station productivity while you offline to 3 hours.
+    type: 0
+    value: 3
+    level: 1
+    cost: 100
+  - upgradeId: afk_upgrade_2
+    displayName: AFK Limit Lv.2
+    description: Upgrade station productivity while you offline to 5 hours.
+    type: 0
+    value: 5
+    level: 2
+    cost: 300
+  - upgradeId: afk_upgrade_3
+    displayName: AFK Limit Lv.3
+    description: Upgrade station productivity while you offline to 7 hours.
+    type: 0
+    value: 7
+    level: 3
+    cost: 500
+  - upgradeId: afk_upgrade_4
+    displayName: AFK Limit Lv.4
+    description: Upgrade station productivity while you offline to 10 hours.
+    type: 0
+    value: 10
+    level: 4
+    cost: 1000

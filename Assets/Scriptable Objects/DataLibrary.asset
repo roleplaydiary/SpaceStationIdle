@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57aaa006a20e0f54f88c9ab743c65563, type: 3}
+  m_Name: DataLibrary
+  m_EditorClassIdentifier: 
+  upgradeData: {fileID: 11400000, guid: 2db7e1bffc06e8b4cabba49d3fdbc011, type: 2}
+  donateData: {fileID: 11400000, guid: 73795ddee11c12d4d8ffc0f316e09fb2, type: 2}
+  resourceDropData: {fileID: 11400000, guid: 7c4bca45aef78404388a9ee336097633, type: 2}
+  soundLibrary: {fileID: 11400000, guid: 80f1701975f02b049a09a6fab559502d, type: 2}
+  dailyRewardsConfig: {fileID: 11400000, guid: 04de981f0f013b44583a0cac7b0a505d, type: 2}

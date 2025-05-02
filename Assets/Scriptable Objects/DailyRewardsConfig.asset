@@ -1,0 +1,296 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a13532f6f862b4d9cf7a782de73c6b, type: 3}
+  m_Name: DailyRewardsConfig
+  m_EditorClassIdentifier: 
+  rewards:
+  - type: 0
+    creditAmount: 10
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 20
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 30
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 40
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 50
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 60
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 1
+    creditAmount: 0
+    resourceReward:
+      Phoron: 0
+      Metal: 10
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 50
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 60
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 70
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 80
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 90
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 100
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 1
+    creditAmount: 0
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 10
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 100
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 110
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 120
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 130
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 140
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 150
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 1
+    creditAmount: 0
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 10
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 150
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 160
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 170
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 180
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 190
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 0
+    creditAmount: 200
+    resourceReward:
+      Phoron: 0
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  - type: 1
+    creditAmount: 0
+    resourceReward:
+      Phoron: 1
+      Metal: 0
+      Glass: 0
+      Plastic: 0
+      Gold: 0
+      Silver: 0
+      Uranium: 0
+  cycleLengthInDays: 28
