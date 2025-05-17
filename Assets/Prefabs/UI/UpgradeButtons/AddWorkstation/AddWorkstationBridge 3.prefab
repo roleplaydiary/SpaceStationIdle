@@ -111,17 +111,17 @@ PrefabInstance:
     - target: {fileID: 4917833715877978000, guid: ed370aaf71804fc4ea7b93e38ae68dcc,
         type: 3}
       propertyPath: m_Name
-      value: AddWorkstationCargo 1
+      value: AddWorkstationBridge 1
       objectReference: {fileID: 0}
     - target: {fileID: 8373968787563995356, guid: ed370aaf71804fc4ea7b93e38ae68dcc,
         type: 3}
       propertyPath: upgradeId
-      value: cargo_add_workstation_1
+      value: bridge_add_workstation_3
       objectReference: {fileID: 0}
     - target: {fileID: 8373968787563995356, guid: ed370aaf71804fc4ea7b93e38ae68dcc,
         type: 3}
       propertyPath: _department
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

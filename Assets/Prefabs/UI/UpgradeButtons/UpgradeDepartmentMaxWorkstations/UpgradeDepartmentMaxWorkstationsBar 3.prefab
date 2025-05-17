@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 1573182077712941934, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: upgradeId
-      value: cargo_workstation_max_1
+      value: bar_workstation_max_3
       objectReference: {fileID: 0}
     - target: {fileID: 1573182077712941934, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: _department
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4789357610176685740, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 4917833715877978000, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: m_Name
-      value: UpgradeDepartmentMaxWorkstationsCargo 1
+      value: UpgradeDepartmentMaxWorkstationsBar 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

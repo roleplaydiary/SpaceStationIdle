@@ -11,12 +11,7 @@ PrefabInstance:
     - target: {fileID: 570988486102269747, guid: a71c1621eec35844f81d93a22841a9ee,
         type: 3}
       propertyPath: upgradeId
-      value: science_max_crew_level_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 570988486102269747, guid: a71c1621eec35844f81d93a22841a9ee,
-        type: 3}
-      propertyPath: _department
-      value: 1
+      value: engineering_max_crew_level_5
       objectReference: {fileID: 0}
     - target: {fileID: 4789357610176685740, guid: a71c1621eec35844f81d93a22841a9ee,
         type: 3}
@@ -121,7 +116,7 @@ PrefabInstance:
     - target: {fileID: 4917833715877978000, guid: a71c1621eec35844f81d93a22841a9ee,
         type: 3}
       propertyPath: m_Name
-      value: UpgradeMaxCrewScience 1
+      value: UpgradeMaxCrewEngineering 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

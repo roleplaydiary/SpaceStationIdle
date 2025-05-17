@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 1573182077712941934, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: upgradeId
-      value: bridge_workstation_max_1
+      value: science_workstation_max_5
       objectReference: {fileID: 0}
     - target: {fileID: 1573182077712941934, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: _department
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4789357610176685740, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
@@ -121,7 +121,7 @@ PrefabInstance:
     - target: {fileID: 4917833715877978000, guid: ec14426f59cdd92418827febe3677056,
         type: 3}
       propertyPath: m_Name
-      value: UpgradeDepartmentMaxWorkstationsBridge 1
+      value: UpgradeDepartmentMaxWorkstationsScience 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

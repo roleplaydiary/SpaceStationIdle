@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrades:
   - upgradeId: engineering_unlock
-    displayName: Unlock Engineering
-    description: Generate energy for the station
+    displayName: 
+    description: 
     type: 0
     level: 1
-    value: 0
+    value: 1
     cost:
       credits: 10
       researchPoints: 0
@@ -30,15 +30,18 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: science_unlock
-    displayName: Unlock Science
-    description: Science department provides research points for upgrades
+  - upgradeId: engineering_workstation_max_2
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
     type: 0
     level: 1
-    value: 0
+    value: 1
     cost:
-      credits: 15
-      researchPoints: 0
+      credits: 15120
+      researchPoints: 138600
       resources:
         Phoron: 0
         Metal: 0
@@ -47,15 +50,18 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: cargo_unlock
-    displayName: Unlock Cargo
-    description: Unlock resource trading and mining
+  - upgradeId: engineering_workstation_max_3
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
     type: 0
     level: 1
-    value: 0
+    value: 1
     cost:
-      credits: 60
-      researchPoints: 600
+      credits: 113400
+      researchPoints: 850500
       resources:
         Phoron: 0
         Metal: 0
@@ -64,507 +70,17 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: medbay_unlock
-    displayName: Unlock Medbay
-    description: Unlock medical bay to reduce chances of crew injuries
+  - upgradeId: engineering_workstation_max_4
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
     type: 0
     level: 1
-    value: 0
+    value: 1
     cost:
-      credits: 60
-      researchPoints: 600
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: security_unlock
-    displayName: Unlock Security
-    description: Unlock security to reduce chances of attacks
-    type: 0
-    level: 1
-    value: 0
-    cost:
-      credits: 60
-      researchPoints: 600
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_unlock
-    displayName: Unlock Bar
-    description: Unlock Bar to generate a good mood
-    type: 0
-    level: 1
-    value: 0
-    cost:
-      credits: 20
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 10
-        Glass: 5
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_max_crew_level_1
-    displayName: Bridge Crew Max Upgrade
-    description: Update Max Crew Count in Bridge
-    type: 1
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_max_crew_level_2
-    displayName: Bridge Crew Max Upgrade
-    description: Update Max Crew Count in Bridge
-    type: 1
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_max_crew_level_1
-    displayName: Engineering Crew Max Upgrade
-    description: Update Max Crew Count in Engineering
-    type: 1
-    level: 1
-    value: 2
-    cost:
-      credits: 10
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_max_crew_level_2
-    displayName: Engineering Crew Max Upgrade
-    description: Update Max Crew Count in Engineering
-    type: 1
-    level: 2
-    value: 3
-    cost:
-      credits: 10
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_max_crew_level_3
-    displayName: Engineering Crew Max Upgrade
-    description: Update Max Crew Count in Engineering
-    type: 1
-    level: 3
-    value: 4
-    cost:
-      credits: 10
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_max_crew_level_4
-    displayName: Engineering Crew Max Upgrade
-    description: Update Max Crew Count in Engineering
-    type: 1
-    level: 4
-    value: 5
-    cost:
-      credits: 10
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_max_crew_level_1
-    displayName: Science Crew Max Upgrade
-    description: Update Max Crew Count in Science
-    type: 1
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_max_crew_level_2
-    displayName: Science Crew Max Upgrade
-    description: Update Max Crew Count in Science
-    type: 1
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_max_crew_level_3
-    displayName: Science Crew Max Upgrade
-    description: Update Max Crew Count in Science
-    type: 1
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_max_crew_level_4
-    displayName: Science Crew Max Upgrade
-    description: Update Max Crew Count in Science
-    type: 1
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_max_crew_level_1
-    displayName: Cargo Crew Max Upgrade
-    description: Update Max Crew Count in Cargo
-    type: 1
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_max_crew_level_2
-    displayName: Cargo Crew Max Upgrade
-    description: Update Max Crew Count in Cargo
-    type: 1
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_max_crew_level_3
-    displayName: Cargo Crew Max Upgrade
-    description: Update Max Crew Count in Cargo
-    type: 1
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_max_crew_level_4
-    displayName: Cargo Crew Max Upgrade
-    description: Update Max Crew Count in Cargo
-    type: 1
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_max_crew_level_1
-    displayName: Bar Crew Max Upgrade
-    description: Update Max Crew Count in Bar
-    type: 1
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_max_crew_level_2
-    displayName: Bar Crew Max Upgrade
-    description: Update Max Crew Count in Bar
-    type: 1
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_add_workstation_1
-    displayName: Bridge New workstation
-    description: Add new workstation to Bridge
-    type: 5
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_add_workstation_2
-    displayName: Bridge New workstation
-    description: Add new workstation to Bridge
-    type: 5
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_add_workstation_1
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_add_workstation_2
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_add_workstation_3
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_add_workstation_4
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_add_workstation_1
-    displayName: Cargo New workstation
-    description: Add new workstation to Cargo
-    type: 5
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_add_workstation_2
-    displayName: Cargo New workstation
-    description: Add new workstation to Cargo
-    type: 5
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_add_workstation_3
-    displayName: Cargo New workstation
-    description: Add new workstation to Cargo
-    type: 5
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_add_workstation_4
-    displayName: Cargo New workstation
-    description: Add new workstation to Cargo
-    type: 5
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_add_workstation_1
-    displayName: Engineering New workstation
-    description: Add new workstation to Engineerong
-    type: 5
-    level: 1
-    value: 2
-    cost:
-      credits: 100
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -575,14 +91,15 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_2
-    displayName: Engineering New workstation
-    description: Add new workstation to Engineerong
-    type: 5
-    level: 2
-    value: 3
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 16200
+      researchPoints: 148500
       resources:
         Phoron: 0
         Metal: 0
@@ -592,14 +109,15 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_3
-    displayName: Engineering New workstation
-    description: Add new workstation to Engineerong
-    type: 5
-    level: 3
-    value: 4
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0442\u0440\u0435\u0442\u0438\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 139320
+      researchPoints: 1044900
       resources:
         Phoron: 0
         Metal: 0
@@ -609,64 +127,14 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: engineering_add_workstation_4
-    displayName: Engineering New workstation
-    description: Add new workstation to Engineerong
-    type: 5
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_add_workstation_1
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_add_workstation_2
-    displayName: Science New workstation
-    description: Add new workstation to Science
-    type: 5
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 0
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_hire_1
-    displayName: Hire commander
-    description: Hire new commander to the bridge
-    type: 3
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
     level: 1
     value: 1
     cost:
-      credits: 5
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -676,14 +144,15 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: bridge_hire_2
-    displayName: Hire commander
-    description: Hire new commander to the bridge
-    type: 3
-    level: 2
-    value: 2
+  - upgradeId: engineering_add_workstation_5
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u043F\u044F\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 5
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -693,14 +162,57 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: bridge_hire_3
-    displayName: Hire commander Lv3
-    description: Hire new commander to the bridge
-    type: 3
-    level: 3
-    value: 3
+  - upgradeId: engineering_max_crew_level_2
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 5
+      credits: 17100
+      researchPoints: 156750
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_max_crew_level_3
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 152280
+      researchPoints: 1142100
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_max_crew_level_4
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -711,9 +223,116 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: engineering_hire_1
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 40
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_2
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 18000
+      researchPoints: 165000
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_3
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 165240
+      researchPoints: 1239300
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_4
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: engineering_hire_5
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u043F\u044F\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: upgradeId
+    displayName: DisplayName
+    description: Description
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_unlock
+    displayName: 
+    description: 
+    type: 0
     level: 1
     value: 1
     cost:
@@ -727,14 +346,57 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: engineering_hire_2
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
-    level: 2
-    value: 2
+  - upgradeId: science_workstation_max_2
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 10
+      credits: 15120
+      researchPoints: 138600
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_3
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 113400
+      researchPoints: 850500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_workstation_max_4
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -744,14 +406,51 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: engineering_hire_3
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
-    level: 3
-    value: 3
+  - upgradeId: science_add_workstation_2
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 10
+      credits: 16200
+      researchPoints: 148500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_add_workstation_3
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0442\u0440\u0435\u0442\u0438\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 139320
+      researchPoints: 1044900
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_add_workstation_4
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -761,14 +460,15 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: engineering_hire_4
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
-    level: 4
-    value: 4
+  - upgradeId: science_add_workstation_5
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u043F\u044F\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 10
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -778,14 +478,57 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: engineering_hire_5
-    displayName: Hire engineer
-    description: Hire new engineer
-    type: 3
-    level: 5
-    value: 5
+  - upgradeId: science_max_crew_level_2
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 10
+      credits: 17100
+      researchPoints: 156750
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_3
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 152280
+      researchPoints: 1142100
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: science_max_crew_level_4
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -797,12 +540,13 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: science_hire_1
     displayName: Hire scientist
-    description: Hire new scientist
-    type: 3
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
     level: 1
     value: 1
     cost:
-      credits: 100
+      credits: 40
       researchPoints: 0
       resources:
         Phoron: 0
@@ -814,13 +558,14 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: science_hire_2
     displayName: Hire scientist
-    description: Hire new scientist
-    type: 3
-    level: 2
-    value: 2
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 18000
+      researchPoints: 165000
       resources:
         Phoron: 0
         Metal: 0
@@ -831,13 +576,14 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: science_hire_3
     displayName: Hire scientist
-    description: Hire new scientist
-    type: 3
-    level: 3
-    value: 3
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 165240
+      researchPoints: 1239300
       resources:
         Phoron: 0
         Metal: 0
@@ -848,12 +594,13 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: science_hire_4
     displayName: Hire scientist
-    description: Hire new scientist
-    type: 3
-    level: 4
-    value: 4
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -865,12 +612,239 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: science_hire_5
     displayName: Hire scientist
-    description: Hire new scientist
-    type: 3
-    level: 5
-    value: 5
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u043F\u044F\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: upgradeId
+    displayName: DisplayName
+    description: Description
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_unlock
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 90
+      researchPoints: 1125
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_2
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 15120
+      researchPoints: 138600
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_3
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 113400
+      researchPoints: 850500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_workstation_max_4
+    displayName: RND Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_2
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 16200
+      researchPoints: 148500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_3
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0442\u0440\u0435\u0442\u0438\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 139320
+      researchPoints: 1044900
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_4
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_add_workstation_5
+    displayName: RND Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u043F\u044F\u0442\u044B\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_2
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 17100
+      researchPoints: 156750
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_3
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 152280
+      researchPoints: 1142100
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: cargo_max_crew_level_4
+    displayName: RND Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -881,14 +855,15 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_hire_1
-    displayName: Hire cargo
-    description: Hire new miner or cargo worker
-    type: 3
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
     level: 1
     value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 150
+      researchPoints: 1875
       resources:
         Phoron: 0
         Metal: 0
@@ -898,14 +873,15 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_hire_2
-    displayName: Hire cargo
-    description: Hire new miner or cargo worker
-    type: 3
-    level: 2
-    value: 2
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 18000
+      researchPoints: 165000
       resources:
         Phoron: 0
         Metal: 0
@@ -915,14 +891,15 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_hire_3
-    displayName: Hire cargo
-    description: Hire new miner or cargo worker
-    type: 3
-    level: 3
-    value: 3
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 165240
+      researchPoints: 1239300
       resources:
         Phoron: 0
         Metal: 0
@@ -932,13 +909,14 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_hire_4
-    displayName: Hire cargo
-    description: Hire new miner or cargo worker
-    type: 3
-    level: 4
-    value: 4
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -949,13 +927,158 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: cargo_hire_5
-    displayName: Hire cargo
-    description: Hire new miner or cargo worker
-    type: 3
-    level: 5
-    value: 5
+    displayName: Hire scientist
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u043F\u044F\u0442\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: upgradeId
+    displayName: DisplayName
+    description: Description
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_unlock
+    displayName: Bar unlock
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 360
+      researchPoints: 4500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_workstation_max_2
+    displayName: Bar Workstation Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 15120
+      researchPoints: 138600
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_workstation_max_3
+    displayName: Bar Workstation Max Upgrade
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_add_workstation_1
+    displayName: Bar Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 16200
+      researchPoints: 148500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_add_workstation_2
+    displayName: Bar Add Workstation
+    description: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 \u0442\u0440\u0435\u0442\u0438\u0439
+      \u0432\u0435\u0440\u0441\u0442\u0430\u043A \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 139320
+      researchPoints: 1044900
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_max_crew_level_2
+    displayName: Bar Crew Max Upgrade
+    description: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+      \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+      \u0441\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u043A\u043E\u0432 \u0432 \u0420\u041D\u0414
+      \u0435\u0449\u0435 \u043D\u0430 1."
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 17100
+      researchPoints: 165000
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bar_max_crew_level_3
+    displayName: Bar Crew Max Upgrade
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -967,13 +1090,14 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: bar_hire_1
     displayName: Hire bartender
-    description: Hire new bar worker
-    type: 3
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
     level: 1
     value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 150
+      researchPoints: 1875
       resources:
         Phoron: 0
         Metal: 0
@@ -984,13 +1108,14 @@ MonoBehaviour:
         Uranium: 0
   - upgradeId: bar_hire_2
     displayName: Hire bartender
-    description: Hire new bar worker
-    type: 3
-    level: 2
-    value: 2
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
-      researchPoints: 0
+      credits: 18000
+      researchPoints: 165000
       resources:
         Phoron: 0
         Metal: 0
@@ -1000,13 +1125,31 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: bar_hire_3
-    displayName: Hire bartender
-    description: Hire new bar worker
-    type: 3
-    level: 3
-    value: 3
+    displayName: Hire musician
+    description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0442\u0440\u0435\u0442\u044C\u0435\u0433\u043E
+      \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 100
+      credits: 165240
+      researchPoints: 1239300
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: upgradeId
+    displayName: DisplayName
+    description: Description
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
       researchPoints: 0
       resources:
         Phoron: 0
@@ -1016,304 +1159,15 @@ MonoBehaviour:
         Gold: 0
         Silver: 0
         Uranium: 0
-  - upgradeId: bridge_workstation_max_1
-    displayName: Upgrade Bridge Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bridge_workstation_max_2
-    displayName: Upgrade Bridge Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_workstation_max_1
-    displayName: Upgrade Engineering Workstation max
-    description: Upgrade Engineering department maximum workstation limit
-    type: 4
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_workstation_max_2
-    displayName: Upgrade Engineering Workstation max
-    description: Upgrade Engineering department maximum workstation limit
-    type: 4
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_workstation_max_3
-    displayName: Upgrade Engineering Workstation max
-    description: Upgrade Engineering department maximum workstation limit
-    type: 4
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: engineering_workstation_max_4
-    displayName: Upgrade Engineering Workstation max
-    description: Upgrade Engineering department maximum workstation limit
-    type: 4
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_workstation_max_1
-    displayName: Upgrade Science Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_workstation_max_2
-    displayName: Upgrade Science Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_workstation_max_3
-    displayName: Upgrade Science Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: science_workstation_max_4
-    displayName: Upgrade Science Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_workstation_max_1
-    displayName: Upgrade Bar Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: bar_workstation_max_2
-    displayName: Upgrade Bar Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_workstation_max_1
-    displayName: Upgrade Cargo Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 1
-    value: 2
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_workstation_max_2
-    displayName: Upgrade Cargo Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 2
-    value: 3
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_workstation_max_3
-    displayName: Upgrade Cargo Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 3
-    value: 4
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: cargo_workstation_max_4
-    displayName: Upgrade Cargo Workstation max
-    description: Upgrade workstation max
-    type: 4
-    level: 4
-    value: 5
-    cost:
-      credits: 100
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
-  - upgradeId: station_max_crew_1
-    displayName: Upgrade station max crew
-    description: Upgrade station max crew to 10
-    type: 2
-    level: 1
-    value: 10
-    cost:
-      credits: 500
-      researchPoints: 500
-      resources:
-        Phoron: 0
-        Metal: 0
-        Glass: 0
-        Plastic: 0
-        Gold: 0
-        Silver: 0
-        Uranium: 0
   - upgradeId: station_max_crew_2
-    displayName: Upgrade station max crew
-    description: Upgrade station max crew to 15
-    type: 2
-    level: 2
-    value: 15
+    displayName: Station maximum crew
+    description: Increase station maximum crew limit
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 500
-      researchPoints: 500
+      credits: 50000
+      researchPoints: 50000
       resources:
         Phoron: 0
         Metal: 0
@@ -1323,14 +1177,14 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: station_max_crew_3
-    displayName: Upgrade station max crew
-    description: Upgrade station max crew to 20
-    type: 2
-    level: 3
-    value: 20
+    displayName: Station maximum crew
+    description: Increase station maximum crew limit
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 500
-      researchPoints: 500
+      credits: 50000
+      researchPoints: 50000
       resources:
         Phoron: 0
         Metal: 0
@@ -1340,14 +1194,14 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: station_max_crew_4
-    displayName: Upgrade station max crew
-    description: Upgrade station max crew to 25
-    type: 2
-    level: 4
-    value: 25
+    displayName: Station maximum crew
+    description: Increase station maximum crew limit
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 500
-      researchPoints: 500
+      credits: 50000
+      researchPoints: 50000
       resources:
         Phoron: 0
         Metal: 0
@@ -1357,14 +1211,167 @@ MonoBehaviour:
         Silver: 0
         Uranium: 0
   - upgradeId: station_max_crew_5
-    displayName: Upgrade station max crew
-    description: Upgrade station max crew to 30
-    type: 2
-    level: 5
-    value: 30
+    displayName: Station maximum crew
+    description: Increase station maximum crew limit
+    type: 0
+    level: 1
+    value: 1
     cost:
-      credits: 500
-      researchPoints: 500
+      credits: 50000
+      researchPoints: 50000
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: upgradeId
+    displayName: DisplayName
+    description: Description
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_workstation_max_2
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 16200
+      researchPoints: 148500
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_workstation_max_3
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 17100
+      researchPoints: 156750
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_add_workstation_2
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 17100
+      researchPoints: 156750
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_add_workstation_3
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 152280
+      researchPoints: 1142100
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_max_crew_level_2
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 18000
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_max_crew_level_3
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 0
+      researchPoints: 0
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_hire_2
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 18000
+      researchPoints: 165000
+      resources:
+        Phoron: 0
+        Metal: 0
+        Glass: 0
+        Plastic: 0
+        Gold: 0
+        Silver: 0
+        Uranium: 0
+  - upgradeId: bridge_hire_3
+    displayName: 
+    description: 
+    type: 0
+    level: 1
+    value: 1
+    cost:
+      credits: 165240
+      researchPoints: 1239300
       resources:
         Phoron: 0
         Metal: 0

@@ -1,0 +1,1579 @@
+{
+    "items": [
+        {
+            "upgradeId": "engineering_unlock",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 10.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_workstation_max_2",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "DepartmentMaxWorkstations",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 15120.0,
+                "researchPoints": 138600.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_workstation_max_3",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "DepartmentMaxWorkstations",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 113400.0,
+                "researchPoints": 850500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_workstation_max_4",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "DepartmentMaxWorkstations",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_add_workstation_2",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет второй верстак в РНД.",
+            "type": "DepartmentWorkstationAdd",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 16200.0,
+                "researchPoints": 148500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_add_workstation_3",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет третий верстак в РНД.",
+            "type": "DepartmentWorkstationAdd",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 139320.0,
+                "researchPoints": 1044900.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_add_workstation_4",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет четвертый верстак в РНД.",
+            "type": "DepartmentWorkstationAdd",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_add_workstation_5",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет пятый верстак в РНД.",
+            "type": "DepartmentWorkstationAdd",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_max_crew_level_2",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "DepartmentMaxCrew",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 156750.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_max_crew_level_3",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "DepartmentMaxCrew",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 152280.0,
+                "researchPoints": 1142100.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_max_crew_level_4",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "DepartmentMaxCrew",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_hire_1",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "DepartmentCrewHire",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 40.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_hire_2",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "DepartmentCrewHire",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_hire_3",
+            "displayName": "Hire scientist",
+            "description": "Нанимает третьего ученого в РНД.",
+            "type": "DepartmentCrewHire",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 165240.0,
+                "researchPoints": 1239300.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_hire_4",
+            "displayName": "Hire scientist",
+            "description": "Нанимает четвертого ученого в РНД.",
+            "type": "DepartmentCrewHire",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "engineering_hire_5",
+            "displayName": "Hire scientist",
+            "description": "Нанимает пятого ученого в РНД.",
+            "type": "DepartmentCrewHire",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "upgradeId",
+            "displayName": "DisplayName",
+            "description": "Description",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_unlock",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 10.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_workstation_max_2",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 15120.0,
+                "researchPoints": 138600.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_workstation_max_3",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 113400.0,
+                "researchPoints": 850500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_workstation_max_4",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_add_workstation_2",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет второй верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 16200.0,
+                "researchPoints": 148500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_add_workstation_3",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет третий верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 139320.0,
+                "researchPoints": 1044900.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_add_workstation_4",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет четвертый верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_add_workstation_5",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет пятый верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_max_crew_level_2",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 156750.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_max_crew_level_3",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 152280.0,
+                "researchPoints": 1142100.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_max_crew_level_4",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_hire_1",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 40.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_hire_2",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_hire_3",
+            "displayName": "Hire scientist",
+            "description": "Нанимает третьего ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 165240.0,
+                "researchPoints": 1239300.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_hire_4",
+            "displayName": "Hire scientist",
+            "description": "Нанимает четвертого ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "science_hire_5",
+            "displayName": "Hire scientist",
+            "description": "Нанимает пятого ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "upgradeId",
+            "displayName": "DisplayName",
+            "description": "Description",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_unlock",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 90.0,
+                "researchPoints": 1125.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_workstation_max_2",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 15120.0,
+                "researchPoints": 138600.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_workstation_max_3",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 113400.0,
+                "researchPoints": 850500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_workstation_max_4",
+            "displayName": "RND Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_add_workstation_2",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет второй верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 16200.0,
+                "researchPoints": 148500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_add_workstation_3",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет третий верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 139320.0,
+                "researchPoints": 1044900.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_add_workstation_4",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет четвертый верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_add_workstation_5",
+            "displayName": "RND Add Workstation",
+            "description": "Добавляет пятый верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_max_crew_level_2",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 156750.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_max_crew_level_3",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 152280.0,
+                "researchPoints": 1142100.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_max_crew_level_4",
+            "displayName": "RND Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_hire_1",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 150.0,
+                "researchPoints": 1875.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_hire_2",
+            "displayName": "Hire scientist",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_hire_3",
+            "displayName": "Hire scientist",
+            "description": "Нанимает третьего ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 165240.0,
+                "researchPoints": 1239300.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_hire_4",
+            "displayName": "Hire scientist",
+            "description": "Нанимает четвертого ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "cargo_hire_5",
+            "displayName": "Hire scientist",
+            "description": "Нанимает пятого ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "upgradeId",
+            "displayName": "DisplayName",
+            "description": "Description",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_unlock",
+            "displayName": "Bar unlock",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 360.0,
+                "researchPoints": 4500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_workstation_max_2",
+            "displayName": "Bar Workstation Max Upgrade",
+            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 15120.0,
+                "researchPoints": 138600.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_workstation_max_3",
+            "displayName": "Bar Workstation Max Upgrade",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_add_workstation_1",
+            "displayName": "Bar Add Workstation",
+            "description": "Добавляет второй верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 16200.0,
+                "researchPoints": 148500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_add_workstation_2",
+            "displayName": "Bar Add Workstation",
+            "description": "Добавляет третий верстак в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 139320.0,
+                "researchPoints": 1044900.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_max_crew_level_2",
+            "displayName": "Bar Crew Max Upgrade",
+            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_max_crew_level_3",
+            "displayName": "Bar Crew Max Upgrade",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_hire_1",
+            "displayName": "Hire bartender",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 150.0,
+                "researchPoints": 1875.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_hire_2",
+            "displayName": "Hire bartender",
+            "description": "Нанимает второго ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bar_hire_3",
+            "displayName": "Hire musician",
+            "description": "Нанимает третьего ученого в РНД.",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 165240.0,
+                "researchPoints": 1239300.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "upgradeId",
+            "displayName": "DisplayName",
+            "description": "Description",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "station_max_crew_2",
+            "displayName": "Station maximum crew",
+            "description": "Increase station maximum crew limit",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 50000.0,
+                "researchPoints": 50000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "station_max_crew_3",
+            "displayName": "Station maximum crew",
+            "description": "Increase station maximum crew limit",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 50000.0,
+                "researchPoints": 50000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "station_max_crew_4",
+            "displayName": "Station maximum crew",
+            "description": "Increase station maximum crew limit",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 50000.0,
+                "researchPoints": 50000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "station_max_crew_5",
+            "displayName": "Station maximum crew",
+            "description": "Increase station maximum crew limit",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 50000.0,
+                "researchPoints": 50000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "upgradeId",
+            "displayName": "DisplayName",
+            "description": "Description",
+            "type": "Type",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_workstation_max_2",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 16200.0,
+                "researchPoints": 148500.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_workstation_max_3",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 156750.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_add_workstation_2",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 17100.0,
+                "researchPoints": 156750.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_add_workstation_3",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 152280.0,
+                "researchPoints": 1142100.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_max_crew_level_2",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_max_crew_level_3",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 0.0,
+                "researchPoints": 0.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_hire_2",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 18000.0,
+                "researchPoints": 165000.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        },
+        {
+            "upgradeId": "bridge_hire_3",
+            "displayName": "",
+            "description": "",
+            "type": "",
+            "level": 1,
+            "value": 1,
+            "cost": {
+                "credits": 165240.0,
+                "researchPoints": 1239300.0,
+                "resources": {
+                    "Phoron": 0.0,
+                    "Metal": 0.0,
+                    "Glass": 0.0,
+                    "Plastic": 0.0,
+                    "Gold": 0.0,
+                    "Silver": 0.0,
+                    "Uranium": 0.0
+                }
+            }
+        }
+    ]
+}
