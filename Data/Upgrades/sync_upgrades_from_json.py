@@ -58,31 +58,31 @@ for idx, row in enumerate(rows, start=2):          # start=2 — номер ст
         continue
 
     try:
-        level = int(row.get("UNNAMED_O") or 1)
+        level = int(row.get("UNNAMED_P") or 1)
     except ValueError:
         level = 1
     try:
-        value = float(row.get("UNNAMED_P") or level)
+        value = float(row.get("UNNAMED_Q") or level)
     except ValueError:
         value = level
 
     item = {
         "upgradeId": upgrade_id,
-        "displayName": row.get("UNNAMED_L", "").strip(),
-        "description": row.get("UNNAMED_M", "").strip(),
-        "type": enum_index(row.get("UNNAMED_N", "").strip()),
+        "displayName": row.get("UNNAMED_M", "").strip(),
+        "description": row.get("UNNAMED_N", "").strip(),
+        "type": enum_index(row.get("UNNAMED_O", "").strip()),
         "level": level,
         "value": value,
         "cost": {
             "credits": val_or_zero(row.get("UNNAMED_D")),
             "researchPoints": val_or_zero(row.get("UNNAMED_E")),
             "resources": {
-                "Phoron":  val_or_zero(row.get("UNNAMED_J")),
+                "Phoron":  val_or_zero(row.get("UNNAMED_K")),
                 "Metal":   val_or_zero(row.get("UNNAMED_F")),
-                "Glass":   0.0,
+                "Glass":   val_or_zero(row.get("UNNAMED_H")),
                 "Plastic": val_or_zero(row.get("UNNAMED_G")),
-                "Gold":    val_or_zero(row.get("UNNAMED_H")),
-                "Silver":  val_or_zero(row.get("UNNAMED_I")),
+                "Gold":    val_or_zero(row.get("UNNAMED_I")),
+                "Silver":  val_or_zero(row.get("UNNAMED_J")),
                 "Uranium": 0.0
             }
         }

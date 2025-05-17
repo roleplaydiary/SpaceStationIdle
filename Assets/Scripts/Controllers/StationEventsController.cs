@@ -5,8 +5,8 @@ using Random = UnityEngine.Random;
 
 public class StationEventsController : MonoBehaviour
 {
-    private const float MIN_EVENT_DELAY = 180f; 
-    private const float MAX_EVENT_DELAY = 300f; 
+    private const float MIN_EVENT_DELAY = 60f; 
+    private const float MAX_EVENT_DELAY = 180f; 
     
     private float medicalEventRatio = 10f;
     private float securityEventRatio = 10f;

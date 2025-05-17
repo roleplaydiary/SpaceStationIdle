@@ -16,7 +16,7 @@ public class SettingsController : MonoBehaviour
 
     private void Start()
     {
-        //ButtonsInitialize();
+        ButtonsInitialize();
     }
 
     private void ButtonsInitialize()
