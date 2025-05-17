@@ -21,7 +21,8 @@ public class UpgradeButtonViewer : MonoBehaviour
         
         if (upgrade.upgradeId == null)
         {
-            Debug.Log("Upgrade doesn't exist " + upgradeId);
+            Debug.LogWarning("Upgrade doesn't exist " + upgradeId);
+            gameObject.SetActive(false);
             return;
         }
         

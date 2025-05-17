@@ -17,7 +17,7 @@ try:
         google_data = json.load(f)
     logging.info("Файл upgrade_data_google.json успешно загружен")
 except Exception as e:
-    logging.error(f"Ошибка загрузки google_data_google.json: {e}")
+    logging.error(f"Ошибка загрузки upgrade_data_google.json: {e}")
     raise
 
 rows = google_data[1:]  # пропускаем заголовок
@@ -40,13 +40,23 @@ for idx, row in enumerate(rows):
         logging.warning(f"[Строка {idx}] Пропущена: отсутствует upgradeId")
         continue
 
+    # Берём level и value из столбцов, если пусто - ставим дефолт 1
+    try:
+        level = int(row.get("UNNAMED_O")) if row.get("UNNAMED_O") not in (None, "") else 1
+    except:
+        level = 1
+    try:
+        value = float(row.get("UNNAMED_P")) if row.get("UNNAMED_P") not in (None, "") else 1
+    except:
+        value = 1
+
     item = {
         "upgradeId": upgrade_id,
         "displayName": row.get("UNNAMED_L") or "",
         "description": row.get("UNNAMED_M") or "",
         "type": row.get("UNNAMED_N") or "",
-        "level": 1,         # по умолчанию, можно изменить логику, если уровень есть в данных
-        "value": 1,         # по умолчанию
+        "level": level,
+        "value": value,
         "cost": {
             "credits": val_or_zero(row.get("UNNAMED_D")),
             "researchPoints": val_or_zero(row.get("UNNAMED_E")),

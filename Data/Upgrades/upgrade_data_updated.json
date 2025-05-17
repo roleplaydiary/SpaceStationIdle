@@ -2,11 +2,11 @@
     "items": [
         {
             "upgradeId": "engineering_unlock",
-            "displayName": "",
-            "description": "",
+            "displayName": "Unlock Engineering",
+            "description": "Unlock engineering department to produce Energy",
             "type": "",
             "level": 1,
-            "value": 1,
+            "value": 1.0,
             "cost": {
                 "credits": 10.0,
                 "researchPoints": 0.0,
@@ -23,11 +23,11 @@
         },
         {
             "upgradeId": "engineering_workstation_max_2",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
             "type": "DepartmentMaxWorkstations",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 15120.0,
                 "researchPoints": 138600.0,
@@ -44,11 +44,11 @@
         },
         {
             "upgradeId": "engineering_workstation_max_3",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
             "type": "DepartmentMaxWorkstations",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 113400.0,
                 "researchPoints": 850500.0,
@@ -65,11 +65,11 @@
         },
         {
             "upgradeId": "engineering_workstation_max_4",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
             "type": "DepartmentMaxWorkstations",
-            "level": 1,
-            "value": 1,
+            "level": 4,
+            "value": 4.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -86,11 +86,11 @@
         },
         {
             "upgradeId": "engineering_add_workstation_2",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет второй верстак в РНД.",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "DepartmentWorkstationAdd",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 16200.0,
                 "researchPoints": 148500.0,
@@ -107,11 +107,11 @@
         },
         {
             "upgradeId": "engineering_add_workstation_3",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет третий верстак в РНД.",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "DepartmentWorkstationAdd",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 139320.0,
                 "researchPoints": 1044900.0,
@@ -128,11 +128,11 @@
         },
         {
             "upgradeId": "engineering_add_workstation_4",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет четвертый верстак в РНД.",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "DepartmentWorkstationAdd",
-            "level": 1,
-            "value": 1,
+            "level": 4,
+            "value": 4.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -149,11 +149,11 @@
         },
         {
             "upgradeId": "engineering_add_workstation_5",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет пятый верстак в РНД.",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "DepartmentWorkstationAdd",
-            "level": 1,
-            "value": 1,
+            "level": 5,
+            "value": 5.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -170,11 +170,11 @@
         },
         {
             "upgradeId": "engineering_max_crew_level_2",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
             "type": "DepartmentMaxCrew",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 17100.0,
                 "researchPoints": 156750.0,
@@ -191,11 +191,11 @@
         },
         {
             "upgradeId": "engineering_max_crew_level_3",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
             "type": "DepartmentMaxCrew",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 152280.0,
                 "researchPoints": 1142100.0,
@@ -212,11 +212,11 @@
         },
         {
             "upgradeId": "engineering_max_crew_level_4",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
             "type": "DepartmentMaxCrew",
-            "level": 1,
-            "value": 1,
+            "level": 4,
+            "value": 4.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -233,11 +233,11 @@
         },
         {
             "upgradeId": "engineering_hire_1",
-            "displayName": "Hire scientist",
-            "description": "Нанимает второго ученого в РНД.",
+            "displayName": "Hire Engineer",
+            "description": "Hire new engineer",
             "type": "DepartmentCrewHire",
             "level": 1,
-            "value": 1,
+            "value": 1.0,
             "cost": {
                 "credits": 40.0,
                 "researchPoints": 0.0,
@@ -254,11 +254,11 @@
         },
         {
             "upgradeId": "engineering_hire_2",
-            "displayName": "Hire scientist",
-            "description": "Нанимает второго ученого в РНД.",
+            "displayName": "Hire Engineer",
+            "description": "Hire new engineer",
             "type": "DepartmentCrewHire",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 18000.0,
                 "researchPoints": 165000.0,
@@ -275,11 +275,11 @@
         },
         {
             "upgradeId": "engineering_hire_3",
-            "displayName": "Hire scientist",
-            "description": "Нанимает третьего ученого в РНД.",
+            "displayName": "Hire Engineer",
+            "description": "Hire new engineer",
             "type": "DepartmentCrewHire",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 165240.0,
                 "researchPoints": 1239300.0,
@@ -296,11 +296,11 @@
         },
         {
             "upgradeId": "engineering_hire_4",
-            "displayName": "Hire scientist",
-            "description": "Нанимает четвертого ученого в РНД.",
+            "displayName": "Hire Engineer",
+            "description": "Hire new engineer",
             "type": "DepartmentCrewHire",
-            "level": 1,
-            "value": 1,
+            "level": 4,
+            "value": 4.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -317,11 +317,11 @@
         },
         {
             "upgradeId": "engineering_hire_5",
-            "displayName": "Hire scientist",
-            "description": "Нанимает пятого ученого в РНД.",
+            "displayName": "Hire Engineer",
+            "description": "Hire new engineer",
             "type": "DepartmentCrewHire",
-            "level": 1,
-            "value": 1,
+            "level": 5,
+            "value": 5.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -340,7 +340,7 @@
             "upgradeId": "upgradeId",
             "displayName": "DisplayName",
             "description": "Description",
-            "type": "",
+            "type": "Level",
             "level": 1,
             "value": 1,
             "cost": {
@@ -359,9 +359,9 @@
         },
         {
             "upgradeId": "science_unlock",
-            "displayName": "",
-            "description": "",
-            "type": "",
+            "displayName": "Unlock Science",
+            "description": "Unlock Science department to produce Research Points(RP)",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -380,10 +380,10 @@
         },
         {
             "upgradeId": "science_workstation_max_2",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 15120.0,
@@ -401,10 +401,10 @@
         },
         {
             "upgradeId": "science_workstation_max_3",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 113400.0,
@@ -422,10 +422,10 @@
         },
         {
             "upgradeId": "science_workstation_max_4",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -443,10 +443,10 @@
         },
         {
             "upgradeId": "science_add_workstation_2",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет второй верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 16200.0,
@@ -464,10 +464,10 @@
         },
         {
             "upgradeId": "science_add_workstation_3",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет третий верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 139320.0,
@@ -485,10 +485,10 @@
         },
         {
             "upgradeId": "science_add_workstation_4",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет четвертый верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -506,10 +506,10 @@
         },
         {
             "upgradeId": "science_add_workstation_5",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет пятый верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 5,
+            "level": 5,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -527,10 +527,10 @@
         },
         {
             "upgradeId": "science_max_crew_level_2",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 17100.0,
@@ -548,10 +548,10 @@
         },
         {
             "upgradeId": "science_max_crew_level_3",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 152280.0,
@@ -569,10 +569,10 @@
         },
         {
             "upgradeId": "science_max_crew_level_4",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -592,7 +592,7 @@
             "upgradeId": "science_hire_1",
             "displayName": "Hire scientist",
             "description": "Нанимает второго ученого в РНД.",
-            "type": "",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -613,8 +613,8 @@
             "upgradeId": "science_hire_2",
             "displayName": "Hire scientist",
             "description": "Нанимает второго ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 18000.0,
@@ -634,8 +634,8 @@
             "upgradeId": "science_hire_3",
             "displayName": "Hire scientist",
             "description": "Нанимает третьего ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 165240.0,
@@ -655,8 +655,8 @@
             "upgradeId": "science_hire_4",
             "displayName": "Hire scientist",
             "description": "Нанимает четвертого ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -676,8 +676,8 @@
             "upgradeId": "science_hire_5",
             "displayName": "Hire scientist",
             "description": "Нанимает пятого ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 5,
+            "level": 5,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -697,7 +697,7 @@
             "upgradeId": "upgradeId",
             "displayName": "DisplayName",
             "description": "Description",
-            "type": "",
+            "type": "Level",
             "level": 1,
             "value": 1,
             "cost": {
@@ -716,9 +716,9 @@
         },
         {
             "upgradeId": "cargo_unlock",
-            "displayName": "",
-            "description": "",
-            "type": "",
+            "displayName": "Unlock Cargo",
+            "description": "Unlock Cargo department to produce more credits and resources",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -737,10 +737,10 @@
         },
         {
             "upgradeId": "cargo_workstation_max_2",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 15120.0,
@@ -758,10 +758,10 @@
         },
         {
             "upgradeId": "cargo_workstation_max_3",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 113400.0,
@@ -779,10 +779,10 @@
         },
         {
             "upgradeId": "cargo_workstation_max_4",
-            "displayName": "RND Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -800,10 +800,10 @@
         },
         {
             "upgradeId": "cargo_add_workstation_2",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет второй верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 16200.0,
@@ -821,10 +821,10 @@
         },
         {
             "upgradeId": "cargo_add_workstation_3",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет третий верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 139320.0,
@@ -842,10 +842,10 @@
         },
         {
             "upgradeId": "cargo_add_workstation_4",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет четвертый верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -863,10 +863,10 @@
         },
         {
             "upgradeId": "cargo_add_workstation_5",
-            "displayName": "RND Add Workstation",
-            "description": "Добавляет пятый верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 5,
+            "level": 5,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -884,10 +884,10 @@
         },
         {
             "upgradeId": "cargo_max_crew_level_2",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 17100.0,
@@ -905,10 +905,10 @@
         },
         {
             "upgradeId": "cargo_max_crew_level_3",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 152280.0,
@@ -926,10 +926,10 @@
         },
         {
             "upgradeId": "cargo_max_crew_level_4",
-            "displayName": "RND Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -949,7 +949,7 @@
             "upgradeId": "cargo_hire_1",
             "displayName": "Hire scientist",
             "description": "Нанимает второго ученого в РНД.",
-            "type": "",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -970,8 +970,8 @@
             "upgradeId": "cargo_hire_2",
             "displayName": "Hire scientist",
             "description": "Нанимает второго ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 18000.0,
@@ -991,8 +991,8 @@
             "upgradeId": "cargo_hire_3",
             "displayName": "Hire scientist",
             "description": "Нанимает третьего ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 165240.0,
@@ -1012,8 +1012,8 @@
             "upgradeId": "cargo_hire_4",
             "displayName": "Hire scientist",
             "description": "Нанимает четвертого ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -1033,8 +1033,8 @@
             "upgradeId": "cargo_hire_5",
             "displayName": "Hire scientist",
             "description": "Нанимает пятого ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "type": 5,
+            "level": 5,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -1054,7 +1054,7 @@
             "upgradeId": "upgradeId",
             "displayName": "DisplayName",
             "description": "Description",
-            "type": "",
+            "type": "Level",
             "level": 1,
             "value": 1,
             "cost": {
@@ -1073,9 +1073,9 @@
         },
         {
             "upgradeId": "bar_unlock",
-            "displayName": "Bar unlock",
-            "description": "",
-            "type": "",
+            "displayName": "Unlock Bar",
+            "description": "Unlock Bar to produce Crew Mood and have a place to rest for them",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -1094,10 +1094,10 @@
         },
         {
             "upgradeId": "bar_workstation_max_2",
-            "displayName": "Bar Workstation Max Upgrade",
-            "description": "Увеличивает максимальное количество верстаков в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 15120.0,
@@ -1115,10 +1115,10 @@
         },
         {
             "upgradeId": "bar_workstation_max_3",
-            "displayName": "Bar Workstation Max Upgrade",
-            "description": "",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -1135,11 +1135,11 @@
             }
         },
         {
-            "upgradeId": "bar_add_workstation_1",
-            "displayName": "Bar Add Workstation",
-            "description": "Добавляет второй верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "upgradeId": "bar_add_workstation_2",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 16200.0,
@@ -1156,11 +1156,11 @@
             }
         },
         {
-            "upgradeId": "bar_add_workstation_2",
-            "displayName": "Bar Add Workstation",
-            "description": "Добавляет третий верстак в РНД.",
-            "type": "",
-            "level": 1,
+            "upgradeId": "bar_add_workstation_3",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 139320.0,
@@ -1178,10 +1178,10 @@
         },
         {
             "upgradeId": "bar_max_crew_level_2",
-            "displayName": "Bar Crew Max Upgrade",
-            "description": "Увеличивает максимальное количество сотрудников в РНД еще на 1.",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 17100.0,
@@ -1199,10 +1199,10 @@
         },
         {
             "upgradeId": "bar_max_crew_level_3",
-            "displayName": "Bar Crew Max Upgrade",
-            "description": "",
-            "type": "",
-            "level": 1,
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 0.0,
@@ -1221,8 +1221,8 @@
         {
             "upgradeId": "bar_hire_1",
             "displayName": "Hire bartender",
-            "description": "Нанимает второго ученого в РНД.",
-            "type": "",
+            "description": "Hire new bartender",
+            "type": 1,
             "level": 1,
             "value": 1,
             "cost": {
@@ -1242,9 +1242,9 @@
         {
             "upgradeId": "bar_hire_2",
             "displayName": "Hire bartender",
-            "description": "Нанимает второго ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "description": "Hire new bartender",
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 18000.0,
@@ -1263,9 +1263,9 @@
         {
             "upgradeId": "bar_hire_3",
             "displayName": "Hire musician",
-            "description": "Нанимает третьего ученого в РНД.",
-            "type": "",
-            "level": 1,
+            "description": "Hire a musician",
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 165240.0,
@@ -1285,7 +1285,7 @@
             "upgradeId": "upgradeId",
             "displayName": "DisplayName",
             "description": "Description",
-            "type": "",
+            "type": "Level",
             "level": 1,
             "value": 1,
             "cost": {
@@ -1306,8 +1306,8 @@
             "upgradeId": "station_max_crew_2",
             "displayName": "Station maximum crew",
             "description": "Increase station maximum crew limit",
-            "type": "",
-            "level": 1,
+            "type": 2,
+            "level": 2,
             "value": 1,
             "cost": {
                 "credits": 50000.0,
@@ -1327,8 +1327,8 @@
             "upgradeId": "station_max_crew_3",
             "displayName": "Station maximum crew",
             "description": "Increase station maximum crew limit",
-            "type": "",
-            "level": 1,
+            "type": 3,
+            "level": 3,
             "value": 1,
             "cost": {
                 "credits": 50000.0,
@@ -1348,8 +1348,8 @@
             "upgradeId": "station_max_crew_4",
             "displayName": "Station maximum crew",
             "description": "Increase station maximum crew limit",
-            "type": "",
-            "level": 1,
+            "type": 4,
+            "level": 4,
             "value": 1,
             "cost": {
                 "credits": 50000.0,
@@ -1369,8 +1369,8 @@
             "upgradeId": "station_max_crew_5",
             "displayName": "Station maximum crew",
             "description": "Increase station maximum crew limit",
-            "type": "",
-            "level": 1,
+            "type": 5,
+            "level": 5,
             "value": 1,
             "cost": {
                 "credits": 50000.0,
@@ -1409,11 +1409,11 @@
         },
         {
             "upgradeId": "bridge_workstation_max_2",
-            "displayName": "",
-            "description": "",
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 16200.0,
                 "researchPoints": 148500.0,
@@ -1430,11 +1430,11 @@
         },
         {
             "upgradeId": "bridge_workstation_max_3",
-            "displayName": "",
-            "description": "",
+            "displayName": "Increase workstation limit",
+            "description": "Increase workstation limit in the department",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 17100.0,
                 "researchPoints": 156750.0,
@@ -1451,11 +1451,11 @@
         },
         {
             "upgradeId": "bridge_add_workstation_2",
-            "displayName": "",
-            "description": "",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 17100.0,
                 "researchPoints": 156750.0,
@@ -1472,11 +1472,11 @@
         },
         {
             "upgradeId": "bridge_add_workstation_3",
-            "displayName": "",
-            "description": "",
+            "displayName": "Buy a workstation",
+            "description": "Buy a new workstation",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 152280.0,
                 "researchPoints": 1142100.0,
@@ -1493,11 +1493,11 @@
         },
         {
             "upgradeId": "bridge_max_crew_level_2",
-            "displayName": "",
-            "description": "",
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 18000.0,
                 "researchPoints": 0.0,
@@ -1514,11 +1514,11 @@
         },
         {
             "upgradeId": "bridge_max_crew_level_3",
-            "displayName": "",
-            "description": "",
+            "displayName": "Increase crew limit",
+            "description": "Increase crew limit in the department",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 0.0,
                 "researchPoints": 0.0,
@@ -1535,11 +1535,11 @@
         },
         {
             "upgradeId": "bridge_hire_2",
-            "displayName": "",
-            "description": "",
+            "displayName": "Hire a Commander",
+            "description": "Hire new Commander who will deal with the crew",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 2,
+            "value": 2.0,
             "cost": {
                 "credits": 18000.0,
                 "researchPoints": 165000.0,
@@ -1556,11 +1556,11 @@
         },
         {
             "upgradeId": "bridge_hire_3",
-            "displayName": "",
-            "description": "",
+            "displayName": "Hire a Commander",
+            "description": "Hire new Commander who will deal with the station",
             "type": "",
-            "level": 1,
-            "value": 1,
+            "level": 3,
+            "value": 3.0,
             "cost": {
                 "credits": 165240.0,
                 "researchPoints": 1239300.0,
