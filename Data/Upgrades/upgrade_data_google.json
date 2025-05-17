@@ -31,7 +31,7 @@
     "UNNAMED_K": "engineering_unlock",
     "UNNAMED_L": "Unlock Engineering",
     "UNNAMED_M": "Unlock engineering department to produce Energy",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentUnlock",
     "UNNAMED_O": 1,
     "UNNAMED_P": 1
   },
@@ -319,9 +319,9 @@
     "UNNAMED_K": "upgradeId",
     "UNNAMED_L": "DisplayName",
     "UNNAMED_M": "Description",
-    "UNNAMED_N": "Level",
-    "UNNAMED_O": "Value",
-    "UNNAMED_P": ""
+    "UNNAMED_N": "Type",
+    "UNNAMED_O": "Level",
+    "UNNAMED_P": "Value"
   },
   {
     "UNNAMED_A": "",
@@ -337,9 +337,9 @@
     "UNNAMED_K": "science_unlock",
     "UNNAMED_L": "Unlock Science",
     "UNNAMED_M": "Unlock Science department to produce Research Points(RP)",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentUnlock",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -355,9 +355,9 @@
     "UNNAMED_K": "science_workstation_max_2",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -373,9 +373,9 @@
     "UNNAMED_K": "science_workstation_max_3",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -391,9 +391,9 @@
     "UNNAMED_K": "science_workstation_max_4",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -409,9 +409,9 @@
     "UNNAMED_K": "science_add_workstation_2",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -427,9 +427,9 @@
     "UNNAMED_K": "science_add_workstation_3",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -445,9 +445,9 @@
     "UNNAMED_K": "science_add_workstation_4",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -463,9 +463,9 @@
     "UNNAMED_K": "science_add_workstation_5",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 5,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 5,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 5
   },
   {
     "UNNAMED_A": "",
@@ -481,9 +481,9 @@
     "UNNAMED_K": "science_max_crew_level_2",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -499,9 +499,9 @@
     "UNNAMED_K": "science_max_crew_level_3",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -517,9 +517,9 @@
     "UNNAMED_K": "science_max_crew_level_4",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -535,9 +535,9 @@
     "UNNAMED_K": "science_hire_1",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает второго ученого в РНД.",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -553,9 +553,9 @@
     "UNNAMED_K": "science_hire_2",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает второго ученого в РНД.",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -571,9 +571,9 @@
     "UNNAMED_K": "science_hire_3",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает третьего ученого в РНД.",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -589,9 +589,9 @@
     "UNNAMED_K": "science_hire_4",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает четвертого ученого в РНД.",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -607,9 +607,9 @@
     "UNNAMED_K": "science_hire_5",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает пятого ученого в РНД.",
-    "UNNAMED_N": 5,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 5,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 5
   },
   {
     "UNNAMED_A": "",
@@ -625,9 +625,9 @@
     "UNNAMED_K": "upgradeId",
     "UNNAMED_L": "DisplayName",
     "UNNAMED_M": "Description",
-    "UNNAMED_N": "Level",
-    "UNNAMED_O": "Value",
-    "UNNAMED_P": ""
+    "UNNAMED_N": "Type",
+    "UNNAMED_O": "Level",
+    "UNNAMED_P": "Value"
   },
   {
     "UNNAMED_A": "",
@@ -643,9 +643,9 @@
     "UNNAMED_K": "cargo_unlock",
     "UNNAMED_L": "Unlock Cargo",
     "UNNAMED_M": "Unlock Cargo department to produce more credits and resources",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentUnlock",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -661,9 +661,9 @@
     "UNNAMED_K": "cargo_workstation_max_2",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -679,9 +679,9 @@
     "UNNAMED_K": "cargo_workstation_max_3",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -697,9 +697,9 @@
     "UNNAMED_K": "cargo_workstation_max_4",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -715,9 +715,9 @@
     "UNNAMED_K": "cargo_add_workstation_2",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -733,9 +733,9 @@
     "UNNAMED_K": "cargo_add_workstation_3",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -751,9 +751,9 @@
     "UNNAMED_K": "cargo_add_workstation_4",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -769,9 +769,9 @@
     "UNNAMED_K": "cargo_add_workstation_5",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 5,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 5,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 5
   },
   {
     "UNNAMED_A": "",
@@ -787,9 +787,9 @@
     "UNNAMED_K": "cargo_max_crew_level_2",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -805,9 +805,9 @@
     "UNNAMED_K": "cargo_max_crew_level_3",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -823,9 +823,9 @@
     "UNNAMED_K": "cargo_max_crew_level_4",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -841,9 +841,9 @@
     "UNNAMED_K": "cargo_hire_1",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает второго ученого в РНД.",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -859,9 +859,9 @@
     "UNNAMED_K": "cargo_hire_2",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает второго ученого в РНД.",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -877,9 +877,9 @@
     "UNNAMED_K": "cargo_hire_3",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает третьего ученого в РНД.",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -895,9 +895,9 @@
     "UNNAMED_K": "cargo_hire_4",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает четвертого ученого в РНД.",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -913,9 +913,9 @@
     "UNNAMED_K": "cargo_hire_5",
     "UNNAMED_L": "Hire scientist",
     "UNNAMED_M": "Нанимает пятого ученого в РНД.",
-    "UNNAMED_N": 5,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 5,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 5
   },
   {
     "UNNAMED_A": "",
@@ -931,9 +931,9 @@
     "UNNAMED_K": "upgradeId",
     "UNNAMED_L": "DisplayName",
     "UNNAMED_M": "Description",
-    "UNNAMED_N": "Level",
-    "UNNAMED_O": "Value",
-    "UNNAMED_P": ""
+    "UNNAMED_N": "Type",
+    "UNNAMED_O": "Level",
+    "UNNAMED_P": "Value"
   },
   {
     "UNNAMED_A": "",
@@ -949,9 +949,9 @@
     "UNNAMED_K": "bar_unlock",
     "UNNAMED_L": "Unlock Bar",
     "UNNAMED_M": "Unlock Bar to produce Crew Mood and have a place to rest for them",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentUnlock",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -967,16 +967,16 @@
     "UNNAMED_K": "bar_workstation_max_2",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
     "UNNAMED_B": "Увеличение макс. верстаков Ур.3",
     "UNNAMED_C": "Бар",
-    "UNNAMED_D": 0,
-    "UNNAMED_E": 0,
+    "UNNAMED_D": 113400,
+    "UNNAMED_E": 850500,
     "UNNAMED_F": "",
     "UNNAMED_G": "",
     "UNNAMED_H": "",
@@ -985,9 +985,9 @@
     "UNNAMED_K": "bar_workstation_max_3",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -1003,9 +1003,9 @@
     "UNNAMED_K": "bar_add_workstation_2",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -1021,9 +1021,9 @@
     "UNNAMED_K": "bar_add_workstation_3",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -1039,16 +1039,16 @@
     "UNNAMED_K": "bar_max_crew_level_2",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
     "UNNAMED_B": "Увеличение макс. сотрудников Ур.3",
     "UNNAMED_C": "Бар",
-    "UNNAMED_D": 0,
-    "UNNAMED_E": 0,
+    "UNNAMED_D": 152280,
+    "UNNAMED_E": 1142100,
     "UNNAMED_F": "",
     "UNNAMED_G": "",
     "UNNAMED_H": "",
@@ -1057,9 +1057,9 @@
     "UNNAMED_K": "bar_max_crew_level_3",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -1075,9 +1075,9 @@
     "UNNAMED_K": "bar_hire_1",
     "UNNAMED_L": "Hire bartender",
     "UNNAMED_M": "Hire new bartender",
-    "UNNAMED_N": 1,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 1,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 1
   },
   {
     "UNNAMED_A": "",
@@ -1093,9 +1093,9 @@
     "UNNAMED_K": "bar_hire_2",
     "UNNAMED_L": "Hire bartender",
     "UNNAMED_M": "Hire new bartender",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -1111,9 +1111,9 @@
     "UNNAMED_K": "bar_hire_3",
     "UNNAMED_L": "Hire musician",
     "UNNAMED_M": "Hire a musician",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -1129,9 +1129,9 @@
     "UNNAMED_K": "upgradeId",
     "UNNAMED_L": "DisplayName",
     "UNNAMED_M": "Description",
-    "UNNAMED_N": "Level",
-    "UNNAMED_O": "Value",
-    "UNNAMED_P": ""
+    "UNNAMED_N": "Type",
+    "UNNAMED_O": "Level",
+    "UNNAMED_P": "Value"
   },
   {
     "UNNAMED_A": "",
@@ -1147,9 +1147,9 @@
     "UNNAMED_K": "station_max_crew_2",
     "UNNAMED_L": "Station maximum crew",
     "UNNAMED_M": "Increase station maximum crew limit",
-    "UNNAMED_N": 2,
+    "UNNAMED_N": "StationMaxCrew",
     "UNNAMED_O": 2,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 2
   },
   {
     "UNNAMED_A": "",
@@ -1165,9 +1165,9 @@
     "UNNAMED_K": "station_max_crew_3",
     "UNNAMED_L": "Station maximum crew",
     "UNNAMED_M": "Increase station maximum crew limit",
-    "UNNAMED_N": 3,
+    "UNNAMED_N": "StationMaxCrew",
     "UNNAMED_O": 3,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 3
   },
   {
     "UNNAMED_A": "",
@@ -1183,9 +1183,9 @@
     "UNNAMED_K": "station_max_crew_4",
     "UNNAMED_L": "Station maximum crew",
     "UNNAMED_M": "Increase station maximum crew limit",
-    "UNNAMED_N": 4,
+    "UNNAMED_N": "StationMaxCrew",
     "UNNAMED_O": 4,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 4
   },
   {
     "UNNAMED_A": "",
@@ -1201,9 +1201,9 @@
     "UNNAMED_K": "station_max_crew_5",
     "UNNAMED_L": "Station maximum crew",
     "UNNAMED_M": "Increase station maximum crew limit",
-    "UNNAMED_N": 5,
+    "UNNAMED_N": "StationMaxCrew",
     "UNNAMED_O": 5,
-    "UNNAMED_P": ""
+    "UNNAMED_P": 5
   },
   {
     "UNNAMED_A": "",
@@ -1227,8 +1227,8 @@
     "UNNAMED_A": "",
     "UNNAMED_B": "Увеличение макс. верстаков Ур.2",
     "UNNAMED_C": "Мостик",
-    "UNNAMED_D": 16200,
-    "UNNAMED_E": 148500,
+    "UNNAMED_D": 15120,
+    "UNNAMED_E": 138600,
     "UNNAMED_F": "",
     "UNNAMED_G": "",
     "UNNAMED_H": "",
@@ -1237,7 +1237,7 @@
     "UNNAMED_K": "bridge_workstation_max_2",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 2,
     "UNNAMED_P": 2
   },
@@ -1245,8 +1245,8 @@
     "UNNAMED_A": "",
     "UNNAMED_B": "Увеличение макс. верстаков Ур.3",
     "UNNAMED_C": "Мостик",
-    "UNNAMED_D": 17100,
-    "UNNAMED_E": 156750,
+    "UNNAMED_D": 113400,
+    "UNNAMED_E": 850500,
     "UNNAMED_F": "",
     "UNNAMED_G": "",
     "UNNAMED_H": "",
@@ -1255,7 +1255,7 @@
     "UNNAMED_K": "bridge_workstation_max_3",
     "UNNAMED_L": "Increase workstation limit",
     "UNNAMED_M": "Increase workstation limit in the department",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentMaxWorkstations",
     "UNNAMED_O": 3,
     "UNNAMED_P": 3
   },
@@ -1263,7 +1263,7 @@
     "UNNAMED_A": "",
     "UNNAMED_B": "Купить верстак №2",
     "UNNAMED_C": "Мостик",
-    "UNNAMED_D": 17100,
+    "UNNAMED_D": 16200,
     "UNNAMED_E": 156750,
     "UNNAMED_F": "",
     "UNNAMED_G": "",
@@ -1273,7 +1273,7 @@
     "UNNAMED_K": "bridge_add_workstation_2",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 2,
     "UNNAMED_P": 2
   },
@@ -1291,7 +1291,7 @@
     "UNNAMED_K": "bridge_add_workstation_3",
     "UNNAMED_L": "Buy a workstation",
     "UNNAMED_M": "Buy a new workstation",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentWorkstationAdd",
     "UNNAMED_O": 3,
     "UNNAMED_P": 3
   },
@@ -1309,7 +1309,7 @@
     "UNNAMED_K": "bridge_max_crew_level_2",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 2,
     "UNNAMED_P": 2
   },
@@ -1327,7 +1327,7 @@
     "UNNAMED_K": "bridge_max_crew_level_3",
     "UNNAMED_L": "Increase crew limit",
     "UNNAMED_M": "Increase crew limit in the department",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentMaxCrew",
     "UNNAMED_O": 3,
     "UNNAMED_P": 3
   },
@@ -1345,7 +1345,7 @@
     "UNNAMED_K": "bridge_hire_2",
     "UNNAMED_L": "Hire a Commander",
     "UNNAMED_M": "Hire new Commander who will deal with the crew",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 2,
     "UNNAMED_P": 2
   },
@@ -1363,7 +1363,7 @@
     "UNNAMED_K": "bridge_hire_3",
     "UNNAMED_L": "Hire a Commander",
     "UNNAMED_M": "Hire new Commander who will deal with the station",
-    "UNNAMED_N": "",
+    "UNNAMED_N": "DepartmentCrewHire",
     "UNNAMED_O": 3,
     "UNNAMED_P": 3
   }

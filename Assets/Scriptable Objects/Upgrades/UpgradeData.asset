@@ -33,7 +33,7 @@ MonoBehaviour:
   - upgradeId: engineering_workstation_max_2
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 0
+    type: 4
     level: 2
     value: 2
     cost:
@@ -50,7 +50,7 @@ MonoBehaviour:
   - upgradeId: engineering_workstation_max_3
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 0
+    type: 4
     level: 3
     value: 3
     cost:
@@ -67,7 +67,7 @@ MonoBehaviour:
   - upgradeId: engineering_workstation_max_4
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 0
+    type: 4
     level: 4
     value: 4
     cost:
@@ -84,7 +84,7 @@ MonoBehaviour:
   - upgradeId: engineering_add_workstation_2
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 2
     value: 2
     cost:
@@ -101,7 +101,7 @@ MonoBehaviour:
   - upgradeId: engineering_add_workstation_3
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 3
     value: 3
     cost:
@@ -118,7 +118,7 @@ MonoBehaviour:
   - upgradeId: engineering_add_workstation_4
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 4
     value: 4
     cost:
@@ -135,7 +135,7 @@ MonoBehaviour:
   - upgradeId: engineering_add_workstation_5
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 5
     value: 5
     cost:
@@ -152,7 +152,7 @@ MonoBehaviour:
   - upgradeId: engineering_max_crew_level_2
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 0
+    type: 1
     level: 2
     value: 2
     cost:
@@ -169,7 +169,7 @@ MonoBehaviour:
   - upgradeId: engineering_max_crew_level_3
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 0
+    type: 1
     level: 3
     value: 3
     cost:
@@ -186,7 +186,7 @@ MonoBehaviour:
   - upgradeId: engineering_max_crew_level_4
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 0
+    type: 1
     level: 4
     value: 4
     cost:
@@ -203,7 +203,7 @@ MonoBehaviour:
   - upgradeId: engineering_hire_1
     displayName: Hire Engineer
     description: Hire new engineer
-    type: 0
+    type: 3
     level: 1
     value: 1
     cost:
@@ -220,7 +220,7 @@ MonoBehaviour:
   - upgradeId: engineering_hire_2
     displayName: Hire Engineer
     description: Hire new engineer
-    type: 0
+    type: 3
     level: 2
     value: 2
     cost:
@@ -237,7 +237,7 @@ MonoBehaviour:
   - upgradeId: engineering_hire_3
     displayName: Hire Engineer
     description: Hire new engineer
-    type: 0
+    type: 3
     level: 3
     value: 3
     cost:
@@ -254,7 +254,7 @@ MonoBehaviour:
   - upgradeId: engineering_hire_4
     displayName: Hire Engineer
     description: Hire new engineer
-    type: 0
+    type: 3
     level: 4
     value: 4
     cost:
@@ -271,7 +271,7 @@ MonoBehaviour:
   - upgradeId: engineering_hire_5
     displayName: Hire Engineer
     description: Hire new engineer
-    type: 0
+    type: 3
     level: 5
     value: 5
     cost:
@@ -305,7 +305,7 @@ MonoBehaviour:
   - upgradeId: science_unlock
     displayName: Unlock Science
     description: Unlock Science department to produce Research Points(RP)
-    type: 1
+    type: 0
     level: 1
     value: 1
     cost:
@@ -322,9 +322,9 @@ MonoBehaviour:
   - upgradeId: science_workstation_max_2
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 2
+    type: 4
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 15120
       researchPoints: 138600
@@ -339,9 +339,9 @@ MonoBehaviour:
   - upgradeId: science_workstation_max_3
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 3
+    type: 4
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 113400
       researchPoints: 850500
@@ -358,7 +358,7 @@ MonoBehaviour:
     description: Increase workstation limit in the department
     type: 4
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -373,9 +373,9 @@ MonoBehaviour:
   - upgradeId: science_add_workstation_2
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 2
+    type: 5
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 16200
       researchPoints: 148500
@@ -390,9 +390,9 @@ MonoBehaviour:
   - upgradeId: science_add_workstation_3
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 3
+    type: 5
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 139320
       researchPoints: 1044900
@@ -407,9 +407,9 @@ MonoBehaviour:
   - upgradeId: science_add_workstation_4
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 4
+    type: 5
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
     description: Buy a new workstation
     type: 5
     level: 5
-    value: 1
+    value: 5
     cost:
       credits: 0
       researchPoints: 0
@@ -441,9 +441,9 @@ MonoBehaviour:
   - upgradeId: science_max_crew_level_2
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 2
+    type: 1
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 17100
       researchPoints: 156750
@@ -458,9 +458,9 @@ MonoBehaviour:
   - upgradeId: science_max_crew_level_3
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 3
+    type: 1
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 152280
       researchPoints: 1142100
@@ -475,9 +475,9 @@ MonoBehaviour:
   - upgradeId: science_max_crew_level_4
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 4
+    type: 1
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 1
+    type: 3
     level: 1
     value: 1
     cost:
@@ -511,9 +511,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 2
+    type: 3
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 18000
       researchPoints: 165000
@@ -531,7 +531,7 @@ MonoBehaviour:
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
     type: 3
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 165240
       researchPoints: 1239300
@@ -547,9 +547,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 4
+    type: 3
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -565,9 +565,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u043F\u044F\u0442\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 5
+    type: 3
     level: 5
-    value: 1
+    value: 5
     cost:
       credits: 0
       researchPoints: 0
@@ -599,7 +599,7 @@ MonoBehaviour:
   - upgradeId: cargo_unlock
     displayName: Unlock Cargo
     description: Unlock Cargo department to produce more credits and resources
-    type: 1
+    type: 0
     level: 1
     value: 1
     cost:
@@ -616,9 +616,9 @@ MonoBehaviour:
   - upgradeId: cargo_workstation_max_2
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 2
+    type: 4
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 15120
       researchPoints: 138600
@@ -633,9 +633,9 @@ MonoBehaviour:
   - upgradeId: cargo_workstation_max_3
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 3
+    type: 4
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 113400
       researchPoints: 850500
@@ -652,7 +652,7 @@ MonoBehaviour:
     description: Increase workstation limit in the department
     type: 4
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -667,9 +667,9 @@ MonoBehaviour:
   - upgradeId: cargo_add_workstation_2
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 2
+    type: 5
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 16200
       researchPoints: 148500
@@ -684,9 +684,9 @@ MonoBehaviour:
   - upgradeId: cargo_add_workstation_3
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 3
+    type: 5
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 139320
       researchPoints: 1044900
@@ -701,9 +701,9 @@ MonoBehaviour:
   - upgradeId: cargo_add_workstation_4
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 4
+    type: 5
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -720,7 +720,7 @@ MonoBehaviour:
     description: Buy a new workstation
     type: 5
     level: 5
-    value: 1
+    value: 5
     cost:
       credits: 0
       researchPoints: 0
@@ -735,9 +735,9 @@ MonoBehaviour:
   - upgradeId: cargo_max_crew_level_2
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 2
+    type: 1
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 17100
       researchPoints: 156750
@@ -752,9 +752,9 @@ MonoBehaviour:
   - upgradeId: cargo_max_crew_level_3
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 3
+    type: 1
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 152280
       researchPoints: 1142100
@@ -769,9 +769,9 @@ MonoBehaviour:
   - upgradeId: cargo_max_crew_level_4
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 4
+    type: 1
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -787,7 +787,7 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 1
+    type: 3
     level: 1
     value: 1
     cost:
@@ -805,9 +805,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0432\u0442\u043E\u0440\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 2
+    type: 3
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 18000
       researchPoints: 165000
@@ -825,7 +825,7 @@ MonoBehaviour:
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
     type: 3
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 165240
       researchPoints: 1239300
@@ -841,9 +841,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 4
+    type: 3
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 0
       researchPoints: 0
@@ -859,9 +859,9 @@ MonoBehaviour:
     displayName: Hire scientist
     description: "\u041D\u0430\u043D\u0438\u043C\u0430\u0435\u0442 \u043F\u044F\u0442\u043E\u0433\u043E
       \u0443\u0447\u0435\u043D\u043E\u0433\u043E \u0432 \u0420\u041D\u0414."
-    type: 5
+    type: 3
     level: 5
-    value: 1
+    value: 5
     cost:
       credits: 0
       researchPoints: 0
@@ -893,7 +893,7 @@ MonoBehaviour:
   - upgradeId: bar_unlock
     displayName: Unlock Bar
     description: Unlock Bar to produce Crew Mood and have a place to rest for them
-    type: 1
+    type: 0
     level: 1
     value: 1
     cost:
@@ -910,9 +910,9 @@ MonoBehaviour:
   - upgradeId: bar_workstation_max_2
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 2
+    type: 4
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 15120
       researchPoints: 138600
@@ -927,12 +927,12 @@ MonoBehaviour:
   - upgradeId: bar_workstation_max_3
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 3
+    type: 4
     level: 3
-    value: 1
+    value: 3
     cost:
-      credits: 0
-      researchPoints: 0
+      credits: 113400
+      researchPoints: 850500
       resources:
         Phoron: 0
         Metal: 0
@@ -944,9 +944,9 @@ MonoBehaviour:
   - upgradeId: bar_add_workstation_2
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 2
+    type: 5
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 16200
       researchPoints: 148500
@@ -961,9 +961,9 @@ MonoBehaviour:
   - upgradeId: bar_add_workstation_3
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 3
+    type: 5
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 139320
       researchPoints: 1044900
@@ -978,9 +978,9 @@ MonoBehaviour:
   - upgradeId: bar_max_crew_level_2
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 2
+    type: 1
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 17100
       researchPoints: 165000
@@ -995,12 +995,12 @@ MonoBehaviour:
   - upgradeId: bar_max_crew_level_3
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 3
+    type: 1
     level: 3
-    value: 1
+    value: 3
     cost:
-      credits: 0
-      researchPoints: 0
+      credits: 152280
+      researchPoints: 1142100
       resources:
         Phoron: 0
         Metal: 0
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   - upgradeId: bar_hire_1
     displayName: Hire bartender
     description: Hire new bartender
-    type: 1
+    type: 3
     level: 1
     value: 1
     cost:
@@ -1029,9 +1029,9 @@ MonoBehaviour:
   - upgradeId: bar_hire_2
     displayName: Hire bartender
     description: Hire new bartender
-    type: 2
+    type: 3
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 18000
       researchPoints: 165000
@@ -1048,7 +1048,7 @@ MonoBehaviour:
     description: Hire a musician
     type: 3
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 165240
       researchPoints: 1239300
@@ -1082,7 +1082,7 @@ MonoBehaviour:
     description: Increase station maximum crew limit
     type: 2
     level: 2
-    value: 1
+    value: 2
     cost:
       credits: 50000
       researchPoints: 50000
@@ -1097,9 +1097,9 @@ MonoBehaviour:
   - upgradeId: station_max_crew_3
     displayName: Station maximum crew
     description: Increase station maximum crew limit
-    type: 3
+    type: 2
     level: 3
-    value: 1
+    value: 3
     cost:
       credits: 50000
       researchPoints: 50000
@@ -1114,9 +1114,9 @@ MonoBehaviour:
   - upgradeId: station_max_crew_4
     displayName: Station maximum crew
     description: Increase station maximum crew limit
-    type: 4
+    type: 2
     level: 4
-    value: 1
+    value: 4
     cost:
       credits: 50000
       researchPoints: 50000
@@ -1131,9 +1131,9 @@ MonoBehaviour:
   - upgradeId: station_max_crew_5
     displayName: Station maximum crew
     description: Increase station maximum crew limit
-    type: 5
+    type: 2
     level: 5
-    value: 1
+    value: 5
     cost:
       credits: 50000
       researchPoints: 50000
@@ -1165,12 +1165,12 @@ MonoBehaviour:
   - upgradeId: bridge_workstation_max_2
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 0
+    type: 4
     level: 2
     value: 2
     cost:
-      credits: 16200
-      researchPoints: 148500
+      credits: 15120
+      researchPoints: 138600
       resources:
         Phoron: 0
         Metal: 0
@@ -1182,12 +1182,12 @@ MonoBehaviour:
   - upgradeId: bridge_workstation_max_3
     displayName: Increase workstation limit
     description: Increase workstation limit in the department
-    type: 0
+    type: 4
     level: 3
     value: 3
     cost:
-      credits: 17100
-      researchPoints: 156750
+      credits: 113400
+      researchPoints: 850500
       resources:
         Phoron: 0
         Metal: 0
@@ -1199,11 +1199,11 @@ MonoBehaviour:
   - upgradeId: bridge_add_workstation_2
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 2
     value: 2
     cost:
-      credits: 17100
+      credits: 16200
       researchPoints: 156750
       resources:
         Phoron: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   - upgradeId: bridge_add_workstation_3
     displayName: Buy a workstation
     description: Buy a new workstation
-    type: 0
+    type: 5
     level: 3
     value: 3
     cost:
@@ -1233,7 +1233,7 @@ MonoBehaviour:
   - upgradeId: bridge_max_crew_level_2
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 0
+    type: 1
     level: 2
     value: 2
     cost:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   - upgradeId: bridge_max_crew_level_3
     displayName: Increase crew limit
     description: Increase crew limit in the department
-    type: 0
+    type: 1
     level: 3
     value: 3
     cost:
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   - upgradeId: bridge_hire_2
     displayName: Hire a Commander
     description: Hire new Commander who will deal with the crew
-    type: 0
+    type: 3
     level: 2
     value: 2
     cost:
@@ -1284,7 +1284,7 @@ MonoBehaviour:
   - upgradeId: bridge_hire_3
     displayName: Hire a Commander
     description: Hire new Commander who will deal with the station
-    type: 0
+    type: 3
     level: 3
     value: 3
     cost:
