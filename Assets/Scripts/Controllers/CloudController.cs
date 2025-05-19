@@ -130,9 +130,9 @@ public class CloudController : MonoBehaviour
         try
         {
             var resourcesItems = await CloudSaveService.Instance.Data.Player.LoadAsync(new HashSet<string> { "resources" });
-            Debug.Log($"CloudController: Ресурсы загружены, resourceItems = {resourcesItems["resources"].Value.GetAsString()}");
             if (resourcesItems != null && resourcesItems.TryGetValue("resources", out var resourcesItem))
             {
+                Debug.Log($"CloudController: Ресурсы загружены, resourceItems = {resourcesItems["resources"].Value.GetAsString()}");
                 return JsonUtility.FromJson<Resources>(resourcesItem.Value.GetAsString());
             }
             return null;

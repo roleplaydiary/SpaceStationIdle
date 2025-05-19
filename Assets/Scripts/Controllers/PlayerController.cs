@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if (loadData == null)
         {
             loadData = new PlayerData();
-            loadData.playerCredits.Value = 30;
+            loadData.playerCredits.Value = 100;
             loadData.researchPoints.Value = 0;
         }
         playerData = loadData;

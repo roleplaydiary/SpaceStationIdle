@@ -16,6 +16,7 @@ public class BuyUpgradeButton : MonoBehaviour
             Debug.LogError($"{nameof(upgradeId)} is null");
             return;
         }
+        
         UpgradeService upgradeService = ServiceLocator.Get<UpgradeService>();
         
         _button.OnClickAsObservable().Subscribe(_ =>

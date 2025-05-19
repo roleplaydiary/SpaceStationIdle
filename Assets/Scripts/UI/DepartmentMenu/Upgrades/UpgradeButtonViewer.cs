@@ -19,6 +19,13 @@ public class UpgradeButtonViewer : MonoBehaviour
         title.text = upgrade.displayName;
         price.text = "";
         
+        if (upgrade.upgradeId == null)
+        {
+            Debug.LogWarning("Upgrade doesn't exist " + upgradeId);
+            gameObject.SetActive(false);
+            return;
+        }
+        
         if (upgrade.cost.credits > 0)
         {
             price.text += $"Credits: {upgrade.cost.credits}";
@@ -28,7 +35,7 @@ public class UpgradeButtonViewer : MonoBehaviour
         {
             price.text += $"\nResearch Points: {upgrade.cost.researchPoints}";
         }
-
+        
         foreach (var resoruce in upgrade.cost.resources)
         {
             if (resoruce.Value > 0)

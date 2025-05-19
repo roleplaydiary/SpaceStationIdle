@@ -41,7 +41,7 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().playerCredits.Subscribe(credits =>
             {
-                creditsText.text = $"Credits: {Math.Round(credits)}";
+                creditsText.text = $"Credits: {Utils.FormatBigNumber(credits)}";
             }).AddTo(this);
         }
         
@@ -93,7 +93,7 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().researchPoints.Subscribe(researchPoints =>
             {
-                researchPointsText.text = $"RP: {Math.Round(researchPoints)}";
+                researchPointsText.text = $"RP: {Utils.FormatBigNumber(researchPoints)}";
                 LabelColorUpdate(researchPointsText, researchPoints);
             }).AddTo(this);
         }
