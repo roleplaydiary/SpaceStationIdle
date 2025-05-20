@@ -41,7 +41,7 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().playerCredits.Subscribe(credits =>
             {
-                creditsText.text = $"<sprite name=\"coins-icon\">: {Utils.FormatBigNumber(credits)}";
+                creditsText.text = $"<size=200%><sprite name=\"coins-icon\"></size>: {Utils.FormatBigNumber(credits)}";
             }).AddTo(this);
         }
         
@@ -66,7 +66,7 @@ public class StatsViewer : MonoBehaviour
         {
             energyService.CurrentStationEnergy.Subscribe(value =>
             {
-                energyText.text = $"<sprite name=\"energy-icon\">: {value}";
+                energyText.text = $"<size=200%><sprite name=\"energy-icon\"></size>: {value}";
                 LabelColorUpdate(energyText, value);
             }).AddTo(this);
         }
@@ -79,7 +79,7 @@ public class StatsViewer : MonoBehaviour
         {
             StationMoodService.CurrentStationMood.Subscribe(mood =>
             {
-                currentMoodText.text = $"<sprite name=\"mood-icon\">: {mood}";
+                currentMoodText.text = $"<size=200%><sprite name=\"mood-icon\"></size>: {mood}";
                 LabelColorUpdate(currentMoodText, mood);
             }).AddTo(this);
         }
@@ -93,7 +93,7 @@ public class StatsViewer : MonoBehaviour
         {
             playerController.GetPlayerData().researchPoints.Subscribe(researchPoints =>
             {
-                researchPointsText.text = $"<sprite name=\"research-icon\">: {Utils.FormatBigNumber(researchPoints)}";
+                researchPointsText.text = $"<size=200%><sprite name=\"research-icon\"></size>: {Utils.FormatBigNumber(researchPoints)}";
                 LabelColorUpdate(researchPointsText, researchPoints);
             }).AddTo(this);
         }
