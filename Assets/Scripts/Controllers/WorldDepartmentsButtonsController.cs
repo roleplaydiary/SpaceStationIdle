@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,14 @@ namespace Controllers
             ServiceLocator.Register(this);
         }
 
+        private void Start()
+        {
+            ServiceLocator.Get<StationEventsController>().OnMajorEventStarted.Subscribe(data =>
+            {
+                DepartmentButtonToggle(data.Department, false);
+            }).AddTo(this);
+        }
+
         public void Initialize()
         {
             var upgradeService = ServiceLocator.Get<UpgradeService>();
@@ -36,25 +45,54 @@ namespace Controllers
             var stationController = ServiceLocator.Get<StationController>();
 
             var isBridgeUnlocked = stationController.StationData.IsUnlocked(Department.Bridge);
-            bridgeMenuButton.gameObject.SetActive(isBridgeUnlocked);
+            DepartmentButtonToggle(Department.Bridge, isBridgeUnlocked);
         
             var isEngineeringUnlocked = stationController.StationData.IsUnlocked(Department.Engineering);
-            engineeringMenuButton.gameObject.SetActive(isEngineeringUnlocked);
+            DepartmentButtonToggle(Department.Engineering, isEngineeringUnlocked);
         
             var isScienceUnlocked = stationController.StationData.IsUnlocked(Department.Science);
-            scienceMenuButton.gameObject.SetActive(isScienceUnlocked);
+            DepartmentButtonToggle(Department.Science, isScienceUnlocked);
         
             var isCargoUnlocked = stationController.StationData.IsUnlocked(Department.Cargo);
-            cargoMenuButton.gameObject.SetActive(isCargoUnlocked);
+            DepartmentButtonToggle(Department.Cargo, isCargoUnlocked);
         
             var isMedbayUnlocked = stationController.StationData.IsUnlocked(Department.Med);
-            medbayMenuButton.gameObject.SetActive(isMedbayUnlocked);
-        
+            DepartmentButtonToggle(Department.Med, isMedbayUnlocked);
+            
             var isSecurityUnlocked = stationController.StationData.IsUnlocked(Department.Security);
-            securityMenuButton.gameObject.SetActive(isSecurityUnlocked);
+            DepartmentButtonToggle(Department.Security, isSecurityUnlocked);
         
             var isBarUnlocked = stationController.StationData.IsUnlocked(Department.Bar);
-            barMenuButton.gameObject.SetActive(isBarUnlocked);
+            DepartmentButtonToggle(Department.Bar, isBarUnlocked);
+        }
+
+        private void DepartmentButtonToggle(Department department, bool value)
+        {
+            switch (department)
+            {
+                case Department.Bridge:
+                    bridgeMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Engineering:
+                    engineeringMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Science:
+                    scienceMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Cargo:
+                    cargoMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Med:
+                    medbayMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Security:
+                    securityMenuButton.gameObject.SetActive(value);
+                    break;
+                case Department.Bar:
+                    barMenuButton.gameObject.SetActive(value);
+                    break;
+                
+            }
         }
     }
 }

@@ -16,6 +16,10 @@ public class StationEventsController : MonoBehaviour
     // Может быть, добавить инженеров и учёных(перебои с энергией и сбежавшая аномалия)
     
     public readonly BehaviorSubject<StationEventType> OnEventStarted = new BehaviorSubject<StationEventType>(StationEventType.None);
+    public readonly BehaviorSubject<MajorEventData> OnMajorEventStarted = new BehaviorSubject<MajorEventData>(new MajorEventData
+    {
+        Department = Department.Engineering, StationMajorEventType = StationMajorEventType.FireHazard
+    });
     
     private IDisposable eventTimerSubscription;
     
@@ -111,13 +115,30 @@ public class StationEventsController : MonoBehaviour
 
     private void MajorEventInitialize()
     {
-        OnEventStarted.OnNext(StationEventType.MajorEvent);
+        MajorEventData newMajorEvent = new MajorEventData()
+        {
+            Department = Department.Engineering, 
+            StationMajorEventType = StationMajorEventType.FireHazard
+        };
+        //TODO: Randomize department and event type
+        
+        OnMajorEventStarted.OnNext(newMajorEvent);
         Debug.Log("Randomized Station Event: Major Event");
     }
 
     public void TestEvent()
     {
         RandomizeAndInitializeEvent();
+    }
+
+    public void EngineeringFireHazardTest()
+    {
+        MajorEventData newMajorEvent = new MajorEventData()
+        {
+            Department = Department.Engineering, 
+            StationMajorEventType = StationMajorEventType.FireHazard
+        };
+        OnMajorEventStarted.OnNext(newMajorEvent);
     }
 }
 
@@ -127,4 +148,19 @@ public enum StationEventType
     BonusEvent,//50%
     MinorEvent,//20%
     MajorEvent,//5%
+}
+
+public enum StationMajorEventType
+{
+    AsteroidHit,
+    FireHazard,
+    Aliens,
+    Epidemic,
+    Anomaly
+}
+
+public struct MajorEventData
+{
+    public Department Department;  
+    public StationMajorEventType StationMajorEventType;
 }

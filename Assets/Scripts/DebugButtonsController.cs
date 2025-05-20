@@ -11,6 +11,7 @@ public class DebugButtonsController : MonoBehaviour
     [SerializeField] private Button addResource;
     [SerializeField] private Button testButton;
     [SerializeField] private Button eventTestButton;
+    [SerializeField] private Button fireHazardTestButton;
     
     private CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -32,6 +33,11 @@ public class DebugButtonsController : MonoBehaviour
         eventTestButton.OnClickAsObservable().Subscribe(_ =>
         {
             ServiceLocator.Get<StationEventsController>().TestEvent();
+        }).AddTo(_disposables);
+        
+        fireHazardTestButton.OnClickAsObservable().Subscribe(_ =>
+        {
+            ServiceLocator.Get<StationEventsController>().EngineeringFireHazardTest();
         }).AddTo(_disposables);
 
         AddCredits();
