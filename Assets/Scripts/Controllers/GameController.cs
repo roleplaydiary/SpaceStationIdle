@@ -44,13 +44,12 @@ namespace Controllers
             ServiceLocator.Get<StationEventsController>().Initialize();
             ServiceLocator.Get<WorldDepartmentsButtonsController>().Initialize();
             
-            
-            
             OnGameInitialized.OnNext(true);
             Debug.Log("GameController: GameInitialization OnGameInitialized");
             await ServiceLocator.Get<PlayerController>().SavePlayerData();// Обновляем время захода в игру для AFK контроллера
             ServiceLocator.Get<AudioManager>().PlayBackgroundMusic(dataLibrary.soundLibrary.backgroundMusicTracks[0]);//TODO: Стартуем случайную композицию
             ServiceLocator.Get<UIController>().LoadingScreenHide();
+            ServiceLocator.Get<UIController>().WelcomeMessageShow();
         }
 
         private async Task ResourceManagerInitialize()
