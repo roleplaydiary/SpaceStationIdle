@@ -7,7 +7,6 @@ public class StationBlockController : MonoBehaviour
     [SerializeField] protected Transform workBenchesParent;
     [SerializeField] protected Transform idlePositionParent;
     [SerializeField] protected StationBlockDataSO stationBlockDataSo;
-    protected List<CharacterController> CrewMembers = new List<CharacterController>();
     public Department GetBlockType() { return stationBlockDataSo.BlockType; }
 
     protected StationBlockData blockData;
@@ -103,26 +102,6 @@ public class StationBlockController : MonoBehaviour
         SaveBlockData();
     }
 
-    // protected void DistributeCrewToIdle()
-    // {
-    //     foreach (var member in crewMembers)
-    //     {
-    //         member.GotoIdle(GetAvailableIdlePosition(member));
-    //         idleCrew.Add(member);
-    //     }
-    //     OnCrewDistributed();
-    // }
-
-    protected virtual Vector3 GetAvailableIdlePosition(CharacterController crewMember)
-    {
-        int index = CrewMembers.IndexOf(crewMember);
-        if (index >= 0 && index < idlePositionList.Count)
-        {
-            return idlePositionList[index].position;
-        }
-        return transform.position; // Запасной вариант
-    }
-
     protected virtual void InitializeLists()
     {
         if (idlePositionParent != null)
@@ -186,6 +165,12 @@ public class StationBlockController : MonoBehaviour
         blockData.WorkStationsMax++;
         SaveBlockData();
         Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkStationsMax}");
+    }
+
+    public void StartBlockEvent(StationMajorEventType eventType)
+    {
+        blockData.BlockEvent = (int)eventType;
+        SaveBlockData();
     }
 
     public void UpgradeMaxCrew()

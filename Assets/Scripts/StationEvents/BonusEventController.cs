@@ -27,7 +27,7 @@ public class BonusEventController : MonoBehaviour
     {
         BonusPositionListInitialize();
         
-        ServiceLocator.Get<StationEventsController>().OnEventStarted.Subscribe(value =>
+        ServiceLocator.Get<StationEventsController>().OnBonusEventStarted.Subscribe(value =>
         {
             if (value == StationEventType.BonusEvent)
             {

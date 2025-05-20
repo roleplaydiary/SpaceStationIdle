@@ -152,7 +152,7 @@ public class UpgradeService : IDisposable
             .FirstOrDefault(block => block.GetBlockType() == department);
         var stationBlockData = _stationController.StationData.DepartmentData
             .FirstOrDefault(block => block.Key == department);
-    
+        
         switch (upgrade.type)
         {
             case UpgradeDataSO.UpgradeType.DepartmentUnlock:

@@ -15,11 +15,8 @@ public class StationEventsController : MonoBehaviour
     // Максимальная вероятность опасности - 50%.
     // Может быть, добавить инженеров и учёных(перебои с энергией и сбежавшая аномалия)
     
-    public readonly BehaviorSubject<StationEventType> OnEventStarted = new BehaviorSubject<StationEventType>(StationEventType.None);
-    public readonly BehaviorSubject<MajorEventData> OnMajorEventStarted = new BehaviorSubject<MajorEventData>(new MajorEventData
-    {
-        Department = Department.Engineering, StationMajorEventType = StationMajorEventType.FireHazard
-    });
+    public readonly Subject<StationEventType> OnBonusEventStarted = new Subject<StationEventType>();
+    public readonly Subject<MajorEventData> OnMajorEventStarted = new Subject<MajorEventData>();
     
     private IDisposable eventTimerSubscription;
     
@@ -103,13 +100,13 @@ public class StationEventsController : MonoBehaviour
 
     private void BonusEventInitialize()
     {
-        OnEventStarted.OnNext(StationEventType.BonusEvent);
+        OnBonusEventStarted.OnNext(StationEventType.BonusEvent);
         Debug.Log("Randomized Station Event: Bonus Event");
     }
 
     private void MinorEventInitialize()
     {
-        OnEventStarted.OnNext(StationEventType.MinorEvent);
+        //OnBonusEventStarted.OnNext(StationEventType.MinorEvent);
         Debug.Log("Randomized Station Event: Minor Event");
     }
 
@@ -152,6 +149,7 @@ public enum StationEventType
 
 public enum StationMajorEventType
 {
+    None,
     AsteroidHit,
     FireHazard,
     Aliens,
