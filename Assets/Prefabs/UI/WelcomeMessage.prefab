@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8067758706557435009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.019090435, g: 0.05561923, b: 0.31132078, a: 0.9411765}
+  m_Color: {r: 0.30286577, g: 0.36140063, b: 0.7735849, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -469,9 +469,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2209297311493508979}
-  - component: {fileID: 6986117428753256946}
+  - component: {fileID: 398214055735634538}
   m_Layer: 5
-  m_Name: PopupMessage
+  m_Name: WelcomeMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1170, y: 2532}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6986117428753256946
+--- !u!114 &398214055735634538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,13 +506,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5347052964420120147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b4cc2588490189409cf08864046c186, type: 3}
+  m_Script: {fileID: 11500000, guid: 5499cf9c721c3d24a877e504be5ce730, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowContent: {fileID: 4791535167214591154}
-  closeWindowButton: {fileID: 3132247728572260548}
-  title: {fileID: 3461244534553200245}
-  message: {fileID: 8468815067880603482}
+  welcomePanelContent: {fileID: 4791535167214591154}
+  welcomeTitleText: {fileID: 3461244534553200245}
+  welcomeBodyText: {fileID: 8468815067880603482}
+  closeButton: {fileID: 3132247728572260548}
 --- !u!1001 &4234134539601899802
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 469c24fdb3bd6431b92cc1465bd9166b, type: 3}
+  m_Name: RemoteConfigDataStoreAsset
+  m_EditorClassIdentifier: 
+  _rsKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"2e25ec87-b832-4a72-bce6-973f65c64c01\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"welcome_message\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"Title\":
+    \"\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C,
+    \u041A\u0430\u043F\u0438\u0442\u0430\u043D!\",\r\n        \"Text\": \"\u041C\u044B
+    \u0440\u0430\u0434\u044B, \u0447\u0442\u043E \u0432\u044B \u043F\u0440\u0438\u0441\u043E\u0435\u0434\u0438\u043D\u0438\u043B\u0438\u0441\u044C
+    \u043A \u043D\u0430\u043C! \u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0442\u0435\u0441\u044C
+    \u043A \u043D\u0435\u0432\u0435\u0440\u043E\u044F\u0442\u043D\u044B\u043C \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F\u043C!\"\r\n     
+    }\r\n    }\r\n  }\r\n]"
+  _rsLastCachedKeyList: "[\r\n  {\r\n    \"metadata\": {\r\n      \"entityId\": \"2e25ec87-b832-4a72-bce6-973f65c64c01\"\r\n   
+    },\r\n    \"rs\": {\r\n      \"key\": \"welcome_message\",\r\n      \"type\":
+    \"json\",\r\n      \"schemaId\": null,\r\n      \"value\": {\r\n        \"Title\":
+    \"\u0414\u043E\u0431\u0440\u043E \u043F\u043E\u0436\u0430\u043B\u043E\u0432\u0430\u0442\u044C,
+    \u041A\u0430\u043F\u0438\u0442\u0430\u043D!\",\r\n        \"Text\": \"\u041C\u044B
+    \u0440\u0430\u0434\u044B, \u0447\u0442\u043E \u0432\u044B \u043F\u0440\u0438\u0441\u043E\u0435\u0434\u0438\u043D\u0438\u043B\u0438\u0441\u044C
+    \u043A \u043D\u0430\u043C! \u041F\u0440\u0438\u0433\u043E\u0442\u043E\u0432\u044C\u0442\u0435\u0441\u044C
+    \u043A \u043D\u0435\u0432\u0435\u0440\u043E\u044F\u0442\u043D\u044B\u043C \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u044F\u043C!\"\r\n     
+    }\r\n    }\r\n  }\r\n]"
+  _environments: "[\r\n  {\r\n    \"projectId\": \"33328c12-ded7-4265-860b-3499ea80192f\",\r\n   
+    \"name\": \"production\",\r\n    \"id\": \"ae3f3c4a-f97f-4971-9700-25a1f88823e6\",\r\n   
+    \"isDefault\": true,\r\n    \"createdAt\": \"2025-04-15T10:44:57Z\",\r\n    \"updatedAt\":
+    \"2025-04-15T10:44:57Z\"\r\n  },\r\n  {\r\n    \"projectId\": \"33328c12-ded7-4265-860b-3499ea80192f\",\r\n   
+    \"name\": \"development\",\r\n    \"id\": \"535f0c5c-71d1-4c81-9512-f28105f4e979\",\r\n   
+    \"isDefault\": false,\r\n    \"createdAt\": \"2025-04-15T16:24:30Z\",\r\n   
+    \"updatedAt\": \"2025-04-15T16:24:30Z\"\r\n  }\r\n]"

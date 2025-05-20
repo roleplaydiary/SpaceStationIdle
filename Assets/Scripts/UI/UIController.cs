@@ -11,6 +11,7 @@ namespace UI
         [SerializeField] private CargoTradeMenuController tradeMenu;
         [SerializeField] private SettingsController settingsMenu;
         [SerializeField] private PopupMessageHandler popupMessageHandler;
+        [SerializeField] private WelcomeMessageController welcomeMessageController;
 
         public readonly List<GameObject> OpenUIWindows = new();
 
@@ -89,6 +90,16 @@ namespace UI
         {
             dailyRewardMenu.Hide();
             OpenUIWindows.Remove(dailyRewardMenu.gameObject);
+        }
+
+        public void WelcomeMessageShow()
+        {
+            welcomeMessageController.Initialize();
+        }
+
+        public void WelcomeMessageHide()
+        {
+            welcomeMessageController.Hide();           
         }
 
         // Вспомогательное свойство, чтобы легко проверить, открыто ли какое-либо UI окно

@@ -733,6 +733,48 @@
     <Reference Include="Unity.Notifications">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Notifications.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RemoteConfig.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.RemoteConfig.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Environments">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RemoteConfig.Editor.Core">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.RemoteConfig.Editor.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.Core.Analytics">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Notifications.Unified">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Notifications.Unified.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Authentication.Editor.Shared">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.Editor.Shared.dll</HintPath>
     </Reference>
@@ -748,9 +790,6 @@
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Notifications.iOS">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Notifications.iOS.dll</HintPath>
     </Reference>
@@ -763,20 +802,11 @@
     <Reference Include="Unity.Services.CloudSave.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.CloudSave.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AdaptivePerformance.Profiler.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Profiler.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AdaptivePerformance.UI.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.UI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
@@ -787,14 +817,8 @@
     <Reference Include="Unity.Services.Core.Components">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.Components.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
@@ -808,20 +832,17 @@
     <Reference Include="Unity.Services.Authentication">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+    <Reference Include="Unity.Services.Authentication.PlayerAccounts">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Services.RemoteConfig">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.RemoteConfig.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AdaptivePerformance.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.AdaptivePerformance.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.CloudSave">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.CloudSave.dll</HintPath>
@@ -832,27 +853,11 @@
     <Reference Include="Unity.Notifications.Android">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Notifications.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Authentication.PlayerAccounts">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Profiling.Core">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications.Unified">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Notifications.Unified.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{6069b3ba-9414-1326-b454-062a40762006}</Project>
       <Name>Assembly-CSharp</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{39728b1e-c687-9a32-f9bc-3a1e1eb820d8}</Project>
-      <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
       <Project>{c38eccb0-9df2-573e-4cd8-a9441ae1e645}</Project>
@@ -861,6 +866,10 @@
     <ProjectReference Include="UniRx.csproj">
       <Project>{16cbd7fb-bb0b-a639-7c97-f0fbef3bfc85}</Project>
       <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{39728b1e-c687-9a32-f9bc-3a1e1eb820d8}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{b058335a-f522-b0a0-c667-afacc6098115}</Project>
