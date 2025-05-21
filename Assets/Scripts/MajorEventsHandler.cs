@@ -32,6 +32,26 @@ public class MajorEventsHandler : MonoBehaviour
                 if(animalyState)
                     animalyState.SetActive(true);
                 break;
+            case StationMajorEventType.None:
+                DisableAllEvents();
+                break;
+            default:
+                DisableAllEvents();
+                break;
         }
+    }
+
+    private void DisableAllEvents()
+    {
+        if(asteroidHitState)
+            asteroidHitState.SetActive(false);
+        if(fireHazardState)
+            fireHazardState.SetActive(false);
+        if(aliensState)
+            aliensState.SetActive(false);
+        if(epidemicState)
+            epidemicState.SetActive(false);
+        if(animalyState)
+            animalyState.SetActive(false);
     }
 }

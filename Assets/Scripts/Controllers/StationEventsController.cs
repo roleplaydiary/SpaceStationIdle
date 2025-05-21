@@ -137,6 +137,16 @@ public class StationEventsController : MonoBehaviour
         };
         OnMajorEventStarted.OnNext(newMajorEvent);
     }
+
+    public void MajorEventFinish(Department department)
+    {
+        MajorEventData newMajorEvent = new MajorEventData()
+        {
+            Department = department, 
+            StationMajorEventType = StationMajorEventType.None
+        };
+        OnMajorEventStarted.OnNext(newMajorEvent);
+    }
 }
 
 public enum StationEventType

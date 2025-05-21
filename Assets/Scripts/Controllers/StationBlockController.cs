@@ -167,7 +167,7 @@ public class StationBlockController : MonoBehaviour
         Debug.Log($"Максимальное количество верстаков в отделе {GetBlockType()} увеличено. Текущий лимит: {blockData.WorkStationsMax}");
     }
 
-    public void StartBlockEvent(StationMajorEventType eventType)
+    public void BlockEventUpdate(StationMajorEventType eventType)
     {
         blockData.BlockEvent = (int)eventType;
         SaveBlockData();

@@ -31,7 +31,6 @@ public class MajorEventController : MonoBehaviour
         {
             StationMajorEventType eventType = (StationMajorEventType)stationBlockData.Value.BlockEvent;
             Debug.Log($"{name} has major event {eventType}");
-            //EventStart(eventType);
             MajorEventData eventData = new MajorEventData()
             { 
                 StationMajorEventType = eventType, 
@@ -45,12 +44,10 @@ public class MajorEventController : MonoBehaviour
     {
         ServiceLocator.Get<StationEventsController>().OnMajorEventStarted.Subscribe(majorEventData =>
         {
-            Debug.Log("Major event controller: Initialize: OnMajorEventStarted");
             var department = blockController.GetBlockType();
             if (majorEventData.Department == department)
             {
-                EventStart(majorEventData.StationMajorEventType);
-                blockController.StartBlockEvent(majorEventData.StationMajorEventType);
+                EventInitialize(majorEventData.StationMajorEventType);
             }
         }).AddTo(this);
         
@@ -58,9 +55,15 @@ public class MajorEventController : MonoBehaviour
         LoadMajorEvent();//Загружаем после инициализации, чтобы ивент вызвался при загрузке
     }
 
-    protected virtual void EventStart(StationMajorEventType eventType)
+    protected virtual void EventInitialize(StationMajorEventType eventType)
     {
         majorEventsHandler.Initialize(eventType);
+        blockController.BlockEventUpdate(eventType);
         blockController.RemoveCrewFromWork();//TODO: Убрать всех работающих сотрудников и перевести в режим паники
+    }
+
+    protected virtual void EventStop()
+    {
+        
     }
 }

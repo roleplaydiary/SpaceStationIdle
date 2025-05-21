@@ -826,11 +826,11 @@
     <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Services.Authentication">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State.Editor">
+      <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Authentication.PlayerAccounts">
       <HintPath>D:\GitHubRepos\SpaceStationIdle\Library\ScriptAssemblies\Unity.Services.Authentication.PlayerAccounts.dll</HintPath>

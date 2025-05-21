@@ -1,19 +1,17 @@
-using System;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Controllers
 {
     public class WorldDepartmentsButtonsController : MonoBehaviour
     {
-        [SerializeField] private Button bridgeMenuButton;
-        [SerializeField] private Button engineeringMenuButton;
-        [SerializeField] private Button scienceMenuButton;
-        [SerializeField] private Button cargoMenuButton;
-        [SerializeField] private Button medbayMenuButton;
-        [SerializeField] private Button securityMenuButton;
-        [SerializeField] private Button barMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler bridgeMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler engineeringMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler scienceMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler cargoMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler medbayMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler securityMenuButton;
+        [SerializeField] private WorldDepartmentButtonHandler barMenuButton;
 
         private void Awake()
         {
@@ -22,10 +20,7 @@ namespace Controllers
 
         private void Start()
         {
-            ServiceLocator.Get<StationEventsController>().OnMajorEventStarted.Subscribe(data =>
-            {
-                DepartmentButtonToggle(data.Department, false);
-            }).AddTo(this);
+            ServiceLocator.Get<StationEventsController>().OnMajorEventStarted.Subscribe(DepartmentHazardButtonToggle).AddTo(this);
         }
 
         public void Initialize()
@@ -71,27 +66,55 @@ namespace Controllers
             switch (department)
             {
                 case Department.Bridge:
-                    bridgeMenuButton.gameObject.SetActive(value);
+                    bridgeMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Engineering:
-                    engineeringMenuButton.gameObject.SetActive(value);
+                    engineeringMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Science:
-                    scienceMenuButton.gameObject.SetActive(value);
+                    scienceMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Cargo:
-                    cargoMenuButton.gameObject.SetActive(value);
+                    cargoMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Med:
-                    medbayMenuButton.gameObject.SetActive(value);
+                    medbayMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Security:
-                    securityMenuButton.gameObject.SetActive(value);
+                    securityMenuButton.DepartmentButtonToggle(value);
                     break;
                 case Department.Bar:
-                    barMenuButton.gameObject.SetActive(value);
+                    barMenuButton.DepartmentButtonToggle(value);
                     break;
-                
+            }
+        }
+
+        private void DepartmentHazardButtonToggle(MajorEventData data)
+        {
+            bool value = data.StationMajorEventType != StationMajorEventType.None;
+            switch (data.Department)
+            {
+                case Department.Bridge:
+                    bridgeMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Engineering:
+                    engineeringMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Science:
+                    scienceMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Cargo:
+                    cargoMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Med:
+                    medbayMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Security:
+                    securityMenuButton.HazardButtonToggle(value);
+                    break;
+                case Department.Bar:
+                    barMenuButton.HazardButtonToggle(value);
+                    break;
             }
         }
     }
